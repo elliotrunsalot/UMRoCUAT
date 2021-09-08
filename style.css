@@ -1,0 +1,535 @@
+html {
+  --clr-neutral-pink: #f57eb6;
+  --clr-neutral-yellow: #fdd757;
+  --clr-neutral-blue: #2980c1;
+}
+
+body {
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: rgb(233, 233, 233);
+  margin: 0;
+  padding: 0;
+}
+
+/* text styling */
+
+h1 {
+  color: var(--clr-neutral-blue);
+  font-family: "Syncopate";
+  font-size: 3rem;
+  margin: 0 1rem 0 1rem;
+  padding: 2rem 0;
+  word-spacing: 1rem;
+}
+
+h2 {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 2rem;
+  color: var(--clr-neutral-pink);
+  margin: 1rem;
+  padding: 0;
+}
+
+h3 {
+  font-family: "Chelsea Market", cursive;
+  margin: 1rem;
+  font-size: 1.25rem;
+  color: var(--clr-neutral-blue);
+}
+
+p {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* width limit */
+
+.width {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* home page styling */
+
+.container {
+  padding: 0;
+  display: grid;
+  max-height: 100vh;
+  grid-template-areas:
+    "hero hero hero"
+    "nav1 nav2 nav3"
+    "foot foot foot";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 4fr 1fr 0.25fr;
+}
+
+.container > div > p {
+  margin: 0;
+}
+
+.container > div.nav1 {
+  grid-area: nav1;
+  margin-right: 0;
+}
+
+.container > div.nav2 {
+  grid-area: nav2;
+  margin-right: 0;
+}
+
+.container > div.nav3 {
+  grid-area: nav3;
+  margin-right: 0;
+}
+
+.container > div.nav4 {
+  grid-area: nav4;
+  margin-right: 0;
+}
+
+.container > div.nav5 {
+  grid-area: nav5;
+}
+
+.container > div {
+  background-color: var(--clr-neutral-blue);
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  border: 5px solid var(--clr-neutral-pink);
+  list-style-type: none;
+  border-radius: 15px;
+}
+
+.container > div.hero {
+  margin-bottom: 0;
+  grid-area: hero;
+  text-align: left;
+  background-image: url("Gumby blue.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero > h1 {
+  color: hotpink;
+  font-size: 4rem;
+}
+
+.container > div.footer {
+  grid-area: foot;
+  padding: 2rem;
+  margin-top: 0rem;
+  background: rgb(146, 146, 146);
+}
+
+/* Gumby 2021 page styling */
+
+.nav {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  background-image: linear-gradient(
+    90deg,
+    var(--clr-neutral-pink),
+    var(--clr-neutral-yellow),
+    var(--clr-neutral-blue)
+  );
+}
+
+.nav > li {
+  text-decoration: none;
+  font-weight: 800;
+  margin: 0;
+  padding: 1rem;
+  list-style: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  background: whitesmoke;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.faq .question {
+  background: whitesmoke;
+  border-top: 5px solid var(--clr-neutral-yellow);
+  font-family: "Chelsea Market", cursive;
+  font-weight: 800;
+  border-radius: 15px;
+}
+
+.faq .question > p {
+  color: var(--clr-neutral-blue);
+}
+
+.faq .answer {
+  border-bottom: 5px solid var(--clr-neutral-pink);
+  border-radius: 15px;
+  background: whitesmoke;
+}
+
+@media screen and (max-width: 350px) {
+  body > .header {
+    margin: 0;
+  }
+
+  .faq_grid {
+    display: block;
+  }
+  body > p {
+    padding: 0 10px;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  .blue > h2 {
+    font-size: 1.5rem;
+  }
+  .blue > p {
+    font-size: 1rem;
+  }
+}
+
+img {
+  height: 100px;
+}
+
+.header {
+  display: inline-block;
+  margin: 3rem 3rem 1rem 3rem;
+}
+
+.ktn {
+  background: var(--clr-neutral-yellow);
+  display: block;
+}
+
+.map {
+  margin: 0 1rem;
+  height: 400px;
+  width: 90vw;
+  max-width: 1000px;
+}
+
+.preview {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.gpx {
+  display: block;
+  margin: 0 auto;
+}
+
+.pricing {
+  background: var(--clr-neutral-pink);
+}
+
+.asterisk {
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0 2rem;
+}
+
+button {
+  display: block;
+  text-transform: uppercase;
+  font-family: "Chelsea Market", cursive;
+  color: var(--clr-neutral-yellow);
+  background: var(--clr-neutral-blue);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+}
+
+.footer > p {
+  font-size: 0.75rem;
+  color: white;
+  margin: 0 auto;
+}
+
+/* GUMBY 2022 page styling */
+
+.background22 {
+  color: var(--clr-neutral-pink);
+}
+.nav22 {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.nav22 > li {
+  text-decoration: none;
+  font-weight: 800;
+  margin: 0;
+  padding: 1rem;
+  list-style: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+.burger {
+  justify-items: left;
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 4px;
+  background-color: #595959;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .nav22 {
+    position: absolute;
+    right: 0px;
+    height: 50vh;
+    top: 4vh;
+    background-color: rgba(255, 0, 200, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px 0px 0px 20px;
+    width: 80%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  .nav22 li {
+    opacity: 1;
+  }
+
+  .nav22 > .gumby {
+    margin-top: 5rem;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-6px, 6.5px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-6px, -6.5px);
+}
+
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  background: whitesmoke;
+  gap: 0.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0;
+}
+
+.faq .question {
+  background: whitesmoke;
+  border: 3px solid rgb(255, 0, 128);
+  font-family: "Chelsea Market", cursive;
+  font-weight: 800;
+  border-radius: 15px;
+}
+
+.faq .question > p {
+  color: var(--clr-neutral-blue);
+}
+
+.faq .answer {
+  border: 3px solid var(--clr-neutral-pink);
+  border-radius: 15px;
+  background: whitesmoke;
+}
+
+@media screen and (max-width: 670px) {
+  .container,
+  .faq,
+  .width {
+    display: block;
+  }
+  div > .hero > h1 {
+    font-size: 0;
+    text-align: center;
+  }
+  div > .hero > h1::before {
+    content: "UMRoC";
+    font-size: 3rem;
+  }
+  .header22 h2 {
+    font-size: 0;
+    text-align: center;
+  }
+  .header22 > h2::before {
+    content: "UMRoC Presents";
+    font-size: 3rem;
+  }
+  .header22 h1 {
+    font-size: 0;
+    text-align: center;
+  }
+  .header22 > h1::before {
+    content: "The GUMBY";
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  body > .header {
+    margin: 0;
+  }
+
+  .faq_grid {
+    display: block;
+  }
+  body > p {
+    padding: 0 10px;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  .blue > h2 {
+    font-size: 1.5rem;
+  }
+  .blue > p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .container > h1 {
+    font-size: 0;
+    text-align: center;
+  }
+  .container > h1::before {
+    content: "UMRoC";
+    font-size: 3rem;
+  }
+}
+
+button {
+  display: block;
+  text-transform: uppercase;
+  font-family: "Chelsea Market", cursive;
+  color: var(--clr-neutral-yellow);
+  background: var(--clr-neutral-blue);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+}
+
+.footer > p {
+  font-size: 0.75rem;
+  color: white;
+  margin: 0 auto;
+}
+
+/* 
+li {
+  list-style: disc;
+  list-style-position: inside;
+  padding: 0;
+  margin: 1rem;
+  padding-left: 1.25rem;
+  font-family: inherit;
+  font-weight: 200;
+  font-size: 1rem;
+} */
+
+/* GRINDFEST page styling */
+
+/* .grind_nav {
+  margin-top: -2rem;
+  background-size: cover;
+  background-image: url("https://images.unsplash.com/photo-1563641749712-028dfeab14b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");
+}
+
+.grind_nav > h2 {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 2rem;
+  color: white;
+}
+
+.grind_nav > .grind_title {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: "Kanit", sans-serif;
+  font-size: 7rem;
+}
+
+.grind_nav > ul > li {
+  display: inline-block;
+  list-style: none;
+  color: red;
+}
+
+member page styling 
+
+.card:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: ease 0.25s;
+  transform: translateY(-1rem);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1600px;
+}
+
+.wrapper > * {
+  box-shadow: 1rem 1rem 1rem rgba(59, 59, 59, 0.5);
+  margin-top: 2rem;
+  border-radius: 0.25rem;
+  background: var(--clr-accent-white);
+} */
