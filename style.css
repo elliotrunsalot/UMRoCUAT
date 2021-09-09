@@ -306,7 +306,7 @@ button {
   .nav22 {
     position: absolute;
     right: 0px;
-    height: 50vh;
+    height: 70vh;
     top: 4vh;
     background-color: rgba(255, 0, 200, 0.8);
     display: flex;
