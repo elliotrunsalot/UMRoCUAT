@@ -181,6 +181,9 @@ a {
 }
 
 @media screen and (max-width: 350px) {
+  body {
+  overflow-x: hidden;
+  }
   body > .header {
     margin: 0;
   }
