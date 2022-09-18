@@ -2,12 +2,15 @@ html {
   --clr-neutral-pink: #f57eb6;
   --clr-neutral-yellow: #fdd757;
   --clr-neutral-blue: #2980c1;
+  --clr-lite-pink:#fde5f0;
+  --clr-strong-grey: #757374;
+  --clr-lite-grey:#f7f5f5;
 }
 
 body {
   max-height: 100vh;
   font-family: "Poppins", sans-serif;
-  background: rgb(233, 233, 233);
+  background: var(--clr-lite-pink);
 }
 
 /* kill overflow */
@@ -26,15 +29,15 @@ h1 {
   color: var(--clr-neutral-blue);
   font-family: "Syncopate";
   font-size: 3rem;
-  margin: 0 1rem 0 1rem;
-  padding: 2rem 0;
-  word-spacing: 1rem;
+  margin: 0 auto;
+  /* padding: 2rem 0;
+  word-spacing: 1rem; */
 }
 
 h2 {
   font-family: "Maven Pro", sans-serif;
   font-size: 2rem;
-  color: var(--clr-neutral-pink);
+  color: var(--clr-strong-grey);
   margin: 1rem;
   padding: 0;
 }
@@ -92,20 +95,12 @@ a {
 
 .container > div.nav3 {
   grid-area: nav3;
-  margin-right: 0;
-}
-
-.container > div.nav4 {
-  grid-area: nav4;
-  margin-right: 0;
-}
-
-.container > div.nav5 {
-  grid-area: nav5;
+  margin-right: 5px;
+  
 }
 
 .container > div {
-  background-color: var(--clr-neutral-blue);
+  background-color: var(--clr-lite-grey);
   padding: 5px;
   margin: 5px;
   text-align: center;
@@ -150,8 +145,8 @@ a {
 .footer {
   grid-area: foot;
   padding: 2rem;
-  margin-top: 0rem;
-  background: rgb(146, 146, 146);
+  margin: 0 auto;
+  background: var(--clr-lite-grey);
 }
 
 /* Gumby 2021 page styling */
@@ -181,29 +176,29 @@ a {
 .hero {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  background: whitesmoke;
+  background: var(--clr-lite-pink);
   gap: 0.25rem;
   margin: 0;
   padding: 0;
 }
 
-.faq .question {
-  background: whitesmoke;
+/* .faq .question {
+  background: var(--clr-lite-pink);
   border-top: 5px solid var(--clr-neutral-yellow);
   font-family: "Chelsea Market", cursive;
   font-weight: 800;
   border-radius: 15px;
-}
+} */
 
-.faq .question > p {
+/* .faq .question > p {
   color: var(--clr-neutral-blue);
 }
 
 .faq .answer {
   border-bottom: 5px solid var(--clr-neutral-pink);
   border-radius: 15px;
-  background: whitesmoke;
-}
+  background:var(--clr-lite-pink);
+} */
 
 img {
   height: 100px;
@@ -260,22 +255,22 @@ button {
 
 .footer > p {
   font-size: 0.75rem;
-  color: white;
+  color: var(--clr-strong-grey);
   margin: 0 auto;
 }
 
-/* GUMBY 2022 page styling */
+/* GUMBY 2023 page styling */
 
-.background22 {
+.background23 {
   color: var(--clr-neutral-pink);
 }
-.nav22 {
-  display: flex;
+.nav23 {
+  display: inline-block;
   padding: 0;
   margin: 0;
 }
 
-.nav22 > li {
+.nav23 > li {
   text-decoration: none;
   font-weight: 800;
   margin: 0;
@@ -294,13 +289,13 @@ button {
 .burger div {
   width: 25px;
   height: 4px;
-  background-color: #595959;
+  background-color: rgba(255, 0, 200, 0.8);
   margin: 5px;
   transition: all 0.3s ease;
 }
 
 @media screen and (max-width: 1024px) {
-  .nav22 {
+  .nav23 {
     position: absolute;
     right: 0px;
     height: 70vh;
@@ -314,12 +309,13 @@ button {
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
   }
-  .nav22 li {
+  .nav23 li {
     opacity: 1;
   }
 
-  .nav22 > .gumby {
-    margin-top: 5rem;
+  .nav23 > .gumby {
+    margin-top: 3rem;
+    
   }
 
   .burger {
@@ -357,7 +353,7 @@ button {
 .faq {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  background: whitesmoke;
+  background: var(--clr-lite-pink);
   gap: 0.5rem;
   margin: 0 auto;
   max-width: 1200px;
@@ -365,28 +361,28 @@ button {
 }
 
 .faq .question {
-  background: whitesmoke;
-  border: 3px solid rgb(255, 0, 128);
+  background: var(--clr-lite-pink);
   font-family: "Chelsea Market", cursive;
   font-weight: 800;
   border-radius: 15px;
+  text-align: right;
 }
 
 .faq .question > p {
   color: var(--clr-neutral-blue);
+  
 }
 
 .faq .answer {
-  border: 3px solid var(--clr-neutral-pink);
   border-radius: 15px;
-  background: whitesmoke;
+  background: var(--clr-lite-grey);
 }
 
 @media screen and (max-width: 670px) {
   .container,
   .faq,
   .width,
-  .header22 {
+  .header {
     display: block;
   }
 
@@ -406,38 +402,43 @@ button {
     content: "UMRoC";
     font-size: 3rem;
   }
-  .header22 h2 {
+  .header h2 {
     font-size: 0;
     text-align: center;
   }
-  .header22 > h2::before {
+  .header > h2::before {
     content: "UMRoC Presents";
     font-size: 3rem;
   }
-  .header22 h1 {
+  /* .header h1 {
     font-size: 0;
   }
-  .header22 > h1::before {
+  .header > h1::before {
     content: "The GUMBY";
     font-size: 3rem;
-  }
+  } */
 }
 
 @media screen and (max-width: 350px) {
   body > .header {
     margin: 0;
+
   }
 
   .faq_grid {
     display: block;
+    margin-right: 5px;
+  
   }
   body > p {
     padding: 0 10px;
     font-size: 1rem;
+    
   }
 
   .blue > h2 {
     font-size: 1.5rem;
+    text-align: left;
   }
   .blue > p {
     font-size: 1rem;
