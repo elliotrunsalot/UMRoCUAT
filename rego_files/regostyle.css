@@ -1,49 +1,41 @@
 html {
   --clr-neutral-pink: #f57eb6;
-  --clr-emphasis-pink: rgba(255, 0, 200, 0.8);
   --clr-neutral-yellow: #fdd757;
   --clr-neutral-blue: #2980c1;
-  --clr-fluro-pink: #ee3a53;
-  --clr-fluro-yellow: #C5FE10;
-  --clr-fluro-blue: #3077ab;
   --clr-lite-pink:#fde5f0;
   --clr-strong-grey: #757374;
   --clr-lite-grey:#f7f5f5;
-  --clr-black:#000000;
 }
 
 body {
   max-height: 100vh;
   font-family: "Poppins", sans-serif;
-  background: var(--clr-black);
+  background: var(--clr-lite-pink);
 }
 
 /* kill overflow */
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden !important;
+  width: 100vw;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
 
 /* text styling */
 
-div {
-  color: white;
-  font-family: "poppins", cursive;
+h1 {
+  color: var(--clr-neutral-blue);
+  font-family: "Syncopate";
+  font-size: 3rem;
+  margin: 0 auto;
+  /* padding: 2rem 0;
+  word-spacing: 1rem; */
 }
 
-h1 {
-  color: var(--clr-neutral-pink);
-  font-family: "Audiowide";
-  font-size: 3rem;
-  text-align: center;
- }
-
 h2 {
-  font-family: "Audiowide", cursive;
+  font-family: "Maven Pro", sans-serif;
   font-size: 2rem;
   color: var(--clr-strong-grey);
   margin: 1rem;
@@ -51,7 +43,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Audiowide", cursive;
+  font-family: "Chelsea Market", cursive;
   margin: 1rem;
   font-size: 1.25rem;
   color: var(--clr-neutral-blue);
@@ -63,31 +55,17 @@ p {
 }
 
 a {
-  color: var(--clr-fluro-pink);
   text-decoration: none;
 }
 
-.container > div > p {
-  margin: 0;
-}
-
-.hero > h1 {
-  color: white;
-  font-size: 8.5vw;
-}
-
-.footer > p {
-  font-size: 0.75rem;
-  color: var(--clr-fluro-blue);
-  margin: 0 auto;
-}
-
-/* layout */
+/* width limit */
 
 .width {
   margin: 0 auto;
   max-width: 1200px;
 }
+
+/* home page styling */
 
 .container {
   padding: 0;
@@ -95,41 +73,54 @@ a {
   max-height: 100vh;
   grid-template-areas:
     "hero hero hero"
-    "nav1 nav1 nav1"
-    "nav2 nav2 nav3"
+    "nav1 nav2 nav3"
     "foot foot foot";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 4fr 1fr 1fr 0.3fr;
+  grid-template-rows: 4fr 1fr 0.25fr;
+}
+
+.container > div > p {
+  margin: 0;
 }
 
 .container > div.nav1 {
   grid-area: nav1;
+  margin-right: 0;
 }
 
 .container > div.nav2 {
   grid-area: nav2;
+  margin-right: 0;
 }
 
 .container > div.nav3 {
-  grid-area: nav3;  
+  grid-area: nav3;
+  margin-right: 5px;
+  
 }
 
 .container > div {
+  background-color: var(--clr-lite-grey);
   padding: 5px;
-  margin: 10px;
-  margin-bottom: 0;
+  margin: 5px;
   text-align: center;
-  border: 5px solid var(--clr-fluro-yellow);
+  border: 5px solid var(--clr-neutral-pink);
   list-style-type: none;
   border-radius: 15px;
 }
 
 .container > div.hero {
+  margin-bottom: 0;
   grid-area: hero;
-  background-image: url("UMRoC_Profile.jpg");
+  text-align: left;
+  background-image: url("/images/UMRoC_Profile.jpg");
   background-size: cover;
   background-position: center;
-  border-radius: 50px;
+}
+
+.hero > h1 {
+  color: white;
+  font-size: 4rem;
 }
 
 .heroimg {
@@ -142,15 +133,26 @@ a {
   box-shadow: 5px 5px var(--clr-neutral-pink);
 }
 
+.campimg {
+  display: block;
+  margin: 25px auto;
+  width: 50%;
+  height: fit-content;
+  border-radius: 25px;
+  box-shadow: 5px 5px var(--clr-neutral-pink);
+}
+
 .footer {
   grid-area: foot;
   padding: 2rem;
   margin-top: 10px;
-  
+  background: var(--clr-lite-grey);
 }
 
 .hero {
   display: grid;
+  grid-template-columns: 1fr 2fr;
+  background: var(--clr-lite-pink);
   gap: 0.25rem;
   margin: 0;
   padding: 0;
@@ -160,24 +162,14 @@ img {
   height: 100px;
 }
 
-
-.video {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  margin: 1rem;
-}
-.video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .header {
   display: inline-block;
   margin: 3rem 3rem 1rem 3rem;
+}
+
+.ktn {
+  background: var(--clr-neutral-yellow);
+  display: block;
 }
 
 .map {
@@ -186,7 +178,6 @@ img {
   width: 90vw;
   max-width: 1000px;
 }
-
 
 .preview {
   display: block;
@@ -198,52 +189,78 @@ img {
   margin: 0 auto;
 }
 
-.nav23 {
-  display: block;
-  padding: 0;
-  
+.pricing {
+  background: var(--clr-neutral-pink);
 }
 
-.navparent {
-  display: flex;
-  justify-content: center;
+.asterisk {
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0 2rem;
+}
+
+button {
+  display: block;
+  text-transform: uppercase;
+  font-family: "Chelsea Market", cursive;
+  color: var(--clr-neutral-yellow);
+  background: var(--clr-neutral-blue);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+}
+
+.footer > p {
+  font-size: 0.75rem;
+  color: var(--clr-strong-grey);
+  margin: 0 auto;
+}
+
+/* GUMBY page styling */
+
+.background23 {
+  color: var(--clr-neutral-pink);
+}
+.nav23 {
+  padding: 0;
+  margin: 0;
 }
 
 .nav23 > li {
   display: inline-block; 
-  background: var(--clr-fluro-yellow);
+  background: var(--clr-neutral-yellow);
   text-decoration: none;
   font-weight: 800;
+  margin: 5px;
   border-radius: 5px;
   padding: 0.5rem;
-  margin-top: 0.5rem;
   list-style: none;
   text-transform: uppercase;
-  font-size: 1.2rem;
- }
+  color: white;
+}
 
 .burger {
-  display: none ;
+  justify-items: left;
+  display: none;
   cursor: pointer;
-  width: 2rem;
-  margin: 1rem;
 }
 
 .burger div {
   width: 25px;
   height: 4px;
-  background-color: var(--clr-fluro-pink);
+  background-color: rgba(255, 0, 200, 0.8);
   margin: 5px;
   transition: all 0.3s ease;
 }
 
 @media screen and (max-width: 1024px) {
   .nav23 {
-    position: fixed;
+    position: absolute;
     right: 0px;
     height: 70vh;
     top: 4vh;
-    background-color: var(--clr-fluro-pink);
+    background-color: rgba(255, 0, 200, 0.8);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -295,35 +312,49 @@ img {
 
 .faq {
   display: grid;
+  grid-template-areas:
+    "comment comment"
+    "question answer";
   grid-template-columns: 1fr 2fr;
-  background: var(--clr-black);
+  background: var(--clr-lite-pink);
   gap: 0.5rem;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 600px;
   padding: 0;
 }
 
-.faq .question {
-  background: var(--clr-fluro-blue);
-  font-family: "poppins", cursive;
+/* .faq .comment {
+  background: var(--clr-lite-pink);
+  font-family: "Chelsea Market", cursive;
   font-weight: 800;
   border-radius: 15px;
-  text-align: right;
-}
+  text-align: center;
+} */
 
-.faq .question > p {
-  color: var(--clr-fluro-yellow);
+.faq .comment > p {
+  color: red;
   
 }
 
-.faq .answer {
+/* .faq .question {
+  background: var(--clr-lite-pink);
+  font-family: "Chelsea Market", cursive;
+  font-weight: 800;
   border-radius: 15px;
-  /* background: var(--clr-lite-grey) */
-  /* color: var(--clr-black); */
+  text-align: start;
 }
 
-.faq .answer > p {
-  color: white important!;
+.faq .question > p {
+  color: var(--clr-neutral-blue);
+  
+} */
+
+.faq .answer {
+  border-radius: 15px;
+  background: var(--clr-lite-grey);
+}
+.faq > .answer2 {
+  background: var(--clr-lite-pink)
 }
 
 @media screen and (max-width: 670px) {
@@ -358,7 +389,13 @@ img {
     content: "UMRoC Presents";
     font-size: 3rem;
   }
-
+  /* .header h1 {
+    font-size: 0;
+  }
+  .header > h1::before {
+    content: "The GUMBY";
+    font-size: 3rem;
+  } */
 }
 
 @media screen and (max-width: 350px) {
@@ -387,3 +424,17 @@ img {
   }
 }
 
+button {
+  display: inline;
+  text-transform: uppercase;
+  font-family: "Chelsea Market", cursive;
+  color: var(--clr-neutral-yellow);
+  background: var(--clr-neutral-blue);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+}
+
+input[type=text] {
+  width: 50%;
+}
