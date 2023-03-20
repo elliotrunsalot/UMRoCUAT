@@ -104,6 +104,8 @@ a {
 
 .container > div.nav1 {
   grid-area: nav1;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
 }
 
 .container > div.nav2 {
@@ -256,6 +258,23 @@ img {
   font-size: 1.2rem;
  }
 
+ .fade-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  background-color: var(--clr-fluro-blue);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 500;
+}
+
+.fade-header.visible {
+  opacity: 1;
+}
+
+
 .burger {
   display: none ;
   cursor: pointer;
@@ -268,7 +287,7 @@ img {
   height: 4px;
   background-color: var(--clr-fluro-pink);
   margin: 5px;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 @media screen and (max-width: 1024px) {
@@ -285,6 +304,7 @@ img {
     width: 80vw;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
+    z-index: 998;
   }
   .nav23 li {
     opacity: 1;
@@ -296,8 +316,15 @@ img {
   }
 
   .burger {
-    display: block;
+    display:block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
   }
+  
+  
+
 }
 
 .nav-active {
