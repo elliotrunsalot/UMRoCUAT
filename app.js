@@ -1,4 +1,16 @@
-const navSlide = () => {
+var fadeHeader = document.querySelector(".fade-header");
+
+window.addEventListener("scroll", function () {
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > 0) {
+    fadeHeader.classList.add("visible");
+  } else {
+    fadeHeader.classList.remove("visible");
+  }
+});
+
+function navSlide() {
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".nav23");
   const navLinks = document.querySelectorAll(".nav23 li");
@@ -20,6 +32,6 @@ const navSlide = () => {
     //Burger Animation
     burger.classList.toggle("toggle");
   });
-};
+}
 
 navSlide();
