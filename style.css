@@ -8,8 +8,8 @@
   --acid-yellow: #C5FE10;      /* Fluro yellow */
   --digital-blue: #3077ab;    /* Fluro blue */
   --soft-pink: #fde5f0;       /* Lite pink */
-  --shadow-grey: #ccc9ca;      /* Strong grey */
-  --terminal-grey: #f7f5f5;   /* Lite grey (background base) */
+  --shadow-grey: #f542b9;      /* Strong grey */
+  --terminal-grey: #dac5dd;   /* Lite grey (background base) */
   --hacker-black: #000000;    /* Pure black */
 }
 
@@ -104,12 +104,11 @@ a:hover {
   display: grid;
   max-height: 100vh;
   grid-template-areas:
-    "hero hero"
-    "nav1 nav2"
-    "nav3 nav4"
-    "nav5 nav5"
-    "foot foot";
-  grid-template-columns: 1fr 1fr;
+    "hero hero hero"
+    "nav1 nav2 nav3"
+    "nav4 nav5 nav6"
+    "foot foot foot";
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto auto auto; /* Use auto for more flexible rows */
   gap: 1rem; /* Spacing between grid items */
 }
@@ -126,8 +125,6 @@ a:hover {
 
 .container > div.nav1 {
   grid-area: nav1;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
 }
 
 .container > div.nav2 {
@@ -146,9 +143,13 @@ a:hover {
   grid-area: nav5;
 }
 
+.container > div.nav6 {
+  grid-area: nav6;
+}
+
 .container > div.hero {
   grid-area: hero;
-  background-image: url("UMRoC_Profile.jpg");
+  background-image: url("FinishGlow.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 25px; /* More pronounced rounded corners for the hero */
