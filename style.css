@@ -25,7 +25,9 @@ body {
   background: var(--terminal-grey); /* Base background like an old terminal */
   margin: 0;
   padding: 0;
+  
 }
+
 
 /* Typography - Glitchy & Bold */
 div {
@@ -214,12 +216,24 @@ a:hover {
   transition: transform 0.3s ease-in-out; /* Smooth zoom on hover */
 }
 
+.sponsors img:hover,
 .imagebox3 img:hover,
 .imagebox4 img:hover,
 .imagebox5 img:hover,
 .imagebox6 img:hover,
 .imagebox7 img:hover {
   transform: scale(1.05);
+}
+
+.sponsors {
+  display: grid;
+  grid-auto-flow: column; /* Arrange items in columns */
+  justify-items: center; /* Center items within their grid cells */
+  align-items: center;   /* Vertically center items (optional, but often useful) */
+}
+
+.sponsors img {
+  max-height: 100px;
 }
 
 @media (min-width: 768px) {
@@ -270,6 +284,112 @@ a:hover {
     grid-column: 2;
   }
 }
+
+.eventcontainer {
+  display: grid;
+  grid-gap: 1rem;
+  padding: 1rem;
+}
+
+.textbox1,
+.textbox2,
+.textbox3,
+.textbox4,
+.textbox5,
+.textbox6 {
+  grid-column: 1; /* Default to the first column */
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--soft-pink);
+  border-radius: 10px;
+}
+
+.imagebox1,
+.imagebox2,
+.imagebox3,
+.imagebox4,
+.imagebox5,
+.imagebox6,
+.imagebox7 {
+  grid-column: 2; /* Default to the second column */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ... other styles ... */
+
+@media (min-width: 768px) {
+  .eventcontainer {
+    grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+  }
+
+  .textbox1,
+  .textbox3,
+  .textbox5 {
+    grid-column: 1;
+  }
+
+  .imagebox1,
+  .imagebox3,
+  .imagebox5,
+  .imagebox7 {
+    grid-column: 2;
+  }
+
+  .imagebox2 {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .textbox2 {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .imagebox4 {
+    grid-row: 4;
+    grid-column: 1;
+  }
+
+  .textbox4 {
+    grid-row: 4;
+    grid-column: 2;
+  }
+
+  .imagebox6 {
+    grid-row: 6;
+    grid-column: 1;
+  }
+
+  .textbox6 {
+    grid-row: 6;
+    grid-column: 2;
+  }
+}
+
+/* Media Query for Small Screens (Ensuring Single Column) */
+@media screen and (max-width: 767px) {
+  .eventcontainer {
+    grid-template-columns: 1fr; /* Force single column */
+  }
+
+  .textbox1,
+  .textbox2,
+  .textbox3,
+  .textbox4,
+  .textbox5,
+  .textbox6,
+  .imagebox1,
+  .imagebox2,
+  .imagebox3,
+  .imagebox4,
+  .imagebox5,
+  .imagebox6,
+  .imagebox7 {
+    grid-column: 1; /* Stack them in the single column */
+  }
+}
+
 
 /* Footer */
 .footer {
