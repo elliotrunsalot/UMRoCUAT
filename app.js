@@ -16,20 +16,20 @@ function navSlide() {
   const navLinks = document.querySelectorAll(".nav23 li");
 
   burger.addEventListener("click", () => {
-    //Toggle Nav
+    // Toggle Nav
     nav.classList.toggle("nav-active");
 
-    //Animate Links
+    // Animate Links
     navLinks.forEach((link, index) => {
       if (link.style.animation) {
         link.style.animation = "";
+        link.style.removeProperty("--i"); // Remove --i when animation is cleared
       } else {
-        link.style.animation = `navlinkFade 1s ease forwards ${
-          index / 7 + 1.5
-        }s`;
+        link.style.animation = `navLinkFade 0.5s ease forwards`; // Apply the CSS animation
+        link.style.setProperty("--i", index + 1); // Set the --i variable for CSS delay
       }
     });
-    //Burger Animation
+    // Burger Animation
     burger.classList.toggle("toggle");
   });
 }
