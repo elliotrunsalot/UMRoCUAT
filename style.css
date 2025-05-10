@@ -9,7 +9,7 @@
   --digital-blue: #3077ab;      /* Fluro blue */
   --soft-pink: #fde5f0;        /* Lite pink */
   --shadow-grey: #667196;      /* Strong grey */
-  --terminal-grey: #dac5dd;    /* Lite grey (background base) */
+  --terminal-grey: #e0d3dd;    /* Lite grey (background base) */
   --hacker-black: #000000;      /* Pure black */
 }
 
@@ -121,7 +121,7 @@ a:hover {
   text-align: center;
   border: 3px solid var(--hacker-black); /* Thicker, more defined borders */
   border-radius: 10px; /* Slightly less rounded for a tech feel */
-  background-color: rgba(255, 255, 255, 0.05); /* Subtle overlay */
+  background-color: var(--soft-pink); /* Subtle overlay */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
 }
 
@@ -180,6 +180,12 @@ a:hover {
   
 }
 
+.map-container > iframe.map {
+  display:block;
+  border-radius: 10px;
+  height: 30em;
+}
+
 .textbox1,
 .textbox2,
 .textbox3,
@@ -204,6 +210,7 @@ a:hover {
   border-radius: 10px;
   overflow: hidden; /* Clip images to rounded borders */
 }
+
 
 .imagebox3 img,
 .imagebox4 img,
@@ -403,18 +410,7 @@ a:hover {
     align-items: stretch; /* Make children take full width */
   }
 
-  .container > .hero,
-  .container > .nav1,
-  .container > .nav3,
-  .container > .nav5,
-  .container > .nav2,
-  .container > .nav4,
-  .container > .nav6,
-  .container > .footer {
-    /* Apply styles to each direct child */
-  }
-
-  .container {
+   .container {
     order: initial; /* Reset any previous order */
   }
 
@@ -425,25 +421,25 @@ a:hover {
   .container > .nav1 {
     order: 1;
   }
-
-  .container > .nav3 {
+  
+  .container > .nav2 {
     order: 2;
   }
-
-  .container > .nav5 {
+  
+  .container > .nav3 {
     order: 3;
   }
 
-  .container > .nav2 {
+  .container > .nav4 {
+    order: 6;
+  }
+
+  .container > .nav5 {
     order: 4;
   }
 
-  .container > .nav4 {
-    order: 5;
-  }
-
   .container > .nav6 {
-    order: 6;
+    order: 5;
   }
 
   .container > .footer {
@@ -478,13 +474,13 @@ img {
 }
 
 /* Videos */
-.video {
+/* .video {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+
   height: 0;
   margin: 1rem;
   border-radius: 10px;
-  overflow: hidden; /* Clip iframe to rounded corners */
+  overflow: hidden; /* Clip iframe to rounded corners 
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
 }
 
@@ -494,7 +490,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
 /* Header (Potential Re-duplication - consider consolidating) */
 .header {
@@ -504,15 +500,16 @@ img {
 }
 
 /* Map */
-.map {
-  width: 100%;
-  height: 50vh;
-  margin: 1rem;
+/* .map {
+  width: 40%;
+  /* height: 50vh; 
+  margin-left: 1rem;
+  margin-right: 1rem;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-  position: relative; /* For iframe positioning */
-}
+  position: relative; 
+} */
 
 .map iframe {
   position: absolute;
@@ -523,9 +520,9 @@ img {
 }
 
 /* Preview & GPX Links */
+
 .preview,
 .gpx {
-  display: block;
   margin: 1rem auto;
   padding: 0.75rem 1.5rem;
   background-color: var(--acid-yellow);
@@ -534,18 +531,30 @@ img {
   border-radius: 8px;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  text-align: center;
+  
 }
 
 .preview:hover,
+.nav23 > li:hover,
 .gpx:hover {
   background-color: var(--solar-yellow);
 }
 
 /* Navigation */
-.navparent {
+.navparent,
+.gpxDL {
   display: flex;
   justify-content: center;
+}
+
+.gpxbuttons{
+   display: flex;
+   align-items: center;
+} 
+
+.gpxbuttons >li {
+   list-style: none;
+   padding: 10px;
 }
 
 .nav23 {
@@ -566,578 +575,7 @@ img {
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 0.1em; /* Add some letter spacing for a tech look */
-}
-
-/* Color Palette */
-:root {
-  --neon-pink: #f57eb6;        /* Primary pink */
-  --electric-pink: #ff00c8cc; /* Emphasis pink (with slight transparency) */
-  --solar-yellow: #fdd757;      /* Primary yellow */
-  --circuit-blue: #2980c1;      /* Primary blue */
-  --shocking-pink: #ee3a53;    /* Fluro pink */
-  --acid-yellow: #C5FE10;        /* Fluro yellow */
-  --digital-blue: #3077ab;      /* Fluro blue */
-  --soft-pink: #fde5f0;        /* Lite pink */
-  --shadow-grey: #667196;      /* Strong grey */
-  --terminal-grey: #dac5dd;    /* Lite grey (background base) */
-  --hacker-black: #000000;      /* Pure black */
-}
-
-/* Base Styles */
-html {
-  /* Prevent horizontal scrollbar */
-  overflow-x: hidden;
-}
-
-body {
-  max-height: 100vh;
-  font-family: "Poppins", sans-serif;
-  background: var(--terminal-grey); /* Base background like an old terminal */
-  margin: 0;
-  padding: 0;
-}
-
-
-/* Typography - Glitchy & Bold */
-div {
-  color: var(--hacker-black); /* Default text color */
-  font-family: "Poppins", sans-serif; /* Keeping Poppins for general text */
-}
-
-.brutusBG > p {
-  color: var(--hacker-black);
-}
-
-h1 {
-  color: black; /* Punchy title text */
-  font-family: "Audiowide", monospace; /* Cyberpunk font */
-  font-size: 3rem;
-  text-align: center;
-  text-shadow: 2px 2px var(--electric-pink), -2px -2px var(--digital-blue); /* Neon glow effect */
-}
-
-h2 {
-  font-family: "Audiowide", monospace;
-  font-size: 2rem;
-  color: var(--shadow-grey); /* More subdued heading */
-  margin: 1rem;
-  padding: 0;
-}
-
-h3 {
-  font-family: "Audiowide", monospace;
-  margin: 1rem;
-  font-size: 1.25rem;
-  color: var(--neon-pink);
-}
-
-p {
-  margin-left: 1rem;
-  margin-right: 1rem;
-  line-height: 1.6; /* Improved readability */
-}
-
-a {
-  color: var(--shocking-pink);
-  text-decoration: none;
-  transition: color 0.3s ease; /* Smooth hover effect */
-}
-
-a:hover {
-  color: var(--acid-yellow); /* Highlight on hover */
-}
-
-.container > div > p {
-  margin: 0;
-}
-
-.hero > h1 {
-  color: white;
-  font-size: 8.5vw;
-  text-shadow: 3px 3px var(--electric-pink), -3px -3px var(--digital-blue); /* Stronger hero glow */
-}
-
-.footer > p {
-  font-size: 0.75rem;
-  color: var(--digital-blue);
-  margin: 0 auto;
-}
-
-/* Layout - Grid System with Rounded Edges */
-.container {
-  margin: 0 auto;
-  max-width: 1200px; /* Set the maximum width for the container */
-  padding: 1rem; /* Add some padding to the main container */
-}
-
-.container {
-  padding: 1rem;
-  display: grid;
-  grid-template-areas:
-    "hero hero hero"
-    "nav1 nav2 nav3"
-    "nav4 nav5 nav6"
-    "foot foot foot";
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto auto; /* Use auto for more flexible rows */
-  gap: 1rem; /* Spacing between grid items */
-}
-
-.container > div {
-  padding: 1rem;
-  margin: 0; /* Reset default margins for grid items */
-  text-align: center;
-  border: 3px solid var(--hacker-black); /* Thicker, more defined borders */
-  border-radius: 10px; /* Slightly less rounded for a tech feel */
-  background-color: rgba(255, 255, 255, 0.05); /* Subtle overlay */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-}
-
-.container > div.nav1 {
-  grid-area: nav1;
-}
-
-.container > div.nav2 {
-  grid-area: nav2;
-}
-
-.container > div.nav3 {
-  grid-area: nav3;
-}
-
-.container > div.nav4 {
-  grid-area: nav4;
-}
-
-.container > div.nav5 {
-  grid-area: nav5;
-}
-
-.container > div.nav6 {
-  grid-area: nav6;
-}
-
-.container > div.hero {
-  grid-area: hero;
-  background-image: url("FinishGlow.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 25px; /* More pronounced rounded corners for the hero */
-  padding: 2rem; /* Add padding for text inside */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center the text vertically */
-  align-items: center; /* Center the text horizontally */
-}
-
-.heroimg {
-  display: block;
-  margin: 1rem auto;
-  width: 100%;
-  height: auto;
-  max-width: 1000px;
-  border-radius: 15px;
-  box-shadow: 3px 3px var(--neon-pink); /* Subtle pink shadow */
-}
-
-/* Brutus Layout (Event Sections) */
-.eventcontainer {
-  display: grid;
-  grid-gap: 1rem;
-  padding: 1rem;
-}
-
-.textbox1,
-.textbox2,
-.textbox3,
-.textbox4,
-.textbox5,
-.textbox6 {
-  grid-column: 1;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.7); /* Darker background for textboxes */
-  color: var(--soft-pink); /* Light text on dark background */
-  border-radius: 10px;
-}
-
-.imagebox1,
-.imagebox2,
-.imagebox3,
-.imagebox4,
-.imagebox5,
-.imagebox6,
-.imagebox7 {
-  grid-column: 2;
-  border-radius: 10px;
-  overflow: hidden; /* Clip images to rounded borders */
-}
-
-.imagebox3 img,
-.imagebox4 img,
-.imagebox5 img,
-.imagebox6 img,
-.imagebox7 img {
-  border-radius: inherit; /* Inherit rounded corners from parent */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out; /* Smooth zoom on hover */
-}
-
-.sponsors img:hover,
-.imagebox3 img:hover,
-.imagebox4 img:hover,
-.imagebox5 img:hover,
-.imagebox6 img:hover,
-.imagebox7 img:hover {
-  transform: scale(1.05);
-}
-
-.sponsors {
-  display: grid;
-  grid-auto-flow: column; /* Arrange items in columns */
-  justify-items: center; /* Center items within their grid cells */
-  align-items: center;   /* Vertically center items (optional, but often useful) */
-}
-
-.sponsors img {
-  max-height: 100px;
-}
-
-@media (min-width: 768px) {
-  .eventcontainer {
-    grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
-  }
-
-  .textbox1,
-  .textbox3,
-  .textbox5 {
-    grid-column: 1;
-  }
-
-  .imagebox1,
-  .imagebox3,
-  .imagebox5,
-  .imagebox7 {
-    grid-column: 2;
-  }
-
-  .imagebox2 {
-    grid-row: 2;
-    grid-column: 1;
-  }
-
-  .textbox2 {
-    grid-row: 2;
-    grid-column: 2;
-  }
-
-  .imagebox4 {
-    grid-row: 4;
-    grid-column: 1;
-  }
-
-  .textbox4 {
-    grid-row: 4;
-    grid-column: 2;
-  }
-
-  .imagebox6 {
-    grid-row: 6;
-    grid-column: 1;
-  }
-
-  .textbox6 {
-    grid-row: 6;
-    grid-column: 2;
-  }
-}
-
-.eventcontainer {
-  display: grid;
-  grid-gap: 1rem;
-  padding: 1rem;
-}
-
-.textbox1,
-.textbox2,
-.textbox3,
-.textbox4,
-.textbox5,
-.textbox6,
-.textbox7 {
-  grid-column: 1; /* Default to the first column */
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: var(--soft-pink);
-  border-radius: 10px;
-}
-
-.imagebox1,
-.imagebox2,
-.imagebox3,
-.imagebox4,
-.imagebox5,
-.imagebox6,
-.imagebox7 {
-  grid-column: 2; /* Default to the second column */
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .textbox1,
-  .textbox3,
-  .textbox5 {
-    grid-column: 1;
-  }
-
-  .imagebox1,
-  .imagebox3,
-  .imagebox5,
-  .imagebox7 {
-    grid-column: 2;
-  }
-
-  .imagebox2 {
-    grid-row: 2;
-    grid-column: 1;
-  }
-
-  .textbox2 {
-    grid-row: 2;
-    grid-column: 2;
-  }
-
-  .imagebox4 {
-    grid-row: 4;
-    grid-column: 1;
-  }
-
-  .textbox4 {
-    grid-row: 4;
-    grid-column: 2;
-  }
-
-  .imagebox6 {
-    grid-row: 6;
-    grid-column: 1;
-  }
-
-  .textbox6 {
-    grid-row: 6;
-    grid-column: 2;
-  }
-}
-
-/* Media Query for Small Screens (Ensuring Single Column) */
-@media screen and (max-width: 767px) {
-  .eventcontainer,
-  .container {
-    display: block;
-    padding: 1rem; /* Maintain some padding on small screens */
-  }
-
-  .hero,
-  .nav1,
-  .nav2,
-  .nav3,
-  .nav4,
-  .nav5,
-  .nav6,
-  .footer,
-  .textbox1,
-  .textbox2,
-  .textbox3,
-  .textbox4,
-  .textbox5,
-  .textbox6,
-  .imagebox1,
-  .imagebox2,
-  .imagebox3,
-  .imagebox4,
-  .imagebox5,
-  .imagebox6,
-  .imagebox7 {
-    display: block; /* Stack them vertically */
-    margin-bottom: 1rem; /* Add spacing between elements */
-  }
-
-  /* Order the navigation elements */
-  .container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: stretch; /* Make children take full width */
-  }
-
-  .container > .hero,
-  .container > .nav1,
-  .container > .nav3,
-  .container > .nav5,
-  .container > .nav2,
-  .container > .nav4,
-  .container > .nav6,
-  .container > .footer {
-    /* Apply styles to each direct child */
-  }
-
-  .container {
-    order: initial; /* Reset any previous order */
-  }
-
-  .container > .hero {
-    order: 0;
-  }
-
-  .container > .nav1 {
-    order: 1;
-  }
-
-  .container > .nav2 {
-    order: 2;
-  }
-
-  .container > .nav5 {
-    order: 3;
-  }
-
-  .container > .nav3 {
-    order: 4;
-  }
-
-  .container > .nav6 {
-    order: 5;
-  }
-
-  .container > .nav4 {
-    order: 6;
-  }
-
-  .container > .footer {
-    order: 7;
-  }
-}
-
-
-/* Footer */
-.footer {
-  grid-area: foot;
-  padding: 2rem;
-  margin-top: 1rem;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.8); /* Dark footer */
-  color: var(--digital-blue);
-  border-radius: 10px;
-}
-
-/* Hero Section */
-.hero {
-  display: grid;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 2rem;
-}
-
-/* Images */
-img {
-  max-width: 100%; /* Make images responsive */
-  height: auto;
-}
-
-/* Videos */
-.video {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  margin: 1rem;
-  border-radius: 10px;
-  overflow: hidden; /* Clip iframe to rounded corners */
-  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-}
-
-.video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Header (Potential Re-duplication - consider consolidating) */
-.header {
-  display: block; /* Changed to block for better mobile behavior */
-  margin: 2rem auto; /* Center the header */
-  text-align: center; /* Center the text within the header */
-}
-
-/* Map */
-.map {
-  width: 100%;
-  height: 50vh;
-  margin: 1rem;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-  position: relative; /* For iframe positioning */
-}
-
-.map iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Preview & GPX Links */
-.preview,
-.gpx {
-  display: block;
-  margin: 1rem auto;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--acid-yellow);
-  color: var(--solar-yellow);
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
   transition: background-color 0.3s ease;
-  text-align: center;
-}
-
-.preview:hover,
-.gpx:hover {
-  background-color: var(--solar-yellow);
-}
-
-/* Navigation */
-.navparent {
-  display: flex;
-  justify-content: center;
-}
-
-.nav23 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  list-style: none; /* Remove default list styling */
-}
-
-.nav23 > li > a {
-  color: var(--neon-pink);
-  display: block; /* Make the whole list item clickable */
-}
-
-.nav23 > li > a:hover {
-  color: var(--acid-yellow);
-}
-
-.menu_deco {
-  border-radius: 10px;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  padding: 1rem;
-  background-color: rgba(255, 255, 0, 0.1); /* Subtle yellow accent */
 }
 
 
@@ -1223,44 +661,35 @@ img {
   transform: rotate(45deg) translate(-6px, -6.5px);
 }
 
-/* FAQ Section */
 .faq {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 1rem;
-  margin: 2rem auto;
-  max-width: 1000px;
-  padding: 1rem;
+  /* background: var(--hacker-black); */
+  gap: 0.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0;
 }
 
 .faq .question {
-  background: var(--digital-blue);
-  font-family: "Poppins", sans-serif;
+  background: var(--shadow-grey);
+  font-family: "poppins", cursive;
   font-weight: 800;
-  border-radius: 10px;
+  border-radius: 15px;
   text-align: right;
-  padding: 1rem;
 }
 
 .faq .question > p {
-  color: var(--acid-yellow);
-  margin: 0;
+  color: var(--terminal-grey);
+  
 }
 
 .faq .answer {
-  background-color: var(--shadow-grey); /* Darker answer background */
-  color: var(--soft-pink);
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: 15px;
+  background: var(--soft-pink);
+  color: var(--hacker-black);
 }
 
-@media screen and (max-width: 767px) {
-  .faq {
-    grid-template-columns: 1fr; /* Single column on small screens */
-  }
-
-  .faq .question {
-    text-align: left; /* Align question to the left in single column */
-    margin-bottom: 0.5rem; /* Add some space below the question */
-  }
+.faq .answer > p {
+  color: white important!;
 }
