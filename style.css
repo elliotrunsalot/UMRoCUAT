@@ -373,11 +373,12 @@ a:hover {
 /* Media Query for Small Screens (Ensuring Single Column) */
 @media screen and (max-width: 767px) {
   .eventcontainer,
-  .container {
+  .container,
+  .width > .faq {
     display: block;
     padding: 1rem; /* Maintain some padding on small screens */
   }
-
+  
   .hero,
   .nav1,
   .nav2,
@@ -401,6 +402,14 @@ a:hover {
   .imagebox7 {
     display: block; /* Stack them vertically */
     margin-bottom: 1rem; /* Add spacing between elements */
+    box-sizing: content-box;
+    
+  }
+
+  .imagebox1 > iframe.map,
+  .imagebox2 > iframe.map,
+  .imagebox3 > iframe.map {
+    min-height: 10rem;
   }
 
   /* Order the navigation elements */
