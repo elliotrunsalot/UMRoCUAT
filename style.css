@@ -186,6 +186,10 @@ a:hover {
   height: 30em;
 }
 
+.alert {
+  color:var(--shocking-pink)
+}
+
 .textbox1,
 .textbox2,
 .textbox3,
