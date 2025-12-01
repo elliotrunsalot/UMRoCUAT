@@ -1,0 +1,184 @@
+/* 1960s Theme Stylesheet */
+
+/* Import groovy fonts */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=Lobster&family=Abril+Fatface&family=Righteous&family=Fredoka+One&display=swap');
+
+:root {
+    --flower-power-pink: #FF69B4;
+    --psychedelic-purple: #9932CC;
+    --groovy-green: #32CD32;
+    --sunshine-yellow: #FFD700;
+    --peace-blue: #00BFFF;
+    --love-orange: #FF4500;
+    --cream-bg: #FFF8DC;
+    --text-brown: #1a100c;
+    /* Much darker brown for legibility */
+}
+
+body.theme-1960 {
+    background-color: var(--cream-bg);
+    background-image:
+        radial-gradient(circle at 20% 20%, var(--flower-power-pink) 0%, transparent 20%),
+        radial-gradient(circle at 80% 80%, var(--psychedelic-purple) 0%, transparent 20%),
+        radial-gradient(circle at 50% 50%, var(--groovy-green) 0%, transparent 30%);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    color: var(--text-brown);
+    font-family: 'Fredoka One', cursive;
+    /* Fun, rounded font */
+}
+
+/* Override container styles */
+.theme-1960 .container,
+.theme-1960 .width {
+    color: var(--text-brown);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 5px solid var(--love-orange);
+    border-radius: 30px;
+    box-shadow: 10px 10px 0px var(--psychedelic-purple);
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Typography Overrides */
+.theme-1960 h1,
+.theme-1960 h2,
+.theme-1960 h3 {
+    font-family: 'Shrikhand', cursive;
+    /* Bold, retro font */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.theme-1960 h1.groovy-title {
+    color: var(--love-orange);
+    font-size: 4rem;
+    text-shadow: 4px 4px 0px var(--sunshine-yellow);
+    transform: rotate(-2deg);
+    margin-bottom: 0;
+}
+
+.theme-1960 h2.groovy-subtitle {
+    color: var(--peace-blue);
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 0px var(--flower-power-pink);
+    margin-top: 0;
+}
+
+.theme-1960 h2.flower-power {
+    color: var(--psychedelic-purple);
+    border-bottom: 3px dashed var(--groovy-green);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.theme-1960 h3.psychedelic {
+    color: var(--flower-power-pink);
+    font-family: 'Righteous', cursive;
+}
+
+.theme-1960 p {
+    color: var(--text-brown);
+    font-family: 'Fredoka One', cursive;
+    font-weight: normal;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.theme-1960 a {
+    color: var(--love-orange);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+.theme-1960 a:hover {
+    color: var(--groovy-green);
+}
+
+/* Navigation Overrides */
+.theme-1960 .nav23 li {
+    background-color: var(--sunshine-yellow);
+    border: 3px solid var(--love-orange);
+    border-radius: 50px;
+    /* Pill shape */
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+}
+
+.theme-1960 .nav23 li:hover {
+    transform: rotate(-2deg) scale(1.1);
+    background-color: var(--flower-power-pink);
+}
+
+.theme-1960 .nav23 li a {
+    color: var(--text-brown);
+    text-decoration: none;
+}
+
+/* Button Overrides */
+.theme-1960 .gpx {
+    background-color: var(--groovy-green);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Shrikhand', cursive;
+    font-size: 1.2rem;
+    box-shadow: 5px 5px 0px var(--text-brown);
+}
+
+.theme-1960 .gpx:hover {
+    background-color: var(--psychedelic-purple);
+    box-shadow: 2px 2px 0px var(--text-brown);
+    transform: translate(3px, 3px);
+}
+
+/* Map Container */
+.theme-1960 .map-container {
+    border: 5px solid var(--peace-blue);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0px var(--flower-power-pink);
+}
+
+/* Footer */
+.theme-1960 .footer {
+    background-color: var(--psychedelic-purple);
+    color: var(--sunshine-yellow);
+    border-top: none;
+    border-radius: 20px;
+    margin-top: 3rem;
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
+}
+
+/* Peace Sign */
+.peace-sign {
+    font-size: 3rem;
+    text-align: center;
+    margin: 1rem 0;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mobile Nav Override */
+@media screen and (max-width: 768px) {
+    .theme-1960 .nav23 {
+        background-color: var(--cream-bg);
+        border-left: 5px solid var(--love-orange);
+    }
+
+    .theme-1960 .burger div {
+        background-color: var(--love-orange);
+    }
+}
