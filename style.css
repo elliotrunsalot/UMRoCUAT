@@ -131,6 +131,7 @@ a:hover {
     "hero hero hero"
     "nav1 nav2 nav3"
     "nav4 nav5 nav6"
+    "nav4 nav5 nav7"
     "foot foot foot";
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
@@ -180,6 +181,10 @@ a:hover {
 
 .container>div.nav6 {
   grid-area: nav6;
+}
+
+.container>div.nav7 {
+  grid-area: nav7;
 }
 
 .container>div.hero {
@@ -415,8 +420,12 @@ a:hover {
     order: 6;
   }
 
-  .container>.footer {
+  .container>.nav7 {
     order: 7;
+  }
+
+  .container>.footer {
+    order: 8;
   }
 }
 
@@ -657,3 +666,5 @@ img {
   color: var(--text-light) !important;
   margin: 0;
 }
+
+
