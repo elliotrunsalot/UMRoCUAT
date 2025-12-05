@@ -24,8 +24,8 @@ body.theme-1960 {
     background-size: 100% 100%;
     background-attachment: fixed;
     color: var(--text-brown);
-    font-family: 'Fredoka One', cursive;
-    /* Fun, rounded font */
+    font-family: 'Poppins', sans-serif;
+
 }
 
 /* Override container styles */
@@ -79,10 +79,18 @@ body.theme-1960 {
     font-family: 'Righteous', cursive;
 }
 
+.width ul {
+    color: var(--text-brown);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
 .theme-1960 p {
     color: var(--text-brown);
-    font-family: 'Fredoka One', cursive;
-    font-weight: normal;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
     font-size: 1.1rem;
     line-height: 1.6;
 }
