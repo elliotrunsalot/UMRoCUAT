@@ -213,6 +213,7 @@ body.theme-1960 {
     background-image: url('hero_header.jpg');
     background-size: cover;
     background-position: center;
+    min-height: fit-content;
     padding: 4rem 1rem;
     border-bottom: 5px solid var(--love-orange);
     position: relative;
@@ -276,5 +277,21 @@ body.theme-1960 {
 @media screen and (max-width: 768px) {
     .theme-1960 .nav23 {
         overflow-y: hidden;
+    }
+}
+
+/* Add this Media Query for Desktop */
+@media (min-width: 1024px) {
+    .theme-1960 .hero-banner {
+        /* Replace '16 / 9' with the actual width / height of your image.
+           Example: If image is 1920x1080, use 1920 / 1080 (or 16/9).
+           If image is 800x600, use 800 / 600.
+        */
+        aspect-ratio: 16 / 4;
+
+        /* Optional: Ensure text content centers in this taller box */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
