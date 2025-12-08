@@ -1,0 +1,50 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <ellipse id="daisy-petal" cx="0" cy="-12" rx="4" ry="10" fill="currentColor"/>
+  </defs>
+
+  <path d="M105 15 Q 90 30, 75 10" stroke="#689F38" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M105 15 Q 110 35, 110 55" stroke="#689F38" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <g transform="translate(105, 15)">
+    <g color="#FFFDD0">
+      <use href="#daisy-petal" transform="rotate(0)"/>
+      <use href="#daisy-petal" transform="rotate(45)"/>
+      <use href="#daisy-petal" transform="rotate(90)"/>
+      <use href="#daisy-petal" transform="rotate(135)"/>
+      <use href="#daisy-petal" transform="rotate(180)"/>
+      <use href="#daisy-petal" transform="rotate(225)"/>
+      <use href="#daisy-petal" transform="rotate(270)"/>
+      <use href="#daisy-petal" transform="rotate(315)"/>
+    </g>
+    <circle cx="0" cy="0" r="6" fill="#4E342E"/>
+  </g>
+
+  <g transform="translate(75, 10) scale(0.8)">
+    <g color="#E67300">
+      <use href="#daisy-petal" transform="rotate(22.5)"/>
+      <use href="#daisy-petal" transform="rotate(67.5)"/>
+      <use href="#daisy-petal" transform="rotate(112.5)"/>
+      <use href="#daisy-petal" transform="rotate(157.5)"/>
+      <use href="#daisy-petal" transform="rotate(202.5)"/>
+      <use href="#daisy-petal" transform="rotate(247.5)"/>
+      <use href="#daisy-petal" transform="rotate(292.5)"/>
+      <use href="#daisy-petal" transform="rotate(337.5)"/>
+    </g>
+    <circle cx="0" cy="0" r="6" fill="#4E342E"/>
+  </g>
+
+  <g transform="translate(110, 55) scale(0.7) rotate(-15)">
+    <g color="#FFC107">
+      <use href="#daisy-petal" transform="rotate(0)"/>
+      <use href="#daisy-petal" transform="rotate(45)"/>
+      <use href="#daisy-petal" transform="rotate(90)"/>
+      <use href="#daisy-petal" transform="rotate(135)"/>
+      <use href="#daisy-petal" transform="rotate(180)"/>
+      <use href="#daisy-petal" transform="rotate(225)"/>
+      <use href="#daisy-petal" transform="rotate(270)"/>
+      <use href="#daisy-petal" transform="rotate(315)"/>
+    </g>
+    <circle cx="0" cy="0" r="6" fill="#4E342E"/>
+  </g>
+</svg>

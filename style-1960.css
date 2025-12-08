@@ -28,6 +28,7 @@ body.theme-1960 {
 
 }
 
+
 /* Override container styles */
 .theme-1960 .container,
 .theme-1960 .width {
@@ -36,10 +37,19 @@ body.theme-1960 {
     border: 5px solid var(--love-orange);
     border-radius: 30px;
     box-shadow: 10px 10px 0px var(--psychedelic-purple);
-    padding: 2rem;
+    padding: 0;
+    /* Removing padding from main container so hero can go full width if needed, or we handle internal padding */
+    overflow: hidden;
+    /* For the hero image radius */
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
+/* Inner content wrapper to restore padding for non-hero elements */
+.theme-1960 .content-wrapper {
+    padding: 2rem;
+}
+
 
 /* Typography Overrides */
 .theme-1960 h1,
@@ -57,15 +67,22 @@ body.theme-1960 {
     text-shadow: 4px 4px 0px var(--sunshine-yellow);
     transform: rotate(-2deg);
     margin-bottom: 0;
+    position: relative;
+    z-index: 2;
 }
 
+
 .theme-1960 h2.groovy-subtitle {
-    color: var(--peace-blue);
+    color: #ff05ea;
+    /* Darker teal/blue for better contrast */
     font-family: 'Lobster', cursive;
     font-size: 2.5rem;
-    text-shadow: 2px 2px 0px var(--flower-power-pink);
+    text-shadow: 2px 2px 0px #000000;
     margin-top: 0;
+    position: relative;
+    z-index: 2;
 }
+
 
 .theme-1960 h2.flower-power {
     color: var(--psychedelic-purple);
@@ -188,5 +205,76 @@ body.theme-1960 {
 
     .theme-1960 .burger div {
         background-color: var(--love-orange);
+    }
+}
+
+/* Hero Banner */
+.theme-1960 .hero-banner {
+    background-image: url('hero_header.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 1rem;
+    border-bottom: 5px solid var(--love-orange);
+    position: relative;
+}
+
+/* GumbyGUMBO Event Box */
+.theme-1960 .gumbo-box {
+    background: repeating-linear-gradient(45deg,
+            var(--sunshine-yellow),
+            var(--sunshine-yellow) 10px,
+            var(--flower-power-pink) 10px,
+            var(--flower-power-pink) 20px);
+    border: 4px solid var(--psychedelic-purple);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    box-shadow: 5px 5px 0px var(--groovy-green);
+}
+
+.theme-1960 .gumbo-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.theme-1960 .gumbo-flower {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+}
+
+.theme-1960 .gumbo-flower.top-left {
+    top: -20px;
+    left: -20px;
+    transform: rotate(-15deg);
+}
+
+.theme-1960 .gumbo-flower.top-right {
+    top: -20px;
+    right: -20px;
+    transform: rotate(15deg);
+}
+
+.theme-1960 .gumbo-flower.bottom-left {
+    bottom: -20px;
+    left: -20px;
+    transform: rotate(15deg);
+}
+
+.theme-1960 .gumbo-flower.bottom-right {
+    bottom: -20px;
+    right: -20px;
+    transform: rotate(-15deg);
+}
+
+/* Remove scroll bar from mobile nav */
+@media screen and (max-width: 768px) {
+    .theme-1960 .nav23 {
+        overflow-y: hidden;
     }
 }
