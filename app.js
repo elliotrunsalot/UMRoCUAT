@@ -33,13 +33,43 @@ function navSlide() {
         link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
       }
     });
+
     // Burger Animation
     burger.classList.toggle("toggle");
   });
+
+  // Close mobile nav when clicking a link
+  const navLinksAll = document.querySelectorAll(".nav23 a");
+  navLinksAll.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (nav.classList.contains("nav-active")) {
+        nav.classList.remove("nav-active");
+        burger.classList.remove("toggle");
+        const navLinks = document.querySelectorAll(".nav23 li");
+        navLinks.forEach((item) => {
+          item.style.animation = "";
+        });
+      }
+    });
+  });
+
+  // Close when pressing Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && nav.classList.contains("nav-active")) {
+      nav.classList.remove("nav-active");
+      burger.classList.remove("toggle");
+      const navLinks = document.querySelectorAll(".nav23 li");
+      navLinks.forEach((item) => {
+        item.style.animation = "";
+      });
+    }
+  });
 }
 
-// Run after DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
+// Run after DOM is fully loaded or immediately if already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', navSlide);
+} else {
     navSlide();
-});
+}
 

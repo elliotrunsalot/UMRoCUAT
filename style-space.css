@@ -1,0 +1,1169 @@
+/* ==========================================================================
+   GUMBY 2027: A BACKYARD ODYSSEY - SPACE THEME STYLESHEET
+   Inspired by Interstellar, Aliens, NASA Telemetry, 2001, and Deep Space
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Deep Space Cosmic Palette */
+  --space-black: #05070e;
+  --space-void: #090c16;
+  --space-surface: rgba(14, 20, 36, 0.78);
+  --space-surface-hover: rgba(22, 32, 58, 0.88);
+  --space-surface-solid: #0d1222;
+  
+  /* Cosmic Energy & Neon Accents */
+  --neon-cyan: #00f0ff;
+  --neon-cyan-glow: rgba(0, 240, 255, 0.35);
+  --neon-magenta: #f43f5e;
+  --supernova-magenta: #e11d48;
+  --plasma-violet: #a855f7;
+  --nebula-purple: #7c3aed;
+  --supernova-gold: #fbbf24;
+  --alien-green: #10b981;
+  --alien-green-glow: rgba(16, 185, 129, 0.4);
+  
+  /* Text & Border Colors */
+  --text-white: #f8fafc;
+  --text-dim: #94a3b8;
+  --text-muted: #64748b;
+  --border-glass: rgba(0, 240, 255, 0.22);
+  --border-glass-hover: rgba(0, 240, 255, 0.6);
+  --border-gold: rgba(251, 191, 36, 0.35);
+}
+
+/* Base Body Styles */
+body.theme-space {
+  background-color: var(--space-black);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(0, 240, 255, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 50% 70%, rgba(244, 63, 94, 0.12) 0%, transparent 50%),
+    radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #00f0ff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 230px 190px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 310px 80px, #fbbf24, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 380px 240px, #ffffff, rgba(0,0,0,0));
+  background-size: 100% 100%, 100% 100%, 100% 100%, 350px 350px, 400px 400px, 300px 300px, 450px 450px, 500px 500px, 320px 320px, 380px 380px;
+  background-attachment: fixed;
+  color: var(--text-white);
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Top Telemetry Ticker */
+.space-telemetry-bar {
+  background: rgba(5, 7, 14, 0.9);
+  border-bottom: 1px solid var(--border-glass);
+  font-family: 'Orbitron', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-dim);
+}
+
+.telemetry-item strong {
+  color: var(--neon-cyan);
+}
+
+.telemetry-status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--alien-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--alien-green);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Container & Layout */
+.theme-space .width {
+  max-width: 1200px;
+  margin: 1.5rem auto 3rem auto;
+  background: rgba(9, 12, 22, 0.88);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.12);
+  /* Do not use backdrop-filter or overflow:hidden here as they create containing blocks that break position:fixed on mobile nav */
+  position: relative;
+}
+
+.theme-space .content-wrapper {
+  padding: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .theme-space .width {
+    margin: 0.5rem;
+    border-radius: 14px;
+    overflow: visible;
+  }
+  .theme-space .content-wrapper {
+    padding: 1.25rem;
+  }
+  .theme-space .hero-banner {
+    border-radius: 14px 14px 0 0;
+  }
+}
+
+/* Hero Banner */
+.theme-space .hero-banner {
+  position: relative;
+  background-image: linear-gradient(180deg, rgba(5, 7, 14, 0.3) 0%, rgba(9, 12, 22, 0.95) 90%), url('gumby2027_hero.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem 2.5rem;
+  border-bottom: 2px solid var(--neon-cyan);
+  box-shadow: inset 0 -20px 40px rgba(0, 0, 0, 0.8);
+  border-radius: 20px 20px 0 0;
+}
+
+.hero-hud-frame {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  pointer-events: none;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 8px;
+}
+
+.hero-hud-frame::before {
+  content: 'SECTOR // 35.29° S  148.91° E';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: rgba(5, 7, 14, 0.85);
+  padding: 0 10px;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--neon-cyan);
+}
+
+.hero-hud-frame::after {
+  content: 'MISSION ID: GUMBY-2027';
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  background: rgba(5, 7, 14, 0.85);
+  padding: 0 10px;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--supernova-gold);
+}
+
+.hero-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-mission-patch {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 35px rgba(251, 191, 36, 0.3);
+  border: 2px solid var(--supernova-gold);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-mission-patch:hover {
+  transform: rotate(15deg) scale(1.08);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
+}
+
+.hero-text-content {
+  position: relative;
+  z-index: 5;
+}
+
+.hero-mission-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 240, 255, 0.15);
+  border: 1px solid var(--neon-cyan);
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-family: 'Orbitron', 'Audiowide', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin: 0;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ffffff 20%, var(--neon-cyan) 60%, var(--plasma-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(0, 240, 255, 0.4));
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--supernova-gold);
+  margin: 0.5rem 0 1rem 0;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+}
+
+.hero-quote {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  border-left: 3px solid var(--supernova-magenta);
+  padding-left: 0.85rem;
+  margin: 0.5rem 0 0 0;
+  font-style: italic;
+}
+
+/* Mission Quick Specs Bar */
+.hero-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-spec-item {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+}
+
+.hero-spec-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.hero-spec-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   NAVIGATION & MOBILE MENU
+   ========================================================================== */
+
+.theme-space .navparent {
+  margin: 1.5rem 0;
+}
+
+.theme-space .nav23 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-space .nav23 li {
+  background: rgba(14, 20, 36, 0.85);
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  padding: 0;
+  transform: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.theme-space .nav23 li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-space .nav23 li:hover {
+  transform: translateY(-3px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 16px var(--neon-cyan-glow);
+  background: rgba(22, 32, 58, 0.95);
+}
+
+.theme-space .nav23 li:hover::before {
+  opacity: 1;
+}
+
+.theme-space .nav23 li a {
+  display: block;
+  padding: 0.75rem 1.4rem;
+  color: var(--text-white);
+  text-decoration: none;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.theme-space .nav23 li a:hover {
+  color: var(--neon-cyan);
+}
+
+.theme-space .nav23 li.nav-highlight {
+  border-color: var(--supernova-gold);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(244, 63, 94, 0.15));
+}
+
+.theme-space .nav23 li.nav-highlight a {
+  color: var(--supernova-gold);
+}
+
+.theme-space .nav23 li.nav-highlight:hover {
+  border-color: #ffd166;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+/* Mobile Telemetry Bar adjustments */
+@media (max-width: 768px) {
+  .space-telemetry-bar {
+    padding-right: 65px;
+    font-size: 0.65rem;
+    gap: 0.3rem;
+  }
+  .telemetry-item:not(:first-child) {
+    display: none; /* Keep clean on small screens, show mission status */
+  }
+  .space-telemetry-bar::after {
+    content: 'LAUNCH: 23-26 APR 2027';
+    color: var(--supernova-gold);
+    font-weight: 700;
+  }
+}
+
+/* Hamburger Icon for Mobile */
+.burger {
+  display: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  margin: 0 !important;
+  box-sizing: border-box;
+  z-index: 1005;
+  background: rgba(9, 12, 22, 0.92);
+  border: 1.5px solid var(--neon-cyan);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.45);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger:hover {
+  border-color: var(--supernova-gold);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+}
+
+.burger div {
+  width: 24px;
+  height: 2.5px;
+  background-color: var(--neon-cyan);
+  margin: 2.5px auto;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.theme-space .burger div {
+  background-color: var(--neon-cyan);
+}
+
+/* Mobile Nav Overlay */
+@media screen and (max-width: 768px) {
+  .burger {
+    display: flex !important;
+  }
+
+  .theme-space .nav23 {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 85%;
+    max-width: 320px;
+    background: rgba(6, 9, 18, 0.98);
+    border-left: 2px solid var(--neon-cyan);
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 3.5rem 1.5rem 2rem 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1004;
+    overflow-y: auto;
+    backdrop-filter: blur(24px);
+    gap: 1rem;
+    box-sizing: border-box;
+  }
+
+  .theme-space .nav23.nav-active {
+    transform: translateX(0%) !important;
+  }
+
+  .theme-space .nav23 li {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .theme-space .nav23.nav-active li {
+    opacity: 1;
+  }
+
+  .theme-space .nav23 li a {
+    padding: 0.9rem 1rem;
+    font-size: 0.92rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Burger Animation to 'X' */
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-4px, 4px);
+  background-color: var(--supernova-magenta);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-4px, -4px);
+  background-color: var(--supernova-magenta);
+}
+
+/* ==========================================================================
+   SPONSORS / MISSION PARTNERS
+   ========================================================================== */
+
+.theme-space .sponsors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1.5rem 1rem;
+  background: rgba(14, 20, 36, 0.4);
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  border-radius: 12px;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.theme-space .sponsors img {
+  max-height: 48px;
+  max-width: 140px;
+  object-fit: contain;
+  filter: brightness(0.9) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.theme-space .sponsors img:hover {
+  filter: brightness(1.2) drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   GPX DOWNLOAD SECTION
+   ========================================================================== */
+
+.gpxDL {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.gpxbuttons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.theme-space .gpx {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(124, 58, 237, 0.3));
+  border: 1px solid var(--neon-cyan);
+  border-radius: 10px;
+  padding: 0;
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-space .gpx a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.8rem;
+  color: var(--text-white);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.theme-space .gpx:hover {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--plasma-violet));
+  border-color: #ffffff;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.theme-space .gpx:hover a {
+  color: var(--space-black);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY & HEADINGS
+   ========================================================================== */
+
+.theme-space h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  margin: 2.5rem 0 1rem 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-space h2::before {
+  content: '//';
+  color: var(--supernova-magenta);
+  font-weight: 900;
+}
+
+.theme-space h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.theme-space h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--supernova-gold);
+  text-transform: uppercase;
+  margin: 1.8rem 0 0.6rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-space h3.psychedelic {
+  color: var(--supernova-gold);
+}
+
+.theme-space p {
+  color: var(--text-dim);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin: 0.8rem 0;
+}
+
+.theme-space strong {
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.theme-space ul {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.8;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.theme-space ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.theme-space a {
+  color: var(--neon-cyan);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: all 0.2s ease;
+}
+
+.theme-space a:hover {
+  color: var(--supernova-gold);
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+}
+
+/* ==========================================================================
+   MISSION CARDS GRID (THE GIGS)
+   ========================================================================== */
+
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.mission-card {
+  background: var(--space-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--neon-cyan);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.mission-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 20px var(--neon-cyan-glow);
+}
+
+.mission-card:hover::before {
+  width: 6px;
+  opacity: 1;
+  box-shadow: 0 0 12px var(--neon-cyan);
+}
+
+.mission-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.badge-moon {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid var(--plasma-violet);
+  color: #c084fc;
+}
+
+.badge-gumby {
+  background: rgba(244, 63, 94, 0.2);
+  border: 1px solid var(--supernova-magenta);
+  color: #fda4af;
+}
+
+.badge-baby {
+  background: rgba(0, 240, 255, 0.2);
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+.mission-card h3 {
+  margin-top: 0;
+  color: var(--text-white);
+  font-size: 1.3rem;
+}
+
+.mission-card p {
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.mission-meta-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.85rem;
+  margin-top: 1rem;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.mission-meta-strip strong {
+  color: var(--supernova-gold);
+}
+
+/* ==========================================================================
+   GUMBY-GUMBO 100-MILE WORMHOLE FEATURE BOX
+   ========================================================================== */
+
+.theme-space .gumbo-box {
+  position: relative;
+  background: linear-gradient(135deg, rgba(12, 16, 32, 0.92) 0%, rgba(20, 10, 36, 0.94) 100%), url('gumbo_wormhole.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--supernova-gold);
+  border-radius: 18px;
+  padding: 2.25rem;
+  margin: 3rem 0;
+  box-shadow: 0 0 35px rgba(251, 191, 36, 0.25), 0 15px 40px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+.theme-space .gumbo-box::after {
+  content: '100-MILE WORMHOLE';
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  color: var(--supernova-gold);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-gold);
+}
+
+.theme-space .gumbo-content {
+  background: rgba(6, 9, 18, 0.82);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 12px;
+  padding: 1.75rem;
+  backdrop-filter: blur(14px);
+  position: relative;
+  z-index: 2;
+}
+
+.theme-space .gumbo-content h3 {
+  color: var(--supernova-gold);
+  font-size: 1.45rem;
+  margin-top: 0;
+  letter-spacing: 2px;
+}
+
+.gumbo-timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gumbo-stage-item {
+  background: rgba(14, 20, 36, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.stage-day {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stage-name {
+  font-weight: 700;
+  color: var(--text-white);
+  font-size: 1rem;
+  margin: 0.2rem 0;
+}
+
+.stage-dist {
+  font-size: 0.85rem;
+  color: var(--supernova-gold);
+}
+
+/* ==========================================================================
+   TELEMETRY & INFO MATRICES (WHEN, WHERE, CREW, PRICING)
+   ========================================================================== */
+
+.telemetry-data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.telemetry-card {
+  background: var(--space-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.telemetry-card h4 {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.telemetry-highlight {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.4rem;
+}
+
+.telemetry-sub {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+/* Map Container Frame */
+.theme-space .map-container {
+  border: 2px solid var(--neon-cyan);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.25), 0 10px 30px rgba(0, 0, 0, 0.8);
+  margin: 1.75rem 0;
+  position: relative;
+}
+
+.theme-space .map-container::before {
+  content: 'COORDINATE LOCK // BLUE RANGE HUT [35.29° S 148.91° E]';
+  display: block;
+  background: rgba(5, 7, 14, 0.9);
+  padding: 0.5rem 1rem;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--neon-cyan);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.theme-space .map-container iframe.map {
+  width: 100%;
+  height: 380px;
+  border: none;
+  display: block;
+}
+
+/* Pricing Matrix Cards */
+.pricing-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.pricing-card {
+  background: var(--space-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card.featured {
+  border-color: var(--supernova-gold);
+  background: linear-gradient(180deg, rgba(22, 32, 58, 0.9) 0%, rgba(14, 20, 36, 0.9) 100%);
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.2);
+}
+
+.pricing-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.pricing-tier-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.15rem;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.pricing-tier-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: 'Orbitron', monospace;
+  margin-top: 0.2rem;
+}
+
+.pricing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+}
+
+.pricing-row strong {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  color: var(--supernova-gold);
+}
+
+/* Call to Action Bar */
+.rego-cta-box {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(244, 63, 94, 0.15));
+  border: 1px solid var(--neon-cyan);
+  border-radius: 14px;
+  padding: 2rem;
+  text-align: center;
+  margin: 2.5rem 0;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+}
+
+.rego-cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon-cyan), #0284c7);
+  color: var(--space-black) !important;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.rego-cta-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.9);
+  background: linear-gradient(135deg, #38bdf8, var(--neon-cyan));
+}
+
+/* Course Trajectory Cards */
+.orbit-card {
+  background: var(--space-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.25rem 0;
+}
+
+.orbit-card h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 1.5px;
+  color: var(--neon-cyan);
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Schedule Timeline */
+.timeline-block {
+  margin: 1.5rem 0;
+  border-left: 2px solid var(--border-glass);
+  padding-left: 1.5rem;
+}
+
+.timeline-day-header {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  color: var(--supernova-gold);
+  margin: 1.5rem 0 0.5rem -1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.timeline-day-header::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--supernova-gold);
+  box-shadow: 0 0 10px var(--supernova-gold);
+}
+
+.timeline-item-entry {
+  background: rgba(14, 20, 36, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.75rem 1.2rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.timeline-time {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  font-size: 0.9rem;
+  min-width: 65px;
+}
+
+.timeline-desc {
+  color: var(--text-white);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Rules / Directives Panel */
+.directives-box {
+  background: rgba(18, 12, 28, 0.75);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.directives-box h4 {
+  font-family: 'Orbitron', sans-serif;
+  color: #fb7185;
+  margin-top: 0;
+  letter-spacing: 1.5px;
+}
+
+/* Footer Overrides */
+.theme-space .footer {
+  background: rgba(5, 7, 14, 0.95);
+  border-top: 1px solid var(--border-glass);
+  border-radius: 0 0 18px 18px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer-quote {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--supernova-gold);
+  margin-bottom: 0.75rem;
+}
+
+.footer-copy {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+}
+
+.footer-links a:hover {
+  color: var(--neon-cyan);
+}
