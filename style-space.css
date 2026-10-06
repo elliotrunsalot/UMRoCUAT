@@ -170,8 +170,8 @@ body.theme-space {
 }
 
 .hero-hud-frame::before {
-  content: 'SECTOR // 35°17' 23.9"S 148°52'33.3" E';
- position: absolute;
+  content: "SECTOR // 35°17' 23.9\"S 148°52'33.3\" E";
+  position: absolute;
   top: -10px;
   left: 20px;
   background: rgba(5, 7, 14, 0.85);
