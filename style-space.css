@@ -802,6 +802,294 @@ body.theme-space {
 }
 
 /* ==========================================================================
+   MYSTERY SPACE MERCHANDISE KIT (CLASSIFIED PAYLOAD)
+   ========================================================================== */
+
+.mystery-kit-section {
+  position: relative;
+  background: linear-gradient(135deg, rgba(14, 20, 36, 0.95) 0%, rgba(22, 13, 40, 0.96) 50%, rgba(8, 14, 28, 0.98) 100%);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 18px;
+  padding: 2.25rem;
+  margin: 2.75rem 0 3.5rem 0;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.25), 0 16px 45px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+}
+
+.mystery-kit-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-magenta), var(--neon-cyan), var(--supernova-gold));
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.mystery-kit-badge-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.classified-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(244, 63, 94, 0.18);
+  border: 1px solid var(--neon-magenta);
+  color: #fda4af;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  box-shadow: 0 0 14px rgba(244, 63, 94, 0.3);
+}
+
+.classified-status-tag {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: var(--supernova-gold);
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid var(--border-gold);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+}
+
+.mystery-kit-section .mystery-kit-title-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--text-white);
+  margin: 0 0 0.4rem 0;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mystery-kit-section .mystery-kit-title-heading::before {
+  content: '//';
+  color: var(--supernova-magenta);
+  font-weight: 900;
+}
+
+.mystery-kit-section .mystery-kit-title-heading::after {
+  display: none;
+}
+
+.mystery-kit-section .mystery-kit-title-heading span {
+  background: linear-gradient(135deg, var(--neon-cyan) 20%, var(--plasma-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mystery-kit-subtitle {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  color: var(--supernova-gold);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.mystery-kit-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .mystery-kit-layout {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.mystery-kit-media {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 240, 255, 0.2);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.mystery-kit-media:hover {
+  transform: scale(1.02);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 35px var(--neon-cyan-glow);
+}
+
+.mystery-kit-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.mystery-kit-media-hud {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(5, 7, 14, 0.95) 0%, rgba(5, 7, 14, 0.75) 65%, transparent 100%);
+  padding: 1.1rem 1rem 0.75rem 1rem;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.72rem;
+  color: var(--neon-cyan);
+  letter-spacing: 1.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.redacted-inline {
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--neon-cyan);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  border: 1px dashed rgba(0, 240, 255, 0.5);
+}
+
+.mystery-kit-details p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-dim);
+  margin-bottom: 1.1rem;
+}
+
+.mystery-kit-details p strong {
+  color: var(--text-white);
+}
+
+.mystery-fomo-callout {
+  background: rgba(244, 63, 94, 0.12);
+  border-left: 4px solid var(--supernova-magenta);
+  border-radius: 0 8px 8px 0;
+  padding: 1.1rem 1.25rem;
+  margin: 1.35rem 0;
+  box-shadow: inset 0 0 15px rgba(244, 63, 94, 0.08);
+}
+
+.mystery-fomo-callout h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.92rem;
+  color: #fda4af;
+  margin: 0 0 0.45rem 0;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+}
+
+.mystery-fomo-callout p {
+  font-size: 0.95rem;
+  color: #f1f5f9;
+  margin: 0;
+  line-height: 1.65;
+}
+
+.mystery-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 550px) {
+  .mystery-specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mystery-spec-box {
+  background: rgba(14, 20, 36, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.mystery-spec-box:hover {
+  border-color: var(--neon-cyan);
+  background: rgba(22, 32, 58, 0.85);
+  transform: translateY(-2px);
+}
+
+.mystery-spec-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.mystery-spec-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--supernova-gold);
+  margin-top: 0.25rem;
+}
+
+.mystery-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.mystery-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--neon-cyan), #0284c7);
+  color: var(--space-black) !important;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 0.9rem 1.65rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.mystery-cta-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 32px rgba(0, 240, 255, 0.85);
+  background: linear-gradient(135deg, #38bdf8, var(--neon-cyan));
+}
+
+.mystery-cta-note {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
    GUMBY-GUMBO 100-MILE WORMHOLE FEATURE BOX
    ========================================================================== */
 
@@ -941,7 +1229,7 @@ body.theme-space {
 }
 
 .theme-space .map-container::before {
-  content: 'COORDINATE LOCK // BLUE RANGE HUT [35.29° S 148.91° E]';
+  content: "COORDINATE LOCK // BLUE RANGE HUT [35°17' 23.9\"S 148°52'33.3\" E]";
   display: block;
   background: rgba(5, 7, 14, 0.9);
   padding: 0.5rem 1rem;
