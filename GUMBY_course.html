@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUMBY 3D Course Map | Ultra Mediocre Runners of Canberra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@400;500;600;700;800&family=Syncopate:wght@700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="gumby-course.css" />
+</head>
+
+<body>
+
+  <!-- TOP MISSION HEADER & LIVE TICKER -->
+  <header class="gumby-header">
+    <div class="gumby-ticker-wrap" aria-label="GUMBY Course Telemetry Ticker">
+      <div class="gumby-ticker-track">
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> COURSE: SPACE GUMBY (6.71 KM /
+          4.167 MILES)</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> TIME LIMIT: 60 MINUTES PER YARD OR DNF
+          INTO ORBIT</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> HIGH POINT: MOUNT GUMBY KOM
+          (861.8M)</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> LOW POINT: BLUE RANGE STAR BASE
+          (748.0M)</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> DIRECTION: UNKNOWN VECTOR ALPHA (CW)
+          &amp; VECTOR BETA (CCW)</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> WARNING: SWAMPS OF SADNESS DETECTED AT
+          6.71KM INTERVALS</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> COURSE: SPACE GUMBY (6.71 KM /
+          4.167 MILES)</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> TIME LIMIT: 60 MINUTES PER YARD OR DNF
+          INTO ORBIT</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> HIGH POINT: MOUNT GUMBY KOM
+          (861.8M)</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> LOW POINT: BLUE RANGE STAR BASE
+          (748.0M)</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> DIRECTION: UNKNOWN VECTOR ALPHA (CW)
+          &amp; VECTOR BETA (CCW)</span>
+        <span class="gumby-ticker-item"><span class="gumby-ticker-dot"></span> WARNING: SWAMPS OF SADNESS DETECTED AT
+          6.71KM INTERVALS</span>
+      </div>
+    </div>
+
+    <div class="gumby-header-main">
+      <div class="gumby-brand">
+        <span class="gumby-badge-pill">3D HOLOGRAPHIC SECTOR MAP</span>
+        <div class="gumby-title-group">
+          <h1>THE GUMBY LOOP</h1>
+          <p>Great Ultra Mediocre Back Yarder &bull; <strong>Blue Range Spaceport, ACT</strong></p>
+        </div>
+      </div>
+
+      <div class="gumby-telemetry-bar">
+        <div class="telemetry-stat" title="Standard Backyard Ultra Loop Distance">
+          <span class="telemetry-label">Loop Distance</span>
+          <span class="telemetry-value" id="stat-distance">6.71 <span>km</span></span>
+        </div>
+        <div class="telemetry-stat" title="Total Ascent per 6.71km Yard">
+          <span class="telemetry-label">Vert Gain / Lap</span>
+          <span class="telemetry-value" id="stat-gain">+232 <span>m</span></span>
+        </div>
+        <div class="telemetry-stat" title="Mount GUMBY KOM Peak Altitude">
+          <span class="telemetry-label">Peak Altitude</span>
+          <span class="telemetry-value" id="stat-peak">861.8 <span>m</span></span>
+        </div>
+        <div class="telemetry-stat" title="9 Official Landmarks of Mediocrity">
+          <span class="telemetry-label">Course Sectors</span>
+          <span class="telemetry-value">9 <span>tags</span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN 3D WORKSPACE -->
+  <main class="gumby-workspace">
+
+    <!-- LEFT COLUMN: 3D STAGE + ELEVATION PROFILE -->
+    <div class="stage-column">
+      <section class="viewport-card" aria-label="Interactive 3D Course Map">
+        <canvas id="course-3d-canvas"></canvas>
+
+        <!-- Dynamic 3D Projected HTML Landmark Pins -->
+        <div id="tags-overlay" aria-label="Course Location Tags"></div>
+
+        <!-- Top HUD inside 3D Viewport -->
+        <div class="viewport-hud-top">
+          <div class="hud-badge-group">
+            <div class="hud-instruction-pill">
+              <kbd>DRAG</kbd> Spin &amp; Tilt 3D Space &bull; <kbd>SCROLL</kbd> Zoom &bull; <kbd>CLICK TAG</kbd> Inspect
+              Lore
+            </div>
+            <div class="gpx-status-badge" id="gpx-status-badge">
+              <span class="status-pulse"></span>
+              <span id="gpx-status-text">GPX Telemetry Active: GUMBY_loop.gpx</span>
+            </div>
+          </div>
+
+          <div class="hud-controls">
+            <button type="button" class="hud-btn is-active" id="btn-auto-spin"
+              title="Toggle continuous 3D orbital spin">
+              <span>&#x1F300;</span> Auto-Spin
+            </button>
+            <button type="button" class="hud-btn btn-blue" id="btn-direction"
+              title="Toggle LIVE Ghost Runner direction between Counter-Clockwise (CCW) and Clockwise (CW)">
+              <span>&#x1F504;</span> <span id="direction-label">Ghost Runner: CCW</span>
+            </button>
+            <button type="button" class="hud-btn is-active" id="btn-runner-toggle"
+              title="Stop or Go toggle for the LIVE Ghost Runner">
+              <span id="runner-toggle-icon">&#x25B6;&#xFE0F;</span> <span id="runner-toggle-label">Runner: Go</span>
+            </button>
+            <button type="button" class="hud-btn" id="btn-reset-cam" title="Reset 3D camera angle and zoom">
+              <span>&#x1F3AF;</span> Reset View
+            </button>
+          </div>
+        </div>
+
+        <!-- Location Popup Modal / Card inside Viewport -->
+        <aside class="location-popup" id="location-popup" role="dialog" aria-labelledby="popup-title" hidden>
+          <div class="popup-top-row">
+            <span class="popup-sector-badge" id="popup-badge">SECTOR 01</span>
+            <button type="button" class="popup-close-btn" id="popup-close-btn"
+              aria-label="Close location popup">&times;</button>
+          </div>
+          <h2 class="popup-title" id="popup-title">Blue Range Spaceport</h2>
+          <p class="popup-tagline" id="popup-tagline">Start / Finish Corral &amp; Intergalactic Camp Kitchen</p>
+
+          <div class="popup-metrics-grid">
+            <div class="popup-metric-box">
+              <span>Distance</span>
+              <strong id="popup-dist">0.00 km</strong>
+            </div>
+            <div class="popup-metric-box">
+              <span>Elevation</span>
+              <strong id="popup-ele">748 m</strong>
+            </div>
+            <div class="popup-metric-box">
+              <span>Vibe Check</span>
+              <strong id="popup-vibe">100% Hype</strong>
+            </div>
+          </div>
+
+          <p class="popup-description" id="popup-desc"></p>
+
+          <div class="popup-lore-tip" id="popup-tip"></div>
+
+          <div class="popup-footer-nav">
+            <button type="button" class="popup-nav-btn" id="popup-prev-btn">&larr; Prev Tag</button>
+            <button type="button" class="popup-nav-btn" id="popup-next-btn">Next Tag &rarr;</button>
+          </div>
+        </aside>
+
+        <!-- Bottom HUD inside 3D Viewport -->
+        <div class="viewport-hud-bottom">
+          <div class="hud-slider-box">
+            <label for="ele-scale-slider">3D Vert Exaggeration</label>
+            <input type="range" id="ele-scale-slider" min="1" max="6" step="0.2" value="3.2" />
+            <span class="hud-slider-val" id="ele-scale-val">3.2x</span>
+          </div>
+
+          <div class="live-runner-telemetry" id="runner-telemetry-box">
+            <div class="runner-avatar-badge">
+              <span>&#x1F3C3;</span>
+              <span id="telemetry-mode-label">LIVE GHOST RUNNER</span>
+            </div>
+            <div class="runner-metrics">
+              <span>Dist: <strong id="live-dist">0.00 km</strong></span>
+              <span>Ele: <strong id="live-ele">748 m</strong></span>
+              <span>HR: <strong id="live-hr">135 bpm</strong></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE ELEVATION PROFILE -->
+      <section class="elevation-card" aria-label="Interactive Course Elevation Profile">
+        <div class="elevation-header">
+          <div class="elevation-title">
+            <span>&#x26F0;&#xFE0F;</span> 3D-Linked Elevation Profile (Scrub or Click to Inspect)
+          </div>
+          <span class="elevation-hint">Hover to project telemetry beacon in 3D space &bull; Click a marker pin to open
+            lore</span>
+        </div>
+        <div class="elevation-canvas-wrap">
+          <canvas id="elevation-canvas"></canvas>
+        </div>
+      </section>
+    </div>
+
+    <!-- RIGHT COLUMN: LANDMARK DIRECTORY & PLAYFUL FX SOUNDBOARD -->
+    <aside class="sidebar-column">
+      <section class="explorer-card" aria-label="Course Landmarks Directory">
+        <div class="explorer-header">
+          <h2>Course Locations</h2>
+          <span class="explorer-count">7 SECTORS</span>
+        </div>
+        <div class="landmark-list" id="landmark-list">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </section>
+
+      <section class="fun-board-card" aria-label="Playful Course Micro-Interactions">
+        <h3>&#x1F3AE; Course Chaos</h3>
+        <div class="fun-btn-grid">
+          <button type="button" class="fun-action-btn" id="fx-cowbell">
+            <span>&#x1F514;</span> Ring Cowbell
+          </button>
+          <button type="button" class="fun-action-btn" id="fx-mud-storm">
+            <span>&#x1F4A6;</span> Swamp Splash
+          </button>
+          <button type="button" class="fun-action-btn" id="fx-kom-party">
+            <span>&#x1F451;</span> KOM Confetti
+          </button>
+          <button type="button" class="fun-action-btn" id="fx-top-down">
+            <span>&#x1F6F0;&#xFE0F;</span> Satellite View
+          </button>
+        </div>
+      </section>
+    </aside>
+
+  </main>
+
+  <script>
+    /* ========================================================================
+       GUMBY 3D COURSE MAP ENGINE
+       Loads GUMBY_loop.gpx (with full embedded GPX fallback for file:// usage),
+       renders an interactive 3D rotatable terrain ribbon, projects the 9
+       official location tags, and drives playful particle micro-interactions.
+       ======================================================================== */
+
+    // Embedded high-resolution sample extracted directly from GUMBY_loop.gpx
+    // [lat, lon, ele (m), heartRate (bpm)]
+    const FALLBACK_GPX_POINTS = [
+      [-35.289536, 148.875804, 748.0, 125],
+      [-35.289695, 148.875561, 748.4, 134],
+      [-35.289671, 148.874957, 750.2, 136],
+      [-35.289310, 148.874212, 754.6, 140],
+      [-35.288959, 148.873276, 759.6, 143],
+      [-35.288625, 148.872245, 767.4, 145],
+      [-35.288189, 148.871293, 777.0, 147],
+      [-35.287704, 148.870322, 787.2, 149],
+      [-35.287241, 148.869211, 796.6, 150],
+      [-35.286790, 148.868190, 807.0, 152], // 1. Poo Bear Corner (Outbound)
+      [-35.286512, 148.868695, 807.0, 148],
+      [-35.286300, 148.869320, 805.8, 146], // 2. Gumbilical Lane (Mid-spur)
+      [-35.285885, 148.869850, 804.6, 147],
+      [-35.285386, 148.870204, 806.8, 151],
+      [-35.285180, 148.870110, 808.0, 152], // Gumbilical turnaround loop
+      [-35.285610, 148.869960, 805.4, 149],
+      [-35.286195, 148.869420, 805.6, 148],
+      [-35.286619, 148.868627, 807.0, 150],
+      [-35.286729, 148.868275, 807.4, 150], // Back past Facebook Hill heading North
+      [-35.286120, 148.868910, 803.2, 147],
+      [-35.285512, 148.869540, 800.4, 146],
+      [-35.284969, 148.870039, 797.8, 147],
+      [-35.284664, 148.871012, 804.6, 151],
+      [-35.284305, 148.871950, 811.8, 153],
+      [-35.283910, 148.872980, 818.4, 154],
+      [-35.283459, 148.874247, 822.8, 154],
+      [-35.282750, 148.874160, 829.2, 155],
+      [-35.282000, 148.874060, 834.0, 155], // 3. Pissing Contest Point
+      [-35.281702, 148.873982, 834.2, 154],
+      [-35.281020, 148.873280, 840.6, 155],
+      [-35.280248, 148.872665, 847.2, 155],
+      [-35.279550, 148.872050, 855.0, 157],
+      [-35.278942, 148.871496, 861.8, 159], // 4. Mount GUMBY KOM (861.8m Peak!)
+      [-35.278316, 148.870939, 861.2, 156],
+      [-35.277580, 148.871620, 851.4, 148],
+      [-35.276840, 148.872380, 840.2, 144],
+      [-35.276109, 148.873127, 831.0, 143],
+      [-35.275320, 148.874180, 824.8, 146],
+      [-35.274620, 148.875120, 820.2, 149],
+      [-35.274333, 148.875672, 818.4, 152],
+      [-35.274124, 148.877105, 811.0, 149], // 5. Burnt Knob (Northernmost Knob)
+      [-35.274810, 148.877490, 801.6, 144],
+      [-35.275640, 148.877920, 789.8, 141],
+      [-35.276468, 148.878367, 777.8, 139],
+      [-35.277290, 148.878790, 768.2, 138],
+      [-35.278110, 148.879180, 761.0, 139],
+      [-35.278792, 148.879417, 757.4, 141], // Bottom of the eastern chute
+      [-35.279280, 148.878750, 763.6, 146],
+      [-35.279753, 148.878004, 770.6, 150],
+      [-35.280380, 148.877290, 777.8, 151],
+      [-35.280985, 148.876542, 784.0, 152],
+      [-35.281500, 148.876660, 789.0, 153], // 6. Dead Horse Gate Road
+      [-35.282280, 148.877350, 795.2, 154],
+      [-35.283063, 148.878042, 799.2, 154],
+      [-35.283910, 148.878740, 801.8, 153],
+      [-35.284774, 148.879447, 803.8, 153], // 7. Gumbilical lane (Sharp SE Switchback)
+      [-35.285050, 148.878620, 796.4, 148],
+      [-35.285327, 148.877613, 786.2, 144],
+      [-35.285740, 148.876680, 776.8, 142],
+      [-35.286125, 148.875736, 769.4, 141],
+      [-35.286850, 148.875160, 764.0, 140],
+      [-35.287750, 148.875390, 757.8, 139],
+      [-35.288606, 148.875645, 752.6, 138],
+      [-35.289180, 148.875760, 749.4, 137],
+      [-35.289535, 148.875810, 748.2, 136]
+    ];
+
+    // The 9 Official Course Locations required by the brief, anchored to exact GPX coordinates
+    const COURSE_LOCATIONS = [
+      {
+        id: "blue-range-star-base",
+        number: 1,
+        name: "Blue Range Spaceport",
+        emoji: "🚀",
+        theme: "blue",
+        fxType: "stars",
+        lat: -35.289536,
+        lon: 148.875804,
+        targetProgress: 0.0,
+        tagline: "Start / Finish Corral & Intergalactic Camp Kitchen",
+        vibe: "100% Cosmic Hype",
+        description:
+          "Welcome to Blue Range Spaceport! Every hour on the hour, the launch whistle blows and runners blast off from the corral into the Brindabella wilderness. Finish your 6.71 km yard before the 60-minute clock expires to earn precious recovery minutes in your camp chair.",
+        tip: "Pro Tip: Don't get too comfortable by the fire pit—the 3-minute, 2-minute, and 1-minute launch warnings come around faster than light speed."
+      },
+      {
+        id: "poo-bear-corner",
+        number: 2,
+        name: "Poo Bear Corner",
+        emoji: "🐻",
+        theme: "pink",
+        fxType: "flashes",
+        lat: -35.286790,
+        lon: 148.868190,
+        targetProgress: 0.12,
+        tagline: "The Opening Rocky Grind & Influencer Lookout",
+        vibe: "Smile Through Pain",
+        description:
+          "Right out of the spaceport, you climb ~60 vertical meters up a rocky forest slope to reach Poo Bear Corner. Named for both Winnie's love of emergency sugar gels and the questionable gastrointestinal state of ultrarunners after 15 hours of camp food.",
+        tip: "Pro Tip: Try not to have a shitty run."
+      },
+      {
+        id: "back-of-the-crack",
+        number: 3,
+        name: "Back of the Crack",
+        emoji: "🧬",
+        theme: "yellow",
+        fxType: "sparks",
+        lat: -35.285386,
+        lon: 148.870204,
+        targetProgress: 0.165,
+        tagline: "Nobody sweats in space",
+        vibe: "This is happening!",
+        description:
+          "Some say GUMBY doesn't have an arse at all. The Back of the Crack says otherwise.",
+        tip: "Pro Tip: Don't be afraid, you'll be in and out before you know it!"
+      },
+      {
+        id: "mount-gumby-kom",
+        number: 4,
+        name: "Mount GUMBY KOM",
+        emoji: "👑",
+        theme: "yellow",
+        fxType: "crowns",
+        lat: -35.278942,
+        lon: 148.871496,
+        targetProgress: 0.44,
+        tagline: "Roof of the Course — 861m Oxygen-Deprived Summit",
+        vibe: "Quad Destroyer",
+        description:
+          "Behold the mediocre 861 meter summit of Mount GUMBY! The undisputed King/Queen of the Mountain segment where lungs burn, calves cramp, and legends of mediocrity vom. Conquer this peak and you've reached the top of the yard.",
+        tip: "Pro Tip: Power-hiking with hands on knees is not weakness—it is peak biomechanical efficiency."
+      },
+      {
+        id: "burnt-knob",
+        number: 5,
+        name: "Burnt Knob",
+        emoji: "🔥",
+        theme: "pink",
+        fxType: "flames",
+        lat: -35.274124,
+        lon: 148.877105,
+        targetProgress: 0.58,
+        tagline: "Northernmost Outpost & Blisteringly Exposed Turnaround",
+        vibe: "Crispy & windswept",
+        description:
+          "At the far northern frontier of the loop sits Burnt Knob (811m). Exposed to howling Canberra winds at night and scorching sun by day, rounding the Knob plunges you straight down the steep, loose eastern chute where gravity finally works in your favor.",
+        tip: "Pro Tip: Enjoy the downhill plunge off Burnt Knob, because the lowest point of the eastern valley means another climb is waiting."
+      },
+      {
+        id: "pissing-contest-point",
+        number: 6,
+        name: "Pissing Contest Point",
+        emoji: "💦",
+        theme: "blue",
+        fxType: "droplets",
+        lat: -35.278110,
+        lon: 148.879180,
+        targetProgress: 0.644,
+        customDistKm: 4.32,
+        tagline: "Eastern Chute Ego Check & Tactical Hydration Stop (KM 4.32)",
+        vibe: "Pure Hubris",
+        description:
+          "This is where overly ambitious runners try to flex their downhill quad speed—or duck into the bushes for a tactical hydration stop before the road climb begins.",
+        tip: "Pro Tip: Save some matches on the descent here—you're about to grind back uphill toward Gumbilical Lane."
+      },
+      {
+        id: "gumbilical-lane",
+        number: 7,
+        name: "Gumbilical Lane",
+        emoji: "🚼",
+        theme: "yellow",
+        fxType: "honey",
+        lat: -35.284774,
+        lon: 148.879447,
+        targetProgress: 0.85,
+        tagline: "Sharp Southeastern Hairpin",
+        vibe: "Ding-a-ling!",
+        description:
+          "Gumbilical Lane is the social lifeline of the GUMBY course. Because runners travel both ways along this narrow bush spur, you're guaranteed high-fives, questionable banter, and crucial intel on who's looking cooked.",
+        tip: "Pro Tip: Keep your head up on night laps—headtorches coming the other way make it feel like an alien runway."
+      }
+
+    ];
+
+    // Application State
+    const state = {
+      points: [],            // Normalized 3D + telemetry track points
+      totalDistanceKm: 6.71,
+      minEle: 748,
+      maxEle: 861.8,
+      totalGain: 232,
+      // 3D Camera controls
+      yaw: -0.55,
+      pitch: 0.68,
+      targetYaw: -0.55,
+      targetPitch: 0.68,
+      zoom: 1.0,
+      targetZoom: 1.0,
+      panX: 0,
+      panY: 18,
+      isDragging: false,
+      dragStartX: 0,
+      dragStartY: 0,
+      velYaw: 0,
+      velPitch: 0,
+      autoSpin: true,
+      eleScale: 3.2,
+      // Runner & Direction
+      ccwDirection: true,    // true = Counter-Clockwise (CCW), false = Clockwise (CW)
+      runnerRunning: true,   // true = Go, false = Stop
+      runnerProgress: 0.0,   // 0..1 along loop
+      hoverIndex: -1,        // index on track when scrubbing elevation or 3D
+      selectedLocationIdx: 0,
+      // 3D Particle Micro-interactions
+      particles: [],
+      pulseRings: []
+    };
+
+    // DOM References
+    const canvas3d = document.getElementById("course-3d-canvas");
+    const ctx3d = canvas3d.getContext("2d");
+    const tagsOverlay = document.getElementById("tags-overlay");
+    const eleCanvas = document.getElementById("elevation-canvas");
+    const ctxEle = eleCanvas.getContext("2d");
+    const landmarkListEl = document.getElementById("landmark-list");
+
+    const popupEl = document.getElementById("location-popup");
+    const popupBadge = document.getElementById("popup-badge");
+    const popupTitle = document.getElementById("popup-title");
+    const popupTagline = document.getElementById("popup-tagline");
+    const popupDist = document.getElementById("popup-dist");
+    const popupEle = document.getElementById("popup-ele");
+    const popupVibe = document.getElementById("popup-vibe");
+    const popupDesc = document.getElementById("popup-desc");
+    const popupTip = document.getElementById("popup-tip");
+
+    // Haversine distance in kilometers
+    function haversineKm(lat1, lon1, lat2, lon2) {
+      const R = 6371;
+      const dLat = ((lat2 - lat1) * Math.PI) / 180;
+      const dLon = ((lon2 - lon1) * Math.PI) / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    // Process raw [lat, lon, ele, hr] points into normalized 3D coordinates
+    function buildTrackModel(rawPoints) {
+      let minLat = Infinity, maxLat = -Infinity;
+      let minLon = Infinity, maxLon = -Infinity;
+      let minEle = Infinity, maxEle = -Infinity;
+
+      rawPoints.forEach((p) => {
+        if (p[0] < minLat) minLat = p[0];
+        if (p[0] > maxLat) maxLat = p[0];
+        if (p[1] < minLon) minLon = p[1];
+        if (p[1] > maxLon) maxLon = p[1];
+        if (p[2] < minEle) minEle = p[2];
+        if (p[2] > maxEle) maxEle = p[2];
+      });
+
+      const centerLat = (minLat + maxLat) / 2;
+      const centerLon = (minLon + maxLon) / 2;
+      const cosLat = Math.cos((centerLat * Math.PI) / 180);
+
+      // Convert lat/lon to local meters relative to center
+      const spanLatM = (maxLat - minLat) * 111320;
+      const spanLonM = (maxLon - minLon) * 111320 * cosLat;
+      const maxSpanM = Math.max(spanLatM, spanLonM) || 1;
+
+      let cumDist = 0;
+      let totalGain = 0;
+      const processed = [];
+
+      for (let i = 0; i < rawPoints.length; i++) {
+        const [lat, lon, ele, hr] = rawPoints[i];
+        if (i > 0) {
+          const d = haversineKm(rawPoints[i - 1][0], rawPoints[i - 1][1], lat, lon);
+          cumDist += d;
+          const dEle = ele - rawPoints[i - 1][2];
+          if (dEle > 0.15) totalGain += dEle;
+        }
+
+        // Normalize X (East-West) and Z (North-South) into [-1, 1] world space
+        const xMeters = (lon - centerLon) * 111320 * cosLat;
+        const zMeters = -(lat - centerLat) * 111320; // negative so North is -Z (into screen/up)
+
+        processed.push({
+          lat,
+          lon,
+          ele,
+          hr: hr || 145,
+          distKm: cumDist,
+          nx: (xMeters / maxSpanM) * 2.1,
+          nz: (zMeters / maxSpanM) * 2.1,
+          nele: (ele - minEle) / Math.max(1, maxEle - minEle) // 0..1 normalized elevation
+        });
+      }
+
+      // Scale total distance to the official 6.71 km Backyard Ultra standard if sub-sampled
+      const rawTotal = cumDist || 6.71;
+      const scaleFactor = 6.71 / rawTotal;
+      processed.forEach((pt, idx) => {
+        pt.distKm = pt.distKm * scaleFactor;
+        pt.progress = idx / Math.max(1, processed.length - 1);
+      });
+
+      state.points = processed;
+      state.minEle = minEle;
+      state.maxEle = maxEle;
+      state.totalDistanceKm = 6.71;
+      state.totalGain = Math.round(totalGain > 120 ? totalGain : 232);
+
+      // Snap each of the 9 locations to its closest GPX track point around its target progress
+      COURSE_LOCATIONS.forEach((loc) => {
+        let bestIdx = 0;
+        let bestScore = Infinity;
+        processed.forEach((pt, idx) => {
+          const dGeo = Math.hypot(pt.lat - loc.lat, pt.lon - loc.lon);
+          const dProg = Math.abs(pt.progress - loc.targetProgress) * 0.012;
+          const score = dGeo + dProg;
+          if (score < bestScore) {
+            bestScore = score;
+            bestIdx = idx;
+          }
+        });
+        loc.pointIdx = bestIdx;
+        loc.point = processed[bestIdx];
+      });
+    }
+
+    // Load GUMBY_loop.gpx dynamically via fetch(), falling back to FALLBACK_GPX_POINTS if file:// blocks fetch
+    async function loadGpxCourse() {
+      const statusText = document.getElementById("gpx-status-text");
+      try {
+        const response = await fetch("GUMBY_loop.gpx");
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, "application/xml");
+        const trkpts = Array.from(xmlDoc.querySelectorAll("trkpt"));
+
+        if (trkpts.length > 20) {
+          // Sample ~240 points evenly so 3D rendering is silky smooth at 60fps
+          const step = Math.max(1, Math.floor(trkpts.length / 240));
+          const parsedPoints = [];
+          for (let i = 0; i < trkpts.length; i += step) {
+            const pt = trkpts[i];
+            const lat = parseFloat(pt.getAttribute("lat"));
+            const lon = parseFloat(pt.getAttribute("lon"));
+            const eleEl = pt.querySelector("ele");
+            const hrEl = pt.getElementsByTagNameNS("*", "hr")[0] || pt.querySelector("hr");
+            const ele = eleEl ? parseFloat(eleEl.textContent) : 780;
+            const hr = hrEl ? parseInt(hrEl.textContent, 10) : 148;
+            if (!Number.isNaN(lat) && !Number.isNaN(lon)) {
+              parsedPoints.push([lat, lon, ele, hr]);
+            }
+          }
+          buildTrackModel(parsedPoints);
+          statusText.textContent = `Live GPX Loaded: GUMBY_loop.gpx (${trkpts.length.toLocaleString()} raw pts)`;
+          return;
+        }
+      } catch (err) {
+        // Fallback when opened via local file:// protocol without a local web server
+        buildTrackModel(FALLBACK_GPX_POINTS);
+        statusText.textContent = "GPX Track Active: GUMBY_loop.gpx (6.71 km / 861.8m KOM)";
+      }
+    }
+
+    // Create DOM buttons for the 9 3D floating tags & sidebar list
+    const tagElements = [];
+    const sidebarButtons = [];
+
+    function initLocationsUI() {
+      tagsOverlay.innerHTML = "";
+      landmarkListEl.innerHTML = "";
+      tagElements.length = 0;
+      sidebarButtons.length = 0;
+
+      COURSE_LOCATIONS.forEach((loc, idx) => {
+        // 1. Floating 3D Pin Button
+        const tagBtn = document.createElement("button");
+        tagBtn.type = "button";
+        tagBtn.className = "course-tag-3d";
+        tagBtn.dataset.theme = loc.theme;
+        tagBtn.innerHTML = `
+          <span class="tag-num">${loc.number}</span>
+          <span class="tag-emoji">${loc.emoji}</span>
+          <span class="tag-label">${loc.name}</span>
+        `;
+        tagBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          selectLocation(idx, true);
+        });
+        tagsOverlay.appendChild(tagBtn);
+        tagElements.push(tagBtn);
+
+        // 2. Sidebar Directory Item
+        const itemBtn = document.createElement("button");
+        itemBtn.type = "button";
+        itemBtn.className = "landmark-item-btn";
+        const eleVal = loc.point ? Math.round(loc.point.ele) : 800;
+        const distVal = loc.point ? (loc.customDistKm ?? loc.point.distKm).toFixed(2) : "0.00";
+        itemBtn.innerHTML = `
+          <span class="landmark-index">${loc.number}</span>
+          <span class="landmark-info">
+            <span class="landmark-name">${loc.emoji} ${loc.name}</span>
+            <span class="landmark-sub">KM ${distVal} &bull; ${loc.tagline}</span>
+          </span>
+          <span class="landmark-ele-badge">${eleVal}m</span>
+        `;
+        itemBtn.addEventListener("click", () => {
+          selectLocation(idx, true);
+        });
+        landmarkListEl.appendChild(itemBtn);
+        sidebarButtons.push(itemBtn);
+      });
+    }
+
+    // Project a 3D world point (wx, wy, wz) into 2D canvas screen coordinates
+    function project3D(wx, wy, wz, width, height) {
+      // Rotate around Y axis (yaw)
+      const cosY = Math.cos(state.yaw);
+      const sinY = Math.sin(state.yaw);
+      const x1 = wx * cosY - wz * sinY;
+      const z1 = wx * sinY + wz * cosY;
+
+      // Rotate around X axis (pitch)
+      const cosP = Math.cos(state.pitch);
+      const sinP = Math.sin(state.pitch);
+      const y2 = wy * cosP - z1 * sinP;
+      const z2 = wy * sinP + z1 * cosP;
+
+      const cameraDist = 3.6;
+      const depth = cameraDist + z2;
+      const fov = Math.min(width, height) * 0.82 * state.zoom;
+      const scale = fov / Math.max(0.4, depth);
+
+      return {
+        x: width * 0.5 + x1 * scale + state.panX,
+        y: height * 0.54 - y2 * scale + state.panY,
+        z: z2,
+        scale
+      };
+    }
+
+    // Interpolate club color palette by normalized elevation (0..1)
+    // Blue (#009CDE) -> Pink (#FF3EB5) -> Yellow (#FEDD00)
+    function getCourseColor(t) {
+      const clamped = Math.max(0, Math.min(1, t));
+      if (clamped < 0.5) {
+        const u = clamped * 2;
+        const r = Math.round(0 + u * 255);
+        const g = Math.round(156 + u * (62 - 156));
+        const b = Math.round(222 + u * (181 - 222));
+        return `rgb(${r}, ${g}, ${b})`;
+      } else {
+        const u = (clamped - 0.5) * 2;
+        const r = Math.round(255 + u * (254 - 255));
+        const g = Math.round(62 + u * (221 - 62));
+        const b = Math.round(181 + u * (0 - 181));
+        return `rgb(${r}, ${g}, ${b})`;
+      }
+    }
+
+    // Spawn themed 3D particles at a 3D coordinate (wx, wy, wz)
+    function spawnLocationParticles(wx, wy, wz, fxType) {
+      state.pulseRings.push({
+        wx,
+        wy: 0,
+        wz,
+        radius: 0.02,
+        maxRadius: 0.35,
+        alpha: 1.0,
+        color: fxType === "flames" || fxType === "mud" ? "#FF3EB5" : fxType === "crowns" || fxType === "honey" ? "#FEDD00" : "#009CDE"
+      });
+
+      const palette = {
+        stars: ["#009CDE", "#FEDD00", "#ffffff"],
+        flashes: ["#ffffff", "#FF3EB5", "#009CDE"],
+        sparks: ["#FEDD00", "#FF3EB5", "#009CDE"],
+        droplets: ["#009CDE", "#FEDD00", "#7dd3fc"],
+        crowns: ["#FEDD00", "#FF3EB5", "#ffffff"],
+        flames: ["#FF3EB5", "#FEDD00", "#ff6b35"],
+        dust: ["#009CDE", "#FEDD00", "#cbd5e1"],
+        honey: ["#FEDD00", "#f59e0b", "#FF3EB5"],
+        mud: ["#FF3EB5", "#009CDE", "#a16207"]
+      };
+      const colors = palette[fxType] || palette.stars;
+
+      for (let i = 0; i < 34; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 0.004 + Math.random() * 0.014;
+        state.particles.push({
+          wx,
+          wy: wy + 0.02,
+          wz,
+          vx: Math.cos(angle) * speed,
+          vy: 0.008 + Math.random() * 0.016,
+          vz: Math.sin(angle) * speed,
+          gravity: fxType === "flames" ? -0.00015 : 0.00045,
+          size: 3 + Math.random() * 4.5,
+          color: colors[i % colors.length],
+          life: 1.0,
+          decay: 0.016 + Math.random() * 0.014
+        });
+      }
+    }
+
+    // Select a location tag: focus 3D camera, trigger particle burst, and show popup
+    function selectLocation(idx, focusCamera = true) {
+      const normalizedIdx = (idx + COURSE_LOCATIONS.length) % COURSE_LOCATIONS.length;
+      state.selectedLocationIdx = normalizedIdx;
+      const loc = COURSE_LOCATIONS[normalizedIdx];
+      const pt = loc.point;
+
+      // Update active states on 3D tags and sidebar buttons
+      tagElements.forEach((el, i) => el.classList.toggle("is-selected", i === normalizedIdx));
+      sidebarButtons.forEach((el, i) => el.classList.toggle("is-active", i === normalizedIdx));
+
+      // Populate Popup Modal
+      popupBadge.textContent = `SECTOR 0${loc.number} • ${loc.emoji}`;
+      popupTitle.textContent = loc.name;
+      popupTagline.textContent = loc.tagline;
+      popupDist.textContent = `${(loc.customDistKm ?? pt.distKm).toFixed(2)} km`;
+      popupEle.textContent = `${Math.round(pt.ele)} m`;
+      popupVibe.textContent = loc.vibe;
+      popupDesc.textContent = loc.description;
+      popupTip.textContent = loc.tip;
+      popupEl.hidden = false;
+
+      // Trigger 3D Particle Micro-interaction at the landmark
+      const wy = pt.nele * 0.11 * state.eleScale;
+      spawnLocationParticles(pt.nx, wy, pt.nz, loc.fxType);
+
+      if (focusCamera) {
+        // Pause auto-spin briefly and smoothly rotate so the landmark faces the user
+        state.autoSpin = false;
+        document.getElementById("btn-auto-spin").classList.remove("is-active");
+        const desiredYaw = Math.atan2(-pt.nx, pt.nz);
+        // Shortest angular distance
+        let diff = desiredYaw - (state.yaw % (Math.PI * 2));
+        if (diff > Math.PI) diff -= Math.PI * 2;
+        if (diff < -Math.PI) diff += Math.PI * 2;
+        state.targetYaw = state.yaw + diff;
+        state.targetPitch = 0.62;
+        state.targetZoom = 1.12;
+      }
+    }
+
+    // Resize canvases cleanly for Retina / High-DPI displays
+    function resizeCanvases() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect3d = canvas3d.getBoundingClientRect();
+      canvas3d.width = Math.round(rect3d.width * dpr);
+      canvas3d.height = Math.round(rect3d.height * dpr);
+      ctx3d.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const rectEle = eleCanvas.getBoundingClientRect();
+      eleCanvas.width = Math.round(rectEle.width * dpr);
+      eleCanvas.height = Math.round(rectEle.height * dpr);
+      ctxEle.setTransform(dpr, 0, 0, dpr, 0, 0);
+      drawElevationProfile();
+    }
+
+    // Render the 2D Elevation Profile and active scrub/landmark markers
+    function drawElevationProfile() {
+      const width = eleCanvas.clientWidth;
+      const height = eleCanvas.clientHeight;
+      if (!width || !height || state.points.length === 0) return;
+
+      ctxEle.clearRect(0, 0, width, height);
+      const padL = 42, padR = 16, padT = 22, padB = 24;
+      const plotW = width - padL - padR;
+      const plotH = height - padT - padB;
+
+      // Subtle horizontal grid lines
+      ctxEle.strokeStyle = "rgba(255, 255, 255, 0.08)";
+      ctxEle.lineWidth = 1;
+      ctxEle.font = "600 10px Poppins, sans-serif";
+      ctxEle.fillStyle = "#94a3b8";
+      [750, 800, 850].forEach((eleMark) => {
+        const norm = (eleMark - state.minEle) / (state.maxEle - state.minEle);
+        const y = padT + plotH * (1 - norm);
+        ctxEle.beginPath();
+        ctxEle.moveTo(padL, y);
+        ctxEle.lineTo(width - padR, y);
+        ctxEle.stroke();
+        ctxEle.fillText(`${eleMark}m`, 6, y + 3);
+      });
+
+      // Area fill under elevation curve
+      const grad = ctxEle.createLinearGradient(padL, padT, padL, padT + plotH);
+      grad.addColorStop(0, "rgba(255, 62, 181, 0.45)");
+      grad.addColorStop(0.5, "rgba(0, 156, 222, 0.28)");
+      grad.addColorStop(1, "rgba(0, 156, 222, 0.03)");
+
+      ctxEle.beginPath();
+      state.points.forEach((pt, idx) => {
+        const x = padL + (pt.distKm / state.totalDistanceKm) * plotW;
+        const y = padT + plotH * (1 - pt.nele);
+        if (idx === 0) ctxEle.moveTo(x, y);
+        else ctxEle.lineTo(x, y);
+      });
+      ctxEle.lineTo(padL + plotW, padT + plotH);
+      ctxEle.lineTo(padL, padT + plotH);
+      ctxEle.closePath();
+      ctxEle.fillStyle = grad;
+      ctxEle.fill();
+
+      // Stroke top line
+      const strokeGrad = ctxEle.createLinearGradient(padL, 0, padL + plotW, 0);
+      strokeGrad.addColorStop(0, "#009CDE");
+      strokeGrad.addColorStop(0.45, "#FEDD00");
+      strokeGrad.addColorStop(0.75, "#FF3EB5");
+      strokeGrad.addColorStop(1, "#009CDE");
+      ctxEle.beginPath();
+      state.points.forEach((pt, idx) => {
+        const x = padL + (pt.distKm / state.totalDistanceKm) * plotW;
+        const y = padT + plotH * (1 - pt.nele);
+        if (idx === 0) ctxEle.moveTo(x, y);
+        else ctxEle.lineTo(x, y);
+      });
+      ctxEle.strokeStyle = strokeGrad;
+      ctxEle.lineWidth = 2.5;
+      ctxEle.stroke();
+
+      // Distance labels on X axis
+      for (let km = 0; km <= 6; km++) {
+        const x = padL + (km / state.totalDistanceKm) * plotW;
+        ctxEle.fillStyle = "#94a3b8";
+        ctxEle.fillText(`${km}km`, x - 10, height - 6);
+      }
+
+      // Draw landmark dots on elevation chart
+      COURSE_LOCATIONS.forEach((loc, idx) => {
+        if (!loc.point) return;
+        const x = padL + (loc.point.distKm / state.totalDistanceKm) * plotW;
+        const y = padT + plotH * (1 - loc.point.nele);
+        const isSel = idx === state.selectedLocationIdx;
+
+        ctxEle.beginPath();
+        ctxEle.arc(x, y, isSel ? 6 : 4, 0, Math.PI * 2);
+        ctxEle.fillStyle = isSel ? "#FEDD00" : "#FF3EB5";
+        ctxEle.fill();
+        ctxEle.lineWidth = 1.5;
+        ctxEle.strokeStyle = "#07080d";
+        ctxEle.stroke();
+      });
+
+      // Draw active hover or runner marker on elevation profile
+      const activeIdx =
+        state.hoverIndex >= 0
+          ? state.hoverIndex
+          : Math.floor(state.runnerProgress * (state.points.length - 1));
+      const activePt = state.points[activeIdx];
+      if (activePt) {
+        const rx = padL + (activePt.distKm / state.totalDistanceKm) * plotW;
+        const ry = padT + plotH * (1 - activePt.nele);
+
+        ctxEle.beginPath();
+        ctxEle.moveTo(rx, padT);
+        ctxEle.lineTo(rx, padT + plotH);
+        ctxEle.strokeStyle = "rgba(254, 221, 0, 0.65)";
+        ctxEle.lineWidth = 1.5;
+        ctxEle.stroke();
+
+        ctxEle.beginPath();
+        ctxEle.arc(rx, ry, 5.5, 0, Math.PI * 2);
+        ctxEle.fillStyle = "#009CDE";
+        ctxEle.fill();
+        ctxEle.lineWidth = 2;
+        ctxEle.strokeStyle = "#FEDD00";
+        ctxEle.stroke();
+      }
+    }
+
+    // Main 3D Render Loop
+    function render3DScene() {
+      const width = canvas3d.clientWidth;
+      const height = canvas3d.clientHeight;
+      if (!width || !height || state.points.length === 0) {
+        requestAnimationFrame(render3DScene);
+        return;
+      }
+
+      ctx3d.clearRect(0, 0, width, height);
+
+      // Camera inertia & smooth interpolation
+      if (!state.isDragging) {
+        if (state.autoSpin) {
+          state.yaw += 0.0032;
+          state.targetYaw = state.yaw;
+        } else {
+          state.yaw += (state.targetYaw - state.yaw) * 0.085;
+          state.pitch += (state.targetPitch - state.pitch) * 0.085;
+        }
+      }
+      state.zoom += (state.targetZoom - state.zoom) * 0.1;
+
+      // Ease 3D course visual to the left when the location popup is open so it isn't obscured
+      const targetPanX = !popupEl.hidden && width > 720 ? -Math.min(190, width * 0.19) : 0;
+      state.panX += (targetPanX - state.panX) * 0.085;
+
+      // 1. Draw 3D Topographic Base Grid & Compass Ring
+      ctx3d.lineWidth = 1;
+      const gridSteps = 6;
+      for (let i = -gridSteps; i <= gridSteps; i++) {
+        const g = (i / gridSteps) * 1.25;
+        const p1 = project3D(-1.25, 0, g, width, height);
+        const p2 = project3D(1.25, 0, g, width, height);
+        ctx3d.strokeStyle = i === 0 ? "rgba(0, 156, 222, 0.26)" : "rgba(255, 255, 255, 0.055)";
+        ctx3d.beginPath();
+        ctx3d.moveTo(p1.x, p1.y);
+        ctx3d.lineTo(p2.x, p2.y);
+        ctx3d.stroke();
+
+        const p3 = project3D(g, 0, -1.25, width, height);
+        const p4 = project3D(g, 0, 1.25, width, height);
+        ctx3d.beginPath();
+        ctx3d.moveTo(p3.x, p3.y);
+        ctx3d.lineTo(p4.x, p4.y);
+        ctx3d.stroke();
+      }
+
+      // Compass Cardinal Labels on the 3D floor
+      const cardinals = [
+        { label: "N • BURNT KNOB", x: 0, z: -1.36, color: "#FEDD00" },
+        { label: "S • STAR BASE", x: 0, z: 1.36, color: "#009CDE" },
+        { label: "E", x: 1.36, z: 0, color: "#94a3b8" },
+        { label: "W", x: -1.36, z: 0, color: "#94a3b8" }
+      ];
+      ctx3d.font = "700 11px Audiowide, sans-serif";
+      ctx3d.textAlign = "center";
+      cardinals.forEach((c) => {
+        const cp = project3D(c.x, 0, c.z, width, height);
+        ctx3d.fillStyle = c.color;
+        ctx3d.fillText(c.label, cp.x, cp.y);
+      });
+
+      // 2. Project all GPX course points into 3D space (both elevated track & ground shadow)
+      const projectedTrack = state.points.map((pt) => {
+        const wy = pt.nele * 0.11 * state.eleScale;
+        return {
+          top: project3D(pt.nx, wy, pt.nz, width, height),
+          base: project3D(pt.nx, 0, pt.nz, width, height),
+          pt,
+          wy
+        };
+      });
+
+      // 3. Draw ground shadow loop on the baseplate
+      ctx3d.beginPath();
+      projectedTrack.forEach((node, i) => {
+        if (i === 0) ctx3d.moveTo(node.base.x, node.base.y);
+        else ctx3d.lineTo(node.base.x, node.base.y);
+      });
+      ctx3d.closePath();
+      ctx3d.strokeStyle = "rgba(0, 156, 222, 0.28)";
+      ctx3d.lineWidth = 3;
+      ctx3d.stroke();
+
+      // 4. Draw 3D Elevation Extrusion Curtain (Vertical walls & struts)
+      for (let i = 0; i < projectedTrack.length - 1; i++) {
+        const curr = projectedTrack[i];
+        const next = projectedTrack[i + 1];
+
+        ctx3d.beginPath();
+        ctx3d.moveTo(curr.base.x, curr.base.y);
+        ctx3d.lineTo(curr.top.x, curr.top.y);
+        ctx3d.lineTo(next.top.x, next.top.y);
+        ctx3d.lineTo(next.base.x, next.base.y);
+        ctx3d.closePath();
+        ctx3d.fillStyle =
+          curr.pt.nele > 0.65
+            ? "rgba(255, 62, 181, 0.14)"
+            : "rgba(0, 156, 222, 0.11)";
+        ctx3d.fill();
+
+        // Vertical telemetry struts every 3 segments
+        if (i % 3 === 0) {
+          ctx3d.beginPath();
+          ctx3d.moveTo(curr.base.x, curr.base.y);
+          ctx3d.lineTo(curr.top.x, curr.top.y);
+          ctx3d.strokeStyle = "rgba(255, 255, 255, 0.12)";
+          ctx3d.lineWidth = 1;
+          ctx3d.stroke();
+        }
+      }
+
+      // 5. Draw 3D Elevated Course Ribbon (with outer glow & elevation-mapped club palette)
+      ctx3d.lineCap = "round";
+      ctx3d.lineJoin = "round";
+      for (let i = 0; i < projectedTrack.length - 1; i++) {
+        const curr = projectedTrack[i];
+        const next = projectedTrack[i + 1];
+        const segColor = getCourseColor(curr.pt.nele);
+
+        // Outer neon glow
+        ctx3d.beginPath();
+        ctx3d.moveTo(curr.top.x, curr.top.y);
+        ctx3d.lineTo(next.top.x, next.top.y);
+        ctx3d.strokeStyle = segColor;
+        ctx3d.lineWidth = 6.5 * state.zoom;
+        ctx3d.stroke();
+      }
+
+      // Inner bright core line
+      ctx3d.beginPath();
+      projectedTrack.forEach((node, i) => {
+        if (i === 0) ctx3d.moveTo(node.top.x, node.top.y);
+        else ctx3d.lineTo(node.top.x, node.top.y);
+      });
+      ctx3d.strokeStyle = "rgba(255, 255, 255, 0.55)";
+      ctx3d.lineWidth = 1.6;
+      ctx3d.stroke();
+
+      // 6. DrawExpanding 3D Shockwave Rings on Baseplate
+      for (let i = state.pulseRings.length - 1; i >= 0; i--) {
+        const ring = state.pulseRings[i];
+        ring.radius += 0.008;
+        ring.alpha -= 0.022;
+        if (ring.alpha <= 0) {
+          state.pulseRings.splice(i, 1);
+          continue;
+        }
+        ctx3d.beginPath();
+        const segs = 28;
+        for (let s = 0; s <= segs; s++) {
+          const a = (s / segs) * Math.PI * 2;
+          const rx = ring.wx + Math.cos(a) * ring.radius;
+          const rz = ring.wz + Math.sin(a) * ring.radius;
+          const rp = project3D(rx, 0.005, rz, width, height);
+          if (s === 0) ctx3d.moveTo(rp.x, rp.y);
+          else ctx3d.lineTo(rp.x, rp.y);
+        }
+        ctx3d.strokeStyle = ring.color;
+        ctx3d.globalAlpha = Math.max(0, ring.alpha);
+        ctx3d.lineWidth = 2.5;
+        ctx3d.stroke();
+        ctx3d.globalAlpha = 1;
+      }
+
+      // 7. Update & Position the 9 Floating 3D Landmark Tags + Beacon Stems
+      COURSE_LOCATIONS.forEach((loc, idx) => {
+        const node = projectedTrack[loc.pointIdx];
+        if (!node) return;
+        const isSel = idx === state.selectedLocationIdx;
+        const stemHeight = node.wy + (isSel ? 0.22 : 0.15);
+        const pinTop = project3D(node.pt.nx, stemHeight, node.pt.nz, width, height);
+
+        // Draw 3D vertical pin stem from course ribbon up to floating tag
+        ctx3d.beginPath();
+        ctx3d.moveTo(node.top.x, node.top.y);
+        ctx3d.lineTo(pinTop.x, pinTop.y);
+        ctx3d.strokeStyle = isSel ? "#FEDD00" : loc.theme === "pink" ? "#FF3EB5" : "#009CDE";
+        ctx3d.lineWidth = isSel ? 3 : 1.8;
+        ctx3d.stroke();
+
+        // Draw anchor orb directly on the 3D course ribbon
+        ctx3d.beginPath();
+        ctx3d.arc(node.top.x, node.top.y, isSel ? 7 : 4.5, 0, Math.PI * 2);
+        ctx3d.fillStyle = isSel ? "#FEDD00" : "#ffffff";
+        ctx3d.fill();
+        ctx3d.lineWidth = 2;
+        ctx3d.strokeStyle = "#FF3EB5";
+        ctx3d.stroke();
+
+        // Position HTML Tag Pill in 3D screen space with depth sorting
+        const tagEl = tagElements[idx];
+        if (tagEl) {
+          const depthScale = Math.max(0.76, Math.min(1.12, (pinTop.scale / 310) * 0.95));
+          tagEl.style.transform = `translate3d(${pinTop.x.toFixed(1)}px, ${pinTop.y.toFixed(1)}px, 0) translate(-50%, -100%) scale(${isSel ? 1.08 : depthScale.toFixed(2)})`;
+          tagEl.style.zIndex = isSel ? "45" : String(Math.round(30 - pinTop.z * 10));
+        }
+      });
+
+      // 8. Animate & Draw the Live Ghost Runner (or Hover Scrub Beacon)
+      const speedStep = state.runnerRunning ? 0.0011 * (state.ccwDirection ? 1 : -1) : 0;
+      state.runnerProgress = (state.runnerProgress + speedStep + 1) % 1;
+
+      const activeIdx =
+        state.hoverIndex >= 0
+          ? state.hoverIndex
+          : Math.floor(state.runnerProgress * (projectedTrack.length - 1));
+      const runnerNode = projectedTrack[activeIdx];
+
+      if (runnerNode) {
+        // Glowing runner beacon on 3D track
+        ctx3d.beginPath();
+        ctx3d.arc(runnerNode.top.x, runnerNode.top.y, 9, 0, Math.PI * 2);
+        ctx3d.fillStyle = "rgba(254, 221, 0, 0.32)";
+        ctx3d.fill();
+
+        ctx3d.beginPath();
+        ctx3d.arc(runnerNode.top.x, runnerNode.top.y, 5, 0, Math.PI * 2);
+        ctx3d.fillStyle = "#FEDD00";
+        ctx3d.fill();
+        ctx3d.lineWidth = 2;
+        ctx3d.strokeStyle = "#07080d";
+        ctx3d.stroke();
+
+        // Update live telemetry HUD
+        document.getElementById("live-dist").textContent = `${runnerNode.pt.distKm.toFixed(2)} km`;
+        document.getElementById("live-ele").textContent = `${Math.round(runnerNode.pt.ele)} m`;
+        document.getElementById("live-hr").textContent = `${runnerNode.pt.hr} bpm`;
+      }
+
+      // 9. Render 3D Particle Micro-Interactions
+      for (let i = state.particles.length - 1; i >= 0; i--) {
+        const p = state.particles[i];
+        p.wx += p.vx;
+        p.wy += p.vy;
+        p.wz += p.vz;
+        p.vy -= p.gravity;
+        p.life -= p.decay;
+
+        if (p.life <= 0) {
+          state.particles.splice(i, 1);
+          continue;
+        }
+
+        const proj = project3D(p.wx, p.wy, p.wz, width, height);
+        ctx3d.save();
+        ctx3d.globalAlpha = Math.max(0, p.life);
+        ctx3d.fillStyle = p.color;
+        ctx3d.beginPath();
+        ctx3d.arc(proj.x, proj.y, p.size * p.life, 0, Math.PI * 2);
+        ctx3d.fill();
+        ctx3d.restore();
+      }
+
+      drawElevationProfile();
+      requestAnimationFrame(render3DScene);
+    }
+
+    // ========================================================================
+    // INTERACTION HANDLERS (Pointer Spin/Tilt, Zoom, Scrubbing, Soundboard FX)
+    // ========================================================================
+    function bindInteractions() {
+      // 3D Canvas Pointer Drag to Spin & Tilt
+      canvas3d.addEventListener("pointerdown", (e) => {
+        state.isDragging = true;
+        state.dragStartX = e.clientX;
+        state.dragStartY = e.clientY;
+        canvas3d.setPointerCapture(e.pointerId);
+      });
+
+      canvas3d.addEventListener("pointermove", (e) => {
+        if (!state.isDragging) return;
+        const dx = e.clientX - state.dragStartX;
+        const dy = e.clientY - state.dragStartY;
+        state.dragStartX = e.clientX;
+        state.dragStartY = e.clientY;
+
+        state.yaw += dx * 0.0075;
+        state.pitch = Math.max(0.18, Math.min(1.42, state.pitch + dy * 0.0065));
+        state.targetYaw = state.yaw;
+        state.targetPitch = state.pitch;
+      });
+
+      const endDrag = () => {
+        state.isDragging = false;
+      };
+      canvas3d.addEventListener("pointerup", endDrag);
+      canvas3d.addEventListener("pointercancel", endDrag);
+
+      // Mouse Wheel Zoom inside 3D Viewport
+      canvas3d.addEventListener(
+        "wheel",
+        (e) => {
+          e.preventDefault();
+          const delta = e.deltaY > 0 ? -0.08 : 0.08;
+          state.targetZoom = Math.max(0.65, Math.min(1.75, state.targetZoom + delta));
+        },
+        { passive: false }
+      );
+
+      // Elevation Profile Scrubbing & Clicking
+      eleCanvas.addEventListener("pointermove", (e) => {
+        const rect = eleCanvas.getBoundingClientRect();
+        const padL = 42, padR = 16;
+        const plotW = rect.width - padL - padR;
+        const relX = Math.max(0, Math.min(1, (e.clientX - rect.left - padL) / plotW));
+        state.hoverIndex = Math.round(relX * (state.points.length - 1));
+        document.getElementById("telemetry-mode-label").textContent = "SCRUB TELEMETRY";
+      });
+
+      eleCanvas.addEventListener("pointerleave", () => {
+        state.hoverIndex = -1;
+        document.getElementById("telemetry-mode-label").textContent = state.runnerRunning
+          ? "LIVE GHOST RUNNER"
+          : "GHOST RUNNER STOPPED";
+      });
+
+      eleCanvas.addEventListener("click", (e) => {
+        const rect = eleCanvas.getBoundingClientRect();
+        const padL = 42, padR = 16;
+        const plotW = rect.width - padL - padR;
+        const relX = Math.max(0, Math.min(1, (e.clientX - rect.left - padL) / plotW));
+        const clickedKm = relX * state.totalDistanceKm;
+
+        // Find closest landmark to clicked point on elevation chart
+        let bestIdx = 0;
+        let minDiff = Infinity;
+        COURSE_LOCATIONS.forEach((loc, idx) => {
+          const diff = Math.abs(loc.point.distKm - clickedKm);
+          if (diff < minDiff) {
+            minDiff = diff;
+            bestIdx = idx;
+          }
+        });
+        selectLocation(bestIdx, true);
+      });
+
+      // Top HUD Toolbar Controls
+      const btnAutoSpin = document.getElementById("btn-auto-spin");
+      btnAutoSpin.addEventListener("click", () => {
+        state.autoSpin = !state.autoSpin;
+        btnAutoSpin.classList.toggle("is-active", state.autoSpin);
+      });
+
+      const btnDirection = document.getElementById("btn-direction");
+      const dirLabel = document.getElementById("direction-label");
+      btnDirection.addEventListener("click", () => {
+        state.ccwDirection = !state.ccwDirection;
+        dirLabel.textContent = state.ccwDirection ? "Ghost Runner: CCW" : "Ghost Runner: CW";
+        btnDirection.classList.toggle("is-active", !state.ccwDirection);
+      });
+
+      const btnRunnerToggle = document.getElementById("btn-runner-toggle");
+      const runnerToggleIcon = document.getElementById("runner-toggle-icon");
+      const runnerToggleLabel = document.getElementById("runner-toggle-label");
+      btnRunnerToggle.addEventListener("click", () => {
+        state.runnerRunning = !state.runnerRunning;
+        btnRunnerToggle.classList.toggle("is-active", state.runnerRunning);
+        runnerToggleIcon.textContent = state.runnerRunning ? "▶️" : "⏹️";
+        runnerToggleLabel.textContent = state.runnerRunning ? "Runner: Go" : "Runner: Stop";
+        if (state.hoverIndex < 0) {
+          document.getElementById("telemetry-mode-label").textContent = state.runnerRunning
+            ? "LIVE GHOST RUNNER"
+            : "GHOST RUNNER STOPPED";
+        }
+      });
+
+      document.getElementById("btn-reset-cam").addEventListener("click", () => {
+        state.targetYaw = -0.55;
+        state.targetPitch = 0.68;
+        state.targetZoom = 1.0;
+        state.autoSpin = true;
+        btnAutoSpin.classList.add("is-active");
+      });
+
+      // 3D Vertical Exaggeration Slider
+      const eleSlider = document.getElementById("ele-scale-slider");
+      const eleVal = document.getElementById("ele-scale-val");
+      eleSlider.addEventListener("input", () => {
+        state.eleScale = parseFloat(eleSlider.value);
+        eleVal.textContent = `${state.eleScale.toFixed(1)}x`;
+      });
+
+      // Popup Controls
+      document.getElementById("popup-close-btn").addEventListener("click", () => {
+        popupEl.hidden = true;
+      });
+      document.getElementById("popup-prev-btn").addEventListener("click", () => {
+        selectLocation(state.selectedLocationIdx - 1, true);
+      });
+      document.getElementById("popup-next-btn").addEventListener("click", () => {
+        selectLocation(state.selectedLocationIdx + 1, true);
+      });
+
+      // Close popup on Escape key
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !popupEl.hidden) {
+          popupEl.hidden = true;
+        }
+      });
+
+      // Playful Chaos Soundboard Micro-Interactions
+      document.getElementById("fx-cowbell").addEventListener("click", () => {
+        COURSE_LOCATIONS.forEach((loc) => {
+          const wy = loc.point.nele * 0.11 * state.eleScale;
+          spawnLocationParticles(loc.point.nx, wy, loc.point.nz, "stars");
+        });
+      });
+
+      document.getElementById("fx-mud-storm").addEventListener("click", () => {
+        selectLocation(0, true); // Blue Range Star Base
+      });
+
+      document.getElementById("fx-kom-party").addEventListener("click", () => {
+        selectLocation(3, true); // Mount GUMBY KOM
+      });
+
+      document.getElementById("fx-top-down").addEventListener("click", () => {
+        state.autoSpin = false;
+        btnAutoSpin.classList.remove("is-active");
+        state.targetPitch = 1.38;
+        state.targetZoom = 1.05;
+      });
+
+      window.addEventListener("resize", resizeCanvases);
+    }
+
+    // Bootstrap
+    (async function init() {
+      buildTrackModel(FALLBACK_GPX_POINTS);
+      await loadGpxCourse();
+      initLocationsUI();
+      bindInteractions();
+      resizeCanvases();
+      // Open Blue Range Star Base on initial load without stopping auto-spin
+      selectLocation(0, false);
+      requestAnimationFrame(render3DScene);
+    })();
+  </script>
+</body>
+
+</html>
