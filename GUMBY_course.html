@@ -56,6 +56,14 @@
         </div>
       </div>
 
+      <!-- Mobile Hamburger Toggle Button -->
+      <button type="button" class="gumby-burger" id="gumby-burger-btn" aria-label="Toggle Navigation Menu"
+        aria-expanded="false" aria-controls="gumby-nav">
+        <span class="burger-line line1"></span>
+        <span class="burger-line line2"></span>
+        <span class="burger-line line3"></span>
+      </button>
+
       <div class="gumby-telemetry-bar">
         <div class="telemetry-stat" title="Standard Backyard Ultra Loop Distance">
           <span class="telemetry-label">Loop Distance</span>
@@ -69,12 +77,42 @@
           <span class="telemetry-label">Peak Altitude</span>
           <span class="telemetry-value" id="stat-peak">861.8 <span>m</span></span>
         </div>
-        <div class="telemetry-stat" title="9 Official Landmarks of Mediocrity">
+        <div class="telemetry-stat" title="Official Landmarks of Mediocrity">
           <span class="telemetry-label">Course Sectors</span>
-          <span class="telemetry-value">9 <span>tags</span></span>
+          <span class="telemetry-value">7 <span>tags</span></span>
         </div>
       </div>
     </div>
+
+    <!-- Primary Navigation Bar & Mobile Popup Menu -->
+    <div class="gumby-nav-backdrop" id="gumby-nav-backdrop" hidden></div>
+    <nav class="gumby-nav-bar" id="gumby-nav" aria-label="Course Page Navigation">
+      <div class="gumby-nav-inner">
+        <ul class="gumby-nav-links">
+          <li>
+            <a href="Great Ultra Mediocre Back Yarder.html" class="gumby-nav-link">
+              <span>&#x1F6F8;</span> GUMBY 27
+            </a>
+          </li>
+          <li>
+            <a href="index.html" class="gumby-nav-link">
+              <span>&#x1F3E0;</span> Ultra Mediocre Home
+            </a>
+          </li>
+          <li>
+            <a href="Event_policies.html" class="gumby-nav-link">
+              <span>&#x1F4DC;</span> Event Policies
+            </a>
+          </li>
+        </ul>
+
+        <div class="gumby-nav-actions">
+          <a href="GUMBY_loop.gpx" download="GUMBY_loop.gpx" class="gumby-gpx-download-btn js-download-gpx">
+            <span>&#x1F6F0;&#xFE0F;</span> Download GPX (GUMBY_loop.gpx)
+          </a>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <!-- MAIN 3D WORKSPACE -->
@@ -331,11 +369,11 @@
         lat: -35.286790,
         lon: 148.868190,
         targetProgress: 0.12,
-        tagline: "The Opening Rocky Grind & Influencer Lookout",
+        tagline: "The first turn, or the last!",
         vibe: "Smile Through Pain",
         description:
-          "Right out of the spaceport, you climb ~60 vertical meters up a rocky forest slope to reach Poo Bear Corner. Named for both Winnie's love of emergency sugar gels and the questionable gastrointestinal state of ultrarunners after 15 hours of camp food.",
-        tip: "Pro Tip: Try not to have a shitty run."
+          "This forest switch-back slope is known as Poo Bear Corner. Named for both Winnie's love of emergency honey gels and the gastrointestinal state of ultrarunners after 15 hours of camp food.",
+        tip: "Pro Tip: Lean in and embrace the shitty run."
       },
       {
         id: "back-of-the-crack",
@@ -347,11 +385,11 @@
         lat: -35.285386,
         lon: 148.870204,
         targetProgress: 0.165,
-        tagline: "Nobody sweats in space",
+        tagline: "Do black holes chafe at their event horizons?",
         vibe: "This is happening!",
         description:
-          "Some say GUMBY doesn't have an arse at all. The Back of the Crack says otherwise.",
-        tip: "Pro Tip: Don't be afraid, you'll be in and out before you know it!"
+          "Some say GUMBY doesn't have an arse at all. The Back of the Crack is a sweaty place. Don't be afraid, you'll be in and out before you know it.",
+        tip: "Pro Tip: Reapply the body glide!"
       },
       {
         id: "mount-gumby-kom",
@@ -363,11 +401,11 @@
         lat: -35.278942,
         lon: 148.871496,
         targetProgress: 0.44,
-        tagline: "Roof of the Course — 861m Oxygen-Deprived Summit",
+        tagline: "Roof of the course — 861m Oxygen-Deprived Summit",
         vibe: "Quad Destroyer",
         description:
-          "Behold the mediocre 861 meter summit of Mount GUMBY! The undisputed King/Queen of the Mountain segment where lungs burn, calves cramp, and legends of mediocrity vom. Conquer this peak and you've reached the top of the yard.",
-        tip: "Pro Tip: Power-hiking with hands on knees is not weakness—it is peak biomechanical efficiency."
+          "Behold the mediocre summit of Mount GUMBY! Conquer this peak and you've reached the top of the yard.",
+        tip: "Pro Tip: Don't fart in your space suit!"
       },
       {
         id: "burnt-knob",
@@ -379,11 +417,11 @@
         lat: -35.274124,
         lon: 148.877105,
         targetProgress: 0.58,
-        tagline: "Northernmost Outpost & Blisteringly Exposed Turnaround",
+        tagline: "Northernmost outpost & view of home planet",
         vibe: "Crispy & windswept",
         description:
-          "At the far northern frontier of the loop sits Burnt Knob (811m). Exposed to howling Canberra winds at night and scorching sun by day, rounding the Knob plunges you straight down the steep, loose eastern chute where gravity finally works in your favor.",
-        tip: "Pro Tip: Enjoy the downhill plunge off Burnt Knob, because the lowest point of the eastern valley means another climb is waiting."
+          "At the far northern frontier of the loop sits the exposed Burnt Knob (811m). Exposed to howling Canberra winds at night and scorching sun by day, round the Knob and you'll be on your way back to base.",
+        tip: "Pro Tip: Enjoy the plunge off Burnt Knob, because another climb is waiting."
       },
       {
         id: "pissing-contest-point",
@@ -396,11 +434,11 @@
         lon: 148.879180,
         targetProgress: 0.644,
         customDistKm: 4.32,
-        tagline: "Eastern Chute Ego Check & Tactical Hydration Stop (KM 4.32)",
+        tagline: "Eastern Chute Ego Check & Tactical Spray",
         vibe: "Pure Hubris",
         description:
-          "This is where overly ambitious runners try to flex their downhill quad speed—or duck into the bushes for a tactical hydration stop before the road climb begins.",
-        tip: "Pro Tip: Save some matches on the descent here—you're about to grind back uphill toward Gumbilical Lane."
+          "Name for the historic competition between Cosmonaut Midwife and Cosmonaut Burgur in the inaugural GUMBY who ran insync and stopped here every lap.",
+        tip: "Pro Tip: Don't let another cosmonaut put out that fire in your soul."
       },
       {
         id: "gumbilical-lane",
@@ -416,7 +454,7 @@
         vibe: "Ding-a-ling!",
         description:
           "Gumbilical Lane is the social lifeline of the GUMBY course. Because runners travel both ways along this narrow bush spur, you're guaranteed high-fives, questionable banter, and crucial intel on who's looking cooked.",
-        tip: "Pro Tip: Keep your head up on night laps—headtorches coming the other way make it feel like an alien runway."
+        tip: "Pro Tip: Keep your headlight up at night to look out for aliens."
       }
 
     ];
@@ -1313,10 +1351,64 @@
         selectLocation(state.selectedLocationIdx + 1, true);
       });
 
-      // Close popup on Escape key
+      // Mobile Navigation Popup Menu Toggle
+      const burgerBtn = document.getElementById("gumby-burger-btn");
+      const navBar = document.getElementById("gumby-nav");
+      const navBackdrop = document.getElementById("gumby-nav-backdrop");
+
+      const closeMobileNav = () => {
+        if (!navBar || !burgerBtn) return;
+        navBar.classList.remove("is-open");
+        burgerBtn.classList.remove("is-open");
+        burgerBtn.setAttribute("aria-expanded", "false");
+        if (navBackdrop) navBackdrop.hidden = true;
+      };
+
+      if (burgerBtn && navBar) {
+        burgerBtn.addEventListener("click", () => {
+          const isOpen = navBar.classList.toggle("is-open");
+          burgerBtn.classList.toggle("is-open", isOpen);
+          burgerBtn.setAttribute("aria-expanded", String(isOpen));
+          if (navBackdrop) navBackdrop.hidden = !isOpen;
+        });
+      }
+
+      if (navBackdrop) {
+        navBackdrop.addEventListener("click", closeMobileNav);
+      }
+
+      document.querySelectorAll("#gumby-nav a").forEach((link) => {
+        link.addEventListener("click", closeMobileNav);
+      });
+
+      // Ensure GPX Download button triggers a direct file download of GUMBY_loop.gpx on all devices
+      document.querySelectorAll(".js-download-gpx").forEach((btn) => {
+        btn.addEventListener("click", async (e) => {
+          try {
+            const res = await fetch("GUMBY_loop.gpx");
+            if (!res.ok) return; // Fall back to native <a download="GUMBY_loop.gpx">
+            e.preventDefault();
+            const blobText = await res.text();
+            const blob = new Blob([blobText], { type: "application/gpx+xml" });
+            const url = URL.createObjectURL(blob);
+            const tempLink = document.createElement("a");
+            tempLink.href = url;
+            tempLink.download = "GUMBY_loop.gpx";
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            tempLink.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1500);
+          } catch (_) {
+            // If opened via file:// where fetch is blocked, native <a href="GUMBY_loop.gpx" download="GUMBY_loop.gpx"> handles it
+          }
+        });
+      });
+
+      // Close popup or mobile nav on Escape key
       window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && !popupEl.hidden) {
-          popupEl.hidden = true;
+        if (e.key === "Escape") {
+          if (!popupEl.hidden) popupEl.hidden = true;
+          closeMobileNav();
         }
       });
 
