@@ -71,7 +71,7 @@
         </div>
         <div class="telemetry-stat" title="Total Ascent per 6.71km Yard">
           <span class="telemetry-label">Vert Gain / Lap</span>
-          <span class="telemetry-value" id="stat-gain">+232 <span>m</span></span>
+          <span class="telemetry-value" id="stat-gain">+180 <span>m</span></span>
         </div>
         <div class="telemetry-stat" title="Mount GUMBY KOM Peak Altitude">
           <span class="telemetry-label">Peak Altitude</span>
@@ -468,7 +468,7 @@
       totalDistanceKm: 6.71,
       minEle: 748,
       maxEle: 861.8,
-      totalGain: 232,
+      totalGain: 180,
       // 3D Camera controls
       yaw: -0.55,
       pitch: 0.68,
@@ -593,7 +593,7 @@
       state.minEle = minEle;
       state.maxEle = maxEle;
       state.totalDistanceKm = 6.71;
-      state.totalGain = Math.round(totalGain > 120 ? totalGain : 232);
+      state.totalGain = Math.round(totalGain > 120 ? totalGain : 180);
 
       // Snap each of the 9 locations to its closest GPX track point around its target progress
       COURSE_LOCATIONS.forEach((loc) => {
