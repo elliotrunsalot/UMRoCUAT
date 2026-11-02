@@ -2,94 +2,876 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="The official website of ULTRA Mediocre Runners of Canberra">
-  <meta property="og:image" content="We_are_UMRoC.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="The Board of Mediocrity | ULTRA Mediocre Runners of Canberra" />
+  <meta property="og:image" content="We_are_UMRoC.png" />
 
-  <title>Ultra Mediocre</title>
-  <link rel="shortcut icon" href="UMRoCfavicon2022.png" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <title>The Board of Mediocrity | Ultra Mediocre</title>
+  <link rel="shortcut icon" href="UMRoCfavicon2022.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Audiowide&family=Kanit:ital,wght@1,100&family=Poppins:wght@300&family=Permanent+Marker&family=Monoton&family=Shadows+Into+Light&family=Chelsea+Market&family=Gloria+Hallelujah&display=swap"
-    rel="stylesheet">
-
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@400;500;600;700;800&family=Syncopate:wght@700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="our-board.css" />
 </head>
 
 <body>
-  <div class="width">
-    <div class="burger">
 
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
+  <!-- TOP HEADER, LIVE TICKER & LIMITED NAVIGATION -->
+  <header class="board-header">
+    <div class="board-ticker-wrap" aria-label="Board of Mediocrity Ticker">
+      <div class="board-ticker-track">
+        <span class="board-ticker-item"><span class="board-ticker-dot"></span> GOVERNANCE LEVEL: ULTRA MEDIOCRE</span>
+        <span class="board-ticker-item"><span class="board-ticker-dot"></span> CLICK ANY COMMITTEE CARD TO FLIP FOR NICKNAME LORE &amp; CARTOON ALTER-EGO</span>
+        <span class="board-ticker-item"><span class="board-ticker-dot"></span> INCORPORATED 27 JANUARY 2021 &bull; CANBERRA, ACT</span>
+        <span class="board-ticker-item"><span class="board-ticker-dot"></span> OFFICIAL CLUB PALETTE: PINK #FF3EB5 &bull; YELLOW #FEDD00 &bull; BLUE #009CDE</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="board-ticker-item"><span class="board-ticker-dot"></span> GOVERNANCE LEVEL: ULTRA MEDIOCRE</span>
+        <span class="board-ticker-item"><span class="board-ticker-dot"></span> CLICK ANY COMMITTEE CARD TO FLIP FOR NICKNAME LORE &amp; CARTOON ALTER-EGO</span>
+        <span class="board-ticker-item"><span class="board-ticker-dot"></span> INCORPORATED 27 JANUARY 2021 &bull; CANBERRA, ACT</span>
+        <span class="board-ticker-item"><span class="board-ticker-dot"></span> OFFICIAL CLUB PALETTE: PINK #FF3EB5 &bull; YELLOW #FEDD00 &bull; BLUE #009CDE</span>
+      </div>
     </div>
 
-    <div class="our-board">
-      <h2>The Board of Mediocrity</h2>
-
-      <ul class="nav23">
-        <script src="app.js"></script>
-        <li><a href="index.html">ULTRA Mediocre Home</a></li>
-        <li><a href="Our_Story.html">
-            <p>Our Story</p>
-          </a></li>
-        <li><a href="Media_Records.html">
-            <p>Media Records</p>
-          </a></li>
-      </ul>
-      <p>
-        President - Elliot "Bushy" Cooper</p>
-      <div class="image-placeholder">
-        [Image]
-      </div>
-      <p>
-        Vice-President - Mark "Undertaker" Grima</p>
-      <div class="image-placeholder">
-        [Image]
-      </div>
-      <p>
-        Treasurer - Rachel "Tron" Burns</p>
-      <div class="image-placeholder">
-        [Image]
-      </div>
-      <p>
-        Secretary - Andrew "Sizzle" Blyton</p>
-      <div class="image-placeholder">
-        [Image]
-      </div>
-      <p>
-        Nathan "Sprinkles" Queripel</p>
-      <div class="image-placeholder">
-        [Image]
-      </div>
-      <p>
-        Justin "Baby" Hiatt</p>
-      <div class="image-placeholder">
-        [Image]
-      </div>
-      <p>
-        Michael "Jabba" Thompson</p>
-      <div class="image-placeholder">
-        [Image]
-      </div>
-      <p>
-        Deanne "DePope" Allum-Walsh</p>
-      <div class="image-placeholder">
-        [Image]
-      </div>
-      <p>
-        Paul "Mr. Whippy" McCann</p>
-      <div class="image-placeholder">
-        [Image]
+    <div class="board-header-main">
+      <div class="board-brand">
+        <span class="board-badge-pill">CLUB GOVERNANCE // 9 COMMANDERS</span>
+        <div class="board-title-group">
+          <h1>THE BOARD OF MEDIOCRITY</h1>
+          <p>The committee keeping <strong>ULTRA Mediocre Runners of Canberra</strong> gloriously off-script</p>
+        </div>
       </div>
 
+      <!-- Mobile Hamburger Toggle Button -->
+      <button type="button" class="board-burger" id="board-burger-btn" aria-label="Toggle Navigation Menu"
+        aria-expanded="false" aria-controls="board-nav">
+        <span class="burger-line line1"></span>
+        <span class="burger-line line2"></span>
+        <span class="burger-line line3"></span>
+      </button>
+
+      <!-- Mobile Backdrop -->
+      <div class="board-nav-backdrop" id="board-nav-backdrop" hidden></div>
+
+      <!-- Limited Navigation matching original Our_Board.html -->
+      <nav class="board-nav" id="board-nav" aria-label="Board Page Navigation">
+        <ul class="board-nav-list">
+          <li><a href="index.html" class="board-nav-link"><span>&#x1F3E0;</span> ULTRA Mediocre Home</a></li>
+          <li><a href="Our_Story.html" class="board-nav-link"><span>&#x1F4D6;</span> Our Story</a></li>
+          <li><a href="Media_Records.html" class="board-nav-link"><span>&#x1F3C6;</span> Media Records</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="footer">
-      <p>&copy; ULTRA Mediocre Runners of Canberra 2026</p>
-    </div>
-  </div>
+  </header>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="board-main">
+
+    <!-- Intro & Interactive Micro-Interaction Bar -->
+    <section class="board-intro-banner" aria-label="Board Controls and Instructions">
+      <div class="board-intro-text">
+        <h2>&#x1F3AD; Meet the Brains Behind the Blisters</h2>
+        <p>
+          Every UMRoC event, permit, trail marking, and camp-kitchen sausage sizzle is wrangled by these nine legends.
+          <strong>Click or tap any card</strong> to flip it 180&deg; and reveal their cartoon alter-ego and the true story behind their club nickname!
+        </p>
+      </div>
+
+      <div class="board-controls">
+        <button type="button" class="board-action-btn btn-primary" id="btn-flip-all">
+          <span>&#x1F504;</span> <span id="flip-all-label">Flip All to Cartoons</span>
+        </button>
+        <button type="button" class="board-action-btn" id="btn-shuffle-board">
+          <span>&#x1F500;</span> Shuffle Roster
+        </button>
+        <button type="button" class="board-action-btn" id="btn-cheer-board">
+          <span>&#x1F389;</span> Toast the Board
+        </button>
+      </div>
+    </section>
+
+    <!-- 9 COMMITTEE MEMBER FLIP CARDS -->
+    <section class="board-grid" id="board-grid" aria-label="Committee Members">
+
+      <!-- 1. Elliot "Bushy" Cooper — President -->
+      <article class="member-card-scene" data-theme="pink" data-particles="🌿,🧔,👑,🌲" tabindex="0" role="button"
+        aria-label="Elliot Bushy Cooper - President. Click to flip card for nickname story.">
+        <div class="member-card-inner">
+          <!-- Front -->
+          <div class="card-face card-front">
+            <div class="member-photo-wrap">
+              <span class="member-role-pill">President</span>
+              <img src="Bushy.jpg" alt="Elliot &quot;Bushy&quot; Cooper" loading="lazy" />
+              <span class="member-nickname-chip">AKA &ldquo;BUSHY&rdquo;</span>
+            </div>
+            <div class="card-front-body">
+              <h3 class="member-name">Elliot &ldquo;Bushy&rdquo; Cooper</h3>
+              <span class="member-ops-label">Club Operations &amp; Portfolio</span>
+              <p class="member-ops-desc">
+                Chief visionary, race director wrangler, and government permit whisperer. Steers club strategy,
+                designs diabolical Brindabella course loops, and wields the starting whistle at GUMBY and BRuTUS.
+              </p>
+            </div>
+            <div class="card-flip-prompt">
+              <span>&#x1F504; CLICK TO REVEAL CARTOON &amp; LORE</span>
+              <span>&#x1F332;</span>
+            </div>
+          </div>
+
+          <!-- Back (Cartoon + Nickname Spiel) -->
+          <div class="card-face card-back">
+            <div class="card-back-top">
+              <span class="nickname-origin-badge">NICKNAME FILE // #01</span>
+              <span class="flip-back-hint">&#x21A9; Tap to flip back</span>
+            </div>
+            <div class="cartoon-avatar-stage" aria-hidden="true">
+              <!-- Cartoon Bushman / Walking Beard & Shrubbery SVG -->
+              <svg class="cartoon-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="70" cy="70" r="60" fill="#009CDE" opacity="0.2" />
+                <!-- Wild Bushy Beard & Foliage Body -->
+                <path d="M30 85 C20 65, 35 40, 50 38 C55 25, 85 25, 90 38 C105 40, 120 65, 110 85 C118 105, 95 125, 70 125 C45 125, 22 105, 30 85 Z" fill="#2d6a4f" stroke="#FEDD00" stroke-width="3" />
+                <circle cx="42" cy="75" r="16" fill="#40916c" />
+                <circle cx="98" cy="75" r="16" fill="#40916c" />
+                <circle cx="70" cy="98" r="22" fill="#1b4332" />
+                <!-- Headband -->
+                <rect x="42" y="42" width="56" height="10" rx="5" fill="#FF3EB5" stroke="#07080d" stroke-width="2" />
+                <!-- Eyes peeking out of the bush -->
+                <circle cx="57" cy="58" r="7" fill="#fff" stroke="#07080d" stroke-width="2" />
+                <circle cx="83" cy="58" r="7" fill="#fff" stroke="#07080d" stroke-width="2" />
+                <circle cx="58" cy="58" r="3.2" fill="#07080d" />
+                <circle cx="82" cy="58" r="3.2" fill="#07080d" />
+                <!-- Cheeky grin in the beard -->
+                <path d="M58 78 Q70 88 82 78" fill="none" stroke="#FEDD00" stroke-width="3.5" stroke-linecap="round" />
+                <!-- Twigs & Leaves sticking out -->
+                <path d="M32 52 L18 40 M25 46 L28 36" stroke="#b5838d" stroke-width="3" stroke-linecap="round" />
+                <ellipse cx="18" cy="39" rx="6" ry="3.5" transform="rotate(-30 18 39)" fill="#74c69d" />
+                <path d="M108 50 L122 36" stroke="#b5838d" stroke-width="3" stroke-linecap="round" />
+                <ellipse cx="123" cy="35" rx="6" ry="3.5" transform="rotate(25 123 35)" fill="#FEDD00" />
+              </svg>
+            </div>
+            <div class="card-back-body">
+              <h4 class="nickname-title">Why &ldquo;Bushy&rdquo;?</h4>
+              <p class="nickname-spiel">
+                Part man, part untamed Brindabella scrubland. Whether he&rsquo;s bushwhacking off-trail shortcuts that
+                definitely aren&rsquo;t on the GPX file or growing a race-week beard capable of sheltering native birds,
+                Elliot is 90% eucalyptus foliage by volume.
+              </p>
+            </div>
+            <div class="mediocrity-stat-box">
+              <div class="stat-row-label"><span>BUSHWHACKING CONFIDENCE</span><span>110%</span></div>
+              <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 96%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Mark "Undertaker" Grima — Vice-President -->
+      <article class="member-card-scene" data-theme="blue" data-particles="⚰️,🪦,⚡,🕶️" tabindex="0" role="button"
+        aria-label="Mark Undertaker Grima - Vice-President. Click to flip card for nickname story.">
+        <div class="member-card-inner">
+          <!-- Front -->
+          <div class="card-face card-front">
+            <div class="member-photo-wrap">
+              <span class="member-role-pill">Vice-President</span>
+              <img src="Undertaker.jpg" alt="Mark &quot;Undertaker&quot; Grima" loading="lazy" />
+              <span class="member-nickname-chip">AKA &ldquo;UNDERTAKER&rdquo;</span>
+            </div>
+            <div class="card-front-body">
+              <h3 class="member-name">Mark &ldquo;Undertaker&rdquo; Grima</h3>
+              <span class="member-ops-label">Club Operations &amp; Portfolio</span>
+              <p class="member-ops-desc">
+                Second-in-command, course logistics enforcer, and chief DNF soul-collector. Oversees safety sweeps,
+                backyard corral timekeeping, and ensures every dropped runner receives a dignified burial at camp.
+              </p>
+            </div>
+            <div class="card-flip-prompt">
+              <span>&#x1F504; CLICK TO REVEAL CARTOON &amp; LORE</span>
+              <span>&#x26B0;&#xFE0F;</span>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="card-face card-back">
+            <div class="card-back-top">
+              <span class="nickname-origin-badge">NICKNAME FILE // #02</span>
+              <span class="flip-back-hint">&#x21A9; Tap to flip back</span>
+            </div>
+            <div class="cartoon-avatar-stage" aria-hidden="true">
+              <!-- Cartoon Undertaker SVG -->
+              <svg class="cartoon-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="70" cy="74" r="56" fill="#FF3EB5" opacity="0.16" />
+                <!-- Tombstone in background -->
+                <path d="M92 52 C92 40, 118 40, 118 52 L118 112 L92 112 Z" fill="#475569" stroke="#94a3b8" stroke-width="2" />
+                <text x="105" y="72" text-anchor="middle" fill="#FEDD00" font-size="9" font-family="Audiowide">DNF</text>
+                <!-- Coat & Purple Tie -->
+                <path d="M32 122 L42 82 L90 82 L100 122 Z" fill="#1e1b2e" stroke="#009CDE" stroke-width="2.5" />
+                <polygon points="66,84 61,115 66,120 71,115" fill="#FF3EB5" />
+                <!-- Face -->
+                <circle cx="66" cy="66" r="22" fill="#e2e8f0" stroke="#07080d" stroke-width="2.5" />
+                <!-- Glowing Cyan Undertaker Eyes -->
+                <ellipse cx="58" cy="64" rx="5" ry="3.5" fill="#009CDE" />
+                <ellipse cx="74" cy="64" rx="5" ry="3.5" fill="#009CDE" />
+                <!-- Goatee & Stoic Grin -->
+                <path d="M58 76 L74 76" stroke="#07080d" stroke-width="3" stroke-linecap="round" />
+                <polygon points="62,79 70,79 66,86" fill="#07080d" />
+                <!-- Wide-Brimmed Undertaker Hat -->
+                <ellipse cx="66" cy="46" rx="38" ry="8" fill="#0f172a" stroke="#FF3EB5" stroke-width="2.5" />
+                <path d="M46 46 L50 24 L82 24 L86 46 Z" fill="#0f172a" stroke="#FF3EB5" stroke-width="2.5" />
+                <rect x="48" y="39" width="36" height="5" fill="#FEDD00" />
+              </svg>
+            </div>
+            <div class="card-back-body">
+              <h4 class="nickname-title">Why &ldquo;Undertaker&rdquo;?</h4>
+              <p class="nickname-spiel">
+                Just when you think he&rsquo;s dead and buried at 3:00 AM on an ultra loop, Mark sits bolt upright like
+                the WWE phenom and marches past you with a chillingly calm smile—politelymeasuring your quads for a pine
+                box.
+              </p>
+            </div>
+            <div class="mediocrity-stat-box">
+              <div class="stat-row-label"><span>ZOMBIE RESURRECTION RATE</span><span>99.9%</span></div>
+              <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 99%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Mutsumi "Muscles" Yamazaki — Treasurer -->
+      <article class="member-card-scene" data-theme="yellow" data-particles="💪,🪙,🏋️,⚡" tabindex="0" role="button"
+        aria-label="Mutsumi Muscles Yamazaki - Treasurer. Click to flip card for nickname story.">
+        <div class="member-card-inner">
+          <!-- Front -->
+          <div class="card-face card-front">
+            <div class="member-photo-wrap">
+              <span class="member-role-pill">Treasurer</span>
+              <img src="Muscles.jpg" alt="Mutsumi &quot;Muscles&quot; Yamazaki" loading="lazy" />
+              <span class="member-nickname-chip">AKA &ldquo;MUSCLES&rdquo;</span>
+            </div>
+            <div class="card-front-body">
+              <h3 class="member-name">Mutsumi &ldquo;Muscles&rdquo; Yamazaki</h3>
+              <span class="member-ops-label">Club Operations &amp; Portfolio</span>
+              <p class="member-ops-desc">
+                Guardian of the UMRoC vault, budget balancer, and spreadsheet powerhouse. Manages race registration
+                revenue, equipment grants, and ensures the club doesn&rsquo;t blow the entire budget on post-run snacks.
+              </p>
+            </div>
+            <div class="card-flip-prompt">
+              <span>&#x1F504; CLICK TO REVEAL CARTOON &amp; LORE</span>
+              <span>&#x1F4AA;</span>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="card-face card-back">
+            <div class="card-back-top">
+              <span class="nickname-origin-badge">NICKNAME FILE // #03</span>
+              <span class="flip-back-hint">&#x21A9; Tap to flip back</span>
+            </div>
+            <div class="cartoon-avatar-stage" aria-hidden="true">
+              <!-- Cartoon Flexing Muscles & Gold Kettlebells SVG -->
+              <svg class="cartoon-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <!-- Aura burst -->
+                <circle cx="70" cy="72" r="56" fill="#FEDD00" opacity="0.18" />
+                <!-- Huge Popeye Cartoon Biceps Left & Right -->
+                <path d="M48 82 C25 82, 16 64, 24 48 C30 38, 44 45, 42 58" fill="#fca5a5" stroke="#07080d" stroke-width="3" />
+                <circle cx="28" cy="64" r="14" fill="#fca5a5" stroke="#FF3EB5" stroke-width="2.5" />
+                <path d="M92 82 C115 82, 124 64, 116 48 C110 38, 96 45, 98 58" fill="#fca5a5" stroke="#07080d" stroke-width="3" />
+                <circle cx="112" cy="64" r="14" fill="#fca5a5" stroke="#FF3EB5" stroke-width="2.5" />
+                <!-- Singlet -->
+                <path d="M46 76 L94 76 L88 120 L52 120 Z" fill="#FF3EB5" stroke="#FEDD00" stroke-width="2.5" />
+                <text x="70" y="103" text-anchor="middle" fill="#fff" font-size="11" font-family="Audiowide">$$$</text>
+                <!-- Head -->
+                <circle cx="70" cy="54" r="20" fill="#fde68a" stroke="#07080d" stroke-width="2.5" />
+                <!-- Headband -->
+                <rect x="50" y="40" width="40" height="7" rx="3" fill="#009CDE" />
+                <!-- Happy determined eyes & smile -->
+                <path d="M60 52 L65 55 L60 58" fill="none" stroke="#07080d" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M80 52 L75 55 L80 58" fill="none" stroke="#07080d" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M63 64 Q70 70 77 64" fill="none" stroke="#07080d" stroke-width="2.5" stroke-linecap="round" />
+                <!-- Flex lines -->
+                <path d="M14 45 L8 38 M26 36 L26 28 M114 36 L114 28 M126 45 L132 38" stroke="#FEDD00" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="card-back-body">
+              <h4 class="nickname-title">Why &ldquo;Muscles&rdquo;?</h4>
+              <p class="nickname-spiel">
+                Pound-for-pound the strongest human in the Brindabellas. While everyone else is whimpering up Mount GUMBY
+                with jelly legs, Mutsumi powers up 25% gradients like she&rsquo;s casually carrying two cast-iron camp
+                ovens and the club safe.
+              </p>
+            </div>
+            <div class="mediocrity-stat-box">
+              <div class="stat-row-label"><span>GUN SHOW &amp; AUDIT POWER</span><span>100%</span></div>
+              <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 100%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Paul "Mr. Whippy" McCann — Secretary -->
+      <article class="member-card-scene" data-theme="pink" data-particles="🍦,🎵,📝,✨" tabindex="0" role="button"
+        aria-label="Paul Mr. Whippy McCann - Secretary. Click to flip card for nickname story.">
+        <div class="member-card-inner">
+          <!-- Front -->
+          <div class="card-face card-front">
+            <div class="member-photo-wrap">
+              <span class="member-role-pill">Secretary</span>
+              <img src="Whippy.jpg" alt="Paul &quot;Mr. Whippy&quot; McCann" loading="lazy" />
+              <span class="member-nickname-chip">AKA &ldquo;MR. WHIPPY&rdquo;</span>
+            </div>
+            <div class="card-front-body">
+              <h3 class="member-name">Paul &ldquo;Mr. Whippy&rdquo; McCann</h3>
+              <span class="member-ops-label">Club Operations &amp; Portfolio</span>
+              <p class="member-ops-desc">
+                Keeper of the official minutes, constitutional compliance officer, and correspondence maestro. Translates
+                chaotic committee banter into legal English and keeps membership records serving smoothly.
+              </p>
+            </div>
+            <div class="card-flip-prompt">
+              <span>&#x1F504; CLICK TO REVEAL CARTOON &amp; LORE</span>
+              <span>&#x1F366;</span>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="card-face card-back">
+            <div class="card-back-top">
+              <span class="nickname-origin-badge">NICKNAME FILE // #04</span>
+              <span class="flip-back-hint">&#x21A9; Tap to flip back</span>
+            </div>
+            <div class="cartoon-avatar-stage" aria-hidden="true">
+              <!-- Cartoon Soft-Serve Ice Cream Cone Runner SVG -->
+              <svg class="cartoon-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="70" cy="70" r="56" fill="#009CDE" opacity="0.18" />
+                <!-- Wafer Cone Body -->
+                <polygon points="48,78 92,78 70,126" fill="#f59e0b" stroke="#FEDD00" stroke-width="2.5" />
+                <line x1="54" y1="78" x2="76" y2="114" stroke="#b45309" stroke-width="2" />
+                <line x1="86" y1="78" x2="64" y2="114" stroke="#b45309" stroke-width="2" />
+                <!-- Soft Serve Swirl Layers -->
+                <ellipse cx="70" cy="72" rx="28" ry="12" fill="#fff" stroke="#FF3EB5" stroke-width="2.5" />
+                <ellipse cx="70" cy="56" rx="22" ry="11" fill="#fbcfe8" stroke="#FF3EB5" stroke-width="2.5" />
+                <path d="M55 46 C55 30, 82 32, 74 20 C88 26, 88 46, 85 46 Z" fill="#FF3EB5" stroke="#FEDD00" stroke-width="2" />
+                <!-- Chocolate Flake sticking out -->
+                <rect x="82" y="28" width="9" height="26" rx="2" transform="rotate(24 82 28)" fill="#78350f" stroke="#FEDD00" stroke-width="1.5" />
+                <!-- Cool Sunglasses on the Soft Serve -->
+                <rect x="52" y="52" width="15" height="9" rx="2" fill="#07080d" stroke="#009CDE" stroke-width="1.5" />
+                <rect x="73" y="52" width="15" height="9" rx="2" fill="#07080d" stroke="#009CDE" stroke-width="1.5" />
+                <line x1="67" y1="56" x2="73" y2="56" stroke="#009CDE" stroke-width="2" />
+                <!-- Big Smile -->
+                <path d="M61 68 Q70 76 79 68" fill="none" stroke="#07080d" stroke-width="2.8" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="card-back-body">
+              <h4 class="nickname-title">Why &ldquo;Mr. Whippy&rdquo;?</h4>
+              <p class="nickname-spiel">
+                Always cool under pressure, serves up smooth pacing on demand, and if you hear Greensleeves echoing
+                through the pine forest at kilometer 85, you&rsquo;re either hallucinating or Paul is about to cruise
+                past you looking fresh as a soft-serve cone.
+              </p>
+            </div>
+            <div class="mediocrity-stat-box">
+              <div class="stat-row-label"><span>SOFT-SERVE SMOOTHNESS</span><span>98%</span></div>
+              <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 98%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Andrew "Sizzle" Blyton — Committee Member -->
+      <article class="member-card-scene" data-theme="blue" data-particles="🌭,🔥,♨️,😎" tabindex="0" role="button"
+        aria-label="Andrew Sizzle Blyton - Committee Member. Click to flip card for nickname story.">
+        <div class="member-card-inner">
+          <!-- Front -->
+          <div class="card-face card-front">
+            <div class="member-photo-wrap">
+              <span class="member-role-pill">Committee Ops</span>
+              <img src="Sizzle.jpg" alt="Andrew &quot;Sizzle&quot; Blyton" loading="lazy" />
+              <span class="member-nickname-chip">AKA &ldquo;SIZZLE&rdquo;</span>
+            </div>
+            <div class="card-front-body">
+              <h3 class="member-name">Andrew &ldquo;Sizzle&rdquo; Blyton</h3>
+              <span class="member-ops-label">Club Operations &amp; Portfolio</span>
+              <p class="member-ops-desc">
+                Chief BBQ commander, aid-station morale officer, and base-camp catering tactician. Ensures the tongs are
+                always double-clicked before use and the post-loop recovery snags are cooked to perfection.
+              </p>
+            </div>
+            <div class="card-flip-prompt">
+              <span>&#x1F504; CLICK TO REVEAL CARTOON &amp; LORE</span>
+              <span>&#x1F525;</span>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="card-face card-back">
+            <div class="card-back-top">
+              <span class="nickname-origin-badge">NICKNAME FILE // #05</span>
+              <span class="flip-back-hint">&#x21A9; Tap to flip back</span>
+            </div>
+            <div class="cartoon-avatar-stage" aria-hidden="true">
+              <!-- Cartoon Sizzling Snag on the Barbie with Shades SVG -->
+              <svg class="cartoon-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <!-- Flames behind -->
+                <path d="M35 112 C25 85, 45 65, 50 40 C60 60, 70 45, 72 25 C82 50, 92 60, 95 42 C105 70, 115 88, 105 112 Z" fill="#FF3EB5" opacity="0.45" />
+                <path d="M45 112 C40 90, 55 75, 62 52 C70 70, 80 55, 85 48 C95 75, 102 92, 95 112 Z" fill="#FEDD00" opacity="0.65" />
+                <!-- Sizzling Cartoon Sausage Character -->
+                <path d="M48 42 C38 65, 42 98, 58 115 C70 126, 88 118, 92 102 C96 86, 86 62, 82 42 C76 26, 54 26, 48 42 Z" fill="#b45309" stroke="#FEDD00" stroke-width="3" />
+                <!-- Mustard Zigzag -->
+                <path d="M56 82 L78 86 L58 94 L80 99 L62 107" fill="none" stroke="#FEDD00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <!-- Cool Sunglasses -->
+                <polygon points="46,54 66,54 63,65 49,65" fill="#07080d" stroke="#009CDE" stroke-width="2" />
+                <polygon points="69,54 89,54 86,65 72,65" fill="#07080d" stroke="#009CDE" stroke-width="2" />
+                <!-- Smirk -->
+                <path d="M58 72 Q68 78 76 70" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="card-back-body">
+              <h4 class="nickname-title">Why &ldquo;Sizzle&rdquo;?</h4>
+              <p class="nickname-spiel">
+                Whether he&rsquo;s blistering a hot early pace on the trails or single-handedly running a gourmet sausage
+                sizzle out of the back of a 4WD in sideways sleet, Andrew brings 100% pure Bunnings-level heat to every
+                UMRoC gathering.
+              </p>
+            </div>
+            <div class="mediocrity-stat-box">
+              <div class="stat-row-label"><span>TONG DOUBLE-CLICK ACCURACY</span><span>100%</span></div>
+              <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 100%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Nathan "Sprinkles" Queripel — Committee Member -->
+      <article class="member-card-scene" data-theme="yellow" data-particles="🦄,🌈,🧁,✨" tabindex="0" role="button"
+        aria-label="Nathan Sprinkles Queripel - Committee Member. Click to flip card for nickname story.">
+        <div class="member-card-inner">
+          <!-- Front -->
+          <div class="card-face card-front">
+            <div class="member-photo-wrap">
+              <span class="member-role-pill">Committee Ops</span>
+              <img src="SprinklesTheUnicorn.jpg" alt="Nathan &quot;Sprinkles&quot; Queripel" loading="lazy" />
+              <span class="member-nickname-chip">AKA &ldquo;SPRINKLES&rdquo;</span>
+            </div>
+            <div class="card-front-body">
+              <h3 class="member-name">Nathan &ldquo;Sprinkles&rdquo; Queripel</h3>
+              <span class="member-ops-label">Club Operations &amp; Portfolio</span>
+              <p class="member-ops-desc">
+                Director of course flair, vibe curation, and mythical trail energy. Coordinates volunteer marshals,
+                finish-line hype, and ensures UMRoC never accidentally starts taking itself too seriously.
+              </p>
+            </div>
+            <div class="card-flip-prompt">
+              <span>&#x1F504; CLICK TO REVEAL CARTOON &amp; LORE</span>
+              <span>&#x1F984;</span>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="card-face card-back">
+            <div class="card-back-top">
+              <span class="nickname-origin-badge">NICKNAME FILE // #06</span>
+              <span class="flip-back-hint">&#x21A9; Tap to flip back</span>
+            </div>
+            <div class="cartoon-avatar-stage" aria-hidden="true">
+              <!-- Cartoon Unicorn & Rainbow Sprinkles SVG -->
+              <svg class="cartoon-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="70" cy="72" r="56" fill="#FF3EB5" opacity="0.2" />
+                <!-- Rainbow Mane -->
+                <path d="M42 48 C25 52, 24 72, 38 78 C24 85, 28 105, 45 106" fill="none" stroke="#FF3EB5" stroke-width="8" stroke-linecap="round" />
+                <path d="M45 54 C30 58, 30 74, 42 80" fill="none" stroke="#009CDE" stroke-width="6" stroke-linecap="round" />
+                <!-- Unicorn Head & Snout -->
+                <path d="M46 50 L46 112 L84 112 L84 88 L106 86 C114 84, 114 64, 102 62 L82 54 Z" fill="#fff" stroke="#07080d" stroke-width="2.5" stroke-linejoin="round" />
+                <!-- Golden Unicorn Horn -->
+                <polygon points="68,48 79,52 104,16" fill="#FEDD00" stroke="#07080d" stroke-width="2.5" />
+                <!-- Joyful Eye & Nostril -->
+                <circle cx="74" cy="66" r="4.5" fill="#07080d" />
+                <circle cx="75.5" cy="64.5" r="1.5" fill="#fff" />
+                <circle cx="101" cy="72" r="2.5" fill="#FF3EB5" />
+                <path d="M88 80 Q98 85 104 78" fill="none" stroke="#07080d" stroke-width="2.5" stroke-linecap="round" />
+                <!-- Flying Cupcake Sprinkles -->
+                <rect x="22" y="30" width="12" height="5" rx="2.5" transform="rotate(-25 22 30)" fill="#FEDD00" />
+                <rect x="108" y="36" width="12" height="5" rx="2.5" transform="rotate(35 108 36)" fill="#009CDE" />
+                <rect x="112" y="96" width="12" height="5" rx="2.5" transform="rotate(-15 112 96)" fill="#FF3EB5" />
+                <rect x="20" y="98" width="12" height="5" rx="2.5" transform="rotate(40 20 98)" fill="#FEDD00" />
+              </svg>
+            </div>
+            <div class="card-back-body">
+              <h4 class="nickname-title">Why &ldquo;Sprinkles&rdquo;?</h4>
+              <p class="nickname-spiel">
+                Because why merely suffer through a 100km mountain ultra when you can gallop through it dressed as a
+                majestic unicorn? Nathan adds a generous handful of rainbow sprinkles and absurdly contagious positivity
+                to every grim climb.
+              </p>
+            </div>
+            <div class="mediocrity-stat-box">
+              <div class="stat-row-label"><span>MAGICAL UNICORN GALLOP</span><span>105%</span></div>
+              <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 100%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Justin "Baby" Hiatt — Committee Member -->
+      <article class="member-card-scene" data-theme="pink" data-particles="🍼,👶,🧷,🏃" tabindex="0" role="button"
+        aria-label="Justin Baby Hiatt - Committee Member. Click to flip card for nickname story.">
+        <div class="member-card-inner">
+          <!-- Front -->
+          <div class="card-face card-front">
+            <div class="member-photo-wrap">
+              <span class="member-role-pill">Committee Ops</span>
+              <img src="SpiritBaby.jpg" alt="Justin &quot;Baby&quot; Hiatt" loading="lazy" />
+              <span class="member-nickname-chip">AKA &ldquo;BABY&rdquo;</span>
+            </div>
+            <div class="card-front-body">
+              <h3 class="member-name">Justin &ldquo;Baby&rdquo; Hiatt</h3>
+              <span class="member-ops-label">Club Operations &amp; Portfolio</span>
+              <p class="member-ops-desc">
+                Gear logistics, course flagging specialist, and GumBABY spiritual ambassador. Helps haul marquees, water
+                jerries, and timing gear into the bush while keeping the pack moving at toddler-on-red-cordial speed.
+              </p>
+            </div>
+            <div class="card-flip-prompt">
+              <span>&#x1F504; CLICK TO REVEAL CARTOON &amp; LORE</span>
+              <span>&#x1F37C;</span>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="card-face card-back">
+            <div class="card-back-top">
+              <span class="nickname-origin-badge">NICKNAME FILE // #07</span>
+              <span class="flip-back-hint">&#x21A9; Tap to flip back</span>
+            </div>
+            <div class="cartoon-avatar-stage" aria-hidden="true">
+              <!-- Cartoon Baby Ultrarunner with Pacifier & Bib SVG -->
+              <svg class="cartoon-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="70" cy="72" r="56" fill="#FEDD00" opacity="0.16" />
+                <!-- Baby Bib -->
+                <path d="M44 82 C44 116, 96 116, 96 82 Z" fill="#fff" stroke="#009CDE" stroke-width="3" />
+                <text x="70" y="102" text-anchor="middle" fill="#FF3EB5" font-size="8.5" font-family="Audiowide">GUM-BABY</text>
+                <!-- Baby Bonnet Frills -->
+                <circle cx="70" cy="56" r="30" fill="#009CDE" stroke="#FEDD00" stroke-width="2.5" stroke-dasharray="6 3" />
+                <!-- Chubby Baby Face -->
+                <circle cx="70" cy="58" r="23" fill="#fed7aa" stroke="#07080d" stroke-width="2.5" />
+                <!-- Single curly baby hair -->
+                <path d="M70 35 C65 26, 78 24, 73 32" fill="none" stroke="#07080d" stroke-width="3" stroke-linecap="round" />
+                <!-- Big wide eyes -->
+                <circle cx="61" cy="53" r="4" fill="#07080d" />
+                <circle cx="79" cy="53" r="4" fill="#07080d" />
+                <circle cx="62" cy="51.5" r="1.5" fill="#fff" />
+                <circle cx="80" cy="51.5" r="1.5" fill="#fff" />
+                <!-- Giant Pink Pacifier / Dummy -->
+                <ellipse cx="70" cy="67" rx="11" ry="8" fill="#FF3EB5" stroke="#07080d" stroke-width="2" />
+                <circle cx="70" cy="67" r="4.5" fill="#FEDD00" stroke="#07080d" stroke-width="1.5" />
+                <path d="M63 71 C63 80, 77 80, 77 71" fill="none" stroke="#FEDD00" stroke-width="3" />
+              </svg>
+            </div>
+            <div class="card-back-body">
+              <h4 class="nickname-title">Why &ldquo;Baby&rdquo;?</h4>
+              <p class="nickname-spiel">
+                Blessed with cherubic youthfulness and the uncanny ability to need snacks every 20 minutes, Justin is the
+                club&rsquo;s beloved Spirit Baby—proving you don&rsquo;t need a grizzled grey beard to crush brutal
+                mountain ultras (just a steady supply of pureed fruit pouches).
+              </p>
+            </div>
+            <div class="mediocrity-stat-box">
+              <div class="stat-row-label"><span>SNACK POUCH CONSUMPTION</span><span>97%</span></div>
+              <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 97%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Allison "Axol" Groves — Committee Member -->
+      <article class="member-card-scene" data-theme="blue" data-particles="🦎,💗,🌊,✨" tabindex="0" role="button"
+        aria-label="Allison Axol Groves - Committee Member. Click to flip card for nickname story.">
+        <div class="member-card-inner">
+          <!-- Front -->
+          <div class="card-face card-front">
+            <div class="member-photo-wrap">
+              <span class="member-role-pill">Committee Ops</span>
+              <img src="Axol.jpg" alt="Allison &quot;Axol&quot; Groves" loading="lazy" />
+              <span class="member-nickname-chip">AKA &ldquo;AXOL&rdquo;</span>
+            </div>
+            <div class="card-front-body">
+              <h3 class="member-name">Allison &ldquo;Axol&rdquo; Groves</h3>
+              <span class="member-ops-label">Club Operations &amp; Portfolio</span>
+              <p class="member-ops-desc">
+                Community engagement, runner welfare, and checkpoint hospitality coordinator. Welcomes new runners into
+                the fold and keeps spirits absurdly high even when the Brindabella weather turns amphibious.
+              </p>
+            </div>
+            <div class="card-flip-prompt">
+              <span>&#x1F504; CLICK TO REVEAL CARTOON &amp; LORE</span>
+              <span>&#x1F98E;</span>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="card-face card-back">
+            <div class="card-back-top">
+              <span class="nickname-origin-badge">NICKNAME FILE // #08</span>
+              <span class="flip-back-hint">&#x21A9; Tap to flip back</span>
+            </div>
+            <div class="cartoon-avatar-stage" aria-hidden="true">
+              <!-- Cartoon Pink Axolotl SVG -->
+              <svg class="cartoon-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="70" cy="72" r="56" fill="#009CDE" opacity="0.2" />
+                <!-- Feathery Axolotl Gill Frills (3 on each side) -->
+                <path d="M40 50 L18 38 M40 62 L14 60 M42 74 L20 82" stroke="#FF3EB5" stroke-width="7" stroke-linecap="round" />
+                <path d="M100 50 L122 38 M100 62 L126 60 M98 74 L120 82" stroke="#FF3EB5" stroke-width="7" stroke-linecap="round" />
+                <!-- Cute Axolotl Body & Tail -->
+                <path d="M48 82 L44 116 L96 116 L92 82 Z" fill="#f9a8d4" stroke="#07080d" stroke-width="2.5" />
+                <!-- Wide Axolotl Head -->
+                <ellipse cx="70" cy="64" rx="30" ry="23" fill="#fbcfe8" stroke="#07080d" stroke-width="2.5" />
+                <!-- Trail Headlamp on Axolotl -->
+                <rect x="44" y="45" width="52" height="6" fill="#009CDE" />
+                <circle cx="70" cy="48" r="7" fill="#FEDD00" stroke="#07080d" stroke-width="2" />
+                <!-- Cute Axolotl Eyes & Goofy Smile -->
+                <circle cx="56" cy="64" r="4.5" fill="#07080d" />
+                <circle cx="84" cy="64" r="4.5" fill="#07080d" />
+                <circle cx="57.5" cy="62.5" r="1.5" fill="#fff" />
+                <circle cx="85.5" cy="62.5" r="1.5" fill="#fff" />
+                <path d="M58 74 Q70 82 82 74" fill="none" stroke="#07080d" stroke-width="2.8" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="card-back-body">
+              <h4 class="nickname-title">Why &ldquo;Axol&rdquo;?</h4>
+              <p class="nickname-spiel">
+                Like the legendary Mexican walking fish (the Axolotl), Allison thrives in boggy creek crossings,
+                regenerates torn leg muscles overnight between backyard laps, and maintains an unshakeable neon-pink
+                smile through the Swamps of Sadness.
+              </p>
+            </div>
+            <div class="mediocrity-stat-box">
+              <div class="stat-row-label"><span>AMPHIBIOUS LIMB REGENERATION</span><span>99%</span></div>
+              <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 99%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Deanne "DePope" Allum-Walsh — Committee Member -->
+      <article class="member-card-scene" data-theme="yellow" data-particles="👑,🙏,✨,🔔" tabindex="0" role="button"
+        aria-label="Deanne DePope Allum-Walsh - Committee Member. Click to flip card for nickname story.">
+        <div class="member-card-inner">
+          <!-- Front -->
+          <div class="card-face card-front">
+            <div class="member-photo-wrap">
+              <span class="member-role-pill">Committee Ops</span>
+              <img src="DePope.jpg" alt="Deanne &quot;DePope&quot; Allum-Walsh" loading="lazy" />
+              <span class="member-nickname-chip">AKA &ldquo;DEPOPE&rdquo;</span>
+            </div>
+            <div class="card-front-body">
+              <h3 class="member-name">Deanne &ldquo;DePope&rdquo; Allum-Walsh</h3>
+              <span class="member-ops-label">Club Operations &amp; Portfolio</span>
+              <p class="member-ops-desc">
+                Supreme pontiff of volunteer coordination, finish-line blessings, and Quitters Bitter ceremonies. Grants
+                absolution to runners who DNF and keeps the base-camp congregation in blessed harmony.
+              </p>
+            </div>
+            <div class="card-flip-prompt">
+              <span>&#x1F504; CLICK TO REVEAL CARTOON &amp; LORE</span>
+              <span>&#x2728;</span>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="card-face card-back">
+            <div class="card-back-top">
+              <span class="nickname-origin-badge">NICKNAME FILE // #09</span>
+              <span class="flip-back-hint">&#x21A9; Tap to flip back</span>
+            </div>
+            <div class="cartoon-avatar-stage" aria-hidden="true">
+              <!-- Cartoon Trail Pope ("DePope") SVG -->
+              <svg class="cartoon-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="70" cy="74" r="54" fill="#FEDD00" opacity="0.22" />
+                <!-- Golden Papal Staff (Trail Arrow Crosier) -->
+                <line x1="108" y1="36" x2="102" y2="122" stroke="#FEDD00" stroke-width="4" stroke-linecap="round" />
+                <circle cx="108" cy="36" r="9" fill="#FF3EB5" stroke="#FEDD00" stroke-width="2.5" />
+                <!-- Papal Robes -->
+                <path d="M36 122 L46 86 L94 86 L104 122 Z" fill="#fff" stroke="#FEDD00" stroke-width="2.5" />
+                <rect x="65" y="86" width="10" height="36" fill="#FF3EB5" />
+                <!-- Face -->
+                <circle cx="70" cy="70" r="19" fill="#fde68a" stroke="#07080d" stroke-width="2.5" />
+                <!-- Tall Papal Mitre Hat -->
+                <path d="M48 56 C46 28, 70 16, 70 16 C70 16, 94 28, 92 56 Z" fill="#fff" stroke="#FEDD00" stroke-width="3" />
+                <line x1="70" y1="22" x2="70" y2="52" stroke="#FF3EB5" stroke-width="4" />
+                <line x1="58" y1="37" x2="82" y2="37" stroke="#FF3EB5" stroke-width="4" />
+                <rect x="48" y="51" width="44" height="6" fill="#009CDE" />
+                <!-- Smiling Eyes & Blessing Grin -->
+                <circle cx="63" cy="68" r="3" fill="#07080d" />
+                <circle cx="77" cy="68" r="3" fill="#07080d" />
+                <path d="M62 77 Q70 83 78 77" fill="none" stroke="#07080d" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="card-back-body">
+              <h4 class="nickname-title">Why &ldquo;DePope&rdquo;?</h4>
+              <p class="nickname-spiel">
+                When Deanne speaks at base camp, white smoke rises from the camp kitchen chimney. Revered for her papal
+                authority over aid-station logistics and her compassionate blessings bestowed upon broken ultrarunners at
+                the Quitters Air-Lock.
+              </p>
+            </div>
+            <div class="mediocrity-stat-box">
+              <div class="stat-row-label"><span>INFALLIBLE TRAIL BLESSINGS</span><span>100%</span></div>
+              <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 100%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="board-footer">
+    <p>&copy; ULTRA Mediocre Runners of Canberra 2026</p>
+  </footer>
+
+  <script>
+    /* ========================================================================
+       BOARD OF MEDIOCRITY — INTERACTIVE 3D CARDS, PARTICLES & MOBILE MENU
+       ======================================================================== */
+    (function () {
+      const cards = Array.from(document.querySelectorAll(".member-card-scene"));
+      const grid = document.getElementById("board-grid");
+      const btnFlipAll = document.getElementById("btn-flip-all");
+      const flipAllLabel = document.getElementById("flip-all-label");
+      const btnShuffle = document.getElementById("btn-shuffle-board");
+      const btnCheer = document.getElementById("btn-cheer-board");
+
+      const burgerBtn = document.getElementById("board-burger-btn");
+      const navBar = document.getElementById("board-nav");
+      const navBackdrop = document.getElementById("board-nav-backdrop");
+
+      let allFlipped = false;
+
+      // Spawn playful emoji/confetti burst at screen coordinate (cx, cy)
+      function spawnBurst(cx, cy, emojis) {
+        const list = emojis && emojis.length ? emojis : ["✨", "🏆", "👟", "🎉"];
+        for (let i = 0; i < 10; i++) {
+          const span = document.createElement("span");
+          span.className = "board-particle";
+          span.textContent = list[i % list.length];
+          const angle = (Math.PI * 2 * i) / 10 + (Math.random() - 0.5) * 0.4;
+          const dist = 45 + Math.random() * 65;
+          const tx = Math.cos(angle) * dist;
+          const ty = Math.sin(angle) * dist - 20;
+          const rot = (Math.random() - 0.5) * 90;
+          span.style.left = `${cx}px`;
+          span.style.top = `${cy}px`;
+          span.style.setProperty("--tx", `${tx.toFixed(1)}px`);
+          span.style.setProperty("--ty", `${ty.toFixed(1)}px`);
+          span.style.setProperty("--rot", `${rot.toFixed(0)}deg`);
+          document.body.appendChild(span);
+          setTimeout(() => span.remove(), 980);
+        }
+      }
+
+      // Toggle an individual card's 3D flip state
+      function toggleCard(cardScene, clientX, clientY) {
+        const inner = cardScene.querySelector(".member-card-inner");
+        if (!inner) return;
+        const isNowFlipped = inner.classList.toggle("is-flipped");
+        const emojis = (cardScene.dataset.particles || "✨,🎉").split(",");
+        const rect = cardScene.getBoundingClientRect();
+        const x = clientX || rect.left + rect.width / 2;
+        const y = clientY || rect.top + rect.height / 2;
+        spawnBurst(x, y, emojis);
+
+        // Sync Flip All button label
+        const flippedCount = document.querySelectorAll(".member-card-inner.is-flipped").length;
+        allFlipped = flippedCount === cards.length;
+        btnFlipAll.classList.toggle("is-active", allFlipped);
+        flipAllLabel.textContent = allFlipped ? "Flip All to Photos" : "Flip All to Cartoons";
+      }
+
+      cards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+          toggleCard(card, e.clientX, e.clientY);
+        });
+
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggleCard(card);
+          }
+        });
+      });
+
+      // Flip All Cards Toggle
+      if (btnFlipAll) {
+        btnFlipAll.addEventListener("click", () => {
+          allFlipped = !allFlipped;
+          cards.forEach((card) => {
+            const inner = card.querySelector(".member-card-inner");
+            if (inner) inner.classList.toggle("is-flipped", allFlipped);
+          });
+          btnFlipAll.classList.toggle("is-active", allFlipped);
+          flipAllLabel.textContent = allFlipped ? "Flip All to Photos" : "Flip All to Cartoons";
+          const rect = btnFlipAll.getBoundingClientRect();
+          spawnBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, ["🔄", "✨", "🎭", "⚡"]);
+        });
+      }
+
+      // Shuffle Roster Micro-Interaction
+      if (btnShuffle && grid) {
+        btnShuffle.addEventListener("click", () => {
+          const shuffled = [...cards].sort(() => Math.random() - 0.5);
+          shuffled.forEach((c) => grid.appendChild(c));
+          const rect = btnShuffle.getBoundingClientRect();
+          spawnBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, ["🔀", "🎲", "👟"]);
+        });
+      }
+
+      // Toast the Board Micro-Interaction
+      if (btnCheer) {
+        btnCheer.addEventListener("click", () => {
+          cards.forEach((card, idx) => {
+            setTimeout(() => {
+              const rect = card.getBoundingClientRect();
+              if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const emojis = (card.dataset.particles || "🎉,✨").split(",");
+                spawnBurst(rect.left + rect.width / 2, rect.top + 80, emojis);
+              }
+            }, idx * 65);
+          });
+        });
+      }
+
+      // Mobile Hamburger Navigation Menu
+      const closeMobileNav = () => {
+        if (!navBar || !burgerBtn) return;
+        navBar.classList.remove("is-open");
+        burgerBtn.classList.remove("is-open");
+        burgerBtn.setAttribute("aria-expanded", "false");
+        if (navBackdrop) navBackdrop.hidden = true;
+      };
+
+      if (burgerBtn && navBar) {
+        burgerBtn.addEventListener("click", () => {
+          const isOpen = navBar.classList.toggle("is-open");
+          burgerBtn.classList.toggle("is-open", isOpen);
+          burgerBtn.setAttribute("aria-expanded", String(isOpen));
+          if (navBackdrop) navBackdrop.hidden = !isOpen;
+        });
+      }
+
+      if (navBackdrop) {
+        navBackdrop.addEventListener("click", closeMobileNav);
+      }
+
+      document.querySelectorAll("#board-nav a").forEach((link) => {
+        link.addEventListener("click", closeMobileNav);
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMobileNav();
+      });
+    })();
+  </script>
 </body>
 
 </html>
