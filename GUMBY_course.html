@@ -133,6 +133,9 @@
               <kbd>DRAG</kbd> Spin &amp; Tilt 3D Space &bull; <kbd>SCROLL</kbd> Zoom &bull; <kbd>CLICK TAG</kbd> Inspect
               Lore
             </div>
+            <div class="hud-mobile-instruction-pill">
+              Select map sectors 1-7 for course intel
+            </div>
             <div class="gpx-status-badge" id="gpx-status-badge">
               <span class="status-pulse"></span>
               <span id="gpx-status-text">GPX Telemetry Active: GUMBY_loop.gpx</span>
@@ -1445,8 +1448,10 @@
       initLocationsUI();
       bindInteractions();
       resizeCanvases();
-      // Open Blue Range Star Base on initial load without stopping auto-spin
-      selectLocation(0, false);
+      // Open Blue Range Star Base on initial load on desktop only (do not open popup on mobile load)
+      if (!window.matchMedia("(max-width: 768px)").matches) {
+        selectLocation(0, false);
+      }
       requestAnimationFrame(render3DScene);
     })();
   </script>
