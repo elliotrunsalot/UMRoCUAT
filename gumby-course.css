@@ -787,7 +787,7 @@ body::before {
   font-size: 0.76rem;
 }
 
-.runner-metrics > span {
+.runner-metrics>span {
   display: inline-flex;
   align-items: baseline;
   gap: 0.3rem;
