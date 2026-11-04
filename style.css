@@ -1457,3 +1457,47 @@ img {
     font-size: 0.68rem;
   }
 }
+
+
+/* ════════════════════════════════════════════════════
+   EVENT RESULTS PAGES (GUMBY_Results.html & BRuTUS_Results.html)
+   ════════════════════════════════════════════════════ */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0.5rem 1.5rem;
+}
+
+.results-year-card {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid var(--circuit-blue);
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.1);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.results-year-card:hover {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.2);
+}
+
+.results-year-card h2 {
+  margin-bottom: 0.75rem;
+}
+
+.results-year-card a p {
+  margin: 0.55rem 0;
+  padding: 0.45rem 0.75rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: all 0.25s ease;
+}
+
+.results-year-card a:hover p {
+  border-color: var(--neon-pink);
+  background: rgba(255, 0, 255, 0.12);
+}
