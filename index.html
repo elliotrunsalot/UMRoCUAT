@@ -12,29 +12,23 @@
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Audiowide&family=Poppins:wght@400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Chelsea+Market&family=Syncopate:wght@700&family=Audiowide&family=Poppins:wght@400;600;800&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <!-- Mobile & All-Screen Slide-out Burger Menu -->
-    <div class="burger" title="Menu">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-    </div>
 
-    <ul class="nav23 index-nav">
-        <li><a href="index.html">ULTRA Mediocre Home</a></li>
-        <li><a href="Our_Story.html">Our Story</a></li>
-        <li><a href="Our_Board.html">The Board of Mediocrity</a></li>
-        <li><a href="Media_Records.html">Media Records</a></li>
-        <li><a href="Great Ultra Mediocre Back Yarder.html">GUMBY 2027</a></li>
-        <li><a href="GUMBY_Results.html">GUMBY Results</a></li>
-        <li><a href="BRuTUS.html">BRuTUS</a></li>
-        <li><a href="BRuTUS_Results.html">BRuTUS Results</a></li>
-        <li><a href="Event_policies.html">Event Policies</a></li>
-    </ul>
+    <!-- Hidden SVG Filter to give the single-element title a smooth curved arch -->
+    <svg width="0" height="0" style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
+        <defs>
+            <filter id="flintstone-arch" x="-10%" y="-35%" width="120%" height="175%"
+                color-interpolation-filters="sRGB">
+                <feImage id="arch-disp-img" result="archMap" preserveAspectRatio="none" />
+                <feDisplacementMap in="SourceGraphic" in2="archMap" scale="34" xChannelSelector="R"
+                    yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
 
     <!-- ══ TICKER TAPE ══ -->
     <div class="hero-ticker" aria-label="Club stats ticker">
@@ -72,158 +66,79 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════════
-         WILD STAGE: TITLE + 3D CANBERRA CENTENARY TRAIL + SYMBOL ARCADE
+         MAIN STAGE: ARCHED FLINTSTONES TITLE + FULL-SCREEN SPINNING MAP
          ═══════════════════════════════════════════════════════════════════ -->
     <main class="wild-stage">
 
-        <!-- Header Bar: Brand Title + Symbol-Only Trophy & Combo HUD -->
         <header class="wild-header-bar">
-            <div class="brand-cluster">
-                <h1 class="hero-h1" id="brand-title-burst" title="⚡">
-                    <span class="hero-word-ultra">ULTRA</span>
-                    <span class="hero-word-mediocre">MEDIOCRE</span>
-                </h1>
-            </div>
-
-            <!-- Symbol-Only Arcade Progress & Score Pill -->
-            <div class="arcade-hud-pill" aria-label="Story badge collector">
-                <div class="arcade-badges" id="arcade-badges">
-                    <span class="story-badge-slot" data-badge="0">🔓</span>
-                    <span class="story-badge-slot" data-badge="1">⚡</span>
-                    <span class="story-badge-slot" data-badge="2">👕</span>
-                    <span class="story-badge-slot" data-badge="3">🛸</span>
-                    <span class="story-badge-slot" data-badge="4">🗡️</span>
-                    <span class="story-badge-slot" data-badge="5">👑</span>
-                </div>
-                <div class="arcade-counter" id="arcade-score">★ 000</div>
-            </div>
+            <h1 class="hero-h1">Ultra Mediocre Runners of Canberra</h1>
         </header>
 
-        <!-- Interactive 3D Canberra Centenary Trail (145km) Map Viewport -->
-        <section class="centenary-map-deck" id="centenary-map-deck" aria-label="Interactive Canberra Centenary Trail 3D Map">
+        <!-- Floating Borderless 3D Canberra Centenary Trail & Stencil Map -->
+        <section class="centenary-map-deck" id="centenary-map-deck"
+            aria-label="Interactive Canberra Centenary Trail Map">
 
-            <!-- Top-Left CBR Location Symbol Badge -->
-            <div class="map-corner-badges">
-                <div class="cbr-tag-badge">📍🏔️ 145KM</div>
-                <div class="cbr-tag-badge" id="runner-lap-pill">🏃 ×1</div>
+            <!-- Direction Toggle Controls: Course Spin Direction & Ghost Runner Direction -->
+            <div class="map-direction-controls">
+                <button type="button" class="map-dir-btn" id="btn-flip-spin" title="Reverse Course Spin Direction">
+                    <span class="map-dir-icon" id="spin-dir-icon">🔄</span>
+                    <span>Spin Dir</span>
+                </button>
+                <button type="button" class="map-dir-btn" id="btn-flip-runner" title="Reverse Ghost Runner Direction">
+                    <span class="map-dir-icon" id="runner-dir-icon">🏃⇄</span>
+                    <span>Runner Dir</span>
+                </button>
             </div>
 
-            <!-- Top-Right Symbol Camera Controls -->
-            <div class="map-mini-controls">
-                <button type="button" class="map-sym-btn active" id="btn-auto-orbit" title="Orbit">🔄</button>
-                <button type="button" class="map-sym-btn" id="btn-flip-dir" title="Reverse">⇄</button>
-                <button type="button" class="map-sym-btn" id="btn-reset-cam" title="Reset">🎯</button>
-            </div>
-
-            <!-- 3D Map Canvas -->
+            <!-- 3D Map & Stencil Canvas -->
             <canvas id="cent-map-canvas"></canvas>
 
             <!-- High-Point Summit Navigation Links (hero-quicknav anchored to the 6 evenly-spaced peaks) -->
             <div class="hero-quicknav" id="cent-pins-overlay">
                 <!-- Peak 1 (~14.5% loop, North — One Tree Hill 864m) -->
-                <a href="Our_Story.html"
-                   class="hero-qnav-pill summit-pin"
-                   data-peak-index="0"
-                   style="--pa:#FF3EB5">
+                <a href="Our_Story.html" class="hero-qnav-pill summit-pin" data-peak-index="0" style="--pa:#FEDD00">
                     <span class="summit-pin-icon">📜</span>
                     <span>Our Story</span>
                     <span class="summit-pin-ele">▲864m</span>
                 </a>
 
                 <!-- Peak 2 (~27% loop, North-East — Old Joe / Goorooyarroo 770m) -->
-                <a href="Our_Board.html"
-                   class="hero-qnav-pill summit-pin"
-                   data-peak-index="1"
-                   style="--pa:#00f0ff">
+                <a href="Our_Board.html" class="hero-qnav-pill summit-pin" data-peak-index="1" style="--pa:#00f0ff">
                     <span class="summit-pin-icon">🎭</span>
                     <span>The Board</span>
                     <span class="summit-pin-ele">▲770m</span>
                 </a>
 
                 <!-- Peak 3 (~39.4% loop, East — Mount Majura 881m, Highest Point) -->
-                <a href="Media_Records.html"
-                   class="hero-qnav-pill summit-pin"
-                   data-peak-index="2"
-                   style="--pa:#FEDD00">
+                <a href="Media_Records.html" class="hero-qnav-pill summit-pin" data-peak-index="2" style="--pa:#FEDD00">
                     <span class="summit-pin-icon">🏆</span>
                     <span>Media &amp; Records</span>
                     <span class="summit-pin-ele">▲881m</span>
                 </a>
 
                 <!-- Peak 4 (~59.5% loop, South-East — Tuggeranong Hill 804m) -->
-                <a href="Great Ultra Mediocre Back Yarder.html"
-                   class="hero-qnav-pill summit-pin"
-                   data-peak-index="3"
-                   style="--pa:#FF3EB5">
+                <a href="Great Ultra Mediocre Back Yarder.html" class="hero-qnav-pill summit-pin" data-peak-index="3"
+                    style="--pa:#00f0ff">
                     <span class="summit-pin-icon">🛸</span>
                     <span>GUMBY</span>
                     <span class="summit-pin-ele">▲804m</span>
                 </a>
 
                 <!-- Peak 5 (~81.1% loop, South-West — Mount Taylor / Oakey Ridge 712m) -->
-                <a href="BRuTUS.html"
-                   class="hero-qnav-pill summit-pin"
-                   data-peak-index="4"
-                   style="--pa:#FEDD00">
+                <a href="BRuTUS.html" class="hero-qnav-pill summit-pin" data-peak-index="4" style="--pa:#FEDD00">
                     <span class="summit-pin-icon">🗡️</span>
                     <span>BRuTUS</span>
                     <span class="summit-pin-ele">▲712m</span>
                 </a>
 
                 <!-- Peak 6 (~97.3% loop, West/Central — Black Mountain 812m) -->
-                <a href="Event_policies.html"
-                   class="hero-qnav-pill summit-pin"
-                   data-peak-index="5"
-                   style="--pa:#009CDE">
+                <a href="Event_policies.html" class="hero-qnav-pill summit-pin" data-peak-index="5"
+                    style="--pa:#00f0ff">
                     <span class="summit-pin-icon">⚖️</span>
                     <span>Event Policies</span>
                     <span class="summit-pin-ele">▲812m</span>
                 </a>
             </div>
-
-            <!-- Interactive Floating Symbol & Stamp FX Layer -->
-            <div id="story-fx-layer" aria-hidden="true"></div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════════════════════
-             SYMBOL-ONLY STORY GAMIFICATION DOCK (6 INTERACTIVE STORY TOYS)
-             0: 🏟️🔒 AIS Track Gate Shatter
-             1: 🧭⚡ 145km Centenary Trail FKT Squad Boost
-             2: 👕📜 T-Shirt & Incorporation Stamp
-             3: 🛸🔔 GUMBY UFO Tractor Beam & Cowbell Shockwave
-             4: 🗡️🏔️ BRuTUS Vertical Peak Overdrive
-             5: 🎉👑 Mediocrity Crown Party Mode
-             ═══════════════════════════════════════════════════════════════ -->
-        <section class="story-arcade-dock" aria-label="Interactive story symbols">
-            <button type="button" class="arcade-toy-btn" data-toy="0" style="--toy-color:#FF3EB5">
-                <span class="toy-emoji-pair" id="toy-icon-0">🏟️🔒</span>
-                <span class="toy-hit-pip" id="toy-pip-0">×0</span>
-            </button>
-
-            <button type="button" class="arcade-toy-btn" data-toy="1" style="--toy-color:#00f0ff">
-                <span class="toy-emoji-pair" id="toy-icon-1">🧭⚡</span>
-                <span class="toy-hit-pip" id="toy-pip-1">×0</span>
-            </button>
-
-            <button type="button" class="arcade-toy-btn" data-toy="2" style="--toy-color:#FEDD00">
-                <span class="toy-emoji-pair" id="toy-icon-2">👕📜</span>
-                <span class="toy-hit-pip" id="toy-pip-2">×0</span>
-            </button>
-
-            <button type="button" class="arcade-toy-btn" data-toy="3" style="--toy-color:#FF3EB5">
-                <span class="toy-emoji-pair" id="toy-icon-3">🛸🔔</span>
-                <span class="toy-hit-pip" id="toy-pip-3">×0</span>
-            </button>
-
-            <button type="button" class="arcade-toy-btn" data-toy="4" style="--toy-color:#FEDD00">
-                <span class="toy-emoji-pair" id="toy-icon-4">🗡️🏔️</span>
-                <span class="toy-hit-pip" id="toy-pip-4">×0</span>
-            </button>
-
-            <button type="button" class="arcade-toy-btn" data-toy="5" style="--toy-color:#009CDE">
-                <span class="toy-emoji-pair" id="toy-icon-5">🎉👑</span>
-                <span class="toy-hit-pip" id="toy-pip-5">×0</span>
-            </button>
         </section>
 
     </main>
@@ -232,884 +147,882 @@
         <p>&copy; ULTRA Mediocre Runners of Canberra 2026</p>
     </div>
 
-    <script src="app.js"></script>
     <script>
-    (function () {
-        'use strict';
+        (function () {
+            'use strict';
 
-        /* ═══════════════════════════════════════════════════════════════════
-           1. EMBEDDED FALLBACK TRACK FROM CanberraCentenaryTrail.gpx
-              (142 points sampled around the real 145km Canberra loop + live GPX fetch)
-           ═══════════════════════════════════════════════════════════════════ */
-        const FALLBACK_GPX_POINTS = [
-            [-35.25715, 149.10973, 607], [-35.25100, 149.10606, 626], [-35.24678, 149.10283, 613],
-            [-35.25158, 149.09485, 643], [-35.24628, 149.08405, 665], [-35.24317, 149.07426, 595],
-            [-35.23651, 149.07349, 579], [-35.23011, 149.07915, 582], [-35.22066, 149.08043, 584],
-            [-35.20935, 149.08848, 585], [-35.20078, 149.09409, 593], [-35.19206, 149.08597, 611],
-            [-35.18381, 149.07568, 645], [-35.17302, 149.07144, 627], [-35.16628, 149.07066, 647],
-            [-35.15721, 149.08030, 715], [-35.15062, 149.08793, 752], [-35.14196, 149.09162, 864], // Peak 1: One Tree Hill (864m)
-            [-35.13891, 149.09494, 750], [-35.13512, 149.10263, 733], [-35.13109, 149.10997, 753],
-            [-35.12621, 149.11665, 733], [-35.12548, 149.12196, 737], [-35.12681, 149.12708, 706],
-            [-35.12850, 149.13214, 702], [-35.13235, 149.13749, 720], [-35.13492, 149.13749, 731],
-            [-35.13873, 149.14097, 709], [-35.13715, 149.14629, 721], [-35.14360, 149.14651, 770], // Peak 2: Goorooyarroo / Old Joe (770m)
-            [-35.14439, 149.15158, 757], [-35.14167, 149.15913, 731], [-35.14359, 149.16454, 710],
-            [-35.15037, 149.16484, 687], [-35.15414, 149.15660, 662], [-35.16606, 149.14571, 640],
-            [-35.16680, 149.15497, 640], [-35.16341, 149.16497, 659], [-35.16958, 149.17573, 646],
-            [-35.17300, 149.18493, 663], [-35.17809, 149.18608, 672], [-35.18649, 149.18918, 687],
-            [-35.19073, 149.18204, 660], [-35.19809, 149.18017, 641], [-35.20911, 149.19055, 710],
-            [-35.20781, 149.19460, 693], [-35.21597, 149.19189, 689], [-35.21536, 149.18981, 691],
-            [-35.22075, 149.17875, 647], [-35.22969, 149.17776, 699], [-35.23818, 149.18119, 881], // Peak 3: Mount Majura (881m)
-            [-35.24493, 149.17767, 772], [-35.24773, 149.17421, 733], [-35.25098, 149.16834, 626],
-            [-35.25744, 149.16353, 644], [-35.26541, 149.16903, 705], [-35.26654, 149.16304, 778],
-            [-35.26918, 149.15893, 836], [-35.27445, 149.15709, 728], [-35.27989, 149.15105, 595],
-            [-35.28521, 149.14551, 572], [-35.29292, 149.14115, 559], [-35.29794, 149.14387, 558],
-            [-35.30241, 149.13841, 564], [-35.29705, 149.13439, 564], [-35.30205, 149.13108, 578],
-            [-35.30630, 149.12648, 590], [-35.30714, 149.12144, 586], [-35.30470, 149.12273, 579],
-            [-35.30933, 149.11957, 580], [-35.31650, 149.11674, 603], [-35.32263, 149.11488, 688],
-            [-35.32778, 149.11654, 719], [-35.33548, 149.12131, 642], [-35.34070, 149.13201, 632],
-            [-35.34454, 149.13868, 633], [-35.34804, 149.13421, 673], [-35.34747, 149.12728, 713],
-            [-35.35307, 149.11853, 672], [-35.35669, 149.11363, 692], [-35.36599, 149.12046, 804], // Peak 4: Tuggeranong Hill (804m)
-            [-35.37210, 149.12390, 791], [-35.36968, 149.11700, 706], [-35.37748, 149.11901, 707],
-            [-35.38527, 149.12191, 734], [-35.38884, 149.12872, 674], [-35.40023, 149.13038, 669],
-            [-35.40936, 149.12754, 639], [-35.41250, 149.11940, 621], [-35.41842, 149.10774, 599],
-            [-35.42259, 149.09653, 588], [-35.42199, 149.08746, 581], [-35.42160, 149.07894, 577],
-            [-35.41835, 149.07197, 575], [-35.41393, 149.06751, 577], [-35.41206, 149.06156, 576],
-            [-35.41349, 149.05456, 544], [-35.40752, 149.05608, 553], [-35.41292, 149.04944, 563],
-            [-35.40930, 149.04437, 567], [-35.40780, 149.03651, 553], [-35.40502, 149.02671, 531],
-            [-35.40115, 149.01978, 535], [-35.39891, 149.01406, 531], [-35.39603, 149.01255, 562],
-            [-35.39727, 149.02077, 583], [-35.39281, 149.02807, 591], [-35.38255, 149.04315, 615],
-            [-35.37522, 149.05001, 624], [-35.36694, 149.05150, 657], [-35.36488, 149.04399, 698],
-            [-35.36305, 149.03892, 712], // Peak 5: Mount Taylor / Urambi / Cooleman (712m)
-            [-35.35917, 149.03018, 696], [-35.35505, 149.03118, 706], [-35.35175, 149.02220, 669],
-            [-35.34628, 149.02804, 631], [-35.33756, 149.02601, 648], [-35.32586, 149.02660, 609],
-            [-35.31408, 149.02808, 579], [-35.31518, 149.03581, 557], [-35.30961, 149.04645, 550],
-            [-35.31961, 149.04632, 555], [-35.31140, 149.05641, 569], [-35.30448, 149.06014, 575],
-            [-35.29204, 149.06813, 631], [-35.28799, 149.06710, 647], [-35.29039, 149.07388, 589],
-            [-35.28530, 149.08111, 589], [-35.27848, 149.08436, 581], [-35.27533, 149.07948, 587],
-            [-35.26836, 149.08663, 615], [-35.26585, 149.09310, 636], [-35.26339, 149.09865, 650],
-            [-35.26913, 149.09872, 707], [-35.27334, 149.09585, 759], [-35.27671, 149.09439, 746],
-            [-35.27783, 149.09814, 764], [-35.27408, 149.09810, 812], // Peak 6: Black Mountain (812m)
-            [-35.27018, 149.09986, 731], [-35.27143, 149.10596, 635], [-35.26535, 149.11023, 612],
-            [-35.26169, 149.11091, 617], [-35.25763, 149.10951, 603]
-        ];
+            /* ═══════════════════════════════════════════════════════════════════
+               0. BUILD PARABOLIC ARCH DISPLACEMENT MAP FOR FLINTSTONES TITLE
+                  Curves the single <h1 class="hero-h1"> upward in the middle
+                  while allowing natural responsive wrapping on mobile screens.
+               ═══════════════════════════════════════════════════════════════════ */
+            (function initTitleArchFilter() {
+                const dispImg = document.getElementById('arch-disp-img');
+                if (!dispImg) return;
+                const c = document.createElement('canvas');
+                c.width = 256;
+                c.height = 64;
+                const g = c.getContext('2d');
+                const imgData = g.createImageData(c.width, c.height);
+                const data = imgData.data;
 
-        // Exact coordinates of the 6 evenly-spaced High Points along the Centenary Trail
-        const HIGH_POINT_TARGETS = [
-            { lat: -35.141963, lon: 149.091625, ele: 864, color: '#FF3EB5', icon: '📜' }, // 0: One Tree Hill -> Our Story
-            { lat: -35.143600, lon: 149.146510, ele: 770, color: '#00f0ff', icon: '🎭' }, // 1: Old Joe / Goorooyarroo -> The Board
-            { lat: -35.238179, lon: 149.181194, ele: 881, color: '#FEDD00', icon: '🏆' }, // 2: Mt Majura -> Media & Records
-            { lat: -35.365999, lon: 149.120457, ele: 804, color: '#FF3EB5', icon: '🛸' }, // 3: Tuggeranong Hill -> GUMBY
-            { lat: -35.363050, lon: 149.038923, ele: 712, color: '#FEDD00', icon: '🗡️' }, // 4: Mt Taylor / Cooleman -> BRuTUS
-            { lat: -35.274076, lon: 149.098095, ele: 812, color: '#009CDE', icon: '⚖️' }  // 5: Black Mountain -> Event Policies
-        ];
+                for (let y = 0; y < c.height; y++) {
+                    for (let x = 0; x < c.width; x++) {
+                        const u = (x / (c.width - 1)) * 2 - 1; // -1 at edges, 0 at center
+                        // Parabolic arch: center lifts up (G > 128 shifts source downward = visual upward arch)
+                        const arch = 1 - u * u;
+                        const green = Math.round(112 + arch * 76);
+                        const idx = (y * c.width + x) * 4;
+                        data[idx] = 128;     // R: no horizontal displacement
+                        data[idx + 1] = green; // G: vertical parabolic arch
+                        data[idx + 2] = 128;
+                        data[idx + 3] = 255;
+                    }
+                }
+                g.putImageData(imgData, 0, 0);
+                dispImg.setAttribute('href', c.toDataURL());
+            })();
 
-        // AIS Track Location (Bruce, ACT — right inside the northern-west cradle of the trail)
-        const AIS_COORD = { lat: -35.2465, lon: 149.1015, ele: 615 };
+            /* ═══════════════════════════════════════════════════════════════════
+               1. EMBEDDED FALLBACK TRACK FROM CanberraCentenaryTrail.gpx
+                  (142 points sampled around the real 145km Canberra loop + live GPX fetch)
+               ═══════════════════════════════════════════════════════════════════ */
+            const FALLBACK_GPX_POINTS = [
+                [-35.25715, 149.10973, 607], [-35.25100, 149.10606, 626], [-35.24678, 149.10283, 613],
+                [-35.25158, 149.09485, 643], [-35.24628, 149.08405, 665], [-35.24317, 149.07426, 595],
+                [-35.23651, 149.07349, 579], [-35.23011, 149.07915, 582], [-35.22066, 149.08043, 584],
+                [-35.20935, 149.08848, 585], [-35.20078, 149.09409, 593], [-35.19206, 149.08597, 611],
+                [-35.18381, 149.07568, 645], [-35.17302, 149.07144, 627], [-35.16628, 149.07066, 647],
+                [-35.15721, 149.08030, 715], [-35.15062, 149.08793, 752], [-35.14196, 149.09162, 864], // Peak 1: One Tree Hill (864m)
+                [-35.13891, 149.09494, 750], [-35.13512, 149.10263, 733], [-35.13109, 149.10997, 753],
+                [-35.12621, 149.11665, 733], [-35.12548, 149.12196, 737], [-35.12681, 149.12708, 706],
+                [-35.12850, 149.13214, 702], [-35.13235, 149.13749, 720], [-35.13492, 149.13749, 731],
+                [-35.13873, 149.14097, 709], [-35.13715, 149.14629, 721], [-35.14360, 149.14651, 770], // Peak 2: Goorooyarroo / Old Joe (770m)
+                [-35.14439, 149.15158, 757], [-35.14167, 149.15913, 731], [-35.14359, 149.16454, 710],
+                [-35.15037, 149.16484, 687], [-35.15414, 149.15660, 662], [-35.16606, 149.14571, 640],
+                [-35.16680, 149.15497, 640], [-35.16341, 149.16497, 659], [-35.16958, 149.17573, 646],
+                [-35.17300, 149.18493, 663], [-35.17809, 149.18608, 672], [-35.18649, 149.18918, 687],
+                [-35.19073, 149.18204, 660], [-35.19809, 149.18017, 641], [-35.20911, 149.19055, 710],
+                [-35.20781, 149.19460, 693], [-35.21597, 149.19189, 689], [-35.21536, 149.18981, 691],
+                [-35.22075, 149.17875, 647], [-35.22969, 149.17776, 699], [-35.23818, 149.18119, 881], // Peak 3: Mount Majura (881m)
+                [-35.24493, 149.17767, 772], [-35.24773, 149.17421, 733], [-35.25098, 149.16834, 626],
+                [-35.25744, 149.16353, 644], [-35.26541, 149.16903, 705], [-35.26654, 149.16304, 778],
+                [-35.26918, 149.15893, 836], [-35.27445, 149.15709, 728], [-35.27989, 149.15105, 595],
+                [-35.28521, 149.14551, 572], [-35.29292, 149.14115, 559], [-35.29794, 149.14387, 558],
+                [-35.30241, 149.13841, 564], [-35.29705, 149.13439, 564], [-35.30205, 149.13108, 578],
+                [-35.30630, 149.12648, 590], [-35.30714, 149.12144, 586], [-35.30470, 149.12273, 579],
+                [-35.30933, 149.11957, 580], [-35.31650, 149.11674, 603], [-35.32263, 149.11488, 688],
+                [-35.32778, 149.11654, 719], [-35.33548, 149.12131, 642], [-35.34070, 149.13201, 632],
+                [-35.34454, 149.13868, 633], [-35.34804, 149.13421, 673], [-35.34747, 149.12728, 713],
+                [-35.35307, 149.11853, 672], [-35.35669, 149.11363, 692], [-35.36599, 149.12046, 804], // Peak 4: Tuggeranong Hill (804m)
+                [-35.37210, 149.12390, 791], [-35.36968, 149.11700, 706], [-35.37748, 149.11901, 707],
+                [-35.38527, 149.12191, 734], [-35.38884, 149.12872, 674], [-35.40023, 149.13038, 669],
+                [-35.40936, 149.12754, 639], [-35.41250, 149.11940, 621], [-35.41842, 149.10774, 599],
+                [-35.42259, 149.09653, 588], [-35.42199, 149.08746, 581], [-35.42160, 149.07894, 577],
+                [-35.41835, 149.07197, 575], [-35.41393, 149.06751, 577], [-35.41206, 149.06156, 576],
+                [-35.41349, 149.05456, 544], [-35.40752, 149.05608, 553], [-35.41292, 149.04944, 563],
+                [-35.40930, 149.04437, 567], [-35.40780, 149.03651, 553], [-35.40502, 149.02671, 531],
+                [-35.40115, 149.01978, 535], [-35.39891, 149.01406, 531], [-35.39603, 149.01255, 562],
+                [-35.39727, 149.02077, 583], [-35.39281, 149.02807, 591], [-35.38255, 149.04315, 615],
+                [-35.37522, 149.05001, 624], [-35.36694, 149.05150, 657], [-35.36488, 149.04399, 698],
+                [-35.36305, 149.03892, 712], // Peak 5: Mount Taylor / Urambi / Cooleman (712m)
+                [-35.35917, 149.03018, 696], [-35.35505, 149.03118, 706], [-35.35175, 149.02220, 669],
+                [-35.34628, 149.02804, 631], [-35.33756, 149.02601, 648], [-35.32586, 149.02660, 609],
+                [-35.31408, 149.02808, 579], [-35.31518, 149.03581, 557], [-35.30961, 149.04645, 550],
+                [-35.31961, 149.04632, 555], [-35.31140, 149.05641, 569], [-35.30448, 149.06014, 575],
+                [-35.29204, 149.06813, 631], [-35.28799, 149.06710, 647], [-35.29039, 149.07388, 589],
+                [-35.28530, 149.08111, 589], [-35.27848, 149.08436, 581], [-35.27533, 149.07948, 587],
+                [-35.26836, 149.08663, 615], [-35.26585, 149.09310, 636], [-35.26339, 149.09865, 650],
+                [-35.26913, 149.09872, 707], [-35.27334, 149.09585, 759], [-35.27671, 149.09439, 746],
+                [-35.27783, 149.09814, 764], [-35.27408, 149.09810, 812], // Peak 6: Black Mountain (812m)
+                [-35.27018, 149.09986, 731], [-35.27143, 149.10596, 635], [-35.26535, 149.11023, 612],
+                [-35.26169, 149.11091, 617], [-35.25763, 149.10951, 603]
+            ];
 
-        // Lake Burley Griffin ribbon points (in the heart of Canberra to anchor geography visually)
-        const LBG_RIBBON = [
-            [-35.288, 149.075], [-35.293, 149.092], [-35.290, 149.110],
-            [-35.289, 149.125], [-35.297, 149.138], [-35.303, 149.148]
-        ];
+            // Exact coordinates of the 6 evenly-spaced High Points along the Centenary Trail
+            const HIGH_POINT_TARGETS = [
+                { lat: -35.141963, lon: 149.091625, ele: 864, color: '#FEDD00' }, // 0: One Tree Hill -> Our Story
+                { lat: -35.143600, lon: 149.146510, ele: 770, color: '#00f0ff' }, // 1: Old Joe / Goorooyarroo -> The Board
+                { lat: -35.238179, lon: 149.181194, ele: 881, color: '#FEDD00' }, // 2: Mt Majura -> Media & Records
+                { lat: -35.365999, lon: 149.120457, ele: 804, color: '#00f0ff' }, // 3: Tuggeranong Hill -> GUMBY
+                { lat: -35.363050, lon: 149.038923, ele: 712, color: '#FEDD00' }, // 4: Mt Taylor / Cooleman -> BRuTUS
+                { lat: -35.274076, lon: 149.098095, ele: 812, color: '#00f0ff' }  // 5: Black Mountain -> Event Policies
+            ];
 
-        const canvas = document.getElementById('cent-map-canvas');
-        const ctx = canvas.getContext('2d');
-        const mapDeck = document.getElementById('centenary-map-deck');
-        const fxLayer = document.getElementById('story-fx-layer');
-        const pinElements = Array.from(document.querySelectorAll('.summit-pin'));
+            /* ═══════════════════════════════════════════════════════════════════
+               2. CANBERRA ARCHITECTURAL STENCIL MAP GEOMETRY (REAL LAT/LON)
+                  Includes Lake Burley Griffin (West Lake, West/Central/East Basins),
+                  Lake Ginninderra, Lake Tuggeranong, Murrumbidgee/Molonglo Rivers,
+                  Parliament House (State Circle + Capital Hill), Parliamentary Triangle,
+                  ANZAC Parade, Australian War Memorial, Civic, and Telstra Tower.
+               ═══════════════════════════════════════════════════════════════════ */
 
-        // Normalized 3D model state
-        let trailNodes = [];
-        let lbgNodes = [];
-        let aisNode = { x: 0, y: 0, z: 0 };
-        let peakIndices = [17, 29, 50, 80, 110, 137];
+            // Closed polygon shoreline of Lake Burley Griffin
+            const LBG_POLYGON_COORDS = [
+                [-35.2982, 149.0715], [-35.2940, 149.0795], [-35.2895, 149.0885],
+                [-35.2975, 149.0955], [-35.3005, 149.0992], [-35.2925, 149.1028],
+                [-35.2835, 149.1088], [-35.2838, 149.1165], [-35.2908, 149.1188],
+                [-35.2912, 149.1245], [-35.2942, 149.1342], [-35.2978, 149.1415],
+                [-35.2995, 149.1510], [-35.3068, 149.1538], [-35.3105, 149.1475],
+                [-35.3045, 149.1398], [-35.2998, 149.1325], [-35.2972, 149.1225],
+                [-35.3035, 149.1145], [-35.3045, 149.1030], [-35.3018, 149.0910],
+                [-35.3022, 149.0790], [-35.2982, 149.0715]
+            ];
 
-        // Camera & interaction state
-        let yaw = -0.35;
-        let pitch = 0.62;
-        let zoom = 1.0;
-        let autoOrbit = true;
-        let runnerDir = 1;
-        let isDragging = false;
-        let dragStartX = 0;
-        let dragStartY = 0;
-        let pointerMoved = false;
+            // Lake Ginninderra (Belconnen) polygon stencil
+            const LAKE_GINNINDERRA_COORDS = [
+                [-35.2225, 149.0640], [-35.2210, 149.0745], [-35.2285, 149.0790],
+                [-35.2355, 149.0740], [-35.2335, 149.0655], [-35.2225, 149.0640]
+            ];
 
-        // Gamification & Toy state
-        let arcadeScore = 0;
-        const toyCounts = [0, 0, 0, 0, 0, 0];
-        const unlockedBadges = new Set();
+            // Lake Tuggeranong (South) polygon stencil
+            const LAKE_TUGGERANONG_COORDS = [
+                [-35.4060, 149.0640], [-35.4090, 149.0725], [-35.4215, 149.0715],
+                [-35.4230, 149.0645], [-35.4140, 149.0620], [-35.4060, 149.0640]
+            ];
 
-        let aisGateShattered = false;
-        let aisShockwave = 0;
-        let vertMultiplier = 1.0;
-        let targetVertMultiplier = 1.0;
-        let shirtMode = false;
-        let ufoTimer = 0;
-        let ufoAngle = 0;
-        let partyModeTimer = 0;
+            // Molonglo & Murrumbidgee River stencil lines
+            const RIVER_CORRIDORS = [
+                [[-35.2982, 149.0715], [-35.2890, 149.0520], [-35.2720, 149.0310], [-35.2520, 149.0080]],
+                [[-35.4280, 149.0580], [-35.3980, 149.0120], [-35.3620, 148.9920], [-35.3200, 148.9820]]
+            ];
 
-        // Live Ghost Runners on the Centenary Trail (starts with 1 solo FKT runner; toy 1 adds relay squad!)
-        const runners = [
-            { progress: 0.0, speed: 0.0014, color: '#FEDD00', emoji: '🏃', label: 'FKT' }
-        ];
+            // Walter Burley Griffin's Parliamentary Triangle & Major Canberra Arterial Avenues
+            const STENCIL_AVENUES = [
+                {
+                    pts: [[-35.3081, 149.1245], [-35.2945, 149.1232], [-35.2809, 149.1287]],
+                    major: true
+                },
+                {
+                    pts: [[-35.3081, 149.1245], [-35.3010, 149.1408], [-35.2965, 149.1500]],
+                    major: true
+                },
+                {
+                    pts: [[-35.2809, 149.1287], [-35.2890, 149.1395], [-35.2965, 149.1500]],
+                    major: true
+                },
+                {
+                    pts: [[-35.3081, 149.1245], [-35.3020, 149.1298], [-35.2910, 149.1395], [-35.2803, 149.1489]],
+                    major: true
+                },
+                {
+                    pts: [[-35.2809, 149.1287], [-35.2450, 149.1340], [-35.2100, 149.1430], [-35.1800, 149.1540]],
+                    major: false
+                },
+                {
+                    pts: [[-35.3081, 149.1245], [-35.3220, 149.1040], [-35.3460, 149.0860], [-35.3820, 149.0840], [-35.4150, 149.0680]],
+                    major: false
+                },
+                {
+                    pts: [[-35.2809, 149.1287], [-35.2790, 149.1080], [-35.2580, 149.0880], [-35.2380, 149.0680]],
+                    major: false
+                },
+                {
+                    pts: [[-35.3081, 149.1245], [-35.3220, 149.1480], [-35.3550, 149.1520], [-35.3950, 149.1420]],
+                    major: false
+                },
+                {
+                    pts: [[-35.2880, 149.0920], [-35.3180, 149.0680], [-35.3580, 149.0580], [-35.4060, 149.0640]],
+                    major: false
+                }
+            ];
 
-        // Canvas 3D particle bursts
-        const particles3D = [];
-        // Expanding shockwave rings on the map
-        const rings3D = [];
-
-        /* ═══════════════════════════════════════════════════════════════════
-           2. NORMALIZE GPX GEOMETRY INTO 3D MODEL COORDINATES
-           ═══════════════════════════════════════════════════════════════════ */
-        function buildTrailModel(rawPoints) {
-            let minLat = Infinity, maxLat = -Infinity;
-            let minLon = Infinity, maxLon = -Infinity;
-            let minEle = Infinity, maxEle = -Infinity;
-
-            for (let i = 0; i < rawPoints.length; i++) {
-                const [lat, lon, ele] = rawPoints[i];
-                if (lat < minLat) minLat = lat;
-                if (lat > maxLat) maxLat = lat;
-                if (lon < minLon) minLon = lon;
-                if (lon > maxLon) maxLon = lon;
-                if (ele < minEle) minEle = ele;
-                if (ele > maxEle) maxEle = ele;
-            }
-
-            const centerLat = (minLat + maxLat) / 2;
-            const centerLon = (minLon + maxLon) / 2;
-            const latSpan = (maxLat - minLat) || 0.25;
-            const lonSpan = (maxLon - minLon) || 0.20;
-            const maxSpan = Math.max(latSpan, lonSpan);
-            const eleSpan = Math.max(100, maxEle - minEle);
-
-            const toModel = (lat, lon, ele) => {
-                // X: West -> East, Z: North -> South, Y: Elevation
-                const x = ((lon - centerLon) / maxSpan) * 2.15;
-                const z = (-(lat - centerLat) / maxSpan) * 2.15;
-                const y = ((ele - minEle) / eleSpan) * 0.42;
-                return { x, y, z, lat, lon, ele };
+            // Key Canberra Landmarks for 3D Stencil Icons & Labels
+            const LANDMARKS = {
+                parliament: { lat: -35.3081, lon: 149.1245, label: 'PARLIAMENT HOUSE' },
+                oldParliament: { lat: -35.3020, lon: 149.1298, label: '' },
+                warMemorial: { lat: -35.2803, lon: 149.1489, label: 'WAR MEMORIAL' },
+                civic: { lat: -35.2809, lon: 149.1287, label: 'CIVIC' },
+                telstraTower: { lat: -35.2755, lon: 149.0977, label: 'TELSTRA TOWER' },
+                lakeCenter: { lat: -35.2955, lon: 149.1240, label: 'LAKE BURLEY GRIFFIN' },
+                belconnen: { lat: -35.2380, lon: 149.0680, label: 'BELCONNEN' },
+                gungahlin: { lat: -35.1850, lon: 149.1330, label: 'GUNGAHLIN' },
+                woden: { lat: -35.3460, lon: 149.0860, label: 'WODEN' },
+                tuggeranong: { lat: -35.4150, lon: 149.0680, label: 'TUGGERANONG' }
             };
 
-            trailNodes = rawPoints.map(([lat, lon, ele]) => toModel(lat, lon, ele));
-            lbgNodes = LBG_RIBBON.map(([lat, lon]) => toModel(lat, lon, minEle + 15));
-            aisNode = toModel(AIS_COORD.lat, AIS_COORD.lon, AIS_COORD.ele);
+            const canvas = document.getElementById('cent-map-canvas');
+            const ctx = canvas.getContext('2d');
+            const mapDeck = document.getElementById('centenary-map-deck');
+            const pinElements = Array.from(document.querySelectorAll('.summit-pin'));
 
-            // Match each of the 6 High Point targets to its closest GPX node
-            peakIndices = HIGH_POINT_TARGETS.map((target) => {
-                let bestIdx = 0;
-                let bestDist = Infinity;
-                for (let i = 0; i < trailNodes.length; i++) {
-                    const dLat = trailNodes[i].lat - target.lat;
-                    const dLon = trailNodes[i].lon - target.lon;
-                    const d = dLat * dLat + dLon * dLon;
-                    if (d < bestDist) {
-                        bestDist = d;
-                        bestIdx = i;
-                    }
+            // Normalized 3D model state
+            let trailNodes = [];
+            let lbgPolygon = [];
+            let ginninderraPolygon = [];
+            let tuggeranongPolygon = [];
+            let riverCorridors = [];
+            let stencilAvenues = [];
+            let landmarkNodes = {};
+            let stateCircleRing = [];
+            let capitalCircleRing = [];
+            let cityHillRing = [];
+            let peakIndices = [17, 29, 50, 80, 110, 137];
+
+            // Camera & Spin / Runner direction state
+            let yaw = -0.18;
+            let pitch = 0.72;
+            let zoom = 1.18;
+            let spinDir = 1;    // +1 clockwise orbit, -1 counter-clockwise orbit
+            let runnerDir = 1;  // +1 forward along GPX, -1 reverse along GPX
+            let isDragging = false;
+            let dragStartX = 0;
+            let dragStartY = 0;
+
+            // Live Ghost Runner tracing the Canberra Centenary Trail
+            const runner = { progress: 0.0, speed: 0.0014 };
+
+            /* ═══════════════════════════════════════════════════════════════════
+               3. NORMALIZE GPX & CANBERRA STENCIL INTO 3D MODEL COORDINATES
+               ═══════════════════════════════════════════════════════════════════ */
+            function buildTrailModel(rawPoints) {
+                let minLat = Infinity, maxLat = -Infinity;
+                let minLon = Infinity, maxLon = -Infinity;
+                let minEle = Infinity, maxEle = -Infinity;
+
+                for (let i = 0; i < rawPoints.length; i++) {
+                    const [lat, lon, ele] = rawPoints[i];
+                    if (lat < minLat) minLat = lat;
+                    if (lat > maxLat) maxLat = lat;
+                    if (lon < minLon) minLon = lon;
+                    if (lon > maxLon) maxLon = lon;
+                    if (ele < minEle) minEle = ele;
+                    if (ele > maxEle) maxEle = ele;
                 }
-                return bestIdx;
-            });
-        }
 
-        // Initialize immediately with embedded Centenary Trail points
-        buildTrailModel(FALLBACK_GPX_POINTS);
+                const centerLat = (minLat + maxLat) / 2;
+                const centerLon = (minLon + maxLon) / 2;
+                const latSpan = (maxLat - minLat) || 0.25;
+                const lonSpan = (maxLon - minLon) || 0.20;
+                const maxSpan = Math.max(latSpan, lonSpan);
+                const eleSpan = Math.max(100, maxEle - minEle);
 
-        // Also load full high-resolution CanberraCentenaryTrail.gpx when served over HTTP/HTTPS
-        fetch('CanberraCentenaryTrail.gpx')
-            .then((res) => (res.ok ? res.text() : Promise.reject()))
-            .then((xmlText) => {
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(xmlText, 'application/xml');
-                const trkpts = xml.querySelectorAll('trkpt');
-                if (trkpts && trkpts.length > 100) {
-                    const sampled = [];
-                    const step = Math.max(1, Math.floor(trkpts.length / 360));
-                    for (let i = 0; i < trkpts.length; i += step) {
-                        const pt = trkpts[i];
-                        const lat = parseFloat(pt.getAttribute('lat'));
-                        const lon = parseFloat(pt.getAttribute('lon'));
-                        const eleNode = pt.querySelector('ele');
-                        const ele = eleNode ? parseFloat(eleNode.textContent) : 600;
-                        if (!isNaN(lat) && !isNaN(lon)) {
-                            sampled.push([lat, lon, ele]);
-                        }
-                    }
-                    // Ensure exact peak points are included
-                    HIGH_POINT_TARGETS.forEach((hp) => {
-                        sampled.push([hp.lat, hp.lon, hp.ele]);
-                    });
-                    // Re-sort by original order if we only use step sampling:
-                    const cleanSampled = [];
-                    for (let i = 0; i < trkpts.length; i += step) {
-                        const pt = trkpts[i];
-                        const lat = parseFloat(pt.getAttribute('lat'));
-                        const lon = parseFloat(pt.getAttribute('lon'));
-                        const eleNode = pt.querySelector('ele');
-                        const ele = eleNode ? parseFloat(eleNode.textContent) : 600;
-                        if (!isNaN(lat) && !isNaN(lon)) {
-                            cleanSampled.push([lat, lon, ele]);
-                        }
-                    }
-                    if (cleanSampled.length > 80) {
-                        buildTrailModel(cleanSampled);
-                    }
-                }
-            })
-            .catch(() => {
-                // Embedded fallback already active
-            });
+                const toModel = (lat, lon, ele) => {
+                    // X: West -> East, Z: North -> South, Y: Elevation above Canberra base plane
+                    const x = ((lon - centerLon) / maxSpan) * 2.38;
+                    const z = (-(lat - centerLat) / maxSpan) * 2.38;
+                    const y = ((ele - minEle) / eleSpan) * 0.38;
+                    return { x, y, z, lat, lon, ele };
+                };
 
-        /* ═══════════════════════════════════════════════════════════════════
-           3. 3D PROJECTION & CANVAS RESIZE
-           ═══════════════════════════════════════════════════════════════════ */
-        let viewW = 800;
-        let viewH = 540;
+                const toStencilPlane = (lat, lon) => toModel(lat, lon, minEle);
 
-        function resizeCanvas() {
-            const rect = mapDeck.getBoundingClientRect();
-            viewW = Math.max(300, rect.width);
-            viewH = Math.max(300, rect.height);
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
-            canvas.width = viewW * dpr;
-            canvas.height = viewH * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
+                trailNodes = rawPoints.map(([lat, lon, ele]) => toModel(lat, lon, ele));
+                lbgPolygon = LBG_POLYGON_COORDS.map(([lat, lon]) => toStencilPlane(lat, lon));
+                ginninderraPolygon = LAKE_GINNINDERRA_COORDS.map(([lat, lon]) => toStencilPlane(lat, lon));
+                tuggeranongPolygon = LAKE_TUGGERANONG_COORDS.map(([lat, lon]) => toStencilPlane(lat, lon));
 
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        function project3D(x, y, z) {
-            const scaledY = y * vertMultiplier;
-            const cosY = Math.cos(yaw);
-            const sinY = Math.sin(yaw);
-            const rx = x * cosY - z * sinY;
-            const rz = x * sinY + z * cosY;
-
-            const cosP = Math.cos(pitch);
-            const sinP = Math.sin(pitch);
-            const ry = scaledY * cosP - rz * sinP;
-            const depth = scaledY * sinP + rz * cosP;
-
-            const fov = Math.min(viewW, viewH) * 0.72 * zoom;
-            const camDist = 3.1;
-            const perspective = fov / Math.max(0.8, camDist + depth);
-
-            return {
-                sx: viewW * 0.5 + rx * perspective,
-                sy: viewH * 0.56 - ry * perspective,
-                scale: perspective / 280,
-                depth
-            };
-        }
-
-        function sampleLoopNode(progress) {
-            if (!trailNodes.length) return { x: 0, y: 0, z: 0, ele: 600 };
-            const wrapped = ((progress % 1) + 1) % 1;
-            const exact = wrapped * (trailNodes.length - 1);
-            const i0 = Math.floor(exact);
-            const i1 = (i0 + 1) % trailNodes.length;
-            const t = exact - i0;
-            const a = trailNodes[i0];
-            const b = trailNodes[i1];
-            return {
-                x: a.x + (b.x - a.x) * t,
-                y: a.y + (b.y - a.y) * t,
-                z: a.z + (b.z - a.z) * t,
-                ele: a.ele + (b.ele - a.ele) * t
-            };
-        }
-
-        /* ═══════════════════════════════════════════════════════════════════
-           4. FX SPAWNERS (PARTICLES, STAMPS, SCORE & BADGES)
-           ═══════════════════════════════════════════════════════════════════ */
-        const scoreEl = document.getElementById('arcade-score');
-        const badgeEls = Array.from(document.querySelectorAll('.story-badge-slot'));
-
-        function addArcadePoints(pts) {
-            arcadeScore += pts;
-            scoreEl.textContent = '★ ' + String(arcadeScore).padStart(3, '0');
-            scoreEl.style.transform = 'scale(1.18)';
-            setTimeout(() => {
-                scoreEl.style.transform = 'scale(1)';
-            }, 160);
-        }
-
-        function spawn3DBurst(x, y, z, color, emoji, count = 14) {
-            for (let i = 0; i < count; i++) {
-                const angle = (Math.PI * 2 * i) / count + Math.random() * 0.4;
-                const speed = 0.012 + Math.random() * 0.024;
-                particles3D.push({
-                    x,
-                    y: y + 0.04,
-                    z,
-                    vx: Math.cos(angle) * speed,
-                    vy: 0.018 + Math.random() * 0.026,
-                    vz: Math.sin(angle) * speed,
-                    life: 1.0,
-                    color,
-                    emoji: i % 3 === 0 ? emoji : null
-                });
-            }
-            rings3D.push({ x, y: 0.01, z, radius: 0.04, maxRadius: 0.55, color, alpha: 1.0 });
-        }
-
-        function spawnScreenSymbols(sx, sy, symbols, count = 6) {
-            for (let i = 0; i < count; i++) {
-                const span = document.createElement('span');
-                span.className = 'fx-floating-symbol';
-                span.textContent = symbols[i % symbols.length];
-                const dx = (Math.random() - 0.5) * 150;
-                const rot = (Math.random() - 0.5) * 70;
-                span.style.left = sx + 'px';
-                span.style.top = sy + 'px';
-                span.style.setProperty('--dx', dx.toFixed(0) + 'px');
-                span.style.setProperty('--rot', rot.toFixed(0) + 'deg');
-                fxLayer.appendChild(span);
-                setTimeout(() => span.remove(), 1250);
-            }
-        }
-
-        function spawnScreenStamp(sx, sy, label) {
-            const stamp = document.createElement('div');
-            stamp.className = 'fx-stamp-badge';
-            stamp.textContent = label;
-            stamp.style.left = sx + 'px';
-            stamp.style.top = sy + 'px';
-            stamp.style.setProperty('--rot', ((Math.random() - 0.5) * 28).toFixed(1) + 'deg');
-            fxLayer.appendChild(stamp);
-            setTimeout(() => stamp.remove(), 1600);
-        }
-
-        function triggerQuake() {
-            document.body.classList.remove('party-quake');
-            void document.body.offsetWidth;
-            document.body.classList.add('party-quake');
-        }
-
-        /* ═══════════════════════════════════════════════════════════════════
-           5. STORY ARCADE TOY ACTIONS (6 SYMBOL-ONLY TOYS)
-           ═══════════════════════════════════════════════════════════════════ */
-        function activateStoryToy(toyIndex) {
-            toyCounts[toyIndex]++;
-            const pip = document.getElementById('toy-pip-' + toyIndex);
-            if (pip) pip.textContent = '×' + toyCounts[toyIndex];
-
-            const btn = document.querySelector(`.arcade-toy-btn[data-toy="${toyIndex}"]`);
-            if (btn) {
-                btn.classList.add('toy-active');
-                setTimeout(() => btn.classList.remove('toy-active'), 600);
-            }
-
-            // Unlock corresponding story badge in HUD
-            if (!unlockedBadges.has(toyIndex)) {
-                unlockedBadges.add(toyIndex);
-                if (badgeEls[toyIndex]) {
-                    badgeEls[toyIndex].classList.add('unlocked');
-                }
-            }
-
-            addArcadePoints(25);
-
-            // Toy 0: 🏟️🔒 -> 🏟️💥 AIS Track "Elites Only" Gate Shatter
-            if (toyIndex === 0) {
-                aisGateShattered = true;
-                aisShockwave = 1.0;
-                const icon0 = document.getElementById('toy-icon-0');
-                if (icon0) icon0.textContent = '🏟️💥';
-                const p = project3D(aisNode.x, aisNode.y, aisNode.z);
-                spawn3DBurst(aisNode.x, aisNode.y, aisNode.z, '#FF3EB5', '🔓', 18);
-                spawnScreenSymbols(p.sx, p.sy, ['🔓', '💥', '🚫', '🏃', '🏟️', '⚡'], 8);
-                spawnScreenStamp(p.sx, p.sy, '🏟️🔓⚡');
-                triggerQuake();
-            }
-
-            // Toy 1: 🧭⚡ 145km Centenary Trail FKT Relay / Solo Squad Boost
-            if (toyIndex === 1) {
-                const palette = ['#00f0ff', '#FF3EB5', '#FEDD00', '#39ff14'];
-                const emojis = ['🏃', '🏃‍♀️', '⚡', '🦌'];
-                if (runners.length < 10) {
-                    runners.push({
-                        progress: Math.random(),
-                        speed: 0.0018 + Math.random() * 0.0016,
-                        color: palette[runners.length % palette.length],
-                        emoji: emojis[runners.length % emojis.length]
-                    });
-                }
-                // Give all runners a temporary speed surge
-                runners.forEach((r) => {
-                    r.speed = Math.min(0.0055, r.speed * 1.25);
-                    const node = sampleLoopNode(r.progress);
-                    spawn3DBurst(node.x, node.y, node.z, r.color, '⚡', 10);
-                });
-                const pill = document.getElementById('runner-lap-pill');
-                if (pill) pill.textContent = '🏃 ×' + runners.length;
-                spawnScreenSymbols(viewW * 0.5, viewH * 0.45, ['⚡', '🧭', '🏃', '🏃‍♀️', '🔥'], 7);
-            }
-
-            // Toy 2: 👕📜 27 Jan 2021 T-Shirt & Incorporation Stamp
-            if (toyIndex === 2) {
-                shirtMode = !shirtMode;
-                const randomPeakIdx = peakIndices[Math.floor(Math.random() * peakIndices.length)];
-                const node = trailNodes[randomPeakIdx] || { x: 0, y: 0.2, z: 0 };
-                const p = project3D(node.x, node.y, node.z);
-                spawn3DBurst(node.x, node.y, node.z, '#FEDD00', '👕', 16);
-                spawnScreenSymbols(p.sx, p.sy, ['👕', '📜', '✨', '🎨', '🏅'], 7);
-                spawnScreenStamp(
-                    viewW * (0.28 + Math.random() * 0.44),
-                    viewH * (0.28 + Math.random() * 0.44),
-                    '👕 27•01•21 📜'
+                riverCorridors = RIVER_CORRIDORS.map((line) =>
+                    line.map(([lat, lon]) => toStencilPlane(lat, lon))
                 );
-            }
 
-            // Toy 3: 🛸🔔 GUMBY Orbital UFO & Cowbell Abduction
-            if (toyIndex === 3) {
-                ufoTimer = 260;
-                const gumbyNode = trailNodes[peakIndices[3]] || { x: 0, y: 0.25, z: 0 };
-                const p = project3D(gumbyNode.x, gumbyNode.y, gumbyNode.z);
-                spawn3DBurst(gumbyNode.x, gumbyNode.y, gumbyNode.z, '#00f0ff', '🛸', 18);
-                spawnScreenSymbols(p.sx, p.sy, ['🛸', '🔔', '👽', '🐄', '✨'], 8);
-            }
+                stencilAvenues = STENCIL_AVENUES.map((ave) => ({
+                    major: ave.major,
+                    nodes: ave.pts.map(([lat, lon]) => toStencilPlane(lat, lon))
+                }));
 
-            // Toy 4: 🗡️🏔️ BRuTUS Summit Slash & Vertical Peak Overdrive
-            if (toyIndex === 4) {
-                targetVertMultiplier = targetVertMultiplier > 1.8 ? 1.0 : 2.55;
-                peakIndices.forEach((idx, k) => {
-                    const node = trailNodes[idx];
-                    if (node) {
-                        spawn3DBurst(node.x, node.y, node.z, HIGH_POINT_TARGETS[k].color, '🗡️', 8);
-                    }
+                landmarkNodes = {};
+                Object.keys(LANDMARKS).forEach((key) => {
+                    const lm = LANDMARKS[key];
+                    landmarkNodes[key] = {
+                        ...toStencilPlane(lm.lat, lm.lon),
+                        label: lm.label
+                    };
                 });
-                const brutusNode = trailNodes[peakIndices[4]] || { x: 0, y: 0.25, z: 0 };
-                const p = project3D(brutusNode.x, brutusNode.y, brutusNode.z);
-                spawnScreenSymbols(p.sx, p.sy, ['🗡️', '🏔️', '🔪', '⛰️', '🔥'], 8);
-                triggerQuake();
-            }
 
-            // Toy 5: 🎉👑 Mediocrity Crown Party Mode
-            if (toyIndex === 5 || unlockedBadges.size === 6) {
-                partyModeTimer = 300;
-                peakIndices.forEach((idx, k) => {
-                    const node = trailNodes[idx];
-                    if (node) {
-                        const p = project3D(node.x, node.y, node.z);
-                        spawn3DBurst(node.x, node.y, node.z, HIGH_POINT_TARGETS[k].color, '👑', 10);
-                        spawnScreenSymbols(p.sx, p.sy, ['👑', '🎉', '🏆', '🦄', '💖'], 4);
+                // Build concentric Capital Hill / State Circle rings around Parliament House
+                stateCircleRing = [];
+                capitalCircleRing = [];
+                cityHillRing = [];
+                for (let i = 0; i <= 32; i++) {
+                    const a = (i / 32) * Math.PI * 2;
+                    stateCircleRing.push(
+                        toStencilPlane(
+                            LANDMARKS.parliament.lat + Math.sin(a) * 0.0068,
+                            LANDMARKS.parliament.lon + Math.cos(a) * 0.0082
+                        )
+                    );
+                    capitalCircleRing.push(
+                        toStencilPlane(
+                            LANDMARKS.parliament.lat + Math.sin(a) * 0.0034,
+                            LANDMARKS.parliament.lon + Math.cos(a) * 0.0041
+                        )
+                    );
+                    cityHillRing.push(
+                        toStencilPlane(
+                            LANDMARKS.civic.lat + Math.sin(a) * 0.0032,
+                            LANDMARKS.civic.lon + Math.cos(a) * 0.0038
+                        )
+                    );
+                }
+
+                // Match each of the 6 High Point targets to its closest GPX node
+                peakIndices = HIGH_POINT_TARGETS.map((target) => {
+                    let bestIdx = 0;
+                    let bestDist = Infinity;
+                    for (let i = 0; i < trailNodes.length; i++) {
+                        const dLat = trailNodes[i].lat - target.lat;
+                        const dLon = trailNodes[i].lon - target.lon;
+                        const d = dLat * dLat + dLon * dLon;
+                        if (d < bestDist) {
+                            bestDist = d;
+                            bestIdx = i;
+                        }
                     }
+                    return bestIdx;
                 });
-                triggerQuake();
             }
-        }
 
-        document.querySelectorAll('.arcade-toy-btn').forEach((btn) => {
-            btn.addEventListener('click', () => {
-                const idx = parseInt(btn.getAttribute('data-toy'), 10);
-                activateStoryToy(idx);
-            });
-        });
+            // Initialize immediately with embedded Centenary Trail points
+            buildTrailModel(FALLBACK_GPX_POINTS);
 
-        // Clicking the big ULTRA MEDIOCRE header also triggers a celebratory symbol burst
-        document.getElementById('brand-title-burst').addEventListener('click', () => {
-            addArcadePoints(15);
-            spawnScreenSymbols(viewW * 0.5, viewH * 0.25, ['💖', '⚡', '🏆', '👟', '🛸', '🗡️'], 9);
-            peakIndices.forEach((idx, k) => {
-                const node = trailNodes[idx];
-                if (node) spawn3DBurst(node.x, node.y, node.z, HIGH_POINT_TARGETS[k].color, '★', 6);
-            });
-        });
-
-        /* ═══════════════════════════════════════════════════════════════════
-           6. MAP CONTROLS & POINTER DRAG / CLICK INTERACTION
-           ═══════════════════════════════════════════════════════════════════ */
-        const btnAutoOrbit = document.getElementById('btn-auto-orbit');
-        const btnFlipDir = document.getElementById('btn-flip-dir');
-        const btnResetCam = document.getElementById('btn-reset-cam');
-
-        btnAutoOrbit.addEventListener('click', () => {
-            autoOrbit = !autoOrbit;
-            btnAutoOrbit.classList.toggle('active', autoOrbit);
-        });
-
-        btnFlipDir.addEventListener('click', () => {
-            runnerDir *= -1;
-            btnFlipDir.classList.toggle('active', runnerDir < 0);
-            runners.forEach((r) => {
-                const node = sampleLoopNode(r.progress);
-                spawn3DBurst(node.x, node.y, node.z, '#00f0ff', '⇄', 8);
-            });
-        });
-
-        btnResetCam.addEventListener('click', () => {
-            yaw = -0.35;
-            pitch = 0.62;
-            zoom = 1.0;
-            targetVertMultiplier = 1.0;
-            autoOrbit = true;
-            btnAutoOrbit.classList.add('active');
-        });
-
-        canvas.addEventListener('pointerdown', (e) => {
-            isDragging = true;
-            pointerMoved = false;
-            dragStartX = e.clientX;
-            dragStartY = e.clientY;
-            canvas.setPointerCapture(e.pointerId);
-        });
-
-        canvas.addEventListener('pointermove', (e) => {
-            if (!isDragging) return;
-            const dx = e.clientX - dragStartX;
-            const dy = e.clientY - dragStartY;
-            if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
-                pointerMoved = true;
-                autoOrbit = false;
-                btnAutoOrbit.classList.remove('active');
-            }
-            yaw += dx * 0.0075;
-            pitch = Math.max(0.24, Math.min(1.18, pitch + dy * 0.006));
-            dragStartX = e.clientX;
-            dragStartY = e.clientY;
-        });
-
-        canvas.addEventListener('pointerup', (e) => {
-            isDragging = false;
-            if (!pointerMoved) {
-                // Quick click on the map: find nearest trail node or AIS lock and pop symbols!
-                const rect = canvas.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-                const clickY = e.clientY - rect.top;
-
-                // Check if user clicked near the AIS gate icon
-                const aisP = project3D(aisNode.x, aisNode.y, aisNode.z);
-                if (Math.hypot(clickX - aisP.sx, clickY - aisP.sy) < 38) {
-                    activateStoryToy(0);
-                    return;
-                }
-
-                // Otherwise find closest trail point and trigger a fun trail burst
-                let bestNode = trailNodes[0];
-                let bestDist = Infinity;
-                for (let i = 0; i < trailNodes.length; i += 2) {
-                    const p = project3D(trailNodes[i].x, trailNodes[i].y, trailNodes[i].z);
-                    const d = Math.hypot(clickX - p.sx, clickY - p.sy);
-                    if (d < bestDist) {
-                        bestDist = d;
-                        bestNode = trailNodes[i];
+            // Also load full high-resolution CanberraCentenaryTrail.gpx when served over HTTP/HTTPS
+            fetch('CanberraCentenaryTrail.gpx')
+                .then((res) => (res.ok ? res.text() : Promise.reject()))
+                .then((xmlText) => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(xmlText, 'application/xml');
+                    const trkpts = xml.querySelectorAll('trkpt');
+                    if (trkpts && trkpts.length > 100) {
+                        const cleanSampled = [];
+                        const step = Math.max(1, Math.floor(trkpts.length / 360));
+                        for (let i = 0; i < trkpts.length; i += step) {
+                            const pt = trkpts[i];
+                            const lat = parseFloat(pt.getAttribute('lat'));
+                            const lon = parseFloat(pt.getAttribute('lon'));
+                            const eleNode = pt.querySelector('ele');
+                            const ele = eleNode ? parseFloat(eleNode.textContent) : 600;
+                            if (!isNaN(lat) && !isNaN(lon)) {
+                                cleanSampled.push([lat, lon, ele]);
+                            }
+                        }
+                        if (cleanSampled.length > 80) {
+                            buildTrailModel(cleanSampled);
+                        }
                     }
-                }
-                if (bestNode) {
-                    addArcadePoints(10);
-                    spawn3DBurst(bestNode.x, bestNode.y, bestNode.z, '#FEDD00', '⚡', 12);
-                    spawnScreenSymbols(clickX, clickY, ['👟', '⚡', '🏔️', '💖', '🔔'], 5);
-                }
-            }
-        });
+                })
+                .catch(() => {
+                    // Embedded fallback already active
+                });
 
-        canvas.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            zoom = Math.max(0.72, Math.min(1.55, zoom - e.deltaY * 0.0008));
-        }, { passive: false });
+            /* ═══════════════════════════════════════════════════════════════════
+               4. 3D PROJECTION & CANVAS RESIZE (SIZED TO FILL MOST OF SCREEN)
+               ═══════════════════════════════════════════════════════════════════ */
+            let viewW = 800;
+            let viewH = 600;
 
-        /* ═══════════════════════════════════════════════════════════════════
-           7. MAIN 60FPS RENDER LOOP
-           ═══════════════════════════════════════════════════════════════════ */
-        let frameCount = 0;
-
-        function render(now) {
-            frameCount++;
-            ctx.clearRect(0, 0, viewW, viewH);
-
-            if (autoOrbit && !isDragging) {
-                yaw += 0.0022;
+            function resizeCanvas() {
+                const rect = mapDeck.getBoundingClientRect();
+                viewW = Math.max(300, rect.width);
+                viewH = Math.max(300, rect.height);
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = viewW * dpr;
+                canvas.height = viewH * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             }
 
-            // Smoothly ease elevation multiplier
-            vertMultiplier += (targetVertMultiplier - vertMultiplier) * 0.08;
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
 
-            if (partyModeTimer > 0) partyModeTimer--;
-            if (ufoTimer > 0) {
-                ufoTimer--;
-                ufoAngle += 0.045;
-            }
-            if (aisShockwave > 0) {
-                aisShockwave = Math.max(0, aisShockwave - 0.02);
+            function project3D(x, y, z) {
+                const cosY = Math.cos(yaw);
+                const sinY = Math.sin(yaw);
+                const rx = x * cosY - z * sinY;
+                const rz = x * sinY + z * cosY;
+
+                const cosP = Math.cos(pitch);
+                const sinP = Math.sin(pitch);
+                const ry = y * cosP - rz * sinP;
+                const depth = y * sinP + rz * cosP;
+
+                // Generous FOV so the spinning map takes up most of the screen without overlapping the header
+                const baseSpan = Math.min(viewW * 0.88, viewH * 0.94);
+                const fov = baseSpan * 0.82 * zoom;
+                const camDist = 2.95;
+                const perspective = fov / Math.max(0.8, camDist + depth);
+
+                return {
+                    sx: viewW * 0.5 + rx * perspective,
+                    sy: viewH * 0.54 - ry * perspective,
+                    scale: perspective / 280,
+                    depth
+                };
             }
 
-            // 1. Draw rotating 3D Canberra radar rings on the base plane
-            ctx.save();
-            const centerBase = project3D(0, 0, 0);
-            [0.45, 0.85, 1.22].forEach((rad, rIdx) => {
-                ctx.beginPath();
-                for (let a = 0; a <= 64; a++) {
-                    const theta = (a / 64) * Math.PI * 2;
-                    const p = project3D(Math.cos(theta) * rad, 0, Math.sin(theta) * rad);
-                    if (a === 0) ctx.moveTo(p.sx, p.sy);
-                    else ctx.lineTo(p.sx, p.sy);
-                }
-                ctx.strokeStyle = rIdx === 1
-                    ? 'rgba(255, 62, 181, 0.22)'
-                    : 'rgba(0, 156, 222, 0.16)';
-                ctx.lineWidth = 1.5;
-                ctx.stroke();
+            function sampleLoopNode(progress) {
+                if (!trailNodes.length) return { x: 0, y: 0, z: 0, ele: 600 };
+                const wrapped = ((progress % 1) + 1) % 1;
+                const exact = wrapped * (trailNodes.length - 1);
+                const i0 = Math.floor(exact);
+                const i1 = (i0 + 1) % trailNodes.length;
+                const t = exact - i0;
+                const a = trailNodes[i0];
+                const b = trailNodes[i1];
+                return {
+                    x: a.x + (b.x - a.x) * t,
+                    y: a.y + (b.y - a.y) * t,
+                    z: a.z + (b.z - a.z) * t,
+                    ele: a.ele + (b.ele - a.ele) * t
+                };
+            }
+
+            /* ═══════════════════════════════════════════════════════════════════
+               5. DIRECTION TOGGLE BUTTONS & POINTER DRAG / ZOOM INTERACTION
+               ═══════════════════════════════════════════════════════════════════ */
+            const btnFlipSpin = document.getElementById('btn-flip-spin');
+            const spinDirIcon = document.getElementById('spin-dir-icon');
+            const btnFlipRunner = document.getElementById('btn-flip-runner');
+            const runnerDirIcon = document.getElementById('runner-dir-icon');
+
+            btnFlipSpin.addEventListener('click', () => {
+                spinDir *= -1;
+                btnFlipSpin.classList.toggle('reversed', spinDir < 0);
+                spinDirIcon.textContent = spinDir > 0 ? '🔄' : '🔃';
             });
-            ctx.restore();
 
-            // 2. Draw Lake Burley Griffin (Canberra's central water axis) on the base plane
-            if (lbgNodes.length > 1) {
+            btnFlipRunner.addEventListener('click', () => {
+                runnerDir *= -1;
+                btnFlipRunner.classList.toggle('reversed', runnerDir < 0);
+                runnerDirIcon.textContent = runnerDir > 0 ? '🏃⇄' : '⇄🏃';
+            });
+
+            canvas.addEventListener('pointerdown', (e) => {
+                isDragging = true;
+                dragStartX = e.clientX;
+                dragStartY = e.clientY;
+                canvas.setPointerCapture(e.pointerId);
+            });
+
+            canvas.addEventListener('pointermove', (e) => {
+                if (!isDragging) return;
+                const dx = e.clientX - dragStartX;
+                const dy = e.clientY - dragStartY;
+                yaw += dx * 0.007;
+                pitch = Math.max(0.32, Math.min(1.22, pitch + dy * 0.006));
+                dragStartX = e.clientX;
+                dragStartY = e.clientY;
+            });
+
+            canvas.addEventListener('pointerup', () => {
+                isDragging = false;
+            });
+
+            canvas.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                zoom = Math.max(0.75, Math.min(1.55, zoom - e.deltaY * 0.0008));
+            }, { passive: false });
+
+            /* ═══════════════════════════════════════════════════════════════════
+               6. STENCIL DRAWING HELPERS
+               ═══════════════════════════════════════════════════════════════════ */
+            function drawProjectedPolygon(nodes, fillStyle, strokeStyle, lineWidth) {
+                if (!nodes || nodes.length < 3) return;
                 ctx.save();
                 ctx.beginPath();
-                lbgNodes.forEach((pt, idx) => {
-                    const p = project3D(pt.x, 0.01, pt.z);
+                nodes.forEach((pt, idx) => {
+                    const p = project3D(pt.x, 0, pt.z);
                     if (idx === 0) ctx.moveTo(p.sx, p.sy);
                     else ctx.lineTo(p.sx, p.sy);
                 });
-                ctx.strokeStyle = 'rgba(0, 240, 255, 0.42)';
-                ctx.lineWidth = 8;
+                ctx.closePath();
+                if (fillStyle) {
+                    ctx.fillStyle = fillStyle;
+                    ctx.fill();
+                }
+                if (strokeStyle) {
+                    ctx.strokeStyle = strokeStyle;
+                    ctx.lineWidth = lineWidth || 1.5;
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+
+            function drawProjectedPolyline(nodes, strokeStyle, lineWidth, dash) {
+                if (!nodes || nodes.length < 2) return;
+                ctx.save();
+                if (dash) ctx.setLineDash(dash);
+                ctx.beginPath();
+                nodes.forEach((pt, idx) => {
+                    const p = project3D(pt.x, 0, pt.z);
+                    if (idx === 0) ctx.moveTo(p.sx, p.sy);
+                    else ctx.lineTo(p.sx, p.sy);
+                });
+                ctx.strokeStyle = strokeStyle;
+                ctx.lineWidth = lineWidth || 1.5;
                 ctx.lineCap = 'round';
                 ctx.lineJoin = 'round';
                 ctx.stroke();
                 ctx.restore();
             }
 
-            // 3. Project all Centenary Trail nodes
-            const projTrail = trailNodes.map((pt) => ({
-                ...pt,
-                ...project3D(pt.x, pt.y, pt.z),
-                base: project3D(pt.x, 0, pt.z)
-            }));
-
-            // 4. Draw Ground Shadow Loop + Vertical Elevation Curtain
-            if (projTrail.length > 2) {
-                // Ground shadow
+            function drawStencilPillLabel(text, sx, sy, opts = {}) {
                 ctx.save();
-                ctx.beginPath();
-                projTrail.forEach((p, i) => {
-                    if (i === 0) ctx.moveTo(p.base.sx, p.base.sy);
-                    else ctx.lineTo(p.base.sx, p.base.sy);
-                });
-                ctx.closePath();
-                ctx.strokeStyle = 'rgba(255, 62, 181, 0.24)';
-                ctx.lineWidth = 2;
-                ctx.stroke();
+                ctx.font = opts.font || '700 10px "Audiowide", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                const metrics = ctx.measureText(text);
+                const padX = opts.padX || 6;
+                const padY = opts.padY || 3;
+                const w = metrics.width + padX * 2;
+                const h = (opts.height || 14) + padY * 2;
 
-                // Vertical topographic struts
-                for (let i = 0; i < projTrail.length; i += 2) {
-                    const p = projTrail[i];
+                if (opts.bg) {
+                    ctx.fillStyle = opts.bg;
                     ctx.beginPath();
-                    ctx.moveTo(p.base.sx, p.base.sy);
-                    ctx.lineTo(p.sx, p.sy);
-                    ctx.strokeStyle = partyModeTimer > 0
-                        ? `hsla(${(i * 5 + frameCount * 4) % 360}, 95%, 60%, 0.38)`
-                        : 'rgba(255, 62, 181, 0.25)';
-                    ctx.lineWidth = 1.5;
+                    ctx.roundRect(sx - w / 2, sy - h / 2, w, h, 4);
+                    ctx.fill();
+                }
+                if (opts.border) {
+                    ctx.strokeStyle = opts.border;
+                    ctx.lineWidth = 1.2;
+                    ctx.beginPath();
+                    ctx.roundRect(sx - w / 2, sy - h / 2, w, h, 4);
                     ctx.stroke();
                 }
+                ctx.fillStyle = opts.color || '#07080d';
+                ctx.fillText(text, sx, sy + 0.5);
+                ctx.restore();
+            }
 
-                // Glowing 3D Centenary Trail Ribbon
-                ctx.beginPath();
-                projTrail.forEach((p, i) => {
-                    if (i === 0) ctx.moveTo(p.sx, p.sy);
-                    else ctx.lineTo(p.sx, p.sy);
+            /* ═══════════════════════════════════════════════════════════════════
+               7. MAIN 60FPS RENDER LOOP
+               ═══════════════════════════════════════════════════════════════════ */
+            function render(now) {
+                ctx.clearRect(0, 0, viewW, viewH);
+
+                // Continuous 3D spin in the selected spinDir when not actively dragging
+                if (!isDragging) {
+                    yaw += 0.0022 * spinDir;
+                }
+
+                // ── A. STENCIL BASE DISC (Dark Stencil Plate Floating Under the Trail) ──
+                const projTrail = trailNodes.map((pt) => ({
+                    ...pt,
+                    ...project3D(pt.x, pt.y, pt.z),
+                    base: project3D(pt.x, 0, pt.z)
+                }));
+
+                if (projTrail.length > 2) {
+                    ctx.save();
+                    ctx.beginPath();
+                    projTrail.forEach((p, i) => {
+                        if (i === 0) ctx.moveTo(p.base.sx, p.base.sy);
+                        else ctx.lineTo(p.base.sx, p.base.sy);
+                    });
+                    ctx.closePath();
+                    ctx.fillStyle = 'rgba(7, 8, 13, 0.24)';
+                    ctx.fill();
+                    ctx.restore();
+                }
+
+                // Subtle architectural target rings centered on Capital Hill (Parliament House)
+                if (landmarkNodes.parliament) {
+                    [0.35, 0.72, 1.08].forEach((rad, idx) => {
+                        ctx.save();
+                        ctx.setLineDash([5, 6]);
+                        ctx.beginPath();
+                        for (let a = 0; a <= 60; a++) {
+                            const theta = (a / 60) * Math.PI * 2;
+                            const p = project3D(
+                                landmarkNodes.parliament.x + Math.cos(theta) * rad,
+                                0,
+                                landmarkNodes.parliament.z + Math.sin(theta) * rad
+                            );
+                            if (a === 0) ctx.moveTo(p.sx, p.sy);
+                            else ctx.lineTo(p.sx, p.sy);
+                        }
+                        ctx.strokeStyle = idx === 0
+                            ? 'rgba(7, 8, 13, 0.28)'
+                            : 'rgba(7, 8, 13, 0.16)';
+                        ctx.lineWidth = 1.2;
+                        ctx.stroke();
+                        ctx.restore();
+                    });
+                }
+
+                // ── B. RIVERS & CANBERRA LAKES STENCIL (LAKE BURLEY GRIFFIN, GINNINDERRA, TUGGERANONG) ──
+                riverCorridors.forEach((river) => {
+                    drawProjectedPolyline(river, 'rgba(0, 240, 255, 0.45)', 2.5, [6, 4]);
                 });
-                ctx.closePath();
-                ctx.strokeStyle = partyModeTimer > 0
-                    ? `hsl(${(frameCount * 6) % 360}, 100%, 60%)`
-                    : '#FF3EB5';
-                ctx.lineWidth = 6.5;
-                ctx.lineJoin = 'round';
-                ctx.shadowColor = '#FF3EB5';
-                ctx.shadowBlur = 16;
-                ctx.stroke();
 
-                // Bright inner core of the trail
-                ctx.strokeStyle = '#FEDD00';
-                ctx.lineWidth = 2.2;
-                ctx.shadowBlur = 0;
-                ctx.stroke();
-                ctx.restore();
-            }
+                drawProjectedPolygon(
+                    ginninderraPolygon,
+                    'rgba(0, 156, 222, 0.55)',
+                    'rgba(7, 8, 13, 0.8)',
+                    1.6
+                );
+                drawProjectedPolygon(
+                    tuggeranongPolygon,
+                    'rgba(0, 156, 222, 0.55)',
+                    'rgba(7, 8, 13, 0.8)',
+                    1.6
+                );
 
-            // 5. Draw AIS Track Landmark (🏟️🔒 / 🏟️💥) inside northern Canberra
-            const aisP = project3D(aisNode.x, aisNode.y, aisNode.z);
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(aisP.sx, aisP.sy, 15, 0, Math.PI * 2);
-            ctx.fillStyle = aisGateShattered ? 'rgba(57, 255, 20, 0.22)' : 'rgba(255, 62, 181, 0.28)';
-            ctx.fill();
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = aisGateShattered ? '#39ff14' : '#FF3EB5';
-            ctx.stroke();
-            ctx.font = '16px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(aisGateShattered ? '🏟️🔓' : '🏟️🔒', aisP.sx, aisP.sy);
-            ctx.restore();
+                // Lake Burley Griffin (Centerpiece Stencil)
+                drawProjectedPolygon(
+                    lbgPolygon,
+                    'rgba(0, 210, 255, 0.82)',
+                    '#07080d',
+                    2.4
+                );
 
-            // 6. Draw Expanding 3D Shockwave Rings
-            for (let i = rings3D.length - 1; i >= 0; i--) {
-                const r = rings3D[i];
-                r.radius += 0.018;
-                r.alpha -= 0.028;
-                if (r.alpha <= 0) {
-                    rings3D.splice(i, 1);
-                    continue;
-                }
-                ctx.save();
-                ctx.beginPath();
-                for (let a = 0; a <= 36; a++) {
-                    const theta = (a / 36) * Math.PI * 2;
-                    const p = project3D(
-                        r.x + Math.cos(theta) * r.radius,
-                        r.y,
-                        r.z + Math.sin(theta) * r.radius
+                // ── C. WALTER BURLEY GRIFFIN'S PARLIAMENTARY TRIANGLE & AVENUES STENCIL ──
+                stencilAvenues.forEach((ave) => {
+                    if (ave.major) {
+                        drawProjectedPolyline(ave.nodes, '#07080d', 4.5);
+                        drawProjectedPolyline(ave.nodes, '#FEDD00', 2.0);
+                    } else {
+                        drawProjectedPolyline(ave.nodes, 'rgba(7, 8, 13, 0.52)', 2.0, [4, 4]);
+                    }
+                });
+
+                // State Circle, Capital Circle & City Hill stencil rings
+                drawProjectedPolyline(stateCircleRing, '#07080d', 3.2);
+                drawProjectedPolyline(stateCircleRing, '#FEDD00', 1.4);
+                drawProjectedPolyline(capitalCircleRing, '#07080d', 2.2);
+                drawProjectedPolyline(cityHillRing, '#07080d', 2.4);
+
+                // ── D. ICONIC CANBERRA LANDMARK STENCILS (PARLIAMENT HOUSE, WAR MEMORIAL, TELSTRA TOWER, LBG) ──
+
+                // 1. Parliament House 3D Stencil & Iconic Pyramidal Flagpole Mast on Capital Hill
+                if (landmarkNodes.parliament) {
+                    const phBase = project3D(landmarkNodes.parliament.x, 0, landmarkNodes.parliament.z);
+                    const phTop = project3D(landmarkNodes.parliament.x, 0.14, landmarkNodes.parliament.z);
+                    const legSpread = 12;
+
+                    ctx.save();
+                    ctx.strokeStyle = '#07080d';
+                    ctx.lineWidth = 2.8;
+                    ctx.beginPath();
+                    ctx.moveTo(phBase.sx - legSpread, phBase.sy + 4);
+                    ctx.lineTo(phTop.sx, phTop.sy);
+                    ctx.lineTo(phBase.sx + legSpread, phBase.sy + 4);
+                    ctx.moveTo(phBase.sx, phBase.sy + 7);
+                    ctx.lineTo(phTop.sx, phTop.sy - 10);
+                    ctx.stroke();
+
+                    ctx.fillStyle = '#FEDD00';
+                    ctx.strokeStyle = '#07080d';
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    ctx.rect(phTop.sx, phTop.sy - 10, 9, 6);
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.restore();
+
+                    drawStencilPillLabel(
+                        '🏛️ PARLIAMENT HOUSE',
+                        phBase.sx,
+                        phBase.sy + 18,
+                        {
+                            font: '700 9.5px "Audiowide", sans-serif',
+                            bg: 'rgba(254, 221, 0, 0.94)',
+                            border: '#07080d',
+                            color: '#07080d',
+                            height: 12
+                        }
                     );
-                    if (a === 0) ctx.moveTo(p.sx, p.sy);
-                    else ctx.lineTo(p.sx, p.sy);
                 }
-                ctx.strokeStyle = r.color;
-                ctx.globalAlpha = Math.max(0, r.alpha);
-                ctx.lineWidth = 2.5;
-                ctx.stroke();
-                ctx.restore();
-            }
 
-            // 7. Update & Draw Live Centenary FKT Ghost Runners
-            runners.forEach((runner) => {
+                // 2. Lake Burley Griffin Stencil Callout
+                if (landmarkNodes.lakeCenter) {
+                    const lbgP = project3D(landmarkNodes.lakeCenter.x, 0, landmarkNodes.lakeCenter.z);
+                    drawStencilPillLabel(
+                        'LAKE BURLEY GRIFFIN',
+                        lbgP.sx - 18,
+                        lbgP.sy - 12,
+                        {
+                            font: '700 9px "Syncopate", sans-serif',
+                            bg: 'rgba(7, 8, 13, 0.85)',
+                            border: '#00f0ff',
+                            color: '#00f0ff',
+                            height: 11
+                        }
+                    );
+                }
+
+                // 3. Australian War Memorial Stencil at top of ANZAC Parade
+                if (landmarkNodes.warMemorial) {
+                    const awmP = project3D(landmarkNodes.warMemorial.x, 0, landmarkNodes.warMemorial.z);
+                    ctx.save();
+                    ctx.fillStyle = '#FEDD00';
+                    ctx.strokeStyle = '#07080d';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.arc(awmP.sx, awmP.sy, 5, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.restore();
+
+                    drawStencilPillLabel(
+                        'WAR MEMORIAL',
+                        awmP.sx + 4,
+                        awmP.sy - 13,
+                        {
+                            font: '700 8px "Audiowide", sans-serif',
+                            bg: 'rgba(7, 8, 13, 0.82)',
+                            color: '#FEDD00',
+                            height: 10,
+                            padX: 5,
+                            padY: 2
+                        }
+                    );
+                }
+
+                // 4. Telstra Tower Stencil Spire on Black Mountain
+                if (landmarkNodes.telstraTower) {
+                    const ttBase = project3D(landmarkNodes.telstraTower.x, 0.18, landmarkNodes.telstraTower.z);
+                    const ttTop = project3D(landmarkNodes.telstraTower.x, 0.36, landmarkNodes.telstraTower.z);
+                    ctx.save();
+                    ctx.strokeStyle = '#07080d';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.moveTo(ttBase.sx, ttBase.sy);
+                    ctx.lineTo(ttTop.sx, ttTop.sy);
+                    ctx.stroke();
+                    ctx.fillStyle = '#FEDD00';
+                    ctx.beginPath();
+                    ctx.ellipse(
+                        (ttBase.sx + ttTop.sx) / 2,
+                        (ttBase.sy + ttTop.sy) / 2,
+                        6,
+                        3,
+                        0,
+                        0,
+                        Math.PI * 2
+                    );
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.restore();
+                }
+
+                // 5. Suburban Town Centre Stencil Watermarks (Civic, Belconnen, Gungahlin, Woden, Tuggeranong)
+                ['civic', 'belconnen', 'gungahlin', 'woden', 'tuggeranong'].forEach((key) => {
+                    const node = landmarkNodes[key];
+                    if (!node) return;
+                    const p = project3D(node.x, 0, node.z);
+                    ctx.save();
+                    ctx.font = '700 9px "Syncopate", sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillStyle = 'rgba(7, 8, 13, 0.68)';
+                    ctx.fillText(node.label, p.sx, p.sy);
+                    ctx.restore();
+                });
+
+                // ── E. 3D CANBERRA CENTENARY TRAIL ELEVATION CURTAIN & RIBBON ──
+                if (projTrail.length > 2) {
+                    ctx.save();
+                    ctx.beginPath();
+                    projTrail.forEach((p, i) => {
+                        if (i === 0) ctx.moveTo(p.base.sx, p.base.sy);
+                        else ctx.lineTo(p.base.sx, p.base.sy);
+                    });
+                    ctx.closePath();
+                    ctx.strokeStyle = 'rgba(7, 8, 13, 0.45)';
+                    ctx.lineWidth = 2.5;
+                    ctx.stroke();
+
+                    // Vertical topographic elevation struts connecting Canberra ground plane to the 3D trail
+                    for (let i = 0; i < projTrail.length; i += 2) {
+                        const p = projTrail[i];
+                        ctx.beginPath();
+                        ctx.moveTo(p.base.sx, p.base.sy);
+                        ctx.lineTo(p.sx, p.sy);
+                        ctx.strokeStyle = 'rgba(7, 8, 13, 0.32)';
+                        ctx.lineWidth = 1.5;
+                        ctx.stroke();
+                    }
+
+                    // Bold Ink Outer Casing for the 3D Centenary Trail Ribbon
+                    ctx.beginPath();
+                    projTrail.forEach((p, i) => {
+                        if (i === 0) ctx.moveTo(p.sx, p.sy);
+                        else ctx.lineTo(p.sx, p.sy);
+                    });
+                    ctx.closePath();
+                    ctx.strokeStyle = '#07080d';
+                    ctx.lineWidth = 9.5;
+                    ctx.lineJoin = 'round';
+                    ctx.stroke();
+
+                    // Bright Electric Yellow Inner Core of the Centenary Trail
+                    ctx.strokeStyle = '#FEDD00';
+                    ctx.lineWidth = 4.2;
+                    ctx.shadowColor = '#FEDD00';
+                    ctx.shadowBlur = 10;
+                    ctx.stroke();
+                    ctx.restore();
+                }
+
+                // ── F. LIVE GHOST RUNNER ORBITING THE CANBERRA CENTENARY TRAIL ──
                 runner.progress = ((runner.progress + runner.speed * runnerDir) % 1 + 1) % 1;
-                const node = sampleLoopNode(runner.progress);
-                const rp = project3D(node.x, node.y + 0.03, node.z);
+                const rNode = sampleLoopNode(runner.progress);
+                const rp = project3D(rNode.x, rNode.y + 0.025, rNode.z);
 
-                // Runner glowing trail comet
                 ctx.save();
                 for (let t = 1; t <= 6; t++) {
-                    const trailNode = sampleLoopNode(runner.progress - t * 0.006 * runnerDir);
+                    const trailNode = sampleLoopNode(runner.progress - t * 0.0055 * runnerDir);
                     const tp = project3D(trailNode.x, trailNode.y + 0.02, trailNode.z);
                     ctx.beginPath();
                     ctx.arc(tp.sx, tp.sy, Math.max(2, 7 - t), 0, Math.PI * 2);
-                    ctx.fillStyle = runner.color;
-                    ctx.globalAlpha = (7 - t) / 10;
+                    ctx.fillStyle = runnerDir > 0 ? '#00f0ff' : '#FF3EB5';
+                    ctx.globalAlpha = (7 - t) / 9;
                     ctx.fill();
                 }
-
-                // Runner orb
                 ctx.globalAlpha = 1;
                 ctx.beginPath();
-                ctx.arc(rp.sx, rp.sy, 11, 0, Math.PI * 2);
-                ctx.fillStyle = '#07080d';
+                ctx.arc(rp.sx, rp.sy, 8.5, 0, Math.PI * 2);
+                ctx.fillStyle = runnerDir > 0 ? '#00f0ff' : '#FF3EB5';
                 ctx.fill();
                 ctx.lineWidth = 2.5;
-                ctx.strokeStyle = runner.color;
-                ctx.stroke();
-
-                ctx.font = '14px sans-serif';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(shirtMode ? '👕' : runner.emoji, rp.sx, rp.sy);
-                ctx.restore();
-            });
-
-            // 8. Draw GUMBY UFO Tractor Beam when active
-            if (ufoTimer > 0) {
-                const ufoX = Math.cos(ufoAngle) * 0.55;
-                const ufoZ = Math.sin(ufoAngle) * 0.55;
-                const ufoP = project3D(ufoX, 0.72, ufoZ);
-                const groundP = project3D(ufoX, 0, ufoZ);
-
-                ctx.save();
-                const grad = ctx.createLinearGradient(ufoP.sx, ufoP.sy, groundP.sx, groundP.sy);
-                grad.addColorStop(0, 'rgba(0, 240, 255, 0.65)');
-                grad.addColorStop(1, 'rgba(255, 62, 181, 0.05)');
-                ctx.beginPath();
-                ctx.moveTo(ufoP.sx - 8, ufoP.sy);
-                ctx.lineTo(ufoP.sx + 8, ufoP.sy);
-                ctx.lineTo(groundP.sx + 34, groundP.sy);
-                ctx.lineTo(groundP.sx - 34, groundP.sy);
-                ctx.closePath();
-                ctx.fillStyle = grad;
-                ctx.fill();
-
-                ctx.font = '28px sans-serif';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText('🛸', ufoP.sx, ufoP.sy);
-                ctx.restore();
-            }
-
-            // 9. Update & Draw 3D Particles
-            for (let i = particles3D.length - 1; i >= 0; i--) {
-                const pt = particles3D[i];
-                pt.x += pt.vx;
-                pt.y += pt.vy;
-                pt.z += pt.vz;
-                pt.vy -= 0.0009; // gravity
-                pt.life -= 0.022;
-                if (pt.life <= 0) {
-                    particles3D.splice(i, 1);
-                    continue;
-                }
-                const pp = project3D(pt.x, pt.y, pt.z);
-                ctx.save();
-                ctx.globalAlpha = Math.max(0, pt.life);
-                if (pt.emoji) {
-                    ctx.font = '16px sans-serif';
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    ctx.fillText(pt.emoji, pp.sx, pp.sy);
-                } else {
-                    ctx.beginPath();
-                    ctx.arc(pp.sx, pp.sy, 4, 0, Math.PI * 2);
-                    ctx.fillStyle = pt.color;
-                    ctx.fill();
-                }
-                ctx.restore();
-            }
-
-            // 10. Position the 6 High-Point Summit Link Pins (hero-quicknav) & draw their 3D Peak Beacons
-            peakIndices.forEach((nodeIdx, k) => {
-                const node = projTrail[nodeIdx];
-                const pinEl = pinElements[k];
-                if (!node || !pinEl) return;
-
-                const meta = HIGH_POINT_TARGETS[k];
-                const pulse = 6 + Math.sin(now * 0.005 + k) * 2.5;
-
-                // Draw glowing summit beacon on canvas
-                ctx.save();
-                ctx.beginPath();
-                ctx.moveTo(node.base.sx, node.base.sy);
-                ctx.lineTo(node.sx, node.sy);
-                ctx.strokeStyle = meta.color;
-                ctx.lineWidth = 3;
-                ctx.stroke();
-
-                ctx.beginPath();
-                ctx.arc(node.sx, node.sy, pulse, 0, Math.PI * 2);
-                ctx.fillStyle = meta.color;
-                ctx.shadowColor = meta.color;
-                ctx.shadowBlur = 14;
-                ctx.fill();
-                ctx.lineWidth = 2;
                 ctx.strokeStyle = '#07080d';
                 ctx.stroke();
                 ctx.restore();
 
-                // Clamp pin inside viewport padding so it never clips off-screen
-                const padX = 72;
-                const padY = 42;
-                const clampedX = Math.max(padX, Math.min(viewW - padX, node.sx));
-                const clampedY = Math.max(padY, Math.min(viewH - 18, node.sy - 12));
+                // ── G. POSITION THE 6 HIGH-POINT SUMMIT NAVIGATION PINS ──
+                peakIndices.forEach((nodeIdx, k) => {
+                    const node = projTrail[nodeIdx];
+                    const pinEl = pinElements[k];
+                    if (!node || !pinEl) return;
 
-                pinEl.style.left = clampedX.toFixed(1) + 'px';
-                pinEl.style.top = clampedY.toFixed(1) + 'px';
-                pinEl.style.zIndex = String(Math.round(25 - node.depth * 5));
-            });
+                    const meta = HIGH_POINT_TARGETS[k];
+                    const pulse = 6 + Math.sin(now * 0.004 + k) * 2;
+
+                    // Draw summit vertical column & beacon dot on canvas
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(node.base.sx, node.base.sy);
+                    ctx.lineTo(node.sx, node.sy);
+                    ctx.strokeStyle = '#07080d';
+                    ctx.lineWidth = 3.5;
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(node.sx, node.sy, pulse, 0, Math.PI * 2);
+                    ctx.fillStyle = meta.color;
+                    ctx.fill();
+                    ctx.lineWidth = 2.5;
+                    ctx.strokeStyle = '#07080d';
+                    ctx.stroke();
+                    ctx.restore();
+
+                    // Clamp pin inside viewport padding so it never clips off-screen or overlaps header
+                    const padX = 72;
+                    const padY = 44;
+                    const clampedX = Math.max(padX, Math.min(viewW - padX, node.sx));
+                    const clampedY = Math.max(padY, Math.min(viewH - 18, node.sy - 12));
+
+                    pinEl.style.left = clampedX.toFixed(1) + 'px';
+                    pinEl.style.top = clampedY.toFixed(1) + 'px';
+                    pinEl.style.zIndex = String(Math.round(25 - node.depth * 5));
+                });
+
+                requestAnimationFrame(render);
+            }
 
             requestAnimationFrame(render);
-        }
-
-        requestAnimationFrame(render);
-    })();
+        })();
     </script>
 </body>
 
