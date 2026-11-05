@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRuTUS 3D Course Maps | Ultra Mediocre Runners of Canberra</title>
+  <meta property="og:title" content="BRuTUS 3D Course Maps — Brutus 60km, BTrail 100km &amp; The Knife 14km" />
+  <meta property="og:image" content="BRuTUSFBcard.png" />
+  <link rel="icon" type="image/svg+xml" href="UMRoCfavicon.svg" />
+  <link rel="shortcut icon" href="UMRoCfavicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@400;500;600;700;800&family=Syncopate:wght@700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="brutus-course.css" />
+</head>
+
+<body>
+
+  <!-- TOP SENATE HEADER & LIVE TELEMETRY TICKER
+  <header class="brutus-header">
+    <div class="brutus-ticker-wrap" aria-label="BRuTUS Senate Betrayal Telemetry Ticker">
+      <div class="brutus-ticker-track">
+        <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> BEWARE THE IDES OF OCTOBER &bull; 44 BCE COUP D'ETAT MEETS THE BRINDABELLA RANGES</span>
+        <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> ACT I: THE BRuTUS 60KM (+2,000M VERT / 11HR LIMIT)</span>
+        <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> ACT II: THE BTRAIL 100KM (+3,000M VERT / 20HR LIMIT / COLLECT 4 MYSTERY RELICS)</span>
+        <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> ACT III: THE KNIFE 14KM (+680M VERT / 4HR LIMIT / THE LUNG PIERCER)</span>
+        <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> CEREMONIAL FOOT WASHING: 03:45 AM (BTRAIL) &amp; 06:50 AM (BRuTUS)</span> -->
+  <!-- Duplicate for seamless loop -->
+  <!-- <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> BEWARE THE IDES OF OCTOBER &bull; 44 BCE COUP D'ETAT MEETS THE BRINDABELLA RANGES</span>
+        <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> ACT I: THE BRuTUS 60KM (+2,000M VERT / 11HR LIMIT)</span>
+        <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> ACT II: THE BTRAIL 100KM (+3,000M VERT / 20HR LIMIT / COLLECT 4 MYSTERY RELICS)</span>
+        <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> ACT III: THE KNIFE 14KM (+680M VERT / 4HR LIMIT / THE LUNG PIERCER)</span>
+        <span class="brutus-ticker-item"><span class="brutus-ticker-dot"></span> CEREMONIAL FOOT WASHING: 03:45 AM (BTRAIL) &amp; 06:50 AM (BRuTUS)</span>
+      </div>
+    </div> -->
+
+  <div class="brutus-header-main">
+    <div class="brutus-brand">
+      <span class="brutus-badge-pill">&#x1F5E1;&#xFE0F; 3D BETRAYAL TOPOGRAPHY</span>
+      <div class="brutus-title-group">
+        <h1>THE BRuTUS COURSE MAPS</h1>
+        <p>The Brindabella Ranges ultimate Trail Ultra Spectacular &bull; <strong>Blue Range &amp; Corin Dam,
+            ACT</strong></p>
+      </div>
+    </div>
+
+    <!-- Mobile Hamburger Toggle Button -->
+    <button type="button" class="brutus-burger" id="brutus-burger-btn" aria-label="Toggle Navigation Menu"
+      aria-expanded="false" aria-controls="brutus-nav">
+      <span class="burger-line line1"></span>
+      <span class="burger-line line2"></span>
+      <span class="burger-line line3"></span>
+    </button>
+
+    <div class="brutus-telemetry-bar">
+      <div class="telemetry-stat" title="Three Shakespearean Acts of Trail Pain">
+        <span class="telemetry-label">Three Acts</span>
+        <span class="telemetry-value">60 &bull; 100 &bull; 14 <span>km</span></span>
+      </div>
+      <div class="telemetry-stat" title="Maximum Vertical Gain on BTrail 100km">
+        <span class="telemetry-label">Max Vert Gain</span>
+        <span class="telemetry-value">+3,000 <span>m</span></span>
+      </div>
+      <div class="telemetry-stat" title="Highest Summit at Mt. Ginini on BTrail 100km">
+        <span class="telemetry-label">Peak Altitude</span>
+        <span class="telemetry-value">1,752 <span>m</span></span>
+      </div>
+      <div class="telemetry-stat" title="27 Total Aid Stations, Water Points &amp; Landmarks Marked">
+        <span class="telemetry-label">Senate Sectors</span>
+        <span class="telemetry-value">27 <span>tags</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Navigation Bar & Mobile Popup Menu -->
+  <div class="brutus-nav-backdrop" id="brutus-nav-backdrop" hidden></div>
+  <nav class="brutus-nav-bar" id="brutus-nav" aria-label="BRuTUS Course Page Navigation">
+    <div class="brutus-nav-inner">
+      <ul class="brutus-nav-links">
+        <li>
+          <a href="BRuTUS.html" class="brutus-nav-link">
+            <span>&#x1F3DB;&#xFE0F;</span> BRuTUS Event HQ
+          </a>
+        </li>
+        <li>
+          <a href="BRuTUS_Results.html" class="brutus-nav-link">
+            <span>&#x1F3C6;</span> BRuTUS Results
+          </a>
+        </li>
+        <li>
+          <a href="index.html" class="brutus-nav-link">
+            <span>&#x1F3E0;</span> Ultra Mediocre Home
+          </a>
+        </li>
+        <li>
+          <a href="Event_policies.html" class="brutus-nav-link">
+            <span>&#x1F4DC;</span> Event Policies
+          </a>
+        </li>
+      </ul>
+
+      <div class="brutus-nav-actions">
+        <a href="Brutus_60km.gpx" download="Brutus_60km.gpx" class="brutus-gpx-download-btn js-download-gpx"
+          data-gpx="Brutus_60km.gpx">
+          <span>&#x1F5E1;&#xFE0F;</span> Brutus 60km GPX
+        </a>
+        <a href="Btrail_100km.gpx" download="Btrail_100km.gpx" class="brutus-gpx-download-btn js-download-gpx"
+          data-gpx="Btrail_100km.gpx">
+          <span>&#x1F451;</span> BTrail 100km GPX
+        </a>
+        <a href="The_Knife_14km.gpx" download="The_Knife_14km.gpx" class="brutus-gpx-download-btn js-download-gpx"
+          data-gpx="The_Knife_14km.gpx">
+          <span>&#x1F52A;</span> The Knife 14km GPX
+        </a>
+      </div>
+    </div>
+  </nav>
+  </header>
+
+  <!-- STICKY ROMAN TRAGEDY ACT SWITCHER & CAESAR BETRAYAL COUNTER -->
+  <div class="brutus-act-bar" aria-label="Jump to Course Map">
+    <div class="brutus-act-inner">
+      <div class="act-pills-group">
+        <a href="#course-brutus-60" class="act-jump-pill is-current" data-act-link="brutus60">
+          <span class="act-num">ACT I</span>
+          <span>&#x1F5E1;&#xFE0F; BRuTUS 60km</span>
+        </a>
+        <a href="#course-btrail-100" class="act-jump-pill" data-act-link="btrail100">
+          <span class="act-num">ACT II</span>
+          <span>&#x1F3DB;&#xFE0F; BTrail 100km</span>
+        </a>
+        <a href="#course-knife-14" class="act-jump-pill" data-act-link="knife14">
+          <span class="act-num">ACT III</span>
+          <span>&#x1F52A; The Knife 14km</span>
+        </a>
+      </div>
+
+      <div class="caesar-betrayal-widget">
+        <span>&#x1FA78; SENATE DAGGER TALLY: <strong id="caesar-stab-count">0 / 23</strong></span>
+        <button type="button" class="stab-trigger-btn" id="btn-global-stab"
+          title="Unleash 23 daggers across the Brindabella Senate!">
+          ET TU, BRUTE? &#x1F5E1;&#xFE0F;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STACK OF 3 INTERACTIVE 3D COURSE MAPS: 1. BRuTUS 60KM, 2. BTRAIL 100KM, 3. THE KNIFE 14KM -->
+  <main class="brutus-courses-stack">
+
+    <!-- ======================================================================
+         MAP 1: THE BRuTUS 60KM (Brutus_60km.gpx)
+         ====================================================================== -->
+    <section class="course-act-section" id="course-brutus-60" aria-labelledby="heading-brutus-60">
+      <div class="course-act-banner">
+        <div class="act-banner-left">
+          <div class="act-kicker-row">
+            <span class="act-roman-pill">ACT I &bull; THE SENATORIAL CONSPIRACY</span>
+            <span class="act-latin-motto">&ldquo;6:50 AM Foot Washing &bull; 7:00 AM Blade Draw&rdquo;</span>
+          </div>
+          <h2 id="heading-brutus-60">1. THE BRuTUS &mdash; 60KM COURSE MAP</h2>
+          <p>
+            Starting and finishing at historic <strong>Blue Range Hut</strong>, the 60km BRuTUS plunges into the Cotter
+            Catchment past Vanitys Crossing to <strong>CP1</strong>, climbs over rolling hills to <strong>CP2 (Curries
+              Road)</strong>,
+            storms into NSW up the knife-like peak of <strong>Mt. Coree (1,414m)</strong>, regroups at <strong>CP3
+              (Coree Campground)</strong>,
+            grinds along Two Sticks &amp; Blue Range Rd to <strong>CP4 (Knife Point)</strong>, and survives the rutted
+            <strong>Slippery Dip</strong> home.
+          </p>
+        </div>
+        <div class="act-banner-stats">
+          <div class="act-mini-stat"><span>Distance</span><strong>60.2 km</strong></div>
+          <div class="act-mini-stat"><span>Elev Gain</span><strong>+2,000 m</strong></div>
+          <div class="act-mini-stat"><span>Time Limit</span><strong>11 Hours</strong></div>
+          <div class="act-mini-stat"><span>Peak (Coree)</span><strong>1,414 m</strong></div>
+        </div>
+      </div>
+
+      <div class="brutus-workspace" id="workspace-brutus60"></div>
+    </section>
+
+    <!-- ======================================================================
+         MAP 2: THE BTRAIL 100KM (Btrail_100km.gpx)
+         ====================================================================== -->
+    <section class="course-act-section" id="course-btrail-100" aria-labelledby="heading-btrail-100">
+      <div class="course-act-banner">
+        <div class="act-banner-left">
+          <div class="act-kicker-row">
+            <span class="act-roman-pill">ACT II &bull; THE GREAT BETRAYAL</span>
+            <span class="act-latin-motto">&ldquo;3:45 AM Foot Washing &bull; 4:00 AM Corin Dam Start &bull; 4 Mystery
+              Objects&rdquo;</span>
+          </div>
+          <h2 id="heading-btrail-100">2. THE BTRAIL &mdash; 100KM COURSE MAP</h2>
+          <p>
+            Point-to-point from <strong>Corin Dam</strong> to <strong>Blue Range Hut</strong>. Climb 600m up Stockyard
+            Spur
+            in the first 2km and traverse the Brindabella spine via <strong>Mt. Ginini</strong>, <strong>Frankie CP1
+              (Mt. Franklin)</strong>,
+            <strong>Bendora Arboretum WP1</strong>, <strong>Mt. Aggie</strong>, <strong>Bulls Head CP2</strong>,
+            <strong>Warks WP2</strong>, Marshalls Break, <strong>Wombat Creek CP3</strong>, <strong>Mt. Coree</strong>,
+            <strong>Coreezy CP4</strong>, and <strong>Knife Point CP5</strong>. Collect all 4 summit mystery objects or
+            your finish place is unratified!
+          </p>
+        </div>
+        <div class="act-banner-stats">
+          <div class="act-mini-stat"><span>Distance</span><strong>100.9 km</strong></div>
+          <div class="act-mini-stat"><span>Elev Gain</span><strong>+3,000 m</strong></div>
+          <div class="act-mini-stat"><span>Time Limit</span><strong>20 Hours</strong></div>
+          <div class="act-mini-stat"><span>Peak (Ginini)</span><strong>1,752 m</strong></div>
+        </div>
+      </div>
+
+      <div class="brutus-workspace" id="workspace-btrail100"></div>
+    </section>
+
+    <!-- ======================================================================
+         MAP 3: THE KNIFE 14KM (The_Knife_14km.gpx)
+         ====================================================================== -->
+    <section class="course-act-section" id="course-knife-14" aria-labelledby="heading-knife-14">
+      <div class="course-act-banner">
+        <div class="act-banner-left">
+          <div class="act-kicker-row">
+            <span class="act-roman-pill">ACT III &bull; ET TU, BRUTE?</span>
+            <span class="act-latin-motto">&ldquo;9:00 AM Start &bull; The Lung Piercer &amp; The Slippery
+              Dip&rdquo;</span>
+          </div>
+          <h2 id="heading-knife-14">3. THE KNIFE &mdash; 14KM COURSE MAP</h2>
+          <p>
+            A concentrated 14.2km dagger of wild radiata pine, blackberry, and 680m of vertical betrayal from
+            <strong>Blue Range Hut</strong>. Make a turn for the worst at <strong>Poo Bear Corner</strong>, suffer up
+            the
+            <strong>Lung Piercer</strong> to <strong>Knife Point Aid Station (CP1)</strong>, and plunge down
+            <strong>Genges Trail &amp; the Slippery Dip</strong> before the deceptive twist on <strong>Dead Horse Gate
+              Road</strong>.
+          </p>
+        </div>
+        <div class="act-banner-stats">
+          <div class="act-mini-stat"><span>Distance</span><strong>14.2 km</strong></div>
+          <div class="act-mini-stat"><span>Elev Gain</span><strong>+680 m</strong></div>
+          <div class="act-mini-stat"><span>Time Limit</span><strong>4 Hours</strong></div>
+          <div class="act-mini-stat"><span>Knife Point</span><strong>1,241 m</strong></div>
+        </div>
+      </div>
+
+      <div class="brutus-workspace" id="workspace-knife14"></div>
+    </section>
+
+  </main>
+
+  <footer class="brutus-footer">
+    <p>&copy; ULTRA Mediocre Runners of Canberra 2026 &bull; <span>&ldquo;Et tu, Brute?&rdquo; &mdash; Beware the
+        Brindabellas</span></p>
+  </footer>
+
+  <script>
+    /* ========================================================================
+       BRuTUS MULTI-COURSE 3D HOLOGRAPHIC MAP ENGINE
+       Models Brutus_60km.gpx, Btrail_100km.gpx, and The_Knife_14km.gpx
+       with full embedded GPX fallbacks, aid station & start/finish tags,
+       linked elevation profiles, mobile screen allowances, and Julius Caesar
+       betrayal micro-interactions.
+       ======================================================================== */
+
+    // 1. Embedded high-resolution GPX tracks (ensures instant rendering & offline/file:// support)
+    const FALLBACK_BRUTUS60 = [
+      [-35.29008, 148.87567, 742.5], [-35.28486, 148.87551, 794.6], [-35.28515, 148.87968, 801.1], [-35.2886, 148.88092, 762.2], [-35.28899, 148.8841, 726.2],
+      [-35.29153, 148.88024, 709.6], [-35.29201, 148.88357, 703.6], [-35.29435, 148.88627, 708.1], [-35.29857, 148.88959, 724.5], [-35.30084, 148.89489, 662.9],
+      [-35.29872, 148.90336, 631.5], [-35.30314, 148.90093, 630.9], [-35.30905, 148.90013, 625.9], [-35.31466, 148.89862, 624.4], [-35.3204, 148.89723, 659],
+      [-35.32367, 148.89232, 631.7], [-35.32678, 148.88914, 607.6], [-35.32658, 148.88743, 596.6], [-35.32958, 148.88767, 598.3], [-35.33359, 148.88714, 610.1],
+      [-35.33549, 148.88823, 599.2], [-35.33865, 148.88903, 596.4], [-35.34185, 148.88903, 602], [-35.34387, 148.88786, 595.9], [-35.34735, 148.88524, 622.6],
+      [-35.34854, 148.88174, 629], [-35.34993, 148.87995, 660.2], [-35.35009, 148.8742, 708.7], [-35.3481, 148.87248, 706.3], [-35.34573, 148.86935, 696.3],
+      [-35.34807, 148.86719, 722.5], [-35.34992, 148.86259, 744], [-35.34767, 148.85865, 747.3], [-35.34424, 148.85552, 735.3], [-35.34572, 148.85343, 745.8],
+      [-35.34409, 148.84958, 758.1], [-35.34658, 148.84679, 771.2], [-35.34947, 148.84726, 780.5], [-35.35293, 148.84376, 793.1], [-35.35195, 148.84101, 823.3],
+      [-35.34989, 148.84436, 829.2], [-35.3472, 148.84212, 838.7], [-35.34369, 148.84169, 848], [-35.34075, 148.84005, 870], [-35.34028, 148.84314, 851.5],
+      [-35.3414, 148.84655, 844.6], [-35.34006, 148.849, 841.2], [-35.33874, 148.85193, 843.5], [-35.33997, 148.8536, 831.2], [-35.33973, 148.85665, 892.2],
+      [-35.33639, 148.85685, 906.7], [-35.33141, 148.85303, 1055], [-35.33342, 148.84912, 1049.2], [-35.33562, 148.84561, 1010.2], [-35.3359, 148.84025, 987.6],
+      [-35.32416, 148.83825, 816.6], [-35.32239, 148.83558, 799.1], [-35.32066, 148.82943, 774.7], [-35.3203, 148.82635, 772.8], [-35.31701, 148.82838, 771.2],
+      [-35.31323, 148.83029, 762.9], [-35.31132, 148.83355, 775.7], [-35.3078, 148.8348, 831.7], [-35.308, 148.83238, 904.1], [-35.30679, 148.82795, 959.5],
+      [-35.30306, 148.82829, 996.1], [-35.29896, 148.82806, 992.2], [-35.29557, 148.82738, 1022.7], [-35.2926, 148.82571, 1063.1], [-35.29057, 148.8228, 1042.6],
+      [-35.2922, 148.81837, 1101.3], [-35.29534, 148.81614, 1158.8], [-35.29855, 148.81425, 1183.7], [-35.30665, 148.81077, 1414.0], [-35.30456, 148.81382, 1314.6],
+      [-35.29954, 148.81134, 1159], [-35.29723, 148.80783, 1130.6], [-35.29396, 148.80737, 1124.6], [-35.28651, 148.80854, 1089.2], [-35.28243, 148.80833, 1069.6],
+      [-35.27818, 148.80975, 1081.2], [-35.27612, 148.81432, 1090.5], [-35.27218, 148.81459, 1114.8], [-35.26659, 148.81573, 1132.4], [-35.26625, 148.82194, 1161.8],
+      [-35.26962, 148.82492, 1171.9], [-35.26968, 148.83112, 1157.8], [-35.26851, 148.83815, 1130.5], [-35.27039, 148.84259, 1137.2], [-35.27295, 148.84555, 1187],
+      [-35.27458, 148.84877, 1198.4], [-35.27783, 148.84777, 1175.3], [-35.28241, 148.84861, 1210.8], [-35.28573, 148.85264, 1215.3], [-35.28182, 148.85393, 1235.3],
+      [-35.2796, 148.85563, 1187.3], [-35.27702, 148.8577, 1153], [-35.2731, 148.86043, 1109.7], [-35.26903, 148.86234, 1059.6], [-35.26573, 148.86485, 1004.2],
+      [-35.26517, 148.86873, 970.6], [-35.26349, 148.87531, 849], [-35.26585, 148.87668, 770.6], [-35.26984, 148.87535, 777.8], [-35.27219, 148.87483, 793.7],
+      [-35.27639, 148.87114, 831.6], [-35.27888, 148.8706, 857.6], [-35.28116, 148.87462, 830.2], [-35.28548, 148.87091, 800.9], [-35.28663, 148.87067, 776.7],
+      [-35.28991, 148.87568, 743.2]
+    ];
+
+    const FALLBACK_BTRAIL100 = [
+      [-35.53208, 148.83642, 907], [-35.53275, 148.83469, 943.1], [-35.53367, 148.83387, 988.3], [-35.53439, 148.83295, 1040.7], [-35.53499, 148.8303, 1131.6],
+      [-35.53526, 148.82183, 1355.8], [-35.53558, 148.81521, 1516.8], [-35.54142, 148.81017, 1533.4], [-35.54332, 148.80033, 1551.4], [-35.54578, 148.79637, 1603.8],
+      [-35.54773, 148.79161, 1650.9], [-35.55088, 148.7898, 1693.4], [-35.55332, 148.78842, 1698.9], [-35.55516, 148.7844, 1657.3], [-35.5504, 148.77706, 1585.5],
+      [-35.54268, 148.77297, 1577], [-35.52977, 148.77276, 1752.1], [-35.52814, 148.77609, 1737.4], [-35.52738, 148.77707, 1730], [-35.52151, 148.76668, 1648.4],
+      [-35.51332, 148.76181, 1595], [-35.50601, 148.76215, 1539], [-35.49824, 148.76424, 1495.9], [-35.49329, 148.76394, 1519.6], [-35.48662, 148.77342, 1619.1],
+      [-35.48761, 148.7716, 1603.9], [-35.49356, 148.76376, 1512.1], [-35.48711, 148.7665, 1449.3], [-35.4778, 148.76885, 1430.8], [-35.4677, 148.76686, 1474.2],
+      [-35.47217, 148.76847, 1452.8], [-35.47025, 148.77065, 1375.5], [-35.46729, 148.77494, 1316.9], [-35.46513, 148.77901, 1279.6], [-35.46842, 148.77632, 1229.5],
+      [-35.46589, 148.78239, 1161.1], [-35.45928, 148.78958, 1107.8], [-35.45546, 148.78552, 1127.3], [-35.45042, 148.78277, 1188.5], [-35.44339, 148.78482, 1241.7],
+      [-35.44167, 148.78543, 1267.4], [-35.43755, 148.78788, 1307.7], [-35.43401, 148.7896, 1353], [-35.43033, 148.79018, 1364.1], [-35.42325, 148.79484, 1336.5],
+      [-35.41988, 148.79155, 1307.4], [-35.4146, 148.79027, 1267.6], [-35.41636, 148.79342, 1218], [-35.41166, 148.79246, 1169.6], [-35.40975, 148.79752, 1143.4],
+      [-35.40538, 148.80117, 1141.8], [-35.40203, 148.80136, 1112.8], [-35.39864, 148.80218, 1098.7], [-35.39955, 148.8034, 1117], [-35.40279, 148.80679, 1160.6],
+      [-35.39915, 148.80836, 1204.7], [-35.39476, 148.80625, 1238.8], [-35.39122, 148.80778, 1275], [-35.38896, 148.80801, 1301.4], [-35.38681, 148.80505, 1331.4],
+      [-35.38269, 148.80803, 1358.1], [-35.37886, 148.80542, 1330.8], [-35.37524, 148.80406, 1287.7], [-35.37299, 148.80439, 1241.8], [-35.37044, 148.8137, 1155.9],
+      [-35.37405, 148.81692, 1142.6], [-35.37576, 148.81999, 1176.5], [-35.38083, 148.82301, 1191.4], [-35.38566, 148.82377, 1162.3], [-35.38305, 148.83062, 1100.1],
+      [-35.37946, 148.83769, 1079.9], [-35.37657, 148.84011, 1094.9], [-35.37182, 148.84516, 1099.4], [-35.37415, 148.84004, 1062.5], [-35.37798, 148.83596, 1024.3],
+      [-35.37939, 148.83262, 1011.6], [-35.37735, 148.83194, 984.7], [-35.37135, 148.83514, 928.9], [-35.36885, 148.83301, 895.7], [-35.36663, 148.83545, 875.8],
+      [-35.36103, 148.84088, 836.6], [-35.35533, 148.8444, 805.2], [-35.35132, 148.84299, 818.2], [-35.34615, 148.84263, 854.6], [-35.34042, 148.84114, 869],
+      [-35.34239, 148.8471, 838.1], [-35.33878, 148.85214, 811.4], [-35.34025, 148.85539, 863.1], [-35.33243, 148.85561, 1009.7], [-35.33535, 148.84621, 1056.3],
+      [-35.33308, 148.83878, 966.2], [-35.32446, 148.83871, 838.2], [-35.32202, 148.83242, 767.4], [-35.31857, 148.82784, 752.7], [-35.3117, 148.83243, 773.1],
+      [-35.30599, 148.83328, 859.2], [-35.30621, 148.82759, 951.3], [-35.29753, 148.82784, 1013.6], [-35.29095, 148.82201, 1067.1], [-35.29609, 148.81558, 1153.4],
+      [-35.30207, 148.81378, 1240.7], [-35.30447, 148.81433, 1316.4], [-35.30545, 148.81268, 1378.3], [-35.30608, 148.8113, 1410.4], [-35.30552, 148.81185, 1394.9],
+      [-35.30442, 148.81268, 1343.5], [-35.30196, 148.81603, 1272.6], [-35.29937, 148.81391, 1188.4], [-35.29783, 148.80712, 1136.8], [-35.28889, 148.80838, 1102.6],
+      [-35.2826, 148.80859, 1073.2], [-35.27831, 148.81124, 1073.5], [-35.27409, 148.81439, 1088.8], [-35.26859, 148.81536, 1126.6], [-35.26561, 148.82151, 1173.5],
+      [-35.26948, 148.82765, 1176.2], [-35.26834, 148.8367, 1145.6], [-35.27046, 148.84338, 1151], [-35.2738, 148.84857, 1197.6], [-35.28295, 148.84879, 1230.1],
+      [-35.28213, 148.85392, 1229.8], [-35.27326, 148.86008, 1131.2], [-35.26534, 148.8669, 998.8], [-35.26353, 148.87465, 863.1], [-35.26534, 148.87708, 763.3],
+      [-35.27006, 148.87383, 764.8], [-35.27537, 148.87172, 822.3], [-35.27971, 148.87154, 861.6], [-35.28307, 148.87355, 830.2], [-35.28656, 148.86805, 800.8],
+      [-35.28918, 148.87574, 755.9]
+    ];
+
+    const FALLBACK_KNIFE14 = [
+      [-35.28956, 148.8757, 745.6], [-35.28816, 148.8755, 752.9], [-35.28751, 148.87416, 761.6], [-35.28669, 148.87176, 773.8], [-35.28647, 148.8692, 789.9],
+      [-35.28674, 148.86756, 801.9], [-35.28589, 148.87036, 798.6], [-35.28552, 148.87108, 800.8], [-35.28497, 148.87299, 806.5], [-35.28348, 148.87361, 816.3],
+      [-35.28201, 148.87461, 827.8], [-35.28078, 148.8744, 830.8], [-35.28041, 148.87259, 842.5], [-35.27993, 148.8714, 852.8], [-35.27928, 148.87131, 857],
+      [-35.28007, 148.87007, 873.6], [-35.27997, 148.86905, 878.1], [-35.28002, 148.86826, 883.7], [-35.2801, 148.86582, 928.6], [-35.28036, 148.86356, 986],
+      [-35.28076, 148.8608, 1051.7], [-35.28129, 148.85923, 1085.2], [-35.28208, 148.8578, 1123.4], [-35.28283, 148.85727, 1148.4], [-35.28328, 148.85606, 1148.4],
+      [-35.28417, 148.85462, 1171.6], [-35.2852, 148.8542, 1190.5], [-35.28599, 148.8533, 1198.4], [-35.28588, 148.85258, 1219.5], [-35.28446, 148.85306, 1215.3],
+      [-35.28345, 148.85293, 1208], [-35.28287, 148.8532, 1209.9], [-35.2814, 148.85396, 1226], [-35.28042, 148.85426, 1236.7], [-35.27951, 148.85477, 1240.3],
+      [-35.27931, 148.85542, 1229.2], [-35.27888, 148.85614, 1199.1], [-35.27797, 148.85663, 1176.6], [-35.27715, 148.85718, 1165], [-35.27681, 148.85795, 1165.6],
+      [-35.27598, 148.85838, 1154.1], [-35.2751, 148.85878, 1155.8], [-35.27355, 148.85971, 1144.1], [-35.27296, 148.86048, 1131.6], [-35.27181, 148.861, 1108.3],
+      [-35.27057, 148.86165, 1092.5], [-35.26958, 148.86203, 1079.4], [-35.26843, 148.86268, 1067.4], [-35.26728, 148.86348, 1051.4], [-35.26625, 148.86425, 1028.3],
+      [-35.26562, 148.86507, 1016.5], [-35.26546, 148.86613, 1006.3], [-35.2652, 148.86723, 981.2], [-35.26492, 148.86806, 970.7], [-35.26528, 148.86901, 971.2],
+      [-35.26481, 148.87004, 970.6], [-35.26421, 148.87079, 972.6], [-35.26351, 148.87175, 975.3], [-35.26322, 148.87661, 849], [-35.26494, 148.87714, 768.4],
+      [-35.26578, 148.87686, 766.7], [-35.26663, 148.87638, 770.6], [-35.26732, 148.87537, 774], [-35.26846, 148.87552, 775.6], [-35.26984, 148.87535, 780.9],
+      [-35.27018, 148.87419, 778.1], [-35.27083, 148.87373, 775.1], [-35.27163, 148.87428, 780.4], [-35.27259, 148.87474, 787.9], [-35.2735, 148.87393, 795.6],
+      [-35.27473, 148.87256, 806.5], [-35.27537, 148.87172, 810.4], [-35.27701, 148.87073, 823.6], [-35.27808, 148.86927, 840], [-35.27877, 148.86874, 846.6],
+      [-35.27881, 148.87001, 852.3], [-35.27901, 148.87162, 857.5], [-35.28027, 148.87119, 856.8], [-35.28047, 148.87248, 852.2], [-35.2808, 148.87443, 840],
+      [-35.282, 148.87403, 830], [-35.28325, 148.87358, 827.4], [-35.28508, 148.87264, 813.5], [-35.28521, 148.8704, 802.4], [-35.28598, 148.87032, 800.6],
+      [-35.28675, 148.86791, 799.3], [-35.28647, 148.86966, 793.9], [-35.28677, 148.87225, 776.7], [-35.2875, 148.87414, 766], [-35.28856, 148.87567, 755.3],
+      [-35.28953, 148.87571, 750.8]
+    ];
+
+    // 2. Course Definitions in exact order: 1. Brutus 60km, 2. BTrail 100km, 3. The Knife 14km
+    const COURSES_CONFIG = [
+      {
+        key: "brutus60",
+        containerId: "workspace-brutus60",
+        title: "BRuTUS 60km",
+        gpxFile: "Brutus_60km.gpx",
+        officialDistKm: 60.2,
+        officialGainM: 2000,
+        fallbackPoints: FALLBACK_BRUTUS60,
+        cardinals: [
+          { label: "N • TWO STICKS RD", x: 0, z: -1.35, color: "#FEDD00" },
+          { label: "S • COTTER CATCHMENT", x: 0, z: 1.35, color: "#DC143C" },
+          { label: "E • BLUE RANGE HQ", x: 1.35, z: 0, color: "#009CDE" },
+          { label: "W • MT COREE (1414M)", x: -1.35, z: 0, color: "#FF3EB5" }
+        ],
+        eleGridMarks: [700, 1050, 1400],
+        kmStep: 10,
+        chaosButtons: [
+          { id: "daggers", icon: "🗡️", label: "23 Daggers" },
+          { id: "footwash", icon: "🦶", label: "Foot Washing" },
+          { id: "laurels", icon: "🌿", label: "Coree Laurels" },
+          { id: "topdown", icon: "🦅", label: "Eagle View" }
+        ],
+        locations: [
+          {
+            number: 1,
+            name: "Start: Blue Range Hut",
+            emoji: "🏛️",
+            theme: "crimson",
+            fxType: "daggers",
+            lat: -35.29008,
+            lon: 148.87567,
+            targetProgress: 0.0,
+            customDistKm: 0.0,
+            tagline: "Race HQ & 7:00 AM Senate Departure",
+            vibe: "Togas & Trail Shoes",
+            description: "The historic Blue Range Hut serves as the Roman Senate House and start line. After the compulsory 6:50 AM ceremonial foot washing, conspirators depart along One Stick Road and East West Road toward Brindabella Road.",
+            tip: "Senate Decree: Tank water at the hut is not safe to drink—bring your own rations."
+          },
+          {
+            number: 2,
+            name: "CP1: Cotter / Vanitys Aid Station",
+            emoji: "🍷",
+            theme: "blue",
+            fxType: "chalice",
+            lat: -35.34387,
+            lon: 148.88786,
+            targetProgress: 0.21,
+            customDistKm: 12.1,
+            tagline: "Checkpoint 1 • Cotter Catchment Low Point",
+            vibe: "Crossing the Rubicon",
+            description: "After crossing Brindabella Road and plunging into the Cotter Catchment Area, runners pass (but do not cross) Vanitys Crossing before reaching CP1—the lowest elevation point on the 60km loop.",
+            tip: "Conspirator Intel: Fuel up here before the long grinding climbs out of the Cotter valley."
+          },
+          {
+            number: 3,
+            name: "CP2: Curries Road Aid Station",
+            emoji: "🛡️",
+            theme: "gold",
+            fxType: "sparks",
+            lat: -35.31852,
+            lon: 148.82786,
+            targetProgress: 0.53,
+            customDistKm: 29.8,
+            tagline: "Checkpoint 2 • Second Brindabella Rd Crossing",
+            vibe: "The Ides Approach",
+            description: "After navigating the rolling hills west of the Cotter, runners reach CP2 at Curries Road and make their second crossing of Brindabella Road. Look up: the imposing profile of Mt. Coree looms directly ahead.",
+            tip: "Conspirator Intel: Take Pabral Road across the border into NSW to begin the siege on Mt. Coree."
+          },
+          {
+            number: 4,
+            name: "Mt. Coree Summit",
+            emoji: "🗡️",
+            theme: "crimson",
+            fxType: "laurels",
+            lat: -35.30665,
+            lon: 148.81077,
+            targetProgress: 0.667,
+            customDistKm: 38.1,
+            tagline: "Roof of BRuTUS • 1,414m Knife-Edge Peak",
+            vibe: "Et Tu, Coree?",
+            description: "The knife-like elevation profile that inspired the BRuTUS! Climbing Coree Summit Road to 1,414m rewards conspirators with sweeping 360-degree views across the Cotter and Brindabella Ranges.",
+            tip: "Senate Decree: Savour the summit view before descending Summit Road toward Coree Campground."
+          },
+          {
+            number: 5,
+            name: "CP3: Coreezy Aid Station",
+            emoji: "⛺",
+            theme: "gold",
+            fxType: "chalice",
+            lat: -35.28651,
+            lon: 148.80854,
+            targetProgress: 0.71,
+            customDistKm: 41.8,
+            tagline: "Checkpoint 3 • Coree Campground",
+            vibe: "4WD Legion Outpost",
+            description: "Descending off Mt. Coree brings runners into Coree Campground and CP3 (Coreezy). From here begins the long, testing northern traverse along Two Sticks Road and Blue Range Road.",
+            tip: "Conspirator Intel: Support crews should not attempt to access Coree Campground in a 2WD chariot."
+          },
+          {
+            number: 6,
+            name: "CP4: Knife Point Aid Station",
+            emoji: "🔪",
+            theme: "crimson",
+            fxType: "daggers",
+            lat: -35.28573,
+            lon: 148.85264,
+            targetProgress: 0.85,
+            customDistKm: 51.0,
+            tagline: "Checkpoint 4 • ACT Border & Genges Turnoff",
+            vibe: "No Surrender",
+            description: "Briefly returning to the ACT along Blue Range Road, runners reach CP4 at Knife Point before being grimly directed back across the NSW border onto the plunging Genges Trail descent.",
+            tip: "Conspirator Intel: Save quad strength—the infamous Slippery Dip waits at the bottom of Genges Trail."
+          },
+          {
+            number: 7,
+            name: "The Slippery Dip",
+            emoji: "⚠️",
+            theme: "pink",
+            fxType: "sparks",
+            lat: -35.26984,
+            lon: 148.87535,
+            targetProgress: 0.943,
+            customDistKm: 55.8,
+            tagline: "Rutted Chute to Radiata Trail & Dead Horse Gate Rd",
+            vibe: "Controlled Chaos",
+            description: "Off Genges Trail lies the final treacherous obstacle: a sharp, rutted Slippery Dip dropping onto Radiata Trail. Heading south on Dead Horse Gate Road, GUMBY veterans enter familiar territory.",
+            tip: "Senate Decree: Watch your footing on the loose ruts—glory is only 4km away."
+          },
+          {
+            number: 8,
+            name: "Finish: Blue Range Hut",
+            emoji: "🏆",
+            theme: "gold",
+            fxType: "laurels",
+            lat: -35.28991,
+            lon: 148.87568,
+            targetProgress: 1.0,
+            customDistKm: 60.2,
+            tagline: "Finish Line • Blue Range Hut",
+            vibe: "Hail Victorious!",
+            description: "A gentle final descent delivers runners back to Blue Range Hut before the 18:00 (11-hour) cut-off, just in time for the campground after-party as BTrail 100km finishers emerge from the dark.",
+            tip: "Post-Coup Protocol: Claim your laurel wreath and warm up by the Blue Range fire pits."
+          }
+        ]
+      },
+      {
+        key: "btrail100",
+        containerId: "workspace-btrail100",
+        title: "BTrail 100km",
+        gpxFile: "Btrail_100km.gpx",
+        officialDistKm: 100.9,
+        officialGainM: 3000,
+        fallbackPoints: FALLBACK_BTRAIL100,
+        cardinals: [
+          { label: "N • BLUE RANGE FINISH", x: 0, z: -1.35, color: "#FEDD00" },
+          { label: "S • CORIN DAM START", x: 0, z: 1.35, color: "#DC143C" },
+          { label: "E • COTTER VALLEY", x: 1.35, z: 0, color: "#009CDE" },
+          { label: "W • GININI / FRANKLIN", x: -1.35, z: 0, color: "#FF3EB5" }
+        ],
+        eleGridMarks: [900, 1300, 1700],
+        kmStep: 20,
+        chaosButtons: [
+          { id: "daggers", icon: "🗡️", label: "4 Mystery Relics" },
+          { id: "footwash", icon: "🦶", label: "3:45AM Foot Wash" },
+          { id: "laurels", icon: "👑", label: "Ginini 1752m" },
+          { id: "topdown", icon: "🦅", label: "Eagle View" }
+        ],
+        locations: [
+          {
+            number: 1,
+            name: "Start: Corin Dam",
+            emoji: "🌊",
+            theme: "crimson",
+            fxType: "chalice",
+            lat: -35.53208,
+            lon: 148.83642,
+            targetProgress: 0.0,
+            customDistKm: 0.0,
+            tagline: "4:00 AM Start Line & Stockyard Spur Base",
+            vibe: "600m Vert in 2km",
+            description: "After the 3:45 AM foot washing ritual at Corin Dam, BTrail athletes launch at 4:00 AM under headlamps—immediately climbing 600 vertical metres up brutal Stockyard Spur in the first 2 kilometres.",
+            tip: "Senate Decree: Pace the Stockyard Spur wall wisely; 98km of the Brindabella Ranges still await."
+          },
+          {
+            number: 2,
+            name: "Mt. Ginini Summit (Relic I)",
+            emoji: "🔮",
+            theme: "gold",
+            fxType: "laurels",
+            lat: -35.52977,
+            lon: 148.77276,
+            targetProgress: 0.135,
+            customDistKm: 11.8,
+            tagline: "1,752m Roof of the Brindabellas • Mystery Object #1",
+            vibe: "Sub-Alpine Relic",
+            description: "The highest point of the entire BRuTUS festival at 1,752m! Athletes must collect their first of 4 compulsory Mystery Objects at the summit of Mt. Ginini as proof of conquest.",
+            tip: "Relic Protocol: Guard your mystery object with your life—all 4 must be shown at the finish line."
+          },
+          {
+            number: 3,
+            name: "Frankie CP1 & Mt. Franklin (Relic II)",
+            emoji: "⛺",
+            theme: "crimson",
+            fxType: "daggers",
+            lat: -35.48662,
+            lon: 148.77342,
+            targetProgress: 0.185,
+            customDistKm: 18.0,
+            tagline: "Aid Station 1 (Frankie CP1) & Mystery Object #2",
+            vibe: "High-Range Aid",
+            description: "Traversing north along the alpine crest, runners reach Frankie CP1 and the summit of Mt. Franklin to refuel and claim their second Mystery Object.",
+            tip: "Conspirator Intel: Layer up if the Brindabella winds are howling across the ridge."
+          },
+          {
+            number: 4,
+            name: "Bendora Arboretum WP1",
+            emoji: "💧",
+            theme: "blue",
+            fxType: "chalice",
+            lat: -35.46729,
+            lon: 148.77494,
+            targetProgress: 0.25,
+            customDistKm: 26.3,
+            tagline: "Water Point 1 • Historic Conifer Stand",
+            vibe: "Hydration Oasis",
+            description: "Set amongst the towering exotic conifers of Bendora Arboretum, WP1 provides vital water refills before the rocky push toward Mt. Aggie.",
+            tip: "Conspirator Intel: Top off your flasks before tackling the exposed Mt. Aggie spur."
+          },
+          {
+            number: 5,
+            name: "Mt. Aggie Summit (Relic III)",
+            emoji: "🪨",
+            theme: "gold",
+            fxType: "laurels",
+            lat: -35.43755,
+            lon: 148.78788,
+            targetProgress: 0.315,
+            customDistKm: 33.0,
+            tagline: "Exposed Rocky Outcrop • Mystery Object #3",
+            vibe: "Three Relics Secured",
+            description: "Scrambling onto the dramatic rocky crag of Mt. Aggie (1,308m), runners secure their third Mystery Object with panoramic views straight down into the Cotter and NSW high country.",
+            tip: "Relic Protocol: Three objects down, one remaining atop Mt. Coree at km 79!"
+          },
+          {
+            number: 6,
+            name: "Bulls Head CP2",
+            emoji: "🐂",
+            theme: "crimson",
+            fxType: "daggers",
+            lat: -35.39864,
+            lon: 148.80218,
+            targetProgress: 0.40,
+            customDistKm: 40.4,
+            tagline: "Aid Station 2 • Mt. Franklin Rd / Mile Hill Turnoff",
+            vibe: "Plunge to the River",
+            description: "At Bulls Head CP2, runners refuel before leaving Mt. Franklin Road to join Mile Hill Road, dropping steeply off the main range into the remote Warks Road wilderness.",
+            tip: "Conspirator Intel: Enjoy the downhill while it lasts—Marshalls Break lurks ahead."
+          },
+          {
+            number: 7,
+            name: "Warks WP2 (Water Point 2)",
+            emoji: "🚰",
+            theme: "blue",
+            fxType: "chalice",
+            lat: -35.36885,
+            lon: 148.83301,
+            targetProgress: 0.60,
+            customDistKm: 57.2,
+            tagline: "Riverside Wilderness Water Point • FILL BOTTLES!",
+            vibe: "Before Marshalls Break",
+            description: "After traversing pristine riverside wilderness along Warks Road, runners hit Warks WP2. WARNING: Fill every bottle here before entering the blackberry-lined trails and spirit-destroying climbs of Marshalls Break!",
+            tip: "CRITICAL WARNING: Do not leave Warks WP2 without full water capacity."
+          },
+          {
+            number: 8,
+            name: "Wombat Creek CP3",
+            emoji: "🦡",
+            theme: "gold",
+            fxType: "sparks",
+            lat: -35.32446,
+            lon: 148.83871,
+            targetProgress: 0.70,
+            customDistKm: 69.0,
+            tagline: "Aid Station 3 • Brindabella Rd & Pacer Pickup",
+            vibe: "Reinforcements Arrive",
+            description: "Emerging from Marshalls Break to cross Brindabella Road at Wombat Creek CP3, athletes can officially pick up their pacers here to accompany them through the final 31km to the finish.",
+            tip: "Pacer Rule: Pacers may join at Wombat Creek CP3 and continue all the way to Blue Range Hut."
+          },
+          {
+            number: 9,
+            name: "Mt. Coree Summit (Relic IV)",
+            emoji: "👑",
+            theme: "crimson",
+            fxType: "laurels",
+            lat: -35.30608,
+            lon: 148.8113,
+            targetProgress: 0.80,
+            customDistKm: 79.1,
+            tagline: "Final Major Summit (1,410m) • Mystery Object #4",
+            vibe: "All 4 Relics Complete!",
+            description: "The last giant climb of the BTrail! Summiting Mt. Coree at km 79 rewards athletes with their fourth and final Mystery Object. Carry all 4 relics safely to Blue Range Hut for official ratification.",
+            tip: "Relic Protocol: Double-check your pack—losing a single object voids your official placing!"
+          },
+          {
+            number: 10,
+            name: "Coreezy CP4 (Coree Campground)",
+            emoji: "🔥",
+            theme: "pink",
+            fxType: "chalice",
+            lat: -35.2826,
+            lon: 148.80859,
+            targetProgress: 0.85,
+            customDistKm: 83.9,
+            tagline: "Aid Station 4 • 4WD Campground Outpost",
+            vibe: "Nightfall on Two Sticks",
+            description: "Dropping off Mt. Coree into Coreezy CP4, runners regroup before tackling the undulating dark forest corridor of Two Sticks Road and Blue Range Road.",
+            tip: "Access Warning: Do not attempt to drive a 2WD vehicle into Coree Campground."
+          },
+          {
+            number: 11,
+            name: "Knife Point CP5",
+            emoji: "🗡️",
+            theme: "crimson",
+            fxType: "daggers",
+            lat: -35.28213,
+            lon: 148.85392,
+            targetProgress: 0.915,
+            customDistKm: 91.8,
+            tagline: "Final Aid Station • Compulsory Night Buddy Rule",
+            vibe: "Into Genges & Slippery Dip",
+            description: "The final checkpoint at km 91.8! All after-dark departures from Knife Point CP must be accompanied by either a pacer or another athlete for the descent down Genges Trail and the Slippery Dip.",
+            tip: "Safety Decree: Mandatory pacer or fellow runner companionship from Knife Point after dark."
+          },
+          {
+            number: 12,
+            name: "Finish: Blue Range Hut",
+            emoji: "🏛️",
+            theme: "gold",
+            fxType: "laurels",
+            lat: -35.28918,
+            lon: 148.87574,
+            targetProgress: 1.0,
+            customDistKm: 100.9,
+            tagline: "100km Finish Line & Ratification of the 4 Relics",
+            vibe: "Immortal Mediocrity",
+            description: "Cross the line at Blue Range Hut before the midnight (20-hour) cut-off and present your complete set of 4 Mystery Objects to race officials to ratify your place in BTrail history!",
+            tip: "Senate Ratification: Present all 4 summit objects to the timekeepers at the hut fire pit."
+          }
+        ]
+      },
+      {
+        key: "knife14",
+        containerId: "workspace-knife14",
+        title: "The Knife 14km",
+        gpxFile: "The_Knife_14km.gpx",
+        officialDistKm: 14.23,
+        officialGainM: 680,
+        fallbackPoints: FALLBACK_KNIFE14,
+        cardinals: [
+          { label: "N • GENGES DESCENT", x: 0, z: -1.35, color: "#FEDD00" },
+          { label: "S • BLUE RANGE START", x: 0, z: 1.35, color: "#DC143C" },
+          { label: "E • SLIPPERY DIP", x: 1.35, z: 0, color: "#009CDE" },
+          { label: "W • KNIFE POINT CP", x: -1.35, z: 0, color: "#FF3EB5" }
+        ],
+        eleGridMarks: [800, 1000, 1200],
+        kmStep: 2,
+        chaosButtons: [
+          { id: "daggers", icon: "🔪", label: "Draw The Knife" },
+          { id: "footwash", icon: "🫐", label: "Blackberry Thorns" },
+          { id: "laurels", icon: "🫁", label: "Lung Piercer" },
+          { id: "topdown", icon: "🦅", label: "Eagle View" }
+        ],
+        locations: [
+          {
+            number: 1,
+            name: "Start: Blue Range Hut",
+            emoji: "🗡️",
+            theme: "crimson",
+            fxType: "daggers",
+            lat: -35.28956,
+            lon: 148.8757,
+            targetProgress: 0.0,
+            customDistKm: 0.0,
+            tagline: "9:00 AM Start • Blue Range Road",
+            vibe: "Short, Sharp & Brutal",
+            description: "At 9:00 AM, The Knife 14km unleashes runners west along Blue Range Road for a mediocre serve of wild radiata pine forest, blackberry brambles, and 680m of concentrated vertical pain.",
+            tip: "Senate Decree: 4-hour cut-off (13:00)—don't let the 14km distance fool you."
+          },
+          {
+            number: 2,
+            name: "Poo Bear Corner",
+            emoji: "🐻",
+            theme: "pink",
+            fxType: "sparks",
+            lat: -35.28674,
+            lon: 148.86756,
+            targetProgress: 0.06,
+            customDistKm: 0.9,
+            tagline: "A Turn for the Worst off Blue Range Road",
+            vibe: "Plot Twist #1",
+            description: "Barely a kilometre into the race, runners make a turn for the worst at Poo Bear Corner, where the course screws and pinches onto a sharp left into the pines.",
+            tip: "Conspirator Intel: Shift into low gear—the Lung Piercer begins right around the bend."
+          },
+          {
+            number: 3,
+            name: "The Lung Piercer",
+            emoji: "🫁",
+            theme: "crimson",
+            fxType: "daggers",
+            lat: -35.28129,
+            lon: 148.85923,
+            targetProgress: 0.24,
+            customDistKm: 4.0,
+            tagline: "Relentless Forest Pinch Climb (+450m)",
+            vibe: "Maximum Heart Rate",
+            description: "After an eternity of steep grinding through radiata pine and blackberry, the Lung Piercer finally rejoins Blue Range Road—only for the road itself to keep climbing toward Knife Point.",
+            tip: "Conspirator Intel: Power-hike the steepest pitches and save your legs for the Genges plunge."
+          },
+          {
+            number: 4,
+            name: "Knife Point Aid Station (CP1)",
+            emoji: "🔪",
+            theme: "gold",
+            fxType: "laurels",
+            lat: -35.27951,
+            lon: 148.85477,
+            targetProgress: 0.38,
+            customDistKm: 5.7,
+            tagline: "Main Aid Station & 1,241m Peak of the Blade",
+            vibe: "Refuse to Surrender",
+            description: "Perched at the 1,241m apex of the course, Knife Point Aid Station welcomes survivors of the Lung Piercer. Those who refuse to surrender here are grimly directed onto the Genges Trail descent.",
+            tip: "Aid Station Lore: Grab sports drink and snacks before merging with the BRuTUS and BTrail courses."
+          },
+          {
+            number: 5,
+            name: "Genges Trail & Slippery Dip",
+            emoji: "⚡",
+            theme: "blue",
+            fxType: "chalice",
+            lat: -35.26494,
+            lon: 148.87714,
+            targetProgress: 0.65,
+            customDistKm: 9.0,
+            tagline: "470m Plunge & Rutted Chute to Radiata Trail",
+            vibe: "Quad Guillotine",
+            description: "If the Lung Piercer felt like something you hadn't prepared for, at least the Genges Trail descent and the rutted Slippery Dip shouldn't surprise you!",
+            tip: "Conspirator Intel: When Genges Trail flattens out and looks easy ahead... that's not where you're going."
+          },
+          {
+            number: 6,
+            name: "Dead Horse Gate Road Twist",
+            emoji: "🐴",
+            theme: "pink",
+            fxType: "sparks",
+            lat: -35.27901,
+            lon: 148.87162,
+            targetProgress: 0.85,
+            customDistKm: 11.6,
+            tagline: "The Final Backstab Climb Home",
+            vibe: "One Last Twist",
+            description: "Just when you think it's a flat cruise back to the hut, the course twists south up Dead Horse Gate Road for a final sting in the tail through classic GUMBY territory.",
+            tip: "Conspirator Intel: Crest the rise at 858m and it's a fast roll home to Blue Range Hut."
+          },
+          {
+            number: 7,
+            name: "Finish: Blue Range Hut",
+            emoji: "🏆",
+            theme: "gold",
+            fxType: "laurels",
+            lat: -35.28953,
+            lon: 148.87571,
+            targetProgress: 1.0,
+            customDistKm: 14.23,
+            tagline: "Finish Line • Blue Range Hut",
+            vibe: "Survived The Knife!",
+            description: "Charge down the final chute into Blue Range Hut! Presentations for The Knife take place around 12:00 PM (+/- 15 mins) before the 13:00 cut-off.",
+            tip: "Post-Race Glory: Cheer in the 60km BRuTUS and 100km BTrail warriors throughout the afternoon."
+          }
+        ]
+      }
+    ];
+
+    // Haversine formula in km
+    function haversineKm(lat1, lon1, lat2, lon2) {
+      const R = 6371;
+      const dLat = ((lat2 - lat1) * Math.PI) / 180;
+      const dLon = ((lon2 - lon1) * Math.PI) / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    // Crimson -> Tyrian Pink -> Laurel Gold color ramp for 3D elevation ribbon
+    function getCrimsonCourseColor(t) {
+      const clamped = Math.max(0, Math.min(1, t));
+      if (clamped < 0.5) {
+        const u = clamped * 2;
+        const r = Math.round(220 + u * (255 - 220));
+        const g = Math.round(20 + u * (62 - 20));
+        const b = Math.round(60 + u * (181 - 60));
+        return `rgb(${r}, ${g}, ${b})`;
+      } else {
+        const u = (clamped - 0.5) * 2;
+        const r = Math.round(255 + u * (254 - 255));
+        const g = Math.round(62 + u * (221 - 62));
+        const b = Math.round(181 + u * (0 - 181));
+        return `rgb(${r}, ${g}, ${b})`;
+      }
+    }
+
+    // Store active map instances so global micro-interactions can trigger across all 3 maps
+    const mapInstances = [];
+    let globalStabCount = 0;
+
+    function createCourseMapInstance(cfg) {
+      const root = document.getElementById(cfg.containerId);
+      if (!root) return null;
+
+      // Render Gumby_course.html-compatible DOM structure inside each workspace
+      root.innerHTML = `
+        <div class="stage-column">
+          <section class="viewport-card" aria-label="Interactive 3D Course Map for ${cfg.title}">
+            <canvas class="course-3d-canvas"></canvas>
+            <div class="tags-overlay" aria-label="${cfg.title} Location Tags"></div>
+
+            <!-- Top HUD inside 3D Viewport -->
+            <div class="viewport-hud-top">
+              <div class="hud-badge-group">
+                <div class="hud-instruction-pill">
+                  <kbd>DRAG</kbd> Spin &amp; Tilt 3D &bull; <kbd>SCROLL</kbd> Zoom &bull; <kbd>CLICK TAG</kbd> Aid Station Intel
+                </div>
+                <div class="hud-mobile-instruction-pill">
+                  Select map sectors 1&ndash;${cfg.locations.length} for aid station &amp; course intel
+                </div>
+                <div class="gpx-status-badge">
+                  <span class="status-pulse"></span>
+                  <span class="js-gpx-status-text">GPX Telemetry Active: ${cfg.gpxFile}</span>
+                </div>
+              </div>
+
+              <div class="hud-controls">
+                <button type="button" class="hud-btn is-active js-btn-auto-spin" title="Toggle continuous 3D orbital spin">
+                  <span>&#x1F300;</span> Auto-Spin
+                </button>
+                <button type="button" class="hud-btn btn-gold js-btn-direction" title="Toggle LIVE Conspirator Ghost Runner direction">
+                  <span>&#x1F504;</span> <span class="js-direction-label">Runner: Forward</span>
+                </button>
+                <button type="button" class="hud-btn is-active js-btn-runner-toggle" title="Stop or Go toggle for the LIVE Ghost Runner">
+                  <span class="js-runner-toggle-icon">&#x25B6;&#xFE0F;</span> <span class="js-runner-toggle-label">Runner: Go</span>
+                </button>
+                <button type="button" class="hud-btn js-btn-reset-cam" title="Reset 3D camera angle and zoom">
+                  <span>&#x1F3AF;</span> Reset View
+                </button>
+              </div>
+            </div>
+
+            <!-- Location Popup Modal / Card inside Viewport -->
+            <aside class="location-popup" role="dialog" aria-label="${cfg.title} Location Details" hidden>
+              <div class="popup-top-row">
+                <span class="popup-sector-badge js-popup-badge">SECTOR 01</span>
+                <button type="button" class="popup-close-btn js-popup-close" aria-label="Close location popup">&times;</button>
+              </div>
+              <h3 class="popup-title js-popup-title"></h3>
+              <p class="popup-tagline js-popup-tagline"></p>
+
+              <div class="popup-metrics-grid">
+                <div class="popup-metric-box">
+                  <span>Distance</span>
+                  <strong class="js-popup-dist">0.0 km</strong>
+                </div>
+                <div class="popup-metric-box">
+                  <span>Elevation</span>
+                  <strong class="js-popup-ele">745 m</strong>
+                </div>
+                <div class="popup-metric-box">
+                  <span>Betrayal Vibe</span>
+                  <strong class="js-popup-vibe">High Drama</strong>
+                </div>
+              </div>
+
+              <p class="popup-description js-popup-desc"></p>
+              <div class="popup-lore-tip js-popup-tip"></div>
+
+              <div class="popup-footer-nav">
+                <button type="button" class="popup-nav-btn js-popup-prev">&larr; Prev Point</button>
+                <button type="button" class="popup-nav-btn js-popup-next">Next Point &rarr;</button>
+              </div>
+            </aside>
+
+            <!-- Bottom HUD inside 3D Viewport -->
+            <div class="viewport-hud-bottom">
+              <div class="hud-slider-box">
+                <label>3D Vert Exaggeration</label>
+                <input type="range" class="js-ele-slider" min="1" max="6" step="0.2" value="3.2" aria-label="3D Vertical Exaggeration for ${cfg.title}" />
+                <span class="hud-slider-val js-ele-val">3.2x</span>
+              </div>
+
+              <div class="live-runner-telemetry">
+                <div class="runner-avatar-badge">
+                  <span>&#x1F5E1;&#xFE0F;</span>
+                  <span class="js-telemetry-mode">LIVE CONSPIRATOR</span>
+                </div>
+                <div class="runner-metrics">
+                  <span>Dist: <strong class="js-live-dist">0.0 km</strong></span>
+                  <span>Ele: <strong class="js-live-ele">750 m</strong></span>
+                  <span>HR: <strong class="js-live-hr">152 bpm</strong></span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- INTERACTIVE ELEVATION PROFILE -->
+          <section class="elevation-card" aria-label="${cfg.title} Interactive Elevation Profile">
+            <div class="elevation-header">
+              <div class="elevation-title">
+                <span>&#x1F5E1;&#xFE0F;</span> ${cfg.title} &mdash; 3D-Linked Blade Profile (Scrub or Click)
+              </div>
+              <span class="elevation-hint">Hover to project telemetry beacon in 3D &bull; Click a marker to inspect Aid Station</span>
+            </div>
+            <div class="elevation-canvas-wrap">
+              <canvas class="elevation-canvas"></canvas>
+            </div>
+          </section>
+        </div>
+
+        <!-- RIGHT COLUMN: AID STATIONS DIRECTORY & CAESAR BETRAYAL SOUNDBOARD -->
+        <aside class="sidebar-column">
+          <section class="explorer-card" aria-label="${cfg.title} Key Locations &amp; Aid Stations">
+            <div class="explorer-header">
+              <h3>Aid Stations &amp; Checkpoints</h3>
+              <span class="explorer-count">${cfg.locations.length} SECTORS</span>
+            </div>
+            <div class="landmark-list js-landmark-list"></div>
+          </section>
+
+          <section class="fun-board-card" aria-label="${cfg.title} Betrayal Micro-Interactions">
+            <h3>&#x1F3AD; Senate Drama &amp; Chaos</h3>
+            <div class="fun-btn-grid">
+              <button type="button" class="fun-action-btn js-fx-daggers">
+                <span>${cfg.chaosButtons[0].icon}</span> ${cfg.chaosButtons[0].label}
+              </button>
+              <button type="button" class="fun-action-btn js-fx-footwash">
+                <span>${cfg.chaosButtons[1].icon}</span> ${cfg.chaosButtons[1].label}
+              </button>
+              <button type="button" class="fun-action-btn js-fx-laurels">
+                <span>${cfg.chaosButtons[2].icon}</span> ${cfg.chaosButtons[2].label}
+              </button>
+              <button type="button" class="fun-action-btn js-fx-topdown">
+                <span>${cfg.chaosButtons[3].icon}</span> ${cfg.chaosButtons[3].label}
+              </button>
+            </div>
+          </section>
+        </aside>
+      `;
+
+      // Scoped DOM references
+      const canvas3d = root.querySelector(".course-3d-canvas");
+      const ctx3d = canvas3d.getContext("2d");
+      const tagsOverlay = root.querySelector(".tags-overlay");
+      const eleCanvas = root.querySelector(".elevation-canvas");
+      const ctxEle = eleCanvas.getContext("2d");
+      const landmarkListEl = root.querySelector(".js-landmark-list");
+      const statusTextEl = root.querySelector(".js-gpx-status-text");
+
+      const popupEl = root.querySelector(".location-popup");
+      const popupBadge = root.querySelector(".js-popup-badge");
+      const popupTitle = root.querySelector(".js-popup-title");
+      const popupTagline = root.querySelector(".js-popup-tagline");
+      const popupDist = root.querySelector(".js-popup-dist");
+      const popupEle = root.querySelector(".js-popup-ele");
+      const popupVibe = root.querySelector(".js-popup-vibe");
+      const popupDesc = root.querySelector(".js-popup-desc");
+      const popupTip = root.querySelector(".js-popup-tip");
+
+      const liveDistEl = root.querySelector(".js-live-dist");
+      const liveEleEl = root.querySelector(".js-live-ele");
+      const liveHrEl = root.querySelector(".js-live-hr");
+      const telemetryModeEl = root.querySelector(".js-telemetry-mode");
+
+      const btnAutoSpin = root.querySelector(".js-btn-auto-spin");
+      const btnDirection = root.querySelector(".js-btn-direction");
+      const dirLabel = root.querySelector(".js-direction-label");
+      const btnRunnerToggle = root.querySelector(".js-btn-runner-toggle");
+      const runnerToggleIcon = root.querySelector(".js-runner-toggle-icon");
+      const runnerToggleLabel = root.querySelector(".js-runner-toggle-label");
+      const btnResetCam = root.querySelector(".js-btn-reset-cam");
+      const eleSlider = root.querySelector(".js-ele-slider");
+      const eleVal = root.querySelector(".js-ele-val");
+
+      const state = {
+        points: [],
+        totalDistanceKm: cfg.officialDistKm,
+        minEle: 600,
+        maxEle: 1450,
+        yaw: -0.52,
+        pitch: 0.66,
+        targetYaw: -0.52,
+        targetPitch: 0.66,
+        zoom: 1.0,
+        targetZoom: 1.0,
+        panX: 0,
+        panY: 16,
+        isDragging: false,
+        dragStartX: 0,
+        dragStartY: 0,
+        autoSpin: true,
+        eleScale: 3.2,
+        forwardDirection: true,
+        runnerRunning: true,
+        runnerProgress: 0.0,
+        hoverIndex: -1,
+        selectedLocationIdx: 0,
+        particles: [],
+        pulseRings: []
+      };
+
+      const tagElements = [];
+      const sidebarButtons = [];
+
+      function buildTrackModel(rawPoints) {
+        let minLat = Infinity, maxLat = -Infinity;
+        let minLon = Infinity, maxLon = -Infinity;
+        let minEle = Infinity, maxEle = -Infinity;
+
+        rawPoints.forEach((p) => {
+          if (p[0] < minLat) minLat = p[0];
+          if (p[0] > maxLat) maxLat = p[0];
+          if (p[1] < minLon) minLon = p[1];
+          if (p[1] > maxLon) maxLon = p[1];
+          if (p[2] < minEle) minEle = p[2];
+          if (p[2] > maxEle) maxEle = p[2];
+        });
+
+        const centerLat = (minLat + maxLat) / 2;
+        const centerLon = (minLon + maxLon) / 2;
+        const cosLat = Math.cos((centerLat * Math.PI) / 180);
+
+        const spanLatM = (maxLat - minLat) * 111320;
+        const spanLonM = (maxLon - minLon) * 111320 * cosLat;
+        const maxSpanM = Math.max(spanLatM, spanLonM) || 1;
+
+        let cumDist = 0;
+        const processed = [];
+
+        for (let i = 0; i < rawPoints.length; i++) {
+          const [lat, lon, ele] = rawPoints[i];
+          let slopeHr = 142;
+          if (i > 0) {
+            const d = haversineKm(rawPoints[i - 1][0], rawPoints[i - 1][1], lat, lon);
+            cumDist += d;
+            const dEle = ele - rawPoints[i - 1][2];
+            slopeHr = Math.min(186, Math.max(128, Math.round(145 + (dEle / Math.max(0.05, d)) * 0.25)));
+          }
+
+          const xMeters = (lon - centerLon) * 111320 * cosLat;
+          const zMeters = -(lat - centerLat) * 111320;
+
+          processed.push({
+            lat,
+            lon,
+            ele,
+            hr: slopeHr,
+            distKm: cumDist,
+            nx: (xMeters / maxSpanM) * 2.15,
+            nz: (zMeters / maxSpanM) * 2.15,
+            nele: (ele - minEle) / Math.max(1, maxEle - minEle)
+          });
+        }
+
+        const rawTotal = cumDist || cfg.officialDistKm;
+        const scaleFactor = cfg.officialDistKm / rawTotal;
+        processed.forEach((pt, idx) => {
+          pt.distKm = pt.distKm * scaleFactor;
+          pt.progress = idx / Math.max(1, processed.length - 1);
+        });
+
+        state.points = processed;
+        state.minEle = minEle;
+        state.maxEle = maxEle;
+        state.totalDistanceKm = cfg.officialDistKm;
+
+        // Snap each location to its closest GPX track point near its targetProgress
+        cfg.locations.forEach((loc, idx) => {
+          if (idx === 0) {
+            loc.pointIdx = 0;
+            loc.point = processed[0];
+            return;
+          }
+          if (idx === cfg.locations.length - 1) {
+            loc.pointIdx = processed.length - 1;
+            loc.point = processed[processed.length - 1];
+            return;
+          }
+          let bestIdx = 0;
+          let bestScore = Infinity;
+          processed.forEach((pt, pIdx) => {
+            const dGeo = Math.hypot(pt.lat - loc.lat, pt.lon - loc.lon);
+            const dProg = Math.abs(pt.progress - loc.targetProgress) * 0.04;
+            const score = dGeo + dProg;
+            if (score < bestScore) {
+              bestScore = score;
+              bestIdx = pIdx;
+            }
+          });
+          loc.pointIdx = bestIdx;
+          loc.point = processed[bestIdx];
+        });
+      }
+
+      async function loadGpxTrack() {
+        try {
+          const response = await fetch(cfg.gpxFile);
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          const xmlText = await response.text();
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(xmlText, "application/xml");
+          const trkpts = Array.from(xmlDoc.querySelectorAll("trkpt"));
+
+          if (trkpts.length > 30) {
+            const step = Math.max(1, Math.floor(trkpts.length / 260));
+            const parsedPoints = [];
+            for (let i = 0; i < trkpts.length; i += step) {
+              const pt = trkpts[i];
+              const lat = parseFloat(pt.getAttribute("lat"));
+              const lon = parseFloat(pt.getAttribute("lon"));
+              const eleEl = pt.querySelector("ele");
+              const ele = eleEl ? parseFloat(eleEl.textContent) : 800;
+              if (!Number.isNaN(lat) && !Number.isNaN(lon)) {
+                parsedPoints.push([lat, lon, ele]);
+              }
+            }
+            // Ensure final point is included
+            const lastPt = trkpts[trkpts.length - 1];
+            parsedPoints.push([
+              parseFloat(lastPt.getAttribute("lat")),
+              parseFloat(lastPt.getAttribute("lon")),
+              parseFloat(lastPt.querySelector("ele")?.textContent || "750")
+            ]);
+            buildTrackModel(parsedPoints);
+            statusTextEl.textContent = `Live GPX Loaded: ${cfg.gpxFile} (${trkpts.length.toLocaleString()} pts)`;
+            initLocationsUI();
+            drawElevationProfile();
+          }
+        } catch (_) {
+          statusTextEl.textContent = `GPX Telemetry Active: ${cfg.gpxFile} (${cfg.officialDistKm} km)`;
+        }
+      }
+
+      function initLocationsUI() {
+        tagsOverlay.innerHTML = "";
+        landmarkListEl.innerHTML = "";
+        tagElements.length = 0;
+        sidebarButtons.length = 0;
+
+        cfg.locations.forEach((loc, idx) => {
+          const tagBtn = document.createElement("button");
+          tagBtn.type = "button";
+          tagBtn.className = "course-tag-3d";
+          tagBtn.dataset.theme = loc.theme;
+          tagBtn.innerHTML = `
+            <span class="tag-num">${loc.number}</span>
+            <span class="tag-emoji">${loc.emoji}</span>
+            <span class="tag-label">${loc.name}</span>
+          `;
+          tagBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            selectLocation(idx, true);
+          });
+          tagsOverlay.appendChild(tagBtn);
+          tagElements.push(tagBtn);
+
+          const itemBtn = document.createElement("button");
+          itemBtn.type = "button";
+          itemBtn.className = "landmark-item-btn";
+          const eleVal = loc.point ? Math.round(loc.point.ele) : 800;
+          const distVal = (loc.customDistKm ?? (loc.point ? loc.point.distKm : 0)).toFixed(1);
+          itemBtn.innerHTML = `
+            <span class="landmark-index">${loc.number}</span>
+            <span class="landmark-info">
+              <span class="landmark-name">${loc.emoji} ${loc.name}</span>
+              <span class="landmark-sub">KM ${distVal} &bull; ${loc.tagline}</span>
+            </span>
+            <span class="landmark-ele-badge">${eleVal}m</span>
+          `;
+          itemBtn.addEventListener("click", () => {
+            selectLocation(idx, true);
+          });
+          landmarkListEl.appendChild(itemBtn);
+          sidebarButtons.push(itemBtn);
+        });
+      }
+
+      function project3D(wx, wy, wz, width, height) {
+        const cosY = Math.cos(state.yaw);
+        const sinY = Math.sin(state.yaw);
+        const x1 = wx * cosY - wz * sinY;
+        const z1 = wx * sinY + wz * cosY;
+
+        const cosP = Math.cos(state.pitch);
+        const sinP = Math.sin(state.pitch);
+        const y2 = wy * cosP - z1 * sinP;
+        // Positive z1 is at the bottom/foreground (closer to viewer), negative z1 is at the top/background (further from viewer)
+        const z2 = -z1 * cosP - wy * sinP;
+
+        const cameraDist = 3.65;
+        const depth = cameraDist + z2;
+        const fov = Math.min(width, height) * 0.82 * state.zoom;
+        const scale = fov / Math.max(0.4, depth);
+
+        return {
+          x: width * 0.5 + x1 * scale + state.panX,
+          y: height * 0.55 - y2 * scale + state.panY,
+          z: z2,
+          scale
+        };
+      }
+
+      function spawnLocationParticles(wx, wy, wz, fxType) {
+        state.pulseRings.push({
+          wx,
+          wy: 0,
+          wz,
+          radius: 0.02,
+          alpha: 1.0,
+          color: fxType === "daggers" ? "#DC143C" : fxType === "laurels" ? "#FEDD00" : "#009CDE"
+        });
+
+        const palette = {
+          daggers: ["#DC143C", "#FF1E42", "#FEDD00", "#ffffff"],
+          laurels: ["#FEDD00", "#DC143C", "#FF3EB5", "#ffffff"],
+          chalice: ["#009CDE", "#FEDD00", "#DC143C"],
+          sparks: ["#FEDD00", "#FF3EB5", "#DC143C"]
+        };
+        const colors = palette[fxType] || palette.daggers;
+
+        for (let i = 0; i < 28; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 0.004 + Math.random() * 0.014;
+          state.particles.push({
+            wx,
+            wy: wy + 0.02,
+            wz,
+            vx: Math.cos(angle) * speed,
+            vy: 0.008 + Math.random() * 0.016,
+            vz: Math.sin(angle) * speed,
+            gravity: 0.00042,
+            size: 3 + Math.random() * 4.2,
+            color: colors[i % colors.length],
+            life: 1.0,
+            decay: 0.016 + Math.random() * 0.014
+          });
+        }
+      }
+
+      function selectLocation(idx, focusCamera = true) {
+        const normalizedIdx = (idx + cfg.locations.length) % cfg.locations.length;
+        state.selectedLocationIdx = normalizedIdx;
+        const loc = cfg.locations[normalizedIdx];
+        const pt = loc.point || state.points[0];
+
+        tagElements.forEach((el, i) => el.classList.toggle("is-selected", i === normalizedIdx));
+        sidebarButtons.forEach((el, i) => el.classList.toggle("is-active", i === normalizedIdx));
+
+        popupBadge.textContent = `SECTOR ${String(loc.number).padStart(2, "0")} • ${loc.emoji}`;
+        popupTitle.textContent = loc.name;
+        popupTagline.textContent = loc.tagline;
+        popupDist.textContent = `${(loc.customDistKm ?? pt.distKm).toFixed(1)} km`;
+        popupEle.textContent = `${Math.round(pt.ele)} m`;
+        popupVibe.textContent = loc.vibe;
+        popupDesc.textContent = loc.description;
+        popupTip.textContent = loc.tip;
+        popupEl.hidden = false;
+
+        const wy = pt.nele * 0.11 * state.eleScale;
+        spawnLocationParticles(pt.nx, wy, pt.nz, loc.fxType);
+
+        if (focusCamera) {
+          state.autoSpin = false;
+          btnAutoSpin.classList.remove("is-active");
+          const desiredYaw = Math.atan2(pt.nx, pt.nz);
+          let diff = desiredYaw - (state.yaw % (Math.PI * 2));
+          if (diff > Math.PI) diff -= Math.PI * 2;
+          if (diff < -Math.PI) diff += Math.PI * 2;
+          state.targetYaw = state.yaw + diff;
+          state.targetPitch = 0.62;
+          state.targetZoom = 1.1;
+        }
+      }
+
+      function resizeCanvases() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const rect3d = canvas3d.getBoundingClientRect();
+        canvas3d.width = Math.round(rect3d.width * dpr);
+        canvas3d.height = Math.round(rect3d.height * dpr);
+        ctx3d.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const rectEle = eleCanvas.getBoundingClientRect();
+        eleCanvas.width = Math.round(rectEle.width * dpr);
+        eleCanvas.height = Math.round(rectEle.height * dpr);
+        ctxEle.setTransform(dpr, 0, 0, dpr, 0, 0);
+        drawElevationProfile();
+      }
+
+      function drawElevationProfile() {
+        const width = eleCanvas.clientWidth;
+        const height = eleCanvas.clientHeight;
+        if (!width || !height || state.points.length === 0) return;
+
+        ctxEle.clearRect(0, 0, width, height);
+        const padL = 46, padR = 16, padT = 20, padB = 24;
+        const plotW = width - padL - padR;
+        const plotH = height - padT - padB;
+
+        ctxEle.strokeStyle = "rgba(255, 255, 255, 0.08)";
+        ctxEle.lineWidth = 1;
+        ctxEle.font = "600 10px Poppins, sans-serif";
+        ctxEle.fillStyle = "#cbd5e1";
+
+        cfg.eleGridMarks.forEach((eleMark) => {
+          const norm = (eleMark - state.minEle) / Math.max(1, state.maxEle - state.minEle);
+          if (norm < -0.05 || norm > 1.05) return;
+          const y = padT + plotH * (1 - norm);
+          ctxEle.beginPath();
+          ctxEle.moveTo(padL, y);
+          ctxEle.lineTo(width - padR, y);
+          ctxEle.stroke();
+          ctxEle.fillText(`${eleMark}m`, 6, y + 3);
+        });
+
+        const grad = ctxEle.createLinearGradient(padL, padT, padL, padT + plotH);
+        grad.addColorStop(0, "rgba(220, 20, 60, 0.55)");
+        grad.addColorStop(0.55, "rgba(255, 62, 181, 0.25)");
+        grad.addColorStop(1, "rgba(220, 20, 60, 0.03)");
+
+        ctxEle.beginPath();
+        state.points.forEach((pt, idx) => {
+          const x = padL + (pt.distKm / state.totalDistanceKm) * plotW;
+          const y = padT + plotH * (1 - pt.nele);
+          if (idx === 0) ctxEle.moveTo(x, y);
+          else ctxEle.lineTo(x, y);
+        });
+        ctxEle.lineTo(padL + plotW, padT + plotH);
+        ctxEle.lineTo(padL, padT + plotH);
+        ctxEle.closePath();
+        ctxEle.fillStyle = grad;
+        ctxEle.fill();
+
+        const strokeGrad = ctxEle.createLinearGradient(padL, 0, padL + plotW, 0);
+        strokeGrad.addColorStop(0, "#DC143C");
+        strokeGrad.addColorStop(0.5, "#FEDD00");
+        strokeGrad.addColorStop(0.8, "#FF3EB5");
+        strokeGrad.addColorStop(1, "#DC143C");
+
+        ctxEle.beginPath();
+        state.points.forEach((pt, idx) => {
+          const x = padL + (pt.distKm / state.totalDistanceKm) * plotW;
+          const y = padT + plotH * (1 - pt.nele);
+          if (idx === 0) ctxEle.moveTo(x, y);
+          else ctxEle.lineTo(x, y);
+        });
+        ctxEle.strokeStyle = strokeGrad;
+        ctxEle.lineWidth = 2.5;
+        ctxEle.stroke();
+
+        for (let km = 0; km <= state.totalDistanceKm; km += cfg.kmStep) {
+          const x = padL + (km / state.totalDistanceKm) * plotW;
+          ctxEle.fillStyle = "#cbd5e1";
+          ctxEle.fillText(`${km}km`, x - 12, height - 6);
+        }
+
+        cfg.locations.forEach((loc, idx) => {
+          if (!loc.point) return;
+          const x = padL + (loc.point.distKm / state.totalDistanceKm) * plotW;
+          const y = padT + plotH * (1 - loc.point.nele);
+          const isSel = idx === state.selectedLocationIdx;
+
+          ctxEle.beginPath();
+          ctxEle.arc(x, y, isSel ? 6 : 4, 0, Math.PI * 2);
+          ctxEle.fillStyle = isSel ? "#FEDD00" : "#DC143C";
+          ctxEle.fill();
+          ctxEle.lineWidth = 1.5;
+          ctxEle.strokeStyle = "#09060a";
+          ctxEle.stroke();
+        });
+
+        const activeIdx =
+          state.hoverIndex >= 0
+            ? state.hoverIndex
+            : Math.floor(state.runnerProgress * (state.points.length - 1));
+        const activePt = state.points[activeIdx];
+        if (activePt) {
+          const rx = padL + (activePt.distKm / state.totalDistanceKm) * plotW;
+          const ry = padT + plotH * (1 - activePt.nele);
+
+          ctxEle.beginPath();
+          ctxEle.moveTo(rx, padT);
+          ctxEle.lineTo(rx, padT + plotH);
+          ctxEle.strokeStyle = "rgba(254, 221, 0, 0.7)";
+          ctxEle.lineWidth = 1.5;
+          ctxEle.stroke();
+
+          ctxEle.beginPath();
+          ctxEle.arc(rx, ry, 5.5, 0, Math.PI * 2);
+          ctxEle.fillStyle = "#DC143C";
+          ctxEle.fill();
+          ctxEle.lineWidth = 2;
+          ctxEle.strokeStyle = "#FEDD00";
+          ctxEle.stroke();
+        }
+      }
+
+      function renderFrame() {
+        const width = canvas3d.clientWidth;
+        const height = canvas3d.clientHeight;
+        if (!width || !height || state.points.length === 0) return;
+
+        ctx3d.clearRect(0, 0, width, height);
+
+        if (!state.isDragging) {
+          if (state.autoSpin) {
+            state.yaw += 0.0028;
+            state.targetYaw = state.yaw;
+          } else {
+            state.yaw += (state.targetYaw - state.yaw) * 0.085;
+            state.pitch += (state.targetPitch - state.pitch) * 0.085;
+          }
+        }
+        state.zoom += (state.targetZoom - state.zoom) * 0.1;
+
+        const targetPanX = !popupEl.hidden && width > 720 ? -Math.min(185, width * 0.18) : 0;
+        state.panX += (targetPanX - state.panX) * 0.085;
+
+        // 1. Roman Senate 3D Base Grid & Compass Ring
+        ctx3d.lineWidth = 1;
+        const gridSteps = 6;
+        for (let i = -gridSteps; i <= gridSteps; i++) {
+          const g = (i / gridSteps) * 1.25;
+          const p1 = project3D(-1.25, 0, g, width, height);
+          const p2 = project3D(1.25, 0, g, width, height);
+          ctx3d.strokeStyle = i === 0 ? "rgba(220, 20, 60, 0.34)" : "rgba(255, 255, 255, 0.055)";
+          ctx3d.beginPath();
+          ctx3d.moveTo(p1.x, p1.y);
+          ctx3d.lineTo(p2.x, p2.y);
+          ctx3d.stroke();
+
+          const p3 = project3D(g, 0, -1.25, width, height);
+          const p4 = project3D(g, 0, 1.25, width, height);
+          ctx3d.beginPath();
+          ctx3d.moveTo(p3.x, p3.y);
+          ctx3d.lineTo(p4.x, p4.y);
+          ctx3d.stroke();
+        }
+
+        ctx3d.font = "700 10.5px Audiowide, sans-serif";
+        ctx3d.textAlign = "center";
+        cfg.cardinals.forEach((c) => {
+          const cp = project3D(c.x, 0, c.z, width, height);
+          ctx3d.fillStyle = c.color;
+          ctx3d.fillText(c.label, cp.x, cp.y);
+        });
+
+        // 2. Project GPX course points into 3D space
+        const projectedTrack = state.points.map((pt) => {
+          const wy = pt.nele * 0.12 * state.eleScale;
+          return {
+            top: project3D(pt.nx, wy, pt.nz, width, height),
+            base: project3D(pt.nx, 0, pt.nz, width, height),
+            pt,
+            wy
+          };
+        });
+
+        // 3. Draw ground shadow trace on the baseplate
+        ctx3d.beginPath();
+        projectedTrack.forEach((node, i) => {
+          if (i === 0) ctx3d.moveTo(node.base.x, node.base.y);
+          else ctx3d.lineTo(node.base.x, node.base.y);
+        });
+        ctx3d.strokeStyle = "rgba(220, 20, 60, 0.32)";
+        ctx3d.lineWidth = 3;
+        ctx3d.stroke();
+
+        // 4. Draw 3D Crimson Topographic Curtain & Struts
+        for (let i = 0; i < projectedTrack.length - 1; i++) {
+          const curr = projectedTrack[i];
+          const next = projectedTrack[i + 1];
+
+          ctx3d.beginPath();
+          ctx3d.moveTo(curr.base.x, curr.base.y);
+          ctx3d.lineTo(curr.top.x, curr.top.y);
+          ctx3d.lineTo(next.top.x, next.top.y);
+          ctx3d.lineTo(next.base.x, next.base.y);
+          ctx3d.closePath();
+          ctx3d.fillStyle =
+            curr.pt.nele > 0.62
+              ? "rgba(220, 20, 60, 0.18)"
+              : "rgba(255, 62, 181, 0.10)";
+          ctx3d.fill();
+
+          if (i % 3 === 0) {
+            ctx3d.beginPath();
+            ctx3d.moveTo(curr.base.x, curr.base.y);
+            ctx3d.lineTo(curr.top.x, curr.top.y);
+            ctx3d.strokeStyle = "rgba(254, 221, 0, 0.13)";
+            ctx3d.lineWidth = 1;
+            ctx3d.stroke();
+          }
+        }
+
+        // 5. Draw 3D Elevated Course Ribbon
+        ctx3d.lineCap = "round";
+        ctx3d.lineJoin = "round";
+        for (let i = 0; i < projectedTrack.length - 1; i++) {
+          const curr = projectedTrack[i];
+          const next = projectedTrack[i + 1];
+          const segColor = getCrimsonCourseColor(curr.pt.nele);
+
+          ctx3d.beginPath();
+          ctx3d.moveTo(curr.top.x, curr.top.y);
+          ctx3d.lineTo(next.top.x, next.top.y);
+          ctx3d.strokeStyle = segColor;
+          ctx3d.lineWidth = 6.2 * state.zoom;
+          ctx3d.stroke();
+        }
+
+        ctx3d.beginPath();
+        projectedTrack.forEach((node, i) => {
+          if (i === 0) ctx3d.moveTo(node.top.x, node.top.y);
+          else ctx3d.lineTo(node.top.x, node.top.y);
+        });
+        ctx3d.strokeStyle = "rgba(255, 255, 255, 0.55)";
+        ctx3d.lineWidth = 1.5;
+        ctx3d.stroke();
+
+        // 6. Shockwave Rings on Baseplate
+        for (let i = state.pulseRings.length - 1; i >= 0; i--) {
+          const ring = state.pulseRings[i];
+          ring.radius += 0.008;
+          ring.alpha -= 0.022;
+          if (ring.alpha <= 0) {
+            state.pulseRings.splice(i, 1);
+            continue;
+          }
+          ctx3d.beginPath();
+          const segs = 28;
+          for (let s = 0; s <= segs; s++) {
+            const a = (s / segs) * Math.PI * 2;
+            const rx = ring.wx + Math.cos(a) * ring.radius;
+            const rz = ring.wz + Math.sin(a) * ring.radius;
+            const rp = project3D(rx, 0.005, rz, width, height);
+            if (s === 0) ctx3d.moveTo(rp.x, rp.y);
+            else ctx3d.lineTo(rp.x, rp.y);
+          }
+          ctx3d.strokeStyle = ring.color;
+          ctx3d.globalAlpha = Math.max(0, ring.alpha);
+          ctx3d.lineWidth = 2.5;
+          ctx3d.stroke();
+          ctx3d.globalAlpha = 1;
+        }
+
+        // 7. Update & Position Floating 3D Landmark Tags + Beacon Stems
+        cfg.locations.forEach((loc, idx) => {
+          const node = projectedTrack[loc.pointIdx];
+          if (!node) return;
+          const isSel = idx === state.selectedLocationIdx;
+          const stemHeight = node.wy + (isSel ? 0.23 : 0.14 + (idx % 2) * 0.04);
+          const pinTop = project3D(node.pt.nx, stemHeight, node.pt.nz, width, height);
+
+          ctx3d.beginPath();
+          ctx3d.moveTo(node.top.x, node.top.y);
+          ctx3d.lineTo(pinTop.x, pinTop.y);
+          ctx3d.strokeStyle = isSel ? "#FEDD00" : "#DC143C";
+          ctx3d.lineWidth = isSel ? 3 : 1.8;
+          ctx3d.stroke();
+
+          ctx3d.beginPath();
+          ctx3d.arc(node.top.x, node.top.y, isSel ? 7 : 4.5, 0, Math.PI * 2);
+          ctx3d.fillStyle = isSel ? "#FEDD00" : "#ffffff";
+          ctx3d.fill();
+          ctx3d.lineWidth = 2;
+          ctx3d.strokeStyle = "#DC143C";
+          ctx3d.stroke();
+
+          const tagEl = tagElements[idx];
+          if (tagEl) {
+            const depthScale = Math.max(0.76, Math.min(1.12, (pinTop.scale / 310) * 0.95));
+            tagEl.style.transform = `translate3d(${pinTop.x.toFixed(1)}px, ${pinTop.y.toFixed(1)}px, 0) translate(-50%, -100%) scale(${isSel ? 1.08 : depthScale.toFixed(2)})`;
+            tagEl.style.zIndex = isSel ? "45" : String(Math.round(30 - pinTop.z * 10));
+          }
+        });
+
+        // 8. Live Conspirator Ghost Runner
+        const speedStep = state.runnerRunning ? 0.00095 * (state.forwardDirection ? 1 : -1) : 0;
+        state.runnerProgress = (state.runnerProgress + speedStep + 1) % 1;
+
+        const activeIdx =
+          state.hoverIndex >= 0
+            ? state.hoverIndex
+            : Math.floor(state.runnerProgress * (projectedTrack.length - 1));
+        const runnerNode = projectedTrack[activeIdx];
+
+        if (runnerNode) {
+          ctx3d.beginPath();
+          ctx3d.arc(runnerNode.top.x, runnerNode.top.y, 10, 0, Math.PI * 2);
+          ctx3d.fillStyle = "rgba(220, 20, 60, 0.36)";
+          ctx3d.fill();
+
+          ctx3d.beginPath();
+          ctx3d.arc(runnerNode.top.x, runnerNode.top.y, 5.5, 0, Math.PI * 2);
+          ctx3d.fillStyle = "#FEDD00";
+          ctx3d.fill();
+          ctx3d.lineWidth = 2;
+          ctx3d.strokeStyle = "#DC143C";
+          ctx3d.stroke();
+
+          liveDistEl.textContent = `${runnerNode.pt.distKm.toFixed(1)} km`;
+          liveEleEl.textContent = `${Math.round(runnerNode.pt.ele)} m`;
+          liveHrEl.textContent = `${runnerNode.pt.hr} bpm`;
+        }
+
+        // 9. Render 3D Particles
+        for (let i = state.particles.length - 1; i >= 0; i--) {
+          const p = state.particles[i];
+          p.wx += p.vx;
+          p.wy += p.vy;
+          p.wz += p.vz;
+          p.vy -= p.gravity;
+          p.life -= p.decay;
+
+          if (p.life <= 0) {
+            state.particles.splice(i, 1);
+            continue;
+          }
+
+          const proj = project3D(p.wx, p.wy, p.wz, width, height);
+          ctx3d.save();
+          ctx3d.globalAlpha = Math.max(0, p.life);
+          ctx3d.fillStyle = p.color;
+          ctx3d.beginPath();
+          ctx3d.arc(proj.x, proj.y, p.size * p.life, 0, Math.PI * 2);
+          ctx3d.fill();
+          ctx3d.restore();
+        }
+
+        drawElevationProfile();
+      }
+
+      // Bind interactions for this map instance
+      canvas3d.addEventListener("pointerdown", (e) => {
+        state.isDragging = true;
+        state.dragStartX = e.clientX;
+        state.dragStartY = e.clientY;
+        canvas3d.setPointerCapture(e.pointerId);
+      });
+
+      canvas3d.addEventListener("pointermove", (e) => {
+        if (!state.isDragging) return;
+        const dx = e.clientX - state.dragStartX;
+        const dy = e.clientY - state.dragStartY;
+        state.dragStartX = e.clientX;
+        state.dragStartY = e.clientY;
+
+        state.yaw -= dx * 0.0075;
+        state.pitch = Math.max(0.18, Math.min(1.42, state.pitch + dy * 0.0065));
+        state.targetYaw = state.yaw;
+        state.targetPitch = state.pitch;
+      });
+
+      const endDrag = () => {
+        state.isDragging = false;
+      };
+      canvas3d.addEventListener("pointerup", endDrag);
+      canvas3d.addEventListener("pointercancel", endDrag);
+
+      canvas3d.addEventListener(
+        "wheel",
+        (e) => {
+          e.preventDefault();
+          const delta = e.deltaY > 0 ? -0.08 : 0.08;
+          state.targetZoom = Math.max(0.65, Math.min(1.75, state.targetZoom + delta));
+        },
+        { passive: false }
+      );
+
+      eleCanvas.addEventListener("pointermove", (e) => {
+        const rect = eleCanvas.getBoundingClientRect();
+        const padL = 46, padR = 16;
+        const plotW = rect.width - padL - padR;
+        const relX = Math.max(0, Math.min(1, (e.clientX - rect.left - padL) / plotW));
+        state.hoverIndex = Math.round(relX * (state.points.length - 1));
+        telemetryModeEl.textContent = "SCRUB TELEMETRY";
+      });
+
+      eleCanvas.addEventListener("pointerleave", () => {
+        state.hoverIndex = -1;
+        telemetryModeEl.textContent = state.runnerRunning
+          ? "LIVE CONSPIRATOR"
+          : "CONSPIRATOR HALTED";
+      });
+
+      eleCanvas.addEventListener("click", (e) => {
+        const rect = eleCanvas.getBoundingClientRect();
+        const padL = 46, padR = 16;
+        const plotW = rect.width - padL - padR;
+        const relX = Math.max(0, Math.min(1, (e.clientX - rect.left - padL) / plotW));
+        const clickedKm = relX * state.totalDistanceKm;
+
+        let bestIdx = 0;
+        let minDiff = Infinity;
+        cfg.locations.forEach((loc, idx) => {
+          const dist = loc.customDistKm ?? (loc.point ? loc.point.distKm : 0);
+          const diff = Math.abs(dist - clickedKm);
+          if (diff < minDiff) {
+            minDiff = diff;
+            bestIdx = idx;
+          }
+        });
+        selectLocation(bestIdx, true);
+      });
+
+      btnAutoSpin.addEventListener("click", () => {
+        state.autoSpin = !state.autoSpin;
+        btnAutoSpin.classList.toggle("is-active", state.autoSpin);
+      });
+
+      btnDirection.addEventListener("click", () => {
+        state.forwardDirection = !state.forwardDirection;
+        dirLabel.textContent = state.forwardDirection ? "Runner: Forward" : "Runner: Reverse";
+        btnDirection.classList.toggle("is-active", !state.forwardDirection);
+      });
+
+      btnRunnerToggle.addEventListener("click", () => {
+        state.runnerRunning = !state.runnerRunning;
+        btnRunnerToggle.classList.toggle("is-active", state.runnerRunning);
+        runnerToggleIcon.textContent = state.runnerRunning ? "▶️" : "⏹️";
+        runnerToggleLabel.textContent = state.runnerRunning ? "Runner: Go" : "Runner: Stop";
+        if (state.hoverIndex < 0) {
+          telemetryModeEl.textContent = state.runnerRunning
+            ? "LIVE CONSPIRATOR"
+            : "CONSPIRATOR HALTED";
+        }
+      });
+
+      btnResetCam.addEventListener("click", () => {
+        state.targetYaw = -0.52;
+        state.targetPitch = 0.66;
+        state.targetZoom = 1.0;
+        state.autoSpin = true;
+        btnAutoSpin.classList.add("is-active");
+      });
+
+      eleSlider.addEventListener("input", () => {
+        state.eleScale = parseFloat(eleSlider.value);
+        eleVal.textContent = `${state.eleScale.toFixed(1)}x`;
+      });
+
+      root.querySelector(".js-popup-close").addEventListener("click", () => {
+        popupEl.hidden = true;
+      });
+      root.querySelector(".js-popup-prev").addEventListener("click", () => {
+        selectLocation(state.selectedLocationIdx - 1, true);
+      });
+      root.querySelector(".js-popup-next").addEventListener("click", () => {
+        selectLocation(state.selectedLocationIdx + 1, true);
+      });
+
+      // Caesar Betrayal Micro-Interaction Buttons
+      const triggerDaggerStorm = () => {
+        cfg.locations.forEach((loc) => {
+          if (!loc.point) return;
+          const wy = loc.point.nele * 0.12 * state.eleScale;
+          spawnLocationParticles(loc.point.nx, wy, loc.point.nz, "daggers");
+        });
+      };
+
+      root.querySelector(".js-fx-daggers").addEventListener("click", () => {
+        triggerDaggerStorm();
+        incrementStabCounter();
+      });
+
+      root.querySelector(".js-fx-footwash").addEventListener("click", () => {
+        selectLocation(0, true);
+      });
+
+      root.querySelector(".js-fx-laurels").addEventListener("click", () => {
+        // Focus highest peak location on this course
+        let highestIdx = 0;
+        let maxE = -Infinity;
+        cfg.locations.forEach((loc, idx) => {
+          const e = loc.point ? loc.point.ele : 0;
+          if (e > maxE) {
+            maxE = e;
+            highestIdx = idx;
+          }
+        });
+        selectLocation(highestIdx, true);
+      });
+
+      root.querySelector(".js-fx-topdown").addEventListener("click", () => {
+        state.autoSpin = false;
+        btnAutoSpin.classList.remove("is-active");
+        state.targetPitch = 1.38;
+        state.targetZoom = 1.05;
+      });
+
+      // Initialize model & UI
+      buildTrackModel(cfg.fallbackPoints);
+      initLocationsUI();
+      resizeCanvases();
+      loadGpxTrack();
+
+      // Open Start location on desktop load only (keep mobile load clean)
+      if (!window.matchMedia("(max-width: 768px)").matches) {
+        selectLocation(0, false);
+      }
+
+      return {
+        cfg,
+        state,
+        popupEl,
+        renderFrame,
+        resizeCanvases,
+        triggerDaggerStorm
+      };
+    }
+
+    function incrementStabCounter() {
+      globalStabCount = (globalStabCount % 23) + 1;
+      const stabEl = document.getElementById("caesar-stab-count");
+      if (stabEl) {
+        stabEl.textContent = `${globalStabCount} / 23`;
+      }
+    }
+
+    // Bootstrap all 3 courses and global UI handlers
+    (function initAll() {
+      COURSES_CONFIG.forEach((cfg) => {
+        const inst = createCourseMapInstance(cfg);
+        if (inst) mapInstances.push(inst);
+      });
+
+      // Global animation loop driving all 3 3D maps smoothly
+      function animate() {
+        mapInstances.forEach((inst) => inst.renderFrame());
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+
+      window.addEventListener("resize", () => {
+        mapInstances.forEach((inst) => inst.resizeCanvases());
+      });
+
+      // Global "ET TU, BRUTE?" button in sticky bar
+      const globalStabBtn = document.getElementById("btn-global-stab");
+      if (globalStabBtn) {
+        globalStabBtn.addEventListener("click", () => {
+          incrementStabCounter();
+          mapInstances.forEach((inst) => inst.triggerDaggerStorm());
+        });
+      }
+
+      // Highlight active Act pill on click / scroll
+      const actPills = document.querySelectorAll(".act-jump-pill");
+      actPills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          actPills.forEach((p) => p.classList.remove("is-current"));
+          pill.classList.add("is-current");
+        });
+      });
+
+      // Mobile Navigation Popup Menu Toggle
+      const burgerBtn = document.getElementById("brutus-burger-btn");
+      const navBar = document.getElementById("brutus-nav");
+      const navBackdrop = document.getElementById("brutus-nav-backdrop");
+
+      const closeMobileNav = () => {
+        if (!navBar || !burgerBtn) return;
+        navBar.classList.remove("is-open");
+        burgerBtn.classList.remove("is-open");
+        burgerBtn.setAttribute("aria-expanded", "false");
+        if (navBackdrop) navBackdrop.hidden = true;
+      };
+
+      if (burgerBtn && navBar) {
+        burgerBtn.addEventListener("click", () => {
+          const isOpen = navBar.classList.toggle("is-open");
+          burgerBtn.classList.toggle("is-open", isOpen);
+          burgerBtn.setAttribute("aria-expanded", String(isOpen));
+          if (navBackdrop) navBackdrop.hidden = !isOpen;
+        });
+      }
+
+      if (navBackdrop) {
+        navBackdrop.addEventListener("click", closeMobileNav);
+      }
+
+      document.querySelectorAll("#brutus-nav a").forEach((link) => {
+        link.addEventListener("click", closeMobileNav);
+      });
+
+      // Direct GPX Download handler for all 3 GPX buttons
+      document.querySelectorAll(".js-download-gpx").forEach((btn) => {
+        btn.addEventListener("click", async (e) => {
+          const gpxFile = btn.getAttribute("data-gpx");
+          if (!gpxFile) return;
+          try {
+            const res = await fetch(gpxFile);
+            if (!res.ok) return;
+            e.preventDefault();
+            const blobText = await res.text();
+            const blob = new Blob([blobText], { type: "application/gpx+xml" });
+            const url = URL.createObjectURL(blob);
+            const tempLink = document.createElement("a");
+            tempLink.href = url;
+            tempLink.download = gpxFile;
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            tempLink.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1500);
+          } catch (_) {
+            // Native <a download> fallback handles file:// protocol
+          }
+        });
+      });
+
+      // Escape key closes any open location popup or mobile menu
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          mapInstances.forEach((inst) => {
+            if (!inst.popupEl.hidden) inst.popupEl.hidden = true;
+          });
+          closeMobileNav();
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

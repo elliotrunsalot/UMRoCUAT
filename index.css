@@ -16,13 +16,16 @@
     --um-white: #ffffff;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
@@ -87,8 +90,13 @@ body {
 }
 
 @keyframes tickerSlide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* ═══════════════════════════════════════════════
@@ -188,12 +196,15 @@ body {
     0% {
         transform: translateY(0em);
     }
+
     30% {
         transform: translateY(-0.25em);
     }
+
     70% {
         transform: translateY(0.25em);
     }
+
     100% {
         transform: translateY(0em);
     }
@@ -203,12 +214,15 @@ body {
     0% {
         transform: translateY(0em);
     }
+
     30% {
         transform: translateY(0.25em);
     }
+
     70% {
         transform: translateY(-0.25em);
     }
+
     100% {
         transform: translateY(0em);
     }
