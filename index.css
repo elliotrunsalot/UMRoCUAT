@@ -32,16 +32,17 @@ html, body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Soft tonal variability across the pink background */
+/* Rich tonal variability across the pink background */
 body {
     background-color: var(--um-pink);
     background-image:
-        radial-gradient(ellipse 68% 54% at 18% 16%, rgba(255, 168, 230, 0.58) 0%, transparent 70%),
-        radial-gradient(ellipse 64% 58% at 84% 22%, rgba(214, 20, 140, 0.46) 0%, transparent 72%),
-        radial-gradient(ellipse 75% 60% at 50% 56%, rgba(255, 118, 212, 0.42) 0%, transparent 68%),
-        radial-gradient(ellipse 70% 52% at 22% 88%, rgba(198, 16, 126, 0.48) 0%, transparent 72%),
-        radial-gradient(ellipse 62% 50% at 82% 84%, rgba(255, 182, 235, 0.44) 0%, transparent 70%),
-        linear-gradient(160deg, #ff5bc4 0%, #ff3eb5 38%, #e6229b 72%, #ff54be 100%);
+        radial-gradient(ellipse 55% 46% at 14% 18%, rgba(255, 206, 238, 0.78) 0%, rgba(255, 145, 218, 0.32) 48%, transparent 74%),
+        radial-gradient(ellipse 58% 52% at 88% 16%, rgba(152, 10, 98, 0.68) 0%, rgba(196, 18, 128, 0.28) 52%, transparent 76%),
+        radial-gradient(ellipse 48% 44% at 52% 48%, rgba(255, 188, 232, 0.52) 0%, transparent 66%),
+        radial-gradient(ellipse 64% 50% at 16% 86%, rgba(138, 8, 88, 0.72) 0%, rgba(188, 16, 118, 0.3) 50%, transparent 75%),
+        radial-gradient(ellipse 56% 48% at 84% 84%, rgba(255, 152, 205, 0.65) 0%, rgba(254, 221, 0, 0.14) 45%, transparent 72%),
+        radial-gradient(circle at 34% 58%, rgba(212, 26, 158, 0.45) 0%, transparent 55%),
+        linear-gradient(145deg, #ff7ad1 0%, #ff3eb5 28%, #d4148a 54%, #ff5cc2 78%, #a80d6c 100%);
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
@@ -97,8 +98,9 @@ body {
     position: relative;
     width: 100%;
     max-width: 1680px;
+    min-height: calc(100vh - 58px);
     margin: 0 auto;
-    padding: 12px 16px 4px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,50 +118,117 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 6px 12px 8px;
+    padding: 18px 12px 0;
     flex: 0 0 auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    pointer-events: none;
 }
 
-/* Flintstones-style chiseled & arched title (single h1 without spans) */
+/* Audiowide curved & dancing desktop heading + mobile "UMRoC" heading */
 .hero-h1 {
-    font-family: 'Luckiest Guy', 'Chelsea Market', cursive;
+    font-family: 'Audiowide', cursive;
     font-weight: 400;
-    font-size: clamp(2.05rem, 4.3vw, 3.85rem);
-    line-height: 1.08;
+    font-size: clamp(1.35rem, 2.85vw, 2.75rem);
+    line-height: 1.15;
     letter-spacing: 0.03em;
-    color: var(--um-yellow);
     text-align: center;
-    max-width: 1280px;
-    padding: 14px 18px 22px;
-    /* Chiseled bedrock / Flintstones 3D block shadow */
-    -webkit-text-stroke: 2.5px var(--um-ink);
-    paint-order: stroke fill;
+    max-width: 1500px;
+    padding: 0.55em 16px 0.25em;
+    margin: 0 auto;
+    white-space: nowrap;
+    background: transparent;
+    pointer-events: none;
+}
+
+.hero-h1--desktop {
+    display: inline-block;
+}
+
+.hero-h1--mobile {
+    display: none;
+}
+
+.hero-char-curve {
+    display: inline-block;
+    transform: translateY(var(--curve-y, 0em)) rotate(var(--curve-rot, 0deg));
+    transform-origin: center bottom;
+    pointer-events: none;
+}
+
+.hero-char-space {
+    display: inline-block;
+    width: 0.38em;
+    pointer-events: none;
+}
+
+.hero-char-dance {
+    display: inline-block;
+    color: var(--char-color, #FFFFFF);
     text-shadow:
-        0 2px 0 var(--um-amber),
-        2px 3px 0 var(--um-ink),
-        4px 5px 0 var(--um-ink),
-        6px 8px 0 var(--um-ink),
-        8px 11px 0 rgba(7, 8, 13, 0.42);
-    /* SVG arch filter curves the single-line heading on larger screens */
-    filter: url(#flintstone-arch);
-    transform-origin: center center;
+        3px 4px 0 #000000,
+        0 2px 6px rgba(0, 0, 0, 0.45);
+    transform: translateY(0em);
+    cursor: pointer;
+    will-change: transform;
+    pointer-events: auto;
+}
+
+.hero-char-dance.dance-even.is-dancing {
+    animation: letterHoverCycleEven 0.9s cubic-bezier(0.42, 0, 0.58, 1) 1 forwards;
+}
+
+.hero-char-dance.dance-odd.is-dancing {
+    animation: letterHoverCycleOdd 0.9s cubic-bezier(0.42, 0, 0.58, 1) 1 forwards;
+}
+
+/* One full cycle on hover with a 0.5em movement range, easing back to original 0em state */
+@keyframes letterHoverCycleEven {
+    0% {
+        transform: translateY(0em);
+    }
+    30% {
+        transform: translateY(-0.25em);
+    }
+    70% {
+        transform: translateY(0.25em);
+    }
+    100% {
+        transform: translateY(0em);
+    }
+}
+
+@keyframes letterHoverCycleOdd {
+    0% {
+        transform: translateY(0em);
+    }
+    30% {
+        transform: translateY(0.25em);
+    }
+    70% {
+        transform: translateY(-0.25em);
+    }
+    100% {
+        transform: translateY(0em);
+    }
 }
 
 /* ═══════════════════════════════════════════════
    FLOATING BORDERLESS CANBERRA CENTENARY TRAIL MAP
    ═══════════════════════════════════════════════ */
 .centenary-map-deck {
-    position: relative;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    flex: 1 1 auto;
-    height: calc(100vh - 175px);
-    min-height: 520px;
-    max-height: 860px;
-    margin-top: -6px;
+    height: 100%;
+    min-height: 620px;
+    margin-top: 0;
     background: transparent;
     border: none;
     box-shadow: none;
     overflow: visible;
+    z-index: 5;
 }
 
 #cent-map-canvas {
@@ -179,8 +248,8 @@ body {
 /* Map Direction Toggle Buttons (Course Spin Direction & Ghost Runner Direction) */
 .map-direction-controls {
     position: absolute;
-    top: 8px;
-    right: 14px;
+    top: 112px;
+    right: 16px;
     z-index: 35;
     display: flex;
     align-items: center;
@@ -323,13 +392,17 @@ body {
    ═══════════════════════════════════════════════ */
 @media (max-width: 960px) {
     .hero-h1 {
-        font-size: clamp(1.75rem, 4.8vw, 2.7rem);
-        padding: 10px 10px 14px;
+        font-size: clamp(1.1rem, 2.5vw, 1.9rem);
+        padding: 0.55em 10px 0.25em;
     }
 
     .centenary-map-deck {
-        height: calc(100vh - 165px);
-        min-height: 460px;
+        min-height: 560px;
+    }
+
+    .map-direction-controls {
+        top: 94px;
+        right: 12px;
     }
 
     .hero-qnav-pill.summit-pin {
@@ -344,38 +417,44 @@ body {
 
 @media (max-width: 640px) {
     .wild-stage {
-        padding: 8px 6px 4px;
+        min-height: calc(100vh - 52px);
+        padding: 0;
     }
 
     .wild-header-bar {
-        padding: 2px 6px 4px;
+        padding: 10px 6px 0;
     }
 
-    /* Neatly & compactly wrapped Flintstones title on mobile */
-    .hero-h1 {
-        font-size: clamp(1.55rem, 6.8vw, 2.15rem);
-        line-height: 1.02;
-        letter-spacing: 0.02em;
-        max-width: 94vw;
-        padding: 4px 6px 6px;
+    /* Mobile heading: straight "UMRoC", centre top, no dance, white fill with black drop shadow */
+    .hero-h1--desktop {
+        display: none !important;
+    }
+
+    .hero-h1--mobile {
+        display: block;
+        font-family: 'Audiowide', cursive;
+        font-size: clamp(2.1rem, 9.5vw, 2.8rem);
+        line-height: 1.05;
+        letter-spacing: 0.06em;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 4px 8px 6px;
         margin: 0 auto;
-        text-wrap: balance;
-        -webkit-text-stroke: 1.8px var(--um-ink);
+        transform: none;
+        filter: none;
+        animation: none;
         text-shadow:
-            0 1px 0 var(--um-amber),
-            2px 2px 0 var(--um-ink),
-            3px 4px 0 var(--um-ink),
-            5px 6px 0 rgba(7, 8, 13, 0.38);
+            3px 4px 0 #000000,
+            0 2px 6px rgba(0, 0, 0, 0.45);
     }
 
     .centenary-map-deck {
         margin-top: 0;
-        height: calc(100vh - 150px);
-        min-height: 430px;
+        min-height: 500px;
     }
 
     .map-direction-controls {
-        top: 4px;
+        top: 60px;
         right: 8px;
         gap: 6px;
     }

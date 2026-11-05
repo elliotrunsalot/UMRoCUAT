@@ -4,11 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
     <meta property="og:title" content="The official website of ULTRA Mediocre Runners of Canberra">
-    <meta property="og:image" content="FinishGlow.jpg">
+    <meta property="og:image" content="umroc_og_map.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Ultra Mediocre Runners of Canberra">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="umroc_og_map.png">
+    <meta name="twitter:image:alt" content="Ultra Mediocre Runners of Canberra">
 
     <title>Ultra Mediocre</title>
-    <link rel="shortcut icon" href="UMRoCfavicon2022.png" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="UMRoCfavicon.svg">
+    <link rel="shortcut icon" href="UMRoCfavicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -33,9 +42,15 @@
     <!-- ══ TICKER TAPE ══ -->
     <div class="hero-ticker" aria-label="Club stats ticker">
         <div class="ticker-track">
+            <span class="ticker-item">🥈 Only the mediocre are always at their best</span>
+            <span class="ticker-sep">★</span>
             <span class="ticker-item">🏆 GUMBY 2027 — Registrations&nbsp;OPEN</span>
             <span class="ticker-sep">★</span>
-            <span class="ticker-item">🔪 BRuTUS — Will it Return?</span>
+            <span class="ticker-item">🤴 BRuTUS 60km — The traitor's trail</span>
+            <span class="ticker-sep">★</span>
+            <span class="ticker-item">🔪 The Knife 14km — The sharpest race around</span>
+            <span class="ticker-sep">★</span>
+            <span class="ticker-item">👎 BTrail 100km — Et tu, Brindabella?</span>
             <span class="ticker-sep">★</span>
             <span class="ticker-item">🥇 6 Years of Mediocrity &amp; Counting</span>
             <span class="ticker-sep">★</span>
@@ -48,9 +63,15 @@
             <span class="ticker-item">👶 GumBABY — The next generation of mediocrity</span>
             <span class="ticker-sep">★</span>
             <!-- duplicate set for seamless CSS loop -->
+            <span class="ticker-item">🥈 Only the mediocre are always at their best</span>
+            <span class="ticker-sep">★</span>
             <span class="ticker-item">🏆 GUMBY 2027 — Registrations&nbsp;OPEN</span>
             <span class="ticker-sep">★</span>
-            <span class="ticker-item">🔪 BRuTUS — Will it Return?</span>
+            <span class="ticker-item">🤴 BRuTUS 60km — The traitor's trail</span>
+            <span class="ticker-sep">★</span>
+            <span class="ticker-item">🔪 The Knife 14km — The sharpest race around</span>
+            <span class="ticker-sep">★</span>
+            <span class="ticker-item">👎 BTrail 100km — Et tu, Brindabella?</span>
             <span class="ticker-sep">★</span>
             <span class="ticker-item">🥇 6 Years of Mediocrity &amp; Counting</span>
             <span class="ticker-sep">★</span>
@@ -71,7 +92,9 @@
     <main class="wild-stage">
 
         <header class="wild-header-bar">
-            <h1 class="hero-h1">Ultra Mediocre Runners of Canberra</h1>
+            <h1 class="hero-h1 hero-h1--desktop" id="hero-h1-desktop" aria-label="Ultra Mediocre Runners of Canberra">
+                Ultra Mediocre Runners of Canberra</h1>
+            <h1 class="hero-h1 hero-h1--mobile" aria-label="UMRoC">UMRoC</h1>
         </header>
 
         <!-- Floating Borderless 3D Canberra Centenary Trail & Stencil Map -->
@@ -99,21 +122,19 @@
                 <a href="Our_Story.html" class="hero-qnav-pill summit-pin" data-peak-index="0" style="--pa:#FEDD00">
                     <span class="summit-pin-icon">📜</span>
                     <span>Our Story</span>
-                    <span class="summit-pin-ele">▲864m</span>
                 </a>
 
                 <!-- Peak 2 (~27% loop, North-East — Old Joe / Goorooyarroo 770m) -->
                 <a href="Our_Board.html" class="hero-qnav-pill summit-pin" data-peak-index="1" style="--pa:#00f0ff">
                     <span class="summit-pin-icon">🎭</span>
                     <span>The Board</span>
-                    <span class="summit-pin-ele">▲770m</span>
+
                 </a>
 
                 <!-- Peak 3 (~39.4% loop, East — Mount Majura 881m, Highest Point) -->
                 <a href="Media_Records.html" class="hero-qnav-pill summit-pin" data-peak-index="2" style="--pa:#FEDD00">
                     <span class="summit-pin-icon">🏆</span>
-                    <span>Media &amp; Records</span>
-                    <span class="summit-pin-ele">▲881m</span>
+                    <span>Media</span>
                 </a>
 
                 <!-- Peak 4 (~59.5% loop, South-East — Tuggeranong Hill 804m) -->
@@ -121,14 +142,12 @@
                     style="--pa:#00f0ff">
                     <span class="summit-pin-icon">🛸</span>
                     <span>GUMBY</span>
-                    <span class="summit-pin-ele">▲804m</span>
                 </a>
 
                 <!-- Peak 5 (~81.1% loop, South-West — Mount Taylor / Oakey Ridge 712m) -->
                 <a href="BRuTUS.html" class="hero-qnav-pill summit-pin" data-peak-index="4" style="--pa:#FEDD00">
                     <span class="summit-pin-icon">🗡️</span>
                     <span>BRuTUS</span>
-                    <span class="summit-pin-ele">▲712m</span>
                 </a>
 
                 <!-- Peak 6 (~97.3% loop, West/Central — Black Mountain 812m) -->
@@ -136,7 +155,7 @@
                     style="--pa:#00f0ff">
                     <span class="summit-pin-icon">⚖️</span>
                     <span>Event Policies</span>
-                    <span class="summit-pin-ele">▲812m</span>
+
                 </a>
             </div>
         </section>
@@ -152,35 +171,66 @@
             'use strict';
 
             /* ═══════════════════════════════════════════════════════════════════
-               0. BUILD PARABOLIC ARCH DISPLACEMENT MAP FOR FLINTSTONES TITLE
-                  Curves the single <h1 class="hero-h1"> upward in the middle
-                  while allowing natural responsive wrapping on mobile screens.
+               0. BUILD AUDIOWIDE HOVER-DANCING & 20%-CURVED DESKTOP HEADING
+                  - Font: Audiowide
+                  - Fill cycle (letter by letter): White, Yellow, Pink, Blue
+                  - Black drop shadow on every letter
+                  - Hover triggers one full cycle (0.5em range) before easing to original state
+                  - 20% arch curve across the title
                ═══════════════════════════════════════════════════════════════════ */
-            (function initTitleArchFilter() {
-                const dispImg = document.getElementById('arch-disp-img');
-                if (!dispImg) return;
-                const c = document.createElement('canvas');
-                c.width = 256;
-                c.height = 64;
-                const g = c.getContext('2d');
-                const imgData = g.createImageData(c.width, c.height);
-                const data = imgData.data;
+            (function initDancingCurvedTitle() {
+                const heading = document.getElementById('hero-h1-desktop');
+                if (!heading) return;
 
-                for (let y = 0; y < c.height; y++) {
-                    for (let x = 0; x < c.width; x++) {
-                        const u = (x / (c.width - 1)) * 2 - 1; // -1 at edges, 0 at center
-                        // Parabolic arch: center lifts up (G > 128 shifts source downward = visual upward arch)
-                        const arch = 1 - u * u;
-                        const green = Math.round(112 + arch * 76);
-                        const idx = (y * c.width + x) * 4;
-                        data[idx] = 128;     // R: no horizontal displacement
-                        data[idx + 1] = green; // G: vertical parabolic arch
-                        data[idx + 2] = 128;
-                        data[idx + 3] = 255;
+                const text = heading.textContent.trim();
+                const chars = Array.from(text);
+                const total = chars.length;
+                // Cycle: white, yellow, pink, blue
+                const palette = ['#FFFFFF', '#FEDD00', '#FF3EB5', '#009CDE'];
+
+                heading.textContent = '';
+                let letterIdx = 0;
+
+                chars.forEach((ch, idx) => {
+                    if (ch === ' ') {
+                        const spaceSpan = document.createElement('span');
+                        spaceSpan.className = 'hero-char-space';
+                        spaceSpan.innerHTML = '&nbsp;';
+                        heading.appendChild(spaceSpan);
+                        return;
                     }
-                }
-                g.putImageData(imgData, 0, 0);
-                dispImg.setAttribute('href', c.toDataURL());
+
+                    // Normalized position u in [-1, 1] across the title
+                    const u = total > 1 ? (idx / (total - 1)) * 2 - 1 : 0;
+                    // 20% arch curve: center is lifted (-0.20em) while edges curve down (+0.65em) with tangent tilt
+                    const curveY = (u * u * 0.85 - 0.20).toFixed(3) + 'em';
+                    const curveRot = (u * 11.5).toFixed(2) + 'deg';
+
+                    const curveSpan = document.createElement('span');
+                    curveSpan.className = 'hero-char-curve';
+                    curveSpan.style.setProperty('--curve-y', curveY);
+                    curveSpan.style.setProperty('--curve-rot', curveRot);
+
+                    const danceSpan = document.createElement('span');
+                    const isEven = letterIdx % 2 === 0;
+                    danceSpan.className = 'hero-char-dance ' + (isEven ? 'dance-even' : 'dance-odd');
+                    danceSpan.style.setProperty('--char-color', palette[letterIdx % palette.length]);
+                    danceSpan.textContent = ch;
+
+                    // Trigger one full cycle on hover, then ease back to original resting state
+                    curveSpan.addEventListener('pointerenter', () => {
+                        if (!danceSpan.classList.contains('is-dancing')) {
+                            danceSpan.classList.add('is-dancing');
+                        }
+                    });
+                    danceSpan.addEventListener('animationend', () => {
+                        danceSpan.classList.remove('is-dancing');
+                    });
+
+                    curveSpan.appendChild(danceSpan);
+                    heading.appendChild(curveSpan);
+                    letterIdx++;
+                });
             })();
 
             /* ═══════════════════════════════════════════════════════════════════
@@ -332,6 +382,7 @@
                 parliament: { lat: -35.3081, lon: 149.1245, label: 'PARLIAMENT HOUSE' },
                 oldParliament: { lat: -35.3020, lon: 149.1298, label: '' },
                 warMemorial: { lat: -35.2803, lon: 149.1489, label: 'WAR MEMORIAL' },
+                ais: { lat: -35.2465, lon: 149.1015, label: 'AIS' },
                 civic: { lat: -35.2809, lon: 149.1287, label: 'CIVIC' },
                 telstraTower: { lat: -35.2755, lon: 149.0977, label: 'TELSTRA TOWER' },
                 lakeCenter: { lat: -35.2955, lon: 149.1240, label: 'LAKE BURLEY GRIFFIN' },
@@ -340,6 +391,47 @@
                 woden: { lat: -35.3460, lon: 149.0860, label: 'WODEN' },
                 tuggeranong: { lat: -35.4150, lon: 149.0680, label: 'TUGGERANONG' }
             };
+
+            // Outbound Directional Stencil Arrows on the Underlying Map Plane
+            // Angles in model (x=East, z=South) coordinates:
+            //   0 deg = East, 90 deg = South, 180 deg = West, -90 deg = North
+            const OUTBOUND_ARROWS = [
+                {
+                    label: '🛸 GUMBY COURSE',
+                    angleDeg: 183, // West (Blue Range / Uriarra)
+                    rStart: 1.02,
+                    rEnd: 1.34,
+                    color: '#00f0ff'
+                },
+                {
+                    label: '👎 CORIN DAM (BTRAIL START)',
+                    angleDeg: 145, // South-West (Brindabellas / Corin Dam)
+                    rStart: 1.05,
+                    rEnd: 1.38,
+                    color: '#FEDD00'
+                },
+                {
+                    label: '❄️ MT KOSCIOSKO',
+                    angleDeg: 117, // South-South-West (Snowy Mountains)
+                    rStart: 1.10,
+                    rEnd: 1.44,
+                    color: '#00f0ff'
+                },
+                {
+                    label: '⛰️ MT TENNANT',
+                    angleDeg: 87,  // South (Tharwa / Namadgi)
+                    rStart: 1.08,
+                    rEnd: 1.38,
+                    color: '#FEDD00'
+                },
+                {
+                    label: '🏞️ BLUE MOUNTAINS',
+                    angleDeg: -52, // North-East (Katoomba / NSW)
+                    rStart: 1.06,
+                    rEnd: 1.38,
+                    color: '#FEDD00'
+                }
+            ];
 
             const canvas = document.getElementById('cent-map-canvas');
             const ctx = canvas.getContext('2d');
@@ -535,15 +627,17 @@
                 const ry = y * cosP - rz * sinP;
                 const depth = y * sinP + rz * cosP;
 
-                // Generous FOV so the spinning map takes up most of the screen without overlapping the header
-                const baseSpan = Math.min(viewW * 0.88, viewH * 0.94);
+                // Generous FOV on a full-stage canvas so the map moves freely without clipping at the header
+                const headerOffset = viewW <= 640 ? 64 : 110;
+                const effectiveH = Math.max(300, viewH - headerOffset);
+                const baseSpan = Math.min(viewW * 0.88, effectiveH * 0.94);
                 const fov = baseSpan * 0.82 * zoom;
                 const camDist = 2.95;
                 const perspective = fov / Math.max(0.8, camDist + depth);
 
                 return {
                     sx: viewW * 0.5 + rx * perspective,
-                    sy: viewH * 0.54 - ry * perspective,
+                    sy: headerOffset + effectiveH * 0.54 - ry * perspective,
                     scale: perspective / 280,
                     depth
                 };
@@ -717,7 +811,8 @@
 
                 // Subtle architectural target rings centered on Capital Hill (Parliament House)
                 if (landmarkNodes.parliament) {
-                    [0.35, 0.72, 1.08].forEach((rad, idx) => {
+                    const outerRingRad = 1.08;
+                    [0.35, 0.72, outerRingRad].forEach((rad, idx) => {
                         ctx.save();
                         ctx.setLineDash([5, 6]);
                         ctx.beginPath();
@@ -733,11 +828,67 @@
                         }
                         ctx.strokeStyle = idx === 0
                             ? 'rgba(7, 8, 13, 0.28)'
-                            : 'rgba(7, 8, 13, 0.16)';
+                            : 'rgba(7, 8, 13, 0.20)';
                         ctx.lineWidth = 1.2;
                         ctx.stroke();
                         ctx.restore();
                     });
+
+                    // Curved stencil text "CANBERRA CENTENARY TRAIL" along the outer dashed circle
+                    const trailArcText = 'CANBERRA CENTENARY TRAIL';
+                    const textRad = outerRingRad + 0.045;
+                    const baseTheta = -0.28; // Open East / North-East arc of the outer circle
+                    const charStep = 0.044;
+                    const eps = 0.015;
+
+                    // Check screen left-to-right direction at the arc midpoint so text is never upside-down
+                    const midA = project3D(
+                        landmarkNodes.parliament.x + Math.cos(baseTheta - 0.1) * textRad,
+                        0,
+                        landmarkNodes.parliament.z + Math.sin(baseTheta - 0.1) * textRad
+                    );
+                    const midB = project3D(
+                        landmarkNodes.parliament.x + Math.cos(baseTheta + 0.1) * textRad,
+                        0,
+                        landmarkNodes.parliament.z + Math.sin(baseTheta + 0.1) * textRad
+                    );
+                    const arcDir = midB.sx >= midA.sx ? 1 : -1;
+
+                    ctx.save();
+                    ctx.font = '700 9.5px "Syncopate", sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillStyle = 'rgba(7, 8, 13, 0.68)';
+
+                    for (let i = 0; i < trailArcText.length; i++) {
+                        const offsetIdx = i - (trailArcText.length - 1) / 2;
+                        const theta = baseTheta + offsetIdx * charStep * arcDir;
+
+                        const p = project3D(
+                            landmarkNodes.parliament.x + Math.cos(theta) * textRad,
+                            0,
+                            landmarkNodes.parliament.z + Math.sin(theta) * textRad
+                        );
+                        const pPrev = project3D(
+                            landmarkNodes.parliament.x + Math.cos(theta - eps * arcDir) * textRad,
+                            0,
+                            landmarkNodes.parliament.z + Math.sin(theta - eps * arcDir) * textRad
+                        );
+                        const pNext = project3D(
+                            landmarkNodes.parliament.x + Math.cos(theta + eps * arcDir) * textRad,
+                            0,
+                            landmarkNodes.parliament.z + Math.sin(theta + eps * arcDir) * textRad
+                        );
+
+                        const tangentAngle = Math.atan2(pNext.sy - pPrev.sy, pNext.sx - pPrev.sx);
+
+                        ctx.save();
+                        ctx.translate(p.sx, p.sy);
+                        ctx.rotate(tangentAngle);
+                        ctx.fillText(trailArcText[i], 0, 0);
+                        ctx.restore();
+                    }
+                    ctx.restore();
                 }
 
                 // ── B. RIVERS & CANBERRA LAKES STENCIL (LAKE BURLEY GRIFFIN, GINNINDERRA, TUGGERANONG) ──
@@ -896,7 +1047,43 @@
                     ctx.restore();
                 }
 
-                // 5. Suburban Town Centre Stencil Watermarks (Civic, Belconnen, Gungahlin, Woden, Tuggeranong)
+                // 5. AIS (Australian Institute of Sport) Running Track Oval & Stencil Badge in Bruce
+                if (landmarkNodes.ais) {
+                    const aisP = project3D(landmarkNodes.ais.x, 0, landmarkNodes.ais.z);
+                    ctx.save();
+                    // Running track stadium oval stencil
+                    ctx.fillStyle = 'rgba(7, 8, 13, 0.85)';
+                    ctx.strokeStyle = '#00f0ff';
+                    ctx.lineWidth = 2.2;
+                    ctx.beginPath();
+                    ctx.ellipse(aisP.sx, aisP.sy, 11, 6.5, -0.25, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.stroke();
+                    // Inner track lane
+                    ctx.strokeStyle = '#FEDD00';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.ellipse(aisP.sx, aisP.sy, 6.5, 3.5, -0.25, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.restore();
+
+                    drawStencilPillLabel(
+                        '🏟️ AIS',
+                        aisP.sx,
+                        aisP.sy - 15,
+                        {
+                            font: '700 8.5px "Audiowide", sans-serif',
+                            bg: 'rgba(7, 8, 13, 0.9)',
+                            border: '#00f0ff',
+                            color: '#00f0ff',
+                            height: 11,
+                            padX: 6,
+                            padY: 2
+                        }
+                    );
+                }
+
+                // 6. Suburban Town Centre Stencil Watermarks (Civic, Belconnen, Gungahlin, Woden, Tuggeranong)
                 ['civic', 'belconnen', 'gungahlin', 'woden', 'tuggeranong'].forEach((key) => {
                     const node = landmarkNodes[key];
                     if (!node) return;
@@ -908,6 +1095,86 @@
                     ctx.fillStyle = 'rgba(7, 8, 13, 0.68)';
                     ctx.fillText(node.label, p.sx, p.sy);
                     ctx.restore();
+                });
+
+                // 7. Outbound Directional Stencil Arrows (GUMBY Course, Corin Dam, Mt Tennant, Blue Mountains, Mt Kosciosko)
+                OUTBOUND_ARROWS.forEach((arr) => {
+                    const rad = (arr.angleDeg * Math.PI) / 180;
+                    const dirX = Math.cos(rad);
+                    const dirZ = Math.sin(rad);
+                    // Perpendicular vector in ground plane for arrowhead wings
+                    const perpX = -dirZ;
+                    const perpZ = dirX;
+
+                    const sx0 = dirX * arr.rStart;
+                    const sz0 = dirZ * arr.rStart;
+                    const sx1 = dirX * arr.rEnd;
+                    const sz1 = dirZ * arr.rEnd;
+
+                    const headBaseR = arr.rEnd - 0.085;
+                    const wingSpan = 0.055;
+                    const wx1 = dirX * headBaseR + perpX * wingSpan;
+                    const wz1 = dirZ * headBaseR + perpZ * wingSpan;
+                    const wx2 = dirX * headBaseR - perpX * wingSpan;
+                    const wz2 = dirZ * headBaseR - perpZ * wingSpan;
+
+                    const pStart = project3D(sx0, 0, sz0);
+                    const pTip = project3D(sx1, 0, sz1);
+                    const pWing1 = project3D(wx1, 0, wz1);
+                    const pWing2 = project3D(wx2, 0, wz2);
+
+                    ctx.save();
+                    // Dark outer stencil casing for shaft
+                    ctx.strokeStyle = '#07080d';
+                    ctx.lineWidth = 6;
+                    ctx.lineCap = 'round';
+                    ctx.beginPath();
+                    ctx.moveTo(pStart.sx, pStart.sy);
+                    ctx.lineTo(pTip.sx, pTip.sy);
+                    ctx.stroke();
+
+                    // Bright inner stencil shaft
+                    ctx.strokeStyle = arr.color;
+                    ctx.lineWidth = 2.6;
+                    ctx.setLineDash([6, 4]);
+                    ctx.beginPath();
+                    ctx.moveTo(pStart.sx, pStart.sy);
+                    ctx.lineTo(pTip.sx, pTip.sy);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+
+                    // Arrowhead triangle
+                    ctx.fillStyle = arr.color;
+                    ctx.strokeStyle = '#07080d';
+                    ctx.lineWidth = 2.2;
+                    ctx.beginPath();
+                    ctx.moveTo(pTip.sx, pTip.sy);
+                    ctx.lineTo(pWing1.sx, pWing1.sy);
+                    ctx.lineTo(pWing2.sx, pWing2.sy);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.restore();
+
+                    // Place stencil label just beyond the arrow tip without any artificial header boundary clamp
+                    const pLabel = project3D(dirX * (arr.rEnd + 0.11), 0, dirZ * (arr.rEnd + 0.11));
+                    const lx = Math.max(88, Math.min(viewW - 88, pLabel.sx));
+                    const ly = Math.min(viewH - 18, pLabel.sy);
+
+                    drawStencilPillLabel(
+                        arr.label,
+                        lx,
+                        ly,
+                        {
+                            font: '700 8.5px "Audiowide", sans-serif',
+                            bg: 'rgba(7, 8, 13, 0.9)',
+                            border: arr.color,
+                            color: arr.color,
+                            height: 11,
+                            padX: 6,
+                            padY: 2.5
+                        }
+                    );
                 });
 
                 // ── E. 3D CANBERRA CENTENARY TRAIL ELEVATION CURTAIN & RIBBON ──
@@ -1007,11 +1274,10 @@
                     ctx.stroke();
                     ctx.restore();
 
-                    // Clamp pin inside viewport padding so it never clips off-screen or overlaps header
+                    // Allow summit pins to move freely in Y without being pushed by a header boundary
                     const padX = 72;
-                    const padY = 44;
                     const clampedX = Math.max(padX, Math.min(viewW - padX, node.sx));
-                    const clampedY = Math.max(padY, Math.min(viewH - 18, node.sy - 12));
+                    const clampedY = Math.min(viewH - 18, node.sy - 12);
 
                     pinEl.style.left = clampedX.toFixed(1) + 'px';
                     pinEl.style.top = clampedY.toFixed(1) + 'px';
