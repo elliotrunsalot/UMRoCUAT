@@ -39,55 +39,9 @@
         </defs>
     </svg>
 
-    <!-- ══ TICKER TAPE ══ -->
-    <!-- <div class="hero-ticker" aria-label="Club stats ticker">
-        <div class="ticker-track">
-            <span class="ticker-item">🥈 Only the mediocre are always at their best</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🏆 GUMBY 2027 — Registrations&nbsp;OPEN</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🤴 BRuTUS 60km — The traitor's trail</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🔪 The Knife 14km — The sharpest race around</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">👎 BTrail 100km — Et tu, Brindabella?</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🥇 6 Years of Mediocrity &amp; Counting</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">📍 Canberra, ACT — Australia</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">👟 Elite? — You haven't run far enough!</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🌙 GumbyMOON — Night running at its finest</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">👶 GumBABY — The next generation of mediocrity</span>
-            <span class="ticker-sep">★</span> -->
-    <!-- duplicate set for seamless CSS loop -->
-    <!-- <span class="ticker-item">🥈 Only the mediocre are always at their best</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🏆 GUMBY 2027 — Registrations&nbsp;OPEN</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🤴 BRuTUS 60km — The traitor's trail</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🔪 The Knife 14km — The sharpest race around</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">👎 BTrail 100km — Et tu, Brindabella?</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🥇 6 Years of Mediocrity &amp; Counting</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">📍 Canberra, ACT — Australia</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">👟 Elite? — You haven't run far enough!</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">🌙 GumbyMOON — Night running at its finest</span>
-            <span class="ticker-sep">★</span>
-            <span class="ticker-item">👶 GumBABY — The next generation of mediocrity</span>
-            <span class="ticker-sep">★</span>
-        </div>
-    </div> -->
 
     <!-- ═══════════════════════════════════════════════════════════════════
-         MAIN STAGE: ARCHED FLINTSTONES TITLE + FULL-SCREEN SPINNING MAP
+         MAIN STAGE: ARCHED TITLE + FULL-SCREEN SPINNING MAP
          ═══════════════════════════════════════════════════════════════════ -->
     <main class="wild-stage">
 
@@ -604,9 +558,9 @@
             let viewH = 600;
 
             function resizeCanvas() {
-                const rect = mapDeck.getBoundingClientRect();
-                viewW = Math.max(300, rect.width);
-                viewH = Math.max(300, rect.height);
+                const rect = canvas.getBoundingClientRect();
+                viewW = Math.max(280, rect.width);
+                viewH = Math.max(280, rect.height);
                 const dpr = Math.min(window.devicePixelRatio || 1, 2);
                 canvas.width = viewW * dpr;
                 canvas.height = viewH * dpr;
@@ -627,17 +581,20 @@
                 const ry = y * cosP - rz * sinP;
                 const depth = y * sinP + rz * cosP;
 
-                // Generous FOV on a full-stage canvas so the map moves freely without clipping at the header
-                const headerOffset = viewW <= 640 ? 64 : 110;
-                const effectiveH = Math.max(300, viewH - headerOffset);
-                const baseSpan = Math.min(viewW * 0.88, effectiveH * 0.94);
-                const fov = baseSpan * 0.82 * zoom;
+                // On large screens (>640px), keep the exact original projection; on small screens, fill the dedicated canvas area beneath the top nav
+                const isSmallScreen = window.innerWidth <= 640;
+                const headerOffset = isSmallScreen ? 0 : 110;
+                const effectiveH = Math.max(260, viewH - headerOffset);
+                const baseSpan = isSmallScreen
+                    ? Math.min(viewW * 0.96, effectiveH * 0.96)
+                    : Math.min(viewW * 0.88, effectiveH * 0.94);
+                const fov = baseSpan * (isSmallScreen ? 0.92 : 0.82) * zoom;
                 const camDist = 2.95;
                 const perspective = fov / Math.max(0.8, camDist + depth);
 
                 return {
                     sx: viewW * 0.5 + rx * perspective,
-                    sy: headerOffset + effectiveH * 0.54 - ry * perspective,
+                    sy: headerOffset + effectiveH * (isSmallScreen ? 0.51 : 0.54) - ry * perspective,
                     scale: perspective / 280,
                     depth
                 };
@@ -778,11 +735,35 @@
                 ctx.restore();
             }
 
+            function getRepeatingClubGradientColor(t, repeats = 6) {
+                const cycle = ((t * repeats) % 1 + 1) % 1;
+                // Pink (#FF3EB5: 255, 62, 181) -> Blue (#009CDE: 0, 156, 222) -> Yellow (#FEDD00: 254, 221, 0) -> Pink
+                let r, g, b;
+                if (cycle < 1 / 3) {
+                    const u = cycle * 3;
+                    r = Math.round(255 + (0 - 255) * u);
+                    g = Math.round(62 + (156 - 62) * u);
+                    b = Math.round(181 + (222 - 181) * u);
+                } else if (cycle < 2 / 3) {
+                    const u = (cycle - 1 / 3) * 3;
+                    r = Math.round(0 + (254 - 0) * u);
+                    g = Math.round(156 + (221 - 156) * u);
+                    b = Math.round(222 + (0 - 222) * u);
+                } else {
+                    const u = (cycle - 2 / 3) * 3;
+                    r = Math.round(254 + (255 - 254) * u);
+                    g = Math.round(221 + (62 - 221) * u);
+                    b = Math.round(0 + (181 - 0) * u);
+                }
+                return `rgb(${r}, ${g}, ${b})`;
+            }
+
             /* ═══════════════════════════════════════════════════════════════════
                7. MAIN 60FPS RENDER LOOP
                ═══════════════════════════════════════════════════════════════════ */
             function render(now) {
                 ctx.clearRect(0, 0, viewW, viewH);
+                const isSmallScreen = window.innerWidth <= 640;
 
                 // Continuous 3D spin in the selected spinDir when not actively dragging
                 if (!isDragging) {
@@ -961,22 +942,24 @@
                     ctx.stroke();
                     ctx.restore();
 
-                    drawStencilPillLabel(
-                        '🏛️ PARLIAMENT HOUSE',
-                        phBase.sx,
-                        phBase.sy + 18,
-                        {
-                            font: '700 9.5px "Audiowide", sans-serif',
-                            bg: 'rgba(254, 221, 0, 0.94)',
-                            border: '#07080d',
-                            color: '#07080d',
-                            height: 12
-                        }
-                    );
+                    if (!isSmallScreen) {
+                        drawStencilPillLabel(
+                            '🏛️ PARLIAMENT HOUSE',
+                            phBase.sx,
+                            phBase.sy + 18,
+                            {
+                                font: '700 9.5px "Audiowide", sans-serif',
+                                bg: 'rgba(254, 221, 0, 0.94)',
+                                border: '#07080d',
+                                color: '#07080d',
+                                height: 12
+                            }
+                        );
+                    }
                 }
 
                 // 2. Lake Burley Griffin Stencil Callout
-                if (landmarkNodes.lakeCenter) {
+                if (landmarkNodes.lakeCenter && !isSmallScreen) {
                     const lbgP = project3D(landmarkNodes.lakeCenter.x, 0, landmarkNodes.lakeCenter.z);
                     drawStencilPillLabel(
                         'LAKE BURLEY GRIFFIN',
@@ -1005,19 +988,21 @@
                     ctx.stroke();
                     ctx.restore();
 
-                    drawStencilPillLabel(
-                        'WAR MEMORIAL',
-                        awmP.sx + 4,
-                        awmP.sy - 13,
-                        {
-                            font: '700 8px "Audiowide", sans-serif',
-                            bg: 'rgba(7, 8, 13, 0.82)',
-                            color: '#FEDD00',
-                            height: 10,
-                            padX: 5,
-                            padY: 2
-                        }
-                    );
+                    if (!isSmallScreen) {
+                        drawStencilPillLabel(
+                            'WAR MEMORIAL',
+                            awmP.sx + 4,
+                            awmP.sy - 13,
+                            {
+                                font: '700 8px "Audiowide", sans-serif',
+                                bg: 'rgba(7, 8, 13, 0.82)',
+                                color: '#FEDD00',
+                                height: 10,
+                                padX: 5,
+                                padY: 2
+                            }
+                        );
+                    }
                 }
 
                 // 4. Telstra Tower Stencil Spire on Black Mountain
@@ -1067,20 +1052,22 @@
                     ctx.stroke();
                     ctx.restore();
 
-                    drawStencilPillLabel(
-                        '🏟️ AIS',
-                        aisP.sx,
-                        aisP.sy - 15,
-                        {
-                            font: '700 8.5px "Audiowide", sans-serif',
-                            bg: 'rgba(7, 8, 13, 0.9)',
-                            border: '#00f0ff',
-                            color: '#00f0ff',
-                            height: 11,
-                            padX: 6,
-                            padY: 2
-                        }
-                    );
+                    if (!isSmallScreen) {
+                        drawStencilPillLabel(
+                            '🏟️ AIS',
+                            aisP.sx,
+                            aisP.sy - 15,
+                            {
+                                font: '700 8.5px "Audiowide", sans-serif',
+                                bg: 'rgba(7, 8, 13, 0.9)',
+                                border: '#00f0ff',
+                                color: '#00f0ff',
+                                height: 11,
+                                padX: 6,
+                                padY: 2
+                            }
+                        );
+                    }
                 }
 
                 // 6. Suburban Town Centre Stencil Watermarks (Civic, Belconnen, Gungahlin, Woden, Tuggeranong)
@@ -1098,84 +1085,86 @@
                 });
 
                 // 7. Outbound Directional Stencil Arrows (GUMBY Course, Corin Dam, Mt Tennant, Blue Mountains, Mt Kosciosko)
-                OUTBOUND_ARROWS.forEach((arr) => {
-                    const rad = (arr.angleDeg * Math.PI) / 180;
-                    const dirX = Math.cos(rad);
-                    const dirZ = Math.sin(rad);
-                    // Perpendicular vector in ground plane for arrowhead wings
-                    const perpX = -dirZ;
-                    const perpZ = dirX;
+                if (!isSmallScreen) {
+                    OUTBOUND_ARROWS.forEach((arr) => {
+                        const rad = (arr.angleDeg * Math.PI) / 180;
+                        const dirX = Math.cos(rad);
+                        const dirZ = Math.sin(rad);
+                        // Perpendicular vector in ground plane for arrowhead wings
+                        const perpX = -dirZ;
+                        const perpZ = dirX;
 
-                    const sx0 = dirX * arr.rStart;
-                    const sz0 = dirZ * arr.rStart;
-                    const sx1 = dirX * arr.rEnd;
-                    const sz1 = dirZ * arr.rEnd;
+                        const sx0 = dirX * arr.rStart;
+                        const sz0 = dirZ * arr.rStart;
+                        const sx1 = dirX * arr.rEnd;
+                        const sz1 = dirZ * arr.rEnd;
 
-                    const headBaseR = arr.rEnd - 0.085;
-                    const wingSpan = 0.055;
-                    const wx1 = dirX * headBaseR + perpX * wingSpan;
-                    const wz1 = dirZ * headBaseR + perpZ * wingSpan;
-                    const wx2 = dirX * headBaseR - perpX * wingSpan;
-                    const wz2 = dirZ * headBaseR - perpZ * wingSpan;
+                        const headBaseR = arr.rEnd - 0.085;
+                        const wingSpan = 0.055;
+                        const wx1 = dirX * headBaseR + perpX * wingSpan;
+                        const wz1 = dirZ * headBaseR + perpZ * wingSpan;
+                        const wx2 = dirX * headBaseR - perpX * wingSpan;
+                        const wz2 = dirZ * headBaseR - perpZ * wingSpan;
 
-                    const pStart = project3D(sx0, 0, sz0);
-                    const pTip = project3D(sx1, 0, sz1);
-                    const pWing1 = project3D(wx1, 0, wz1);
-                    const pWing2 = project3D(wx2, 0, wz2);
+                        const pStart = project3D(sx0, 0, sz0);
+                        const pTip = project3D(sx1, 0, sz1);
+                        const pWing1 = project3D(wx1, 0, wz1);
+                        const pWing2 = project3D(wx2, 0, wz2);
 
-                    ctx.save();
-                    // Dark outer stencil casing for shaft
-                    ctx.strokeStyle = '#07080d';
-                    ctx.lineWidth = 6;
-                    ctx.lineCap = 'round';
-                    ctx.beginPath();
-                    ctx.moveTo(pStart.sx, pStart.sy);
-                    ctx.lineTo(pTip.sx, pTip.sy);
-                    ctx.stroke();
+                        ctx.save();
+                        // Dark outer stencil casing for shaft
+                        ctx.strokeStyle = '#07080d';
+                        ctx.lineWidth = 6;
+                        ctx.lineCap = 'round';
+                        ctx.beginPath();
+                        ctx.moveTo(pStart.sx, pStart.sy);
+                        ctx.lineTo(pTip.sx, pTip.sy);
+                        ctx.stroke();
 
-                    // Bright inner stencil shaft
-                    ctx.strokeStyle = arr.color;
-                    ctx.lineWidth = 2.6;
-                    ctx.setLineDash([6, 4]);
-                    ctx.beginPath();
-                    ctx.moveTo(pStart.sx, pStart.sy);
-                    ctx.lineTo(pTip.sx, pTip.sy);
-                    ctx.stroke();
-                    ctx.setLineDash([]);
+                        // Bright inner stencil shaft
+                        ctx.strokeStyle = arr.color;
+                        ctx.lineWidth = 2.6;
+                        ctx.setLineDash([6, 4]);
+                        ctx.beginPath();
+                        ctx.moveTo(pStart.sx, pStart.sy);
+                        ctx.lineTo(pTip.sx, pTip.sy);
+                        ctx.stroke();
+                        ctx.setLineDash([]);
 
-                    // Arrowhead triangle
-                    ctx.fillStyle = arr.color;
-                    ctx.strokeStyle = '#07080d';
-                    ctx.lineWidth = 2.2;
-                    ctx.beginPath();
-                    ctx.moveTo(pTip.sx, pTip.sy);
-                    ctx.lineTo(pWing1.sx, pWing1.sy);
-                    ctx.lineTo(pWing2.sx, pWing2.sy);
-                    ctx.closePath();
-                    ctx.fill();
-                    ctx.stroke();
-                    ctx.restore();
+                        // Arrowhead triangle
+                        ctx.fillStyle = arr.color;
+                        ctx.strokeStyle = '#07080d';
+                        ctx.lineWidth = 2.2;
+                        ctx.beginPath();
+                        ctx.moveTo(pTip.sx, pTip.sy);
+                        ctx.lineTo(pWing1.sx, pWing1.sy);
+                        ctx.lineTo(pWing2.sx, pWing2.sy);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.stroke();
+                        ctx.restore();
 
-                    // Place stencil label just beyond the arrow tip without any artificial header boundary clamp
-                    const pLabel = project3D(dirX * (arr.rEnd + 0.11), 0, dirZ * (arr.rEnd + 0.11));
-                    const lx = Math.max(88, Math.min(viewW - 88, pLabel.sx));
-                    const ly = Math.min(viewH - 18, pLabel.sy);
+                        // Place stencil label just beyond the arrow tip without any artificial header boundary clamp
+                        const pLabel = project3D(dirX * (arr.rEnd + 0.11), 0, dirZ * (arr.rEnd + 0.11));
+                        const lx = Math.max(88, Math.min(viewW - 88, pLabel.sx));
+                        const ly = Math.min(viewH - 18, pLabel.sy);
 
-                    drawStencilPillLabel(
-                        arr.label,
-                        lx,
-                        ly,
-                        {
-                            font: '700 8.5px "Audiowide", sans-serif',
-                            bg: 'rgba(7, 8, 13, 0.9)',
-                            border: arr.color,
-                            color: arr.color,
-                            height: 11,
-                            padX: 6,
-                            padY: 2.5
-                        }
-                    );
-                });
+                        drawStencilPillLabel(
+                            arr.label,
+                            lx,
+                            ly,
+                            {
+                                font: '700 8.5px "Audiowide", sans-serif',
+                                bg: 'rgba(7, 8, 13, 0.9)',
+                                border: arr.color,
+                                color: arr.color,
+                                height: 11,
+                                padX: 6,
+                                padY: 2.5
+                            }
+                        );
+                    });
+                }
 
                 // ── E. 3D CANBERRA CENTENARY TRAIL ELEVATION CURTAIN & RIBBON ──
                 if (projTrail.length > 2) {
@@ -1213,12 +1202,21 @@
                     ctx.lineJoin = 'round';
                     ctx.stroke();
 
-                    // Bright Electric Yellow Inner Core of the Centenary Trail
-                    ctx.strokeStyle = '#FEDD00';
-                    ctx.lineWidth = 4.2;
-                    ctx.shadowColor = '#FEDD00';
-                    ctx.shadowBlur = 10;
-                    ctx.stroke();
+                    // Dense repeating Pink -> Blue -> Yellow gradient along the 3D Centenary Trail
+                    ctx.lineWidth = 4.5;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round';
+                    ctx.shadowBlur = 0;
+                    const totalPts = projTrail.length;
+                    for (let i = 0; i < totalPts; i++) {
+                        const p0 = projTrail[i];
+                        const p1 = projTrail[(i + 1) % totalPts];
+                        ctx.beginPath();
+                        ctx.moveTo(p0.sx, p0.sy);
+                        ctx.lineTo(p1.sx, p1.sy);
+                        ctx.strokeStyle = getRepeatingClubGradientColor(i / totalPts, 6);
+                        ctx.stroke();
+                    }
                     ctx.restore();
                 }
 
@@ -1238,9 +1236,22 @@
                     ctx.fill();
                 }
                 ctx.globalAlpha = 1;
+                const runnerRad = 8.5;
+                const runnerGrad = ctx.createLinearGradient(
+                    rp.sx,
+                    rp.sy - runnerRad,
+                    rp.sx,
+                    rp.sy + runnerRad
+                );
+                runnerGrad.addColorStop(0, '#FF3EB5');
+                runnerGrad.addColorStop(1 / 3, '#FF3EB5');
+                runnerGrad.addColorStop(1 / 3, '#FEDD00');
+                runnerGrad.addColorStop(2 / 3, '#FEDD00');
+                runnerGrad.addColorStop(2 / 3, '#009CDE');
+                runnerGrad.addColorStop(1, '#009CDE');
+                ctx.fillStyle = runnerGrad;
                 ctx.beginPath();
-                ctx.arc(rp.sx, rp.sy, 8.5, 0, Math.PI * 2);
-                ctx.fillStyle = runnerDir > 0 ? '#00f0ff' : '#FF3EB5';
+                ctx.arc(rp.sx, rp.sy, runnerRad, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.lineWidth = 2.5;
                 ctx.strokeStyle = '#07080d';
@@ -1254,7 +1265,7 @@
                     if (!node || !pinEl) return;
 
                     const meta = HIGH_POINT_TARGETS[k];
-                    const pulse = 6 + Math.sin(now * 0.004 + k) * 2;
+                    const markerRadius = isSmallScreen ? 4 : (6 + Math.sin(now * 0.004 + k) * 2);
 
                     // Draw summit vertical column & beacon dot on canvas
                     ctx.save();
@@ -1266,13 +1277,20 @@
                     ctx.stroke();
 
                     ctx.beginPath();
-                    ctx.arc(node.sx, node.sy, pulse, 0, Math.PI * 2);
-                    ctx.fillStyle = meta.color;
+                    ctx.arc(node.sx, node.sy, markerRadius, 0, Math.PI * 2);
+                    ctx.fillStyle = isSmallScreen ? '#FF3EB5' : meta.color;
                     ctx.fill();
-                    ctx.lineWidth = 2.5;
-                    ctx.strokeStyle = '#07080d';
+                    ctx.lineWidth = isSmallScreen ? 2 : 2.5;
+                    ctx.strokeStyle = isSmallScreen ? '#FFFFFF' : '#07080d';
                     ctx.stroke();
                     ctx.restore();
+
+                    if (isSmallScreen) {
+                        pinEl.style.left = '';
+                        pinEl.style.top = '';
+                        pinEl.style.zIndex = '';
+                        return;
+                    }
 
                     // Allow summit pins to move freely in Y without being pushed by a header boundary
                     const padX = 72;
