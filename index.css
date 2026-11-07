@@ -134,98 +134,31 @@ body {
     pointer-events: none;
 }
 
-/* Audiowide curved & dancing desktop heading + mobile "UMRoC" heading */
+/* MuseoModerno straight desktop heading + mobile "UMRoC" heading (all white, no drop shadow, no curve, no interaction) */
 .hero-h1 {
-    font-family: 'Audiowide', cursive;
-    font-weight: 400;
+    font-family: 'MuseoModerno', cursive, sans-serif;
+    font-weight: 700;
     font-size: clamp(1.35rem, 2.85vw, 2.75rem);
     line-height: 1.15;
     letter-spacing: 0.03em;
+    color: #FFFFFF;
     text-align: center;
     max-width: 1500px;
-    padding: 0.55em 16px 0.25em;
+    padding: 0.35em 16px 0.2em;
     margin: 0 auto;
     white-space: nowrap;
     background: transparent;
+    text-shadow: none;
     pointer-events: none;
 }
 
 .hero-h1--desktop {
     display: inline-block;
+    color: #FFFFFF;
 }
 
 .hero-h1--mobile {
     display: none;
-}
-
-.hero-char-curve {
-    display: inline-block;
-    transform: translateY(var(--curve-y, 0em)) rotate(var(--curve-rot, 0deg));
-    transform-origin: center bottom;
-    pointer-events: none;
-}
-
-.hero-char-space {
-    display: inline-block;
-    width: 0.38em;
-    pointer-events: none;
-}
-
-.hero-char-dance {
-    display: inline-block;
-    color: var(--char-color, #FFFFFF);
-    text-shadow:
-        3px 4px 0 #000000,
-        0 2px 6px rgba(0, 0, 0, 0.45);
-    transform: translateY(0em);
-    cursor: pointer;
-    will-change: transform;
-    pointer-events: auto;
-}
-
-.hero-char-dance.dance-even.is-dancing {
-    animation: letterHoverCycleEven 0.9s cubic-bezier(0.42, 0, 0.58, 1) 1 forwards;
-}
-
-.hero-char-dance.dance-odd.is-dancing {
-    animation: letterHoverCycleOdd 0.9s cubic-bezier(0.42, 0, 0.58, 1) 1 forwards;
-}
-
-/* One full cycle on hover with a 0.5em movement range, easing back to original 0em state */
-@keyframes letterHoverCycleEven {
-    0% {
-        transform: translateY(0em);
-    }
-
-    30% {
-        transform: translateY(-0.25em);
-    }
-
-    70% {
-        transform: translateY(0.25em);
-    }
-
-    100% {
-        transform: translateY(0em);
-    }
-}
-
-@keyframes letterHoverCycleOdd {
-    0% {
-        transform: translateY(0em);
-    }
-
-    30% {
-        transform: translateY(0.25em);
-    }
-
-    70% {
-        transform: translateY(-0.25em);
-    }
-
-    100% {
-        transform: translateY(0em);
-    }
 }
 
 /* ═══════════════════════════════════════════════
@@ -277,8 +210,8 @@ body {
     padding: 8px 14px;
     border-radius: 999px;
     background: var(--um-ink);
-    color: var(--um-yellow);
-    border: 2.5px solid var(--um-yellow);
+    color: #c896ff;
+    border: 2.5px solid #a855f7;
     font-family: 'Audiowide', cursive;
     font-size: 0.74rem;
     letter-spacing: 0.04em;
@@ -290,9 +223,9 @@ body {
 
 .map-dir-btn:hover {
     transform: translate(-2px, -2px) scale(1.04);
-    background: var(--um-yellow);
-    color: var(--um-ink);
-    border-color: var(--um-ink);
+    background: linear-gradient(135deg, #c896ff 0%, #8a3ffc 100%);
+    color: var(--um-white);
+    border-color: #e9d5ff;
 }
 
 .map-dir-btn:active {
@@ -300,9 +233,9 @@ body {
 }
 
 .map-dir-btn.reversed {
-    background: var(--um-cyan);
-    color: var(--um-ink);
-    border-color: var(--um-ink);
+    background: rgba(168, 85, 247, 0.24);
+    color: #e9d5ff;
+    border-color: #c896ff;
 }
 
 .map-dir-icon {
@@ -331,7 +264,7 @@ body {
     padding: 7px 14px;
     background: var(--um-ink);
     color: var(--um-white);
-    border: 2.5px solid var(--pa, var(--um-yellow));
+    border: 2.5px solid var(--um-pink);
     border-radius: 999px;
     font-family: 'Audiowide', cursive;
     font-size: 0.8rem;
@@ -356,13 +289,13 @@ body {
     height: 0;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-top: 9px solid var(--pa, var(--um-yellow));
+    border-top: 9px solid var(--um-pink);
 }
 
 .hero-qnav-pill.summit-pin:hover,
 .hero-qnav-pill.summit-pin:focus-visible {
-    background: var(--pa, var(--um-yellow));
-    color: var(--um-ink);
+    background: var(--um-pink);
+    color: var(--um-white);
     transform: translate(-50%, -112%) scale(1.1) rotate(-1.5deg);
     box-shadow:
         6px 6px 0 var(--um-ink),
@@ -445,14 +378,15 @@ body {
         flex: 0 0 auto;
     }
 
-    /* Mobile heading: straight "UMRoC", centre top, no dance, white fill with black drop shadow */
+    /* Mobile heading: straight "UMRoC", centre top, MuseoModerno, no drop shadow */
     .hero-h1--desktop {
         display: none !important;
     }
 
     .hero-h1--mobile {
         display: block;
-        font-family: 'Audiowide', cursive;
+        font-family: 'MuseoModerno', cursive, sans-serif;
+        font-weight: 700;
         font-size: clamp(2.1rem, 9.5vw, 2.8rem);
         line-height: 1.05;
         letter-spacing: 0.06em;
@@ -463,9 +397,7 @@ body {
         transform: none;
         filter: none;
         animation: none;
-        text-shadow:
-            3px 4px 0 #000000,
-            0 2px 6px rgba(0, 0, 0, 0.45);
+        text-shadow: none;
     }
 
     /* Stack navigation at the top below UMRoC heading & let canvas fill remaining space beneath */

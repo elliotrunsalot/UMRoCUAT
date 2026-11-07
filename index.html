@@ -21,27 +21,14 @@
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Chelsea+Market&family=Syncopate:wght@700&family=Audiowide&family=Poppins:wght@400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;600;700;800&family=Luckiest+Guy&family=Chelsea+Market&family=Syncopate:wght@700&family=Audiowide&family=Poppins:wght@400;600;800&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Hidden SVG Filter to give the single-element title a smooth curved arch -->
-    <svg width="0" height="0" style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
-        <defs>
-            <filter id="flintstone-arch" x="-10%" y="-35%" width="120%" height="175%"
-                color-interpolation-filters="sRGB">
-                <feImage id="arch-disp-img" result="archMap" preserveAspectRatio="none" />
-                <feDisplacementMap in="SourceGraphic" in2="archMap" scale="34" xChannelSelector="R"
-                    yChannelSelector="G" />
-            </filter>
-        </defs>
-    </svg>
-
-
     <!-- ═══════════════════════════════════════════════════════════════════
-         MAIN STAGE: ARCHED TITLE + FULL-SCREEN SPINNING MAP
+         MAIN STAGE: TITLE + FULL-SCREEN SPINNING MAP
          ═══════════════════════════════════════════════════════════════════ -->
     <main class="wild-stage">
 
@@ -73,40 +60,40 @@
             <!-- High-Point Summit Navigation Links (hero-quicknav anchored to the 6 evenly-spaced peaks) -->
             <div class="hero-quicknav" id="cent-pins-overlay">
                 <!-- Peak 1 (~14.5% loop, North — One Tree Hill 864m) -->
-                <a href="Our_Story.html" class="hero-qnav-pill summit-pin" data-peak-index="0" style="--pa:#FEDD00">
+                <a href="Our_Story.html" class="hero-qnav-pill summit-pin" data-peak-index="0" style="--pa:#FF3EB5">
                     <span class="summit-pin-icon">📜</span>
                     <span>Our Story</span>
                 </a>
 
                 <!-- Peak 2 (~27% loop, North-East — Old Joe / Goorooyarroo 770m) -->
-                <a href="Our_Board.html" class="hero-qnav-pill summit-pin" data-peak-index="1" style="--pa:#00f0ff">
+                <a href="Our_Board.html" class="hero-qnav-pill summit-pin" data-peak-index="1" style="--pa:#FF3EB5">
                     <span class="summit-pin-icon">🎭</span>
                     <span>The Board</span>
 
                 </a>
 
                 <!-- Peak 3 (~39.4% loop, East — Mount Majura 881m, Highest Point) -->
-                <a href="Media_Records.html" class="hero-qnav-pill summit-pin" data-peak-index="2" style="--pa:#FEDD00">
+                <a href="Media_Records.html" class="hero-qnav-pill summit-pin" data-peak-index="2" style="--pa:#FF3EB5">
                     <span class="summit-pin-icon">🏆</span>
                     <span>Media</span>
                 </a>
 
                 <!-- Peak 4 (~59.5% loop, South-East — Tuggeranong Hill 804m) -->
                 <a href="Great Ultra Mediocre Back Yarder.html" class="hero-qnav-pill summit-pin" data-peak-index="3"
-                    style="--pa:#00f0ff">
+                    style="--pa:#FF3EB5">
                     <span class="summit-pin-icon">🛸</span>
                     <span>GUMBY</span>
                 </a>
 
                 <!-- Peak 5 (~81.1% loop, South-West — Mount Taylor / Oakey Ridge 712m) -->
-                <a href="BRuTUS.html" class="hero-qnav-pill summit-pin" data-peak-index="4" style="--pa:#FEDD00">
+                <a href="BRuTUS.html" class="hero-qnav-pill summit-pin" data-peak-index="4" style="--pa:#FF3EB5">
                     <span class="summit-pin-icon">🗡️</span>
                     <span>BRuTUS</span>
                 </a>
 
                 <!-- Peak 6 (~97.3% loop, West/Central — Black Mountain 812m) -->
                 <a href="Event_policies.html" class="hero-qnav-pill summit-pin" data-peak-index="5"
-                    style="--pa:#00f0ff">
+                    style="--pa:#FF3EB5">
                     <span class="summit-pin-icon">⚖️</span>
                     <span>Event Policies</span>
 
@@ -123,69 +110,6 @@
     <script>
         (function () {
             'use strict';
-
-            /* ═══════════════════════════════════════════════════════════════════
-               0. BUILD AUDIOWIDE HOVER-DANCING & 20%-CURVED DESKTOP HEADING
-                  - Font: Audiowide
-                  - Fill cycle (letter by letter): White, Yellow, Pink, Blue
-                  - Black drop shadow on every letter
-                  - Hover triggers one full cycle (0.5em range) before easing to original state
-                  - 20% arch curve across the title
-               ═══════════════════════════════════════════════════════════════════ */
-            (function initDancingCurvedTitle() {
-                const heading = document.getElementById('hero-h1-desktop');
-                if (!heading) return;
-
-                const text = heading.textContent.trim();
-                const chars = Array.from(text);
-                const total = chars.length;
-                // Cycle: white, yellow, pink, blue
-                const palette = ['#FFFFFF', '#FEDD00', '#FF3EB5', '#009CDE'];
-
-                heading.textContent = '';
-                let letterIdx = 0;
-
-                chars.forEach((ch, idx) => {
-                    if (ch === ' ') {
-                        const spaceSpan = document.createElement('span');
-                        spaceSpan.className = 'hero-char-space';
-                        spaceSpan.innerHTML = '&nbsp;';
-                        heading.appendChild(spaceSpan);
-                        return;
-                    }
-
-                    // Normalized position u in [-1, 1] across the title
-                    const u = total > 1 ? (idx / (total - 1)) * 2 - 1 : 0;
-                    // 20% arch curve: center is lifted (-0.20em) while edges curve down (+0.65em) with tangent tilt
-                    const curveY = (u * u * 0.85 - 0.20).toFixed(3) + 'em';
-                    const curveRot = (u * 11.5).toFixed(2) + 'deg';
-
-                    const curveSpan = document.createElement('span');
-                    curveSpan.className = 'hero-char-curve';
-                    curveSpan.style.setProperty('--curve-y', curveY);
-                    curveSpan.style.setProperty('--curve-rot', curveRot);
-
-                    const danceSpan = document.createElement('span');
-                    const isEven = letterIdx % 2 === 0;
-                    danceSpan.className = 'hero-char-dance ' + (isEven ? 'dance-even' : 'dance-odd');
-                    danceSpan.style.setProperty('--char-color', palette[letterIdx % palette.length]);
-                    danceSpan.textContent = ch;
-
-                    // Trigger one full cycle on hover, then ease back to original resting state
-                    curveSpan.addEventListener('pointerenter', () => {
-                        if (!danceSpan.classList.contains('is-dancing')) {
-                            danceSpan.classList.add('is-dancing');
-                        }
-                    });
-                    danceSpan.addEventListener('animationend', () => {
-                        danceSpan.classList.remove('is-dancing');
-                    });
-
-                    curveSpan.appendChild(danceSpan);
-                    heading.appendChild(curveSpan);
-                    letterIdx++;
-                });
-            })();
 
             /* ═══════════════════════════════════════════════════════════════════
                1. EMBEDDED FALLBACK TRACK FROM CanberraCentenaryTrail.gpx
@@ -349,41 +273,64 @@
             // Outbound Directional Stencil Arrows on the Underlying Map Plane
             // Angles in model (x=East, z=South) coordinates:
             //   0 deg = East, 90 deg = South, 180 deg = West, -90 deg = North
+            const TAG_SILVER_BG = '#d4d8e0';
+            const TAG_BLACK = '#07080d';
+
             const OUTBOUND_ARROWS = [
                 {
                     label: '🛸 GUMBY COURSE',
                     angleDeg: 183, // West (Blue Range / Uriarra)
                     rStart: 1.02,
-                    rEnd: 1.34,
-                    color: '#00f0ff'
+                    rEnd: 1.34
                 },
                 {
                     label: '👎 CORIN DAM (BTRAIL START)',
                     angleDeg: 145, // South-West (Brindabellas / Corin Dam)
                     rStart: 1.05,
-                    rEnd: 1.38,
-                    color: '#FEDD00'
+                    rEnd: 1.38
                 },
                 {
-                    label: '❄️ MT KOSCIOSKO',
+                    label: '❄️ MT KOSCIUSZKO',
                     angleDeg: 117, // South-South-West (Snowy Mountains)
                     rStart: 1.10,
-                    rEnd: 1.44,
-                    color: '#00f0ff'
+                    rEnd: 1.44
                 },
                 {
                     label: '⛰️ MT TENNANT',
                     angleDeg: 87,  // South (Tharwa / Namadgi)
                     rStart: 1.08,
-                    rEnd: 1.38,
-                    color: '#FEDD00'
+                    rEnd: 1.38
                 },
                 {
                     label: '🏞️ BLUE MOUNTAINS',
                     angleDeg: -52, // North-East (Katoomba / NSW)
                     rStart: 1.06,
-                    rEnd: 1.38,
-                    color: '#FEDD00'
+                    rEnd: 1.38
+                }
+            ];
+
+            // Outside-of-course callout placements for the 3 key Canberra landmarks (connected via thin red lines)
+            const LANDMARK_OUTER_CALLOUTS = [
+                {
+                    key: 'ais',
+                    text: '🏟️ AIS',
+                    angleDeg: -145, // North-West outside course
+                    radius: 1.32,
+                    yAnchor: 0
+                },
+                {
+                    key: 'warMemorial',
+                    text: 'WAR MEMORIAL',
+                    angleDeg: -22,  // East-North-East outside course
+                    radius: 1.34,
+                    yAnchor: 0
+                },
+                {
+                    key: 'parliament',
+                    text: '🏛️ PARLIAMENT HOUSE',
+                    angleDeg: 36,   // South-East outside course
+                    radius: 1.36,
+                    yAnchor: 0
                 }
             ];
 
@@ -941,38 +888,6 @@
                     ctx.fill();
                     ctx.stroke();
                     ctx.restore();
-
-                    if (!isSmallScreen) {
-                        drawStencilPillLabel(
-                            '🏛️ PARLIAMENT HOUSE',
-                            phBase.sx,
-                            phBase.sy + 18,
-                            {
-                                font: '700 9.5px "Audiowide", sans-serif',
-                                bg: 'rgba(254, 221, 0, 0.94)',
-                                border: '#07080d',
-                                color: '#07080d',
-                                height: 12
-                            }
-                        );
-                    }
-                }
-
-                // 2. Lake Burley Griffin Stencil Callout
-                if (landmarkNodes.lakeCenter && !isSmallScreen) {
-                    const lbgP = project3D(landmarkNodes.lakeCenter.x, 0, landmarkNodes.lakeCenter.z);
-                    drawStencilPillLabel(
-                        'LAKE BURLEY GRIFFIN',
-                        lbgP.sx - 18,
-                        lbgP.sy - 12,
-                        {
-                            font: '700 9px "Syncopate", sans-serif',
-                            bg: 'rgba(7, 8, 13, 0.85)',
-                            border: '#00f0ff',
-                            color: '#00f0ff',
-                            height: 11
-                        }
-                    );
                 }
 
                 // 3. Australian War Memorial Stencil at top of ANZAC Parade
@@ -987,22 +902,6 @@
                     ctx.fill();
                     ctx.stroke();
                     ctx.restore();
-
-                    if (!isSmallScreen) {
-                        drawStencilPillLabel(
-                            'WAR MEMORIAL',
-                            awmP.sx + 4,
-                            awmP.sy - 13,
-                            {
-                                font: '700 8px "Audiowide", sans-serif',
-                                bg: 'rgba(7, 8, 13, 0.82)',
-                                color: '#FEDD00',
-                                height: 10,
-                                padX: 5,
-                                padY: 2
-                            }
-                        );
-                    }
                 }
 
                 // 4. Telstra Tower Stencil Spire on Black Mountain
@@ -1051,23 +950,6 @@
                     ctx.ellipse(aisP.sx, aisP.sy, 6.5, 3.5, -0.25, 0, Math.PI * 2);
                     ctx.stroke();
                     ctx.restore();
-
-                    if (!isSmallScreen) {
-                        drawStencilPillLabel(
-                            '🏟️ AIS',
-                            aisP.sx,
-                            aisP.sy - 15,
-                            {
-                                font: '700 8.5px "Audiowide", sans-serif',
-                                bg: 'rgba(7, 8, 13, 0.9)',
-                                border: '#00f0ff',
-                                color: '#00f0ff',
-                                height: 11,
-                                padX: 6,
-                                padY: 2
-                            }
-                        );
-                    }
                 }
 
                 // 6. Suburban Town Centre Stencil Watermarks (Civic, Belconnen, Gungahlin, Woden, Tuggeranong)
@@ -1084,7 +966,7 @@
                     ctx.restore();
                 });
 
-                // 7. Outbound Directional Stencil Arrows (GUMBY Course, Corin Dam, Mt Tennant, Blue Mountains, Mt Kosciosko)
+                // 7. Outbound Directional Stencil Arrows (GUMBY Course, Corin Dam, Mt Tennant, Blue Mountains, Mt Kosciuszko)
                 if (!isSmallScreen) {
                     OUTBOUND_ARROWS.forEach((arr) => {
                         const rad = (arr.angleDeg * Math.PI) / 180;
@@ -1112,28 +994,28 @@
                         const pWing2 = project3D(wx2, 0, wz2);
 
                         ctx.save();
-                        // Dark outer stencil casing for shaft
-                        ctx.strokeStyle = '#07080d';
-                        ctx.lineWidth = 6;
+                        // Black outer stencil casing for stem
+                        ctx.strokeStyle = TAG_BLACK;
+                        ctx.lineWidth = 6.5;
                         ctx.lineCap = 'round';
                         ctx.beginPath();
                         ctx.moveTo(pStart.sx, pStart.sy);
-                        ctx.lineTo(pTip.sx, pTip.sy);
+                        ctx.lineTo(headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sx : pTip.sx,
+                                   headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sy : pTip.sy);
                         ctx.stroke();
 
-                        // Bright inner stencil shaft
-                        ctx.strokeStyle = arr.color;
-                        ctx.lineWidth = 2.6;
-                        ctx.setLineDash([6, 4]);
+                        // Grey/silver inner fill for stem
+                        ctx.strokeStyle = TAG_SILVER_BG;
+                        ctx.lineWidth = 3.4;
                         ctx.beginPath();
                         ctx.moveTo(pStart.sx, pStart.sy);
-                        ctx.lineTo(pTip.sx, pTip.sy);
+                        ctx.lineTo(headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sx : pTip.sx,
+                                   headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sy : pTip.sy);
                         ctx.stroke();
-                        ctx.setLineDash([]);
 
-                        // Arrowhead triangle
-                        ctx.fillStyle = arr.color;
-                        ctx.strokeStyle = '#07080d';
+                        // Arrowhead triangle with grey/silver fill and black border
+                        ctx.fillStyle = TAG_SILVER_BG;
+                        ctx.strokeStyle = TAG_BLACK;
                         ctx.lineWidth = 2.2;
                         ctx.beginPath();
                         ctx.moveTo(pTip.sx, pTip.sy);
@@ -1144,7 +1026,7 @@
                         ctx.stroke();
                         ctx.restore();
 
-                        // Place stencil label just beyond the arrow tip without any artificial header boundary clamp
+                        // Place boxed location tag just beyond the arrow tip
                         const pLabel = project3D(dirX * (arr.rEnd + 0.11), 0, dirZ * (arr.rEnd + 0.11));
                         const lx = Math.max(88, Math.min(viewW - 88, pLabel.sx));
                         const ly = Math.min(viewH - 18, pLabel.sy);
@@ -1155,9 +1037,9 @@
                             ly,
                             {
                                 font: '700 8.5px "Audiowide", sans-serif',
-                                bg: 'rgba(7, 8, 13, 0.9)',
-                                border: arr.color,
-                                color: arr.color,
+                                bg: TAG_SILVER_BG,
+                                border: TAG_BLACK,
+                                color: TAG_BLACK,
                                 height: 11,
                                 padX: 6,
                                 padY: 2.5
@@ -1258,7 +1140,57 @@
                 ctx.stroke();
                 ctx.restore();
 
-                // ── G. POSITION THE 6 HIGH-POINT SUMMIT NAVIGATION PINS ──
+                // ── G. LANDMARK CALLOUT TAGS SPACED OUTSIDE THE COURSE WITH THIN RED LINES (LARGE SCREENS) ──
+                if (!isSmallScreen) {
+                    LANDMARK_OUTER_CALLOUTS.forEach((item) => {
+                        const targetNode = landmarkNodes[item.key];
+                        if (!targetNode) return;
+
+                        const pTarget = project3D(targetNode.x, item.yAnchor || 0, targetNode.z);
+                        const rad = (item.angleDeg * Math.PI) / 180;
+                        const pOuter = project3D(
+                            Math.cos(rad) * item.radius,
+                            0,
+                            Math.sin(rad) * item.radius
+                        );
+
+                        const lx = Math.max(96, Math.min(viewW - 96, pOuter.sx));
+                        const ly = Math.max(82, Math.min(viewH - 22, pOuter.sy));
+
+                        // Thin red line connecting the outer tag back to its actual location
+                        ctx.save();
+                        ctx.strokeStyle = '#ff1e27';
+                        ctx.lineWidth = 1.25;
+                        ctx.beginPath();
+                        ctx.moveTo(pTarget.sx, pTarget.sy);
+                        ctx.lineTo(lx, ly);
+                        ctx.stroke();
+
+                        // Small red anchor dot at the exact landmark location
+                        ctx.fillStyle = '#ff1e27';
+                        ctx.beginPath();
+                        ctx.arc(pTarget.sx, pTarget.sy, 2.6, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.restore();
+
+                        drawStencilPillLabel(
+                            item.text,
+                            lx,
+                            ly,
+                            {
+                                font: '700 8.5px "Audiowide", sans-serif',
+                                bg: TAG_SILVER_BG,
+                                border: TAG_BLACK,
+                                color: TAG_BLACK,
+                                height: 11,
+                                padX: 6,
+                                padY: 2.5
+                            }
+                        );
+                    });
+                }
+
+                // ── H. POSITION THE 6 HIGH-POINT SUMMIT NAVIGATION PINS ──
                 peakIndices.forEach((nodeIdx, k) => {
                     const node = projTrail[nodeIdx];
                     const pinEl = pinElements[k];
