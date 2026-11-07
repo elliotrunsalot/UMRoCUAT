@@ -1,6 +1,6 @@
 /* ==========================================================================
    BRuTUS 3D COURSE MAPS — DEDICATED STYLESHEET (brutus-course.css)
-   Palette: Imperial Crimson (#DC143C), Laurel Gold (#FEDD00),
+   Palette: Imperial Crimson (#DC143C), Metallic Purple (#D8B4FE / #9333EA),
             Tyrian Pink (#FF3EB5), Cotter River Blue (#009CDE)
    Theme: The Ides of October & Brutus's Betrayal of Julius Caesar (44 BCE)
    ========================================================================== */
@@ -9,11 +9,11 @@
   --crimson: #DC143C;
   --crimson-bright: #FF1E42;
   --crimson-deep: #7A091E;
-  --yellow: #FEDD00;
+  --yellow: #D8B4FE;
   --pink: #FF3EB5;
   --blue: #009CDE;
   --crimson-glow: rgba(220, 20, 60, 0.52);
-  --yellow-glow: rgba(254, 221, 0, 0.45);
+  --yellow-glow: rgba(168, 85, 247, 0.48);
   --pink-glow: rgba(255, 62, 181, 0.42);
   --blue-glow: rgba(0, 156, 222, 0.42);
   --bg-deep: #09060a;
@@ -35,6 +35,10 @@
   padding: 0;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -43,8 +47,30 @@ html,
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--bg-deep);
-  color: var(--text-main);
+  background-color: #f4f2ee;
+  background-image:
+    radial-gradient(ellipse 90% 45% at 14% 16%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 68%),
+    radial-gradient(ellipse 75% 40% at 86% 22%, rgba(198, 205, 216, 0.52) 0%, rgba(198, 205, 216, 0) 70%),
+    radial-gradient(ellipse 85% 50% at 52% 48%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(ellipse 70% 42% at 22% 78%, rgba(212, 206, 198, 0.58) 0%, rgba(212, 206, 198, 0) 72%),
+    radial-gradient(ellipse 80% 48% at 82% 84%, rgba(192, 200, 212, 0.46) 0%, rgba(192, 200, 212, 0) 70%),
+    linear-gradient(124deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(218, 222, 229, 0.42) 24%,
+      rgba(252, 251, 249, 0.85) 43%,
+      rgba(196, 203, 214, 0.36) 61%,
+      rgba(248, 246, 242, 0.88) 79%,
+      rgba(214, 209, 202, 0.45) 100%),
+    linear-gradient(34deg,
+      #ebe8e2 0%,
+      #fbfaf8 28%,
+      #dfe3ea 52%,
+      #f9f8f5 76%,
+      #e7e4dd 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  color: #180d14;
   font-family: var(--font-body);
   overflow-x: hidden;
 }
@@ -54,16 +80,21 @@ body {
   color: #fff;
 }
 
-/* Dramatic Crimson & Roman Marble Atmospheric Backdrop */
+/* Subtle Roman White Marble Tonal Variation Overlay (Pure CSS Colours, Non-Repeating) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 16% 18%, rgba(220, 20, 60, 0.22), transparent 42%),
-    radial-gradient(circle at 84% 24%, rgba(255, 62, 181, 0.14), transparent 44%),
-    radial-gradient(circle at 50% 82%, rgba(254, 221, 0, 0.09), transparent 48%),
-    radial-gradient(circle at 22% 76%, rgba(122, 9, 30, 0.26), transparent 50%);
+    radial-gradient(ellipse 65% 32% at 28% 34%, rgba(188, 196, 208, 0.26) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 35% at 74% 62%, rgba(208, 201, 192, 0.28) 0%, transparent 72%),
+    linear-gradient(156deg,
+      transparent 0%,
+      rgba(184, 192, 204, 0.18) 32%,
+      rgba(255, 255, 255, 0.5) 48%,
+      rgba(202, 196, 188, 0.2) 67%,
+      transparent 100%);
+  background-repeat: no-repeat;
   pointer-events: none;
   z-index: 0;
 }
@@ -145,20 +176,6 @@ body::before {
   gap: 1rem;
 }
 
-.brutus-badge-pill {
-  background: var(--crimson);
-  color: #fff;
-  font-family: var(--font-tech);
-  font-size: 0.74rem;
-  padding: 0.36rem 0.8rem;
-  border-radius: 999px;
-  border: 2px solid var(--yellow);
-  box-shadow: 3px 3px 0 #09060a, 0 0 14px var(--crimson-glow);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-}
-
 .brutus-title-group h1 {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.4vw, 1.9rem);
@@ -177,63 +194,6 @@ body::before {
 }
 
 .brutus-title-group p strong {
-  color: var(--yellow);
-}
-
-/* Header Quick Telemetry Pills */
-.brutus-telemetry-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-}
-
-.telemetry-stat {
-  background: rgba(24, 12, 20, 0.92);
-  border: 1.5px solid var(--border-subtle);
-  border-left: 4px solid var(--crimson);
-  border-radius: 10px;
-  padding: 0.45rem 0.85rem;
-  display: flex;
-  flex-direction: column;
-  min-width: 118px;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease;
-}
-
-.telemetry-stat:nth-child(2) {
-  border-left-color: var(--yellow);
-}
-
-.telemetry-stat:nth-child(3) {
-  border-left-color: var(--pink);
-}
-
-.telemetry-stat:nth-child(4) {
-  border-left-color: var(--blue);
-}
-
-.telemetry-stat:hover {
-  transform: translateY(-3px) rotate(-1deg);
-  border-color: var(--crimson-bright);
-  box-shadow: 0 4px 14px var(--crimson-glow);
-}
-
-.telemetry-label {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.telemetry-value {
-  font-family: var(--font-tech);
-  font-size: 0.98rem;
-  color: #fff;
-  margin-top: 1px;
-}
-
-.telemetry-value span {
-  font-size: 0.74rem;
   color: var(--yellow);
 }
 
@@ -320,9 +280,9 @@ body::before {
 .brutus-gpx-download-btn:hover,
 .brutus-gpx-download-btn:focus-visible {
   transform: translateY(-2px) scale(1.02);
-  background: var(--yellow);
-  color: #09060a;
-  border-color: var(--crimson);
+  background: linear-gradient(135deg, #A855F7, #6B21A8);
+  color: #ffffff;
+  border-color: #E9D5FF;
   box-shadow: 3px 3px 0 var(--crimson), 0 0 22px var(--yellow-glow);
   outline: none;
 }
@@ -399,12 +359,11 @@ body::before {
 .brutus-act-inner {
   max-width: 1520px;
   margin: 0 auto;
-  padding: 0.65rem 1.5rem;
+  padding: 0.65rem 1.5rem 0.5rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.85rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
 }
 
 .act-pills-group {
@@ -412,6 +371,25 @@ body::before {
   align-items: center;
   gap: 0.65rem;
   flex-wrap: wrap;
+}
+
+.map-instructions-line {
+  margin: 0;
+  padding-left: 0.25rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.map-instructions-line strong {
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+.map-instructions-mobile {
+  display: none;
 }
 
 .act-jump-pill {
@@ -451,45 +429,8 @@ body::before {
 
 .act-jump-pill:hover .act-num,
 .act-jump-pill.is-current .act-num {
-  background: var(--yellow);
-  color: #09060a;
-}
-
-/* Interactive Julius Caesar Betrayal Counter Pill */
-.caesar-betrayal-widget {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(28, 10, 18, 0.95);
-  border: 1.5px solid var(--yellow);
-  border-radius: 999px;
-  padding: 0.35rem 0.85rem;
-  font-family: var(--font-tech);
-  font-size: 0.72rem;
-  color: var(--yellow);
-}
-
-.stab-trigger-btn {
-  appearance: none;
-  background: var(--crimson);
-  color: #fff;
-  border: 1.5px solid var(--yellow);
-  border-radius: 999px;
-  padding: 0.25rem 0.7rem;
-  font-family: var(--font-tech);
-  font-size: 0.68rem;
-  cursor: pointer;
-  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease;
-}
-
-.stab-trigger-btn:hover {
-  transform: scale(1.07) rotate(-2deg);
-  background: var(--crimson-bright);
-  box-shadow: 0 0 12px var(--crimson-glow);
-}
-
-.stab-trigger-btn:active {
-  transform: scale(0.94);
+  background: linear-gradient(135deg, #A855F7, #6B21A8);
+  color: #ffffff;
 }
 
 /* ==========================================================================
@@ -533,41 +474,6 @@ body::before {
   .brutus-title-group p {
     text-align: left;
     margin-top: 0.25rem;
-  }
-
-  .brutus-badge-pill {
-    order: 2;
-    align-self: flex-start;
-  }
-
-  /* 4. Three key telemetry stats in a single horizontal row below the pill */
-  .brutus-telemetry-bar {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.45rem;
-  }
-
-  .brutus-telemetry-bar .telemetry-stat {
-    min-width: 0;
-    padding: 0.4rem 0.55rem;
-  }
-
-  .brutus-telemetry-bar .telemetry-label {
-    font-size: 0.58rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .brutus-telemetry-bar .telemetry-value {
-    font-size: 0.86rem;
-    white-space: nowrap;
-  }
-
-  /* 5. Hide 4th telemetry card on mobile */
-  .brutus-telemetry-bar .telemetry-stat:nth-child(4) {
-    display: none;
   }
 
   .brutus-nav-bar {
@@ -637,17 +543,23 @@ body::before {
   }
 
   .brutus-act-inner {
-    padding: 0.55rem 0.85rem;
+    padding: 0.55rem 0.85rem 0.45rem;
+    align-items: center;
+  }
+
+  .act-pills-group {
     justify-content: center;
+  }
+
+  .map-instructions-line {
+    padding-left: 0;
+    text-align: center;
+    font-size: 0.72rem;
   }
 
   .act-jump-pill {
     padding: 0.4rem 0.72rem;
     font-size: 0.68rem;
-  }
-
-  .caesar-betrayal-widget {
-    display: none;
   }
 }
 
@@ -673,17 +585,16 @@ body::before {
 }
 
 .course-act-banner {
-  background: linear-gradient(135deg, rgba(32, 11, 20, 0.95) 0%, rgba(15, 8, 14, 0.95) 100%);
-  border: 2px solid rgba(220, 20, 60, 0.55);
-  border-left: 6px solid var(--crimson);
-  border-radius: 18px;
-  padding: 1.1rem 1.35rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+  box-shadow: none;
 }
 
 .act-banner-left {
@@ -714,8 +625,9 @@ body::before {
 
 .act-latin-motto {
   font-family: var(--font-tech);
-  font-size: 0.72rem;
-  color: var(--yellow);
+  font-size: 0.74rem;
+  color: #8B0922;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -723,15 +635,21 @@ body::before {
 .act-banner-left h2 {
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 2vw, 1.55rem);
-  color: #fff;
-  text-shadow: 2px 2px 0 var(--crimson);
+  color: #160c12;
+  text-shadow: 2px 2px 0 rgba(220, 20, 60, 0.28);
   letter-spacing: 0.03em;
 }
 
 .act-banner-left p {
-  font-size: 0.84rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+  font-size: 0.86rem;
+  color: #1e141b;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.act-banner-left p strong {
+  color: #8B0922;
+  font-weight: 700;
 }
 
 .act-banner-stats {
@@ -742,26 +660,27 @@ body::before {
 }
 
 .act-mini-stat {
-  background: rgba(12, 6, 10, 0.85);
-  border: 1.5px solid rgba(254, 221, 0, 0.35);
-  border-radius: 12px;
-  padding: 0.45rem 0.8rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.35rem 0.65rem;
   text-align: center;
-  min-width: 96px;
+  min-width: 88px;
 }
 
 .act-mini-stat span {
   display: block;
-  font-size: 0.62rem;
+  font-size: 0.64rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: var(--text-muted);
+  color: #3d2d37;
 }
 
 .act-mini-stat strong {
   font-family: var(--font-tech);
-  font-size: 0.9rem;
-  color: var(--yellow);
+  font-size: 0.94rem;
+  color: #9e0b28;
 }
 
 /* ==========================================================================
@@ -793,15 +712,10 @@ body::before {
   position: relative;
   width: 100%;
   height: clamp(500px, 65vh, 680px);
-  background:
-    radial-gradient(circle at 50% 42%, rgba(220, 20, 60, 0.18) 0%, rgba(14, 8, 14, 0.96) 68%),
-    #09060a;
-  border: 2px solid rgba(220, 20, 60, 0.55);
-  border-radius: 20px;
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.72),
-    0 0 0 1px rgba(254, 221, 0, 0.2),
-    inset 0 0 45px rgba(220, 20, 60, 0.12);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   overflow: hidden;
   user-select: none;
 }
@@ -825,80 +739,12 @@ body::before {
   left: 1rem;
   right: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   pointer-events: none;
   z-index: 15;
   gap: 0.75rem;
   flex-wrap: wrap;
-}
-
-.hud-badge-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  pointer-events: auto;
-}
-
-.hud-instruction-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  background: rgba(14, 7, 12, 0.88);
-  border: 1.5px solid var(--yellow);
-  color: #fff;
-  padding: 0.45rem 0.85rem;
-  border-radius: 999px;
-  font-size: 0.76rem;
-  font-weight: 600;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
-}
-
-.hud-instruction-pill kbd {
-  background: var(--crimson);
-  color: #fff;
-  padding: 0.1rem 0.45rem;
-  border-radius: 6px;
-  font-family: var(--font-tech);
-  font-size: 0.66rem;
-  border: 1px solid rgba(254, 221, 0, 0.5);
-}
-
-.gpx-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.72rem;
-  color: var(--yellow);
-  background: rgba(16, 8, 13, 0.86);
-  border: 1px solid rgba(220, 20, 60, 0.55);
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  width: fit-content;
-}
-
-.status-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--crimson-bright);
-  box-shadow: 0 0 8px var(--crimson-bright);
-  animation: pulseDot 1.6s infinite ease-in-out;
-}
-
-@keyframes pulseDot {
-
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1.45);
-    opacity: 0.55;
-  }
 }
 
 /* Top-right Camera & Ghost Runner Toolbar */
@@ -946,9 +792,9 @@ body::before {
 }
 
 .hud-btn.btn-gold.is-active {
-  background: var(--yellow);
-  border-color: var(--crimson);
-  color: #09060a;
+  background: linear-gradient(135deg, #A855F7, #6B21A8);
+  border-color: #E9D5FF;
+  color: #ffffff;
   box-shadow: 0 0 14px var(--yellow-glow);
 }
 
@@ -1005,6 +851,7 @@ body::before {
 .live-runner-telemetry {
   pointer-events: auto;
   background: rgba(16, 8, 14, 0.92);
+  color: #f8fafc;
   border: 1.5px solid var(--crimson);
   border-radius: 12px;
   padding: 0.55rem 0.95rem;
@@ -1147,8 +994,8 @@ body::before {
 }
 
 .course-tag-3d[data-theme="gold"] .tag-num {
-  background: var(--yellow);
-  color: #09060a;
+  background: linear-gradient(135deg, #A855F7, #6B21A8);
+  color: #ffffff;
 }
 
 .course-tag-3d[data-theme="blue"] {
@@ -1188,9 +1035,9 @@ body::before {
 }
 
 .course-tag-3d.is-selected {
-  background: var(--yellow);
-  color: #09060a;
-  border-color: var(--crimson);
+  background: linear-gradient(135deg, #9333EA, #581C87);
+  color: #ffffff;
+  border-color: #E9D5FF;
   z-index: 45 !important;
   box-shadow:
     0 0 25px var(--yellow-glow),
@@ -1203,18 +1050,18 @@ body::before {
 }
 
 .course-tag-3d.is-selected::after {
-  border-color: var(--crimson) transparent transparent;
+  border-color: #E9D5FF transparent transparent;
 }
 
 /* ==========================================================================
    INTERACTIVE ELEVATION PROFILE CARD
    ========================================================================== */
 .elevation-card {
-  background: var(--bg-panel);
-  border: 2px solid rgba(220, 20, 60, 0.35);
-  border-radius: 18px;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 0;
+  box-shadow: none;
 }
 
 .elevation-header {
@@ -1231,24 +1078,27 @@ body::before {
   font-size: 0.86rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--yellow);
+  color: #8B0922;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .elevation-hint {
-  font-size: 0.74rem;
-  color: var(--text-muted);
+  font-size: 0.75rem;
+  color: #362630;
+  font-weight: 600;
 }
 
 .elevation-canvas-wrap {
   position: relative;
   width: 100%;
   height: 140px;
-  background: rgba(9, 5, 9, 0.8);
-  border-radius: 12px;
-  border: 1px solid rgba(220, 20, 60, 0.25);
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
   overflow: hidden;
 }
 
@@ -1260,7 +1110,7 @@ body::before {
 }
 
 /* ==========================================================================
-   RIGHT COLUMN: LANDMARK DIRECTORY & CAESAR BETRAYAL SOUNDBOARD
+   RIGHT COLUMN: SECTOR DIRECTORY
    ========================================================================== */
 .sidebar-column {
   display: flex;
@@ -1269,12 +1119,11 @@ body::before {
 }
 
 .explorer-card {
-  background: var(--bg-panel);
-  border: 2px solid var(--border-subtle);
-  border-top: 4px solid var(--crimson);
-  border-radius: 18px;
-  padding: 1.15rem;
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.25rem 0;
+  box-shadow: none;
 }
 
 .explorer-header {
@@ -1289,7 +1138,7 @@ body::before {
   font-size: 0.92rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #fff;
+  color: #160c12;
 }
 
 .explorer-count {
@@ -1306,7 +1155,7 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 0.48rem;
-  max-height: 430px;
+  max-height: 520px;
   overflow-y: auto;
   padding-right: 4px;
 }
@@ -1338,6 +1187,10 @@ body::before {
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.landmark-item-btn[hidden] {
+  display: none !important;
+}
+
 .landmark-item-btn:hover {
   transform: translateX(4px);
   border-color: var(--yellow);
@@ -1345,7 +1198,7 @@ body::before {
 }
 
 .landmark-item-btn.is-active {
-  background: linear-gradient(135deg, rgba(220, 20, 60, 0.34), rgba(254, 221, 0, 0.16));
+  background: linear-gradient(135deg, rgba(22, 10, 16, 0.96), rgba(92, 10, 28, 0.95));
   border-color: var(--yellow);
   box-shadow: 0 0 16px rgba(220, 20, 60, 0.35);
 }
@@ -1365,8 +1218,8 @@ body::before {
 }
 
 .landmark-item-btn:nth-child(4n+2) .landmark-index {
-  background: var(--yellow);
-  color: #09060a;
+  background: linear-gradient(135deg, #A855F7, #6B21A8);
+  color: #ffffff;
 }
 
 .landmark-item-btn:nth-child(4n+3) .landmark-index {
@@ -1404,63 +1257,10 @@ body::before {
   font-family: var(--font-tech);
   font-size: 0.7rem;
   color: var(--yellow);
-  background: rgba(220, 20, 60, 0.18);
-  border: 1px solid rgba(254, 221, 0, 0.4);
+  background: rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(192, 132, 252, 0.45);
   padding: 0.2rem 0.45rem;
   border-radius: 6px;
-}
-
-/* Dramatic Senate Betrayal Micro-Interaction Booster Card */
-.fun-board-card {
-  background: var(--bg-panel);
-  border: 2px solid var(--border-subtle);
-  border-top: 4px solid var(--yellow);
-  border-radius: 18px;
-  padding: 1rem 1.15rem;
-}
-
-.fun-board-card h3 {
-  font-family: var(--font-tech);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--yellow);
-  margin-bottom: 0.65rem;
-}
-
-.fun-btn-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-}
-
-.fun-action-btn {
-  appearance: none;
-  background: rgba(26, 12, 20, 0.92);
-  border: 1.5px solid rgba(220, 20, 60, 0.4);
-  border-radius: 10px;
-  padding: 0.55rem 0.65rem;
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 0.73rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.fun-action-btn:hover {
-  transform: translateY(-2px) rotate(-1deg);
-  border-color: var(--yellow);
-  background: rgba(220, 20, 60, 0.28);
-  box-shadow: 0 4px 12px var(--crimson-glow);
-}
-
-.fun-action-btn:active {
-  transform: scale(0.95);
 }
 
 /* ==========================================================================
@@ -1637,10 +1437,6 @@ body::before {
   border-color: var(--yellow);
 }
 
-.hud-mobile-instruction-pill {
-  display: none;
-}
-
 /* ==========================================================================
    MOBILE VIEWPORT ALLOWANCES (Matches gumby-course.css <= 768px)
    ========================================================================== */
@@ -1662,23 +1458,13 @@ body::before {
     width: auto;
   }
 
-  /* 1. Hide desktop HUD instruction pill and show compact mobile instruction pill */
-  .hud-instruction-pill {
+  /* 1. Show mobile instruction wording under the internal page nav on small screens */
+  .map-instructions-desktop {
     display: none;
   }
 
-  .hud-mobile-instruction-pill {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(16, 8, 13, 0.9);
-    border: 1.5px solid var(--yellow);
-    color: #fff;
-    padding: 0.38rem 0.75rem;
-    border-radius: 999px;
-    font-size: 0.73rem;
-    font-weight: 600;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
+  .map-instructions-mobile {
+    display: inline;
   }
 
   /* 2. Hide Runner Go/Stop toggle and Reset View button on small screens */
@@ -1687,12 +1473,7 @@ body::before {
     display: none;
   }
 
-  /* 3. Hide the Betrayal Chaos soundboard card on small screens */
-  .fun-board-card {
-    display: none;
-  }
-
-  /* 4. Hide text and emojis in 3D map landmark pins so only the compact number badge shows */
+  /* 3. Hide text and emojis in 3D map landmark pins so only the compact number badge shows */
   .course-tag-3d {
     padding: 0.22rem;
     gap: 0;
@@ -1708,13 +1489,14 @@ body::before {
 .brutus-footer {
   text-align: center;
   padding: 1.5rem 1rem 2.2rem;
-  border-top: 1px solid rgba(220, 20, 60, 0.3);
+  border-top: 1px solid rgba(139, 9, 34, 0.35);
   font-family: var(--font-tech);
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  font-size: 0.76rem;
+  color: #261920;
+  font-weight: 600;
   letter-spacing: 0.06em;
 }
 
 .brutus-footer span {
-  color: var(--crimson-bright);
+  color: #9e0b28;
 }

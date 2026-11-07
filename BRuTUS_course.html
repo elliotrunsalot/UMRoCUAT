@@ -39,7 +39,6 @@
 
   <div class="brutus-header-main">
     <div class="brutus-brand">
-      <span class="brutus-badge-pill">&#x1F5E1;&#xFE0F; 3D BETRAYAL TOPOGRAPHY</span>
       <div class="brutus-title-group">
         <h1>THE BRuTUS COURSE MAPS</h1>
         <p>The Brindabella Ranges ultimate Trail Ultra Spectacular &bull; <strong>Blue Range &amp; Corin Dam,
@@ -54,25 +53,6 @@
       <span class="burger-line line2"></span>
       <span class="burger-line line3"></span>
     </button>
-
-    <div class="brutus-telemetry-bar">
-      <div class="telemetry-stat" title="Three Shakespearean Acts of Trail Pain">
-        <span class="telemetry-label">Three Acts</span>
-        <span class="telemetry-value">60 &bull; 100 &bull; 14 <span>km</span></span>
-      </div>
-      <div class="telemetry-stat" title="Maximum Vertical Gain on BTrail 100km">
-        <span class="telemetry-label">Max Vert Gain</span>
-        <span class="telemetry-value">+3,000 <span>m</span></span>
-      </div>
-      <div class="telemetry-stat" title="Highest Summit at Mt. Ginini on BTrail 100km">
-        <span class="telemetry-label">Peak Altitude</span>
-        <span class="telemetry-value">1,752 <span>m</span></span>
-      </div>
-      <div class="telemetry-stat" title="27 Total Aid Stations, Water Points &amp; Landmarks Marked">
-        <span class="telemetry-label">Senate Sectors</span>
-        <span class="telemetry-value">27 <span>tags</span></span>
-      </div>
-    </div>
   </div>
 
   <!-- Primary Navigation Bar & Mobile Popup Menu -->
@@ -96,7 +76,7 @@
           </a>
         </li>
         <li>
-          <a href="Event_policies.html" class="brutus-nav-link">
+          <a href="Event_policies.html?from=brutus" class="brutus-nav-link">
             <span>&#x1F4DC;</span> Event Policies
           </a>
         </li>
@@ -120,7 +100,7 @@
   </nav>
   </header>
 
-  <!-- STICKY ROMAN TRAGEDY ACT SWITCHER & CAESAR BETRAYAL COUNTER -->
+  <!-- STICKY ROMAN TRAGEDY ACT SWITCHER & MAP INSTRUCTIONS -->
   <div class="brutus-act-bar" aria-label="Jump to Course Map">
     <div class="brutus-act-inner">
       <div class="act-pills-group">
@@ -138,13 +118,15 @@
         </a>
       </div>
 
-      <div class="caesar-betrayal-widget">
-        <span>&#x1FA78; SENATE DAGGER TALLY: <strong id="caesar-stab-count">0 / 23</strong></span>
-        <button type="button" class="stab-trigger-btn" id="btn-global-stab"
-          title="Unleash 23 daggers across the Brindabella Senate!">
-          ET TU, BRUTE? &#x1F5E1;&#xFE0F;
-        </button>
-      </div>
+      <p class="map-instructions-line">
+        <span class="map-instructions-desktop">
+          <strong>Drag</strong> to spin &amp; tilt 3D &bull; <strong>Scroll</strong> to zoom &bull; <strong>Click
+            tag</strong> for sector intel
+        </span>
+        <span class="map-instructions-mobile">
+          <strong>Drag</strong> to spin &amp; tilt &bull; <strong>Tap a numbered sector</strong> for course intel
+        </span>
+      </p>
     </div>
   </div>
 
@@ -173,7 +155,7 @@
           </p>
         </div>
         <div class="act-banner-stats">
-          <div class="act-mini-stat"><span>Distance</span><strong>60.2 km</strong></div>
+          <div class="act-mini-stat"><span>Distance</span><strong>60 km</strong></div>
           <div class="act-mini-stat"><span>Elev Gain</span><strong>+2,000 m</strong></div>
           <div class="act-mini-stat"><span>Time Limit</span><strong>11 Hours</strong></div>
           <div class="act-mini-stat"><span>Peak (Coree)</span><strong>1,414 m</strong></div>
@@ -202,13 +184,13 @@
               (Mt. Franklin)</strong>,
             <strong>Bendora Arboretum WP1</strong>, <strong>Mt. Aggie</strong>, <strong>Bulls Head CP2</strong>,
             <strong>Warks WP2</strong>, Marshalls Break, <strong>Wombat Creek CP3</strong>, <strong>Mt. Coree</strong>,
-            <strong>Coreezy CP4</strong>, and <strong>Knife Point CP5</strong>. Collect all 4 summit mystery objects or
+            <strong>Coreezy CP4</strong>, and <strong>Knife Point CP5</strong>. Collect all 4 summit relics or
             your finish place is unratified!
           </p>
         </div>
         <div class="act-banner-stats">
-          <div class="act-mini-stat"><span>Distance</span><strong>100.9 km</strong></div>
-          <div class="act-mini-stat"><span>Elev Gain</span><strong>+3,000 m</strong></div>
+          <div class="act-mini-stat"><span>Distance</span><strong>100 km</strong></div>
+          <div class="act-mini-stat"><span>Elev Gain</span><strong>+3,500 m</strong></div>
           <div class="act-mini-stat"><span>Time Limit</span><strong>20 Hours</strong></div>
           <div class="act-mini-stat"><span>Peak (Ginini)</span><strong>1,752 m</strong></div>
         </div>
@@ -355,139 +337,153 @@
         officialGainM: 2000,
         fallbackPoints: FALLBACK_BRUTUS60,
         cardinals: [
-          { label: "N • TWO STICKS RD", x: 0, z: -1.35, color: "#FEDD00" },
-          { label: "S • COTTER CATCHMENT", x: 0, z: 1.35, color: "#DC143C" },
-          { label: "E • BLUE RANGE HQ", x: 1.35, z: 0, color: "#009CDE" },
-          { label: "W • MT COREE (1414M)", x: -1.35, z: 0, color: "#FF3EB5" }
+          { label: "N • TWO STICKS RD", x: 0, z: -1.35, color: "#180d14" },
+          { label: "S • COTTER CATCHMENT", x: 0, z: 1.35, color: "#9e0b28" },
+          { label: "E • BLUE RANGE HQ", x: 1.35, z: 0, color: "#005a87" },
+          { label: "W • MT COREE (1414M)", x: -1.35, z: 0, color: "#9c0b5e" }
         ],
         eleGridMarks: [700, 1050, 1400],
         kmStep: 10,
-        chaosButtons: [
-          { id: "daggers", icon: "🗡️", label: "23 Daggers" },
-          { id: "footwash", icon: "🦶", label: "Foot Washing" },
-          { id: "laurels", icon: "🌿", label: "Coree Laurels" },
-          { id: "topdown", icon: "🦅", label: "Eagle View" }
-        ],
         locations: [
           {
-            number: 1,
-            name: "Start: Blue Range Hut",
+            name: "Start/Finish: BRH",
+            kind: "endpoint",
             emoji: "🏛️",
             theme: "crimson",
-            fxType: "daggers",
             lat: -35.29008,
             lon: 148.87567,
             targetProgress: 0.0,
             customDistKm: 0.0,
-            tagline: "Race HQ & 7:00 AM Senate Departure",
+            tagline: "Race HQ & 7:00 AM Start Line",
             vibe: "Togas & Trail Shoes",
-            description: "The historic Blue Range Hut serves as the Roman Senate House and start line. After the compulsory 6:50 AM ceremonial foot washing, conspirators depart along One Stick Road and East West Road toward Brindabella Road.",
+            description: "The historic Blue Range Hut serves as the Race HQ and start line. After the compulsory 6:50 AM ceremonial foot washing, conspirators depart along One Stick Road and East West Road toward Brindabella Road.",
             tip: "Senate Decree: Tank water at the hut is not safe to drink—bring your own rations."
           },
           {
-            number: 2,
-            name: "CP1: Cotter / Vanitys Aid Station",
+            name: "Brindabella Road crossing",
+            kind: "highlight",
+            emoji: "🌲",
+            theme: "gold",
+            lat: -35.29435,
+            lon: 148.88627,
+            targetProgress: 0.065,
+            customDistKm: 4.0,
+            tagline: "Follow Brindabella Rd to Cotter Catchment",
+            vibe: "Morning March",
+            description: "Leaving Blue Range Hut, the 60km course follows One Stick Road and East West Road through tall timber before making the first crossing of Brindabella Road into the Cotter Catchment Area.",
+            tip: "Course Intel: Settle into a comfortable rhythm on the rolling fire trails before the descent."
+          },
+          {
+            name: "Vanitys Crossing",
+            kind: "highlight",
+            emoji: "🌊",
+            theme: "blue",
+            lat: -35.33549,
+            lon: 148.88823,
+            targetProgress: 0.18,
+            customDistKm: 10.5,
+            tagline: "Cotter Valley Descent • Pass Vanitys Crossing",
+            vibe: "Crossing the Rubicon",
+            description: "After crossing Brindabella Road and plunging deep into the Cotter Catchment Area, runners pass (but do not cross) historic Vanitys Crossing along the Cotter River.",
+            tip: "Course Intel: Keep following the eastern side of the valley toward CP1."
+          },
+          {
+            name: "CP1: Yellow Rabbit",
+            kind: "aid",
             emoji: "🍷",
             theme: "blue",
-            fxType: "chalice",
             lat: -35.34387,
             lon: 148.88786,
             targetProgress: 0.21,
             customDistKm: 12.1,
-            tagline: "Checkpoint 1 • Cotter Catchment Low Point",
-            vibe: "Crossing the Rubicon",
-            description: "After crossing Brindabella Road and plunging into the Cotter Catchment Area, runners pass (but do not cross) Vanitys Crossing before reaching CP1—the lowest elevation point on the 60km loop.",
-            tip: "Conspirator Intel: Fuel up here before the long grinding climbs out of the Cotter valley."
+            tagline: "Checkpoint 1 • Rabbits are yellow, keep it mellow!",
+            vibe: "Valley Refuel",
+            description: "Located just past Vanitys Crossing at the lowest elevation point on the 60km loop (596m), CP-1 offers sports drink and refreshments before the climbs west of the Cotter.",
+            tip: "Aid Station Intel: Fuel up here before the long grinding hills out of the Cotter valley."
           },
           {
-            number: 3,
-            name: "CP2: Curries Road Aid Station",
+            name: "CP2: Wombat Creek",
+            kind: "aid",
             emoji: "🛡️",
             theme: "gold",
-            fxType: "sparks",
             lat: -35.31852,
             lon: 148.82786,
             targetProgress: 0.53,
             customDistKm: 29.8,
             tagline: "Checkpoint 2 • Second Brindabella Rd Crossing",
             vibe: "The Ides Approach",
-            description: "After navigating the rolling hills west of the Cotter, runners reach CP2 at Curries Road and make their second crossing of Brindabella Road. Look up: the imposing profile of Mt. Coree looms directly ahead.",
-            tip: "Conspirator Intel: Take Pabral Road across the border into NSW to begin the siege on Mt. Coree."
+            description: "After navigating the smaller hills west of the Cotter, runners reach CP-2 at Curries Road and make their second crossing of Brindabella Road with Mt. Coree looming ahead.",
+            tip: "Aid Station Intel: Top up hydration before beginning the major climb to Mt. Coree."
           },
           {
-            number: 4,
-            name: "Mt. Coree Summit",
-            emoji: "🗡️",
+            name: "Mt Coree (1,414m)",
+            kind: "highlight",
+            emoji: "🏔️",
             theme: "crimson",
-            fxType: "laurels",
             lat: -35.30665,
             lon: 148.81077,
             targetProgress: 0.667,
             customDistKm: 38.1,
             tagline: "Roof of BRuTUS • 1,414m Knife-Edge Peak",
             vibe: "Et Tu, Coree?",
-            description: "The knife-like elevation profile that inspired the BRuTUS! Climbing Coree Summit Road to 1,414m rewards conspirators with sweeping 360-degree views across the Cotter and Brindabella Ranges.",
-            tip: "Senate Decree: Savour the summit view before descending Summit Road toward Coree Campground."
+            description: "The knife-like elevation profile that inspired the BRuTUS! Climbing Coree Summit Road to 1,414m rewards runners with sweeping 360-degree views across the Cotter and Brindabella Ranges.",
+            tip: "Course Highlight: Savour the summit panorama before returning down Summit Road toward Coree Campground."
           },
           {
-            number: 5,
-            name: "CP3: Coreezy Aid Station",
+            name: "CP3: Coreezy",
+            kind: "aid",
             emoji: "⛺",
             theme: "gold",
-            fxType: "chalice",
             lat: -35.28651,
             lon: 148.80854,
             targetProgress: 0.71,
             customDistKm: 41.8,
             tagline: "Checkpoint 3 • Coree Campground",
             vibe: "4WD Legion Outpost",
-            description: "Descending off Mt. Coree brings runners into Coree Campground and CP3 (Coreezy). From here begins the long, testing northern traverse along Two Sticks Road and Blue Range Road.",
-            tip: "Conspirator Intel: Support crews should not attempt to access Coree Campground in a 2WD chariot."
+            description: "Returning down Summit Road off Mt. Coree brings runners into Coree Campground and CP-3 (Coreezy) before the long, challenging section on Two Sticks Road.",
+            tip: "Access Warning: Support crews should not attempt to access Coree Campground in a 2WD vehicle."
           },
           {
-            number: 6,
-            name: "CP4: Knife Point Aid Station",
+            name: "Two Sticks Road",
+            kind: "highlight",
+            emoji: "🌲",
+            theme: "blue",
+            lat: -35.26968,
+            lon: 148.83112,
+            targetProgress: 0.78,
+            customDistKm: 46.0,
+            tagline: "Long Northern Ridgeline Traverse",
+            vibe: "Relentless Rollers",
+            description: "Following CP-3 is a long and challenging section along Two Sticks Road followed by Blue Range Road, gradually working east back toward the ACT border.",
+            tip: "Course Intel: Keep banking consistent kilometres along the ridgeline toward Knife Point."
+          },
+          {
+            name: "CP4: Knife Point",
+            kind: "aid",
             emoji: "🔪",
             theme: "crimson",
-            fxType: "daggers",
             lat: -35.28573,
             lon: 148.85264,
             targetProgress: 0.85,
             customDistKm: 51.0,
             tagline: "Checkpoint 4 • ACT Border & Genges Turnoff",
             vibe: "No Surrender",
-            description: "Briefly returning to the ACT along Blue Range Road, runners reach CP4 at Knife Point before being grimly directed back across the NSW border onto the plunging Genges Trail descent.",
-            tip: "Conspirator Intel: Save quad strength—the infamous Slippery Dip waits at the bottom of Genges Trail."
+            description: "Briefly returning to the ACT along Blue Range Road, runners reach CP-4 at Knife Point before proceeding back over the NSW border along Genges Trail.",
+            tip: "Aid Station Intel: Grab a final boost here before the steep Genges Trail descent."
           },
           {
-            number: 7,
             name: "The Slippery Dip",
+            kind: "highlight",
             emoji: "⚠️",
             theme: "pink",
-            fxType: "sparks",
-            lat: -35.26984,
-            lon: 148.87535,
-            targetProgress: 0.943,
-            customDistKm: 55.8,
-            tagline: "Rutted Chute to Radiata Trail & Dead Horse Gate Rd",
-            vibe: "Controlled Chaos",
-            description: "Off Genges Trail lies the final treacherous obstacle: a sharp, rutted Slippery Dip dropping onto Radiata Trail. Heading south on Dead Horse Gate Road, GUMBY veterans enter familiar territory.",
-            tip: "Senate Decree: Watch your footing on the loose ruts—glory is only 4km away."
-          },
-          {
-            number: 8,
-            name: "Finish: Blue Range Hut",
-            emoji: "🏆",
-            theme: "gold",
-            fxType: "laurels",
-            lat: -35.28991,
-            lon: 148.87568,
-            targetProgress: 1.0,
-            customDistKm: 60.2,
-            tagline: "Finish Line • Blue Range Hut",
-            vibe: "Hail Victorious!",
-            description: "A gentle final descent delivers runners back to Blue Range Hut before the 18:00 (11-hour) cut-off, just in time for the campground after-party as BTrail 100km finishers emerge from the dark.",
-            tip: "Post-Coup Protocol: Claim your laurel wreath and warm up by the Blue Range fire pits."
+            lat: -35.26585,
+            lon: 148.87668,
+            targetProgress: 0.887,
+            customDistKm: 53.4,
+            tagline: "Plunging Descent & Sharp Rutted Chute to Radiata Trail",
+            vibe: "Quad Guillotine",
+            description: "Proceeding back over the border along Genges Trail leads to the final obstacle: a sharp, rutted Slippery Dip dropping onto Radiata Trail.",
+            tip: "Course Highlight: Watch your footing on the loose ruts of the Slippery Dip."
           }
         ]
       },
@@ -500,199 +496,251 @@
         officialGainM: 3000,
         fallbackPoints: FALLBACK_BTRAIL100,
         cardinals: [
-          { label: "N • BLUE RANGE FINISH", x: 0, z: -1.35, color: "#FEDD00" },
-          { label: "S • CORIN DAM START", x: 0, z: 1.35, color: "#DC143C" },
-          { label: "E • COTTER VALLEY", x: 1.35, z: 0, color: "#009CDE" },
-          { label: "W • GININI / FRANKLIN", x: -1.35, z: 0, color: "#FF3EB5" }
+          { label: "N • BLUE RANGE FINISH", x: 0, z: -1.35, color: "#180d14" },
+          { label: "S • CORIN DAM START", x: 0, z: 1.35, color: "#9e0b28" },
+          { label: "E • COTTER VALLEY", x: 1.35, z: 0, color: "#005a87" },
+          { label: "W • GININI / FRANKLIN", x: -1.35, z: 0, color: "#9c0b5e" }
         ],
         eleGridMarks: [900, 1300, 1700],
         kmStep: 20,
-        chaosButtons: [
-          { id: "daggers", icon: "🗡️", label: "4 Mystery Relics" },
-          { id: "footwash", icon: "🦶", label: "3:45AM Foot Wash" },
-          { id: "laurels", icon: "👑", label: "Ginini 1752m" },
-          { id: "topdown", icon: "🦅", label: "Eagle View" }
-        ],
         locations: [
           {
-            number: 1,
             name: "Start: Corin Dam",
+            kind: "endpoint",
             emoji: "🌊",
             theme: "crimson",
-            fxType: "chalice",
             lat: -35.53208,
             lon: 148.83642,
             targetProgress: 0.0,
             customDistKm: 0.0,
-            tagline: "4:00 AM Start Line & Stockyard Spur Base",
-            vibe: "600m Vert in 2km",
-            description: "After the 3:45 AM foot washing ritual at Corin Dam, BTrail athletes launch at 4:00 AM under headlamps—immediately climbing 600 vertical metres up brutal Stockyard Spur in the first 2 kilometres.",
-            tip: "Senate Decree: Pace the Stockyard Spur wall wisely; 98km of the Brindabella Ranges still await."
+            tagline: "4:00 AM Start Line • Corin Dam",
+            vibe: "Headlamps On",
+            description: "After the 3:45 AM foot washing ritual and 3:50 AM race briefing at Corin Dam, BTrail athletes set out at 4:00 AM on an epic 100km journey traversing the Brindabella Ranges.",
+            tip: "Start Protocol: Ensure your headlamp and mandatory alpine kit are ready before boarding the 3:00 AM bus."
           },
           {
-            number: 2,
-            name: "Mt. Ginini Summit (Relic I)",
-            emoji: "🔮",
+            name: "Stockyard Spur",
+            kind: "highlight",
+            emoji: "🧗",
+            theme: "pink",
+            lat: -35.53558,
+            lon: 148.81521,
+            targetProgress: 0.045,
+            customDistKm: 2.5,
+            tagline: "600m Vertical Climb in the Opening 2km",
+            vibe: "Vertical Wall",
+            description: "Athletes climb 600m up Stockyard Spur in the first 2km as they launch onto the main spine of the Brindabella Ranges under cover of darkness.",
+            tip: "Course Highlight: Power-hike smartly—98km of high-country trail still lie ahead."
+          },
+          {
+            name: "Mt Ginini (Relic #1)",
+            kind: "highlight",
+            emoji: "🏔️",
             theme: "gold",
-            fxType: "laurels",
             lat: -35.52977,
             lon: 148.77276,
-            targetProgress: 0.135,
+            targetProgress: 0.13,
             customDistKm: 11.8,
-            tagline: "1,752m Roof of the Brindabellas • Mystery Object #1",
-            vibe: "Sub-Alpine Relic",
-            description: "The highest point of the entire BRuTUS festival at 1,752m! Athletes must collect their first of 4 compulsory Mystery Objects at the summit of Mt. Ginini as proof of conquest.",
-            tip: "Relic Protocol: Guard your mystery object with your life—all 4 must be shown at the finish line."
+            tagline: "1,752m Roof of the Course • Collect Relic #1",
+            vibe: "Sub-Alpine Summit",
+            description: "The highest point of the entire BRuTUS festival at 1,752m! Up on the range athletes visit Mt. Ginini and collect their first compulsory Relic at the summit as evidence of reaching this high point.",
+            tip: "Relic Rule: Keep all 4 summit objects safe—you must present them at the finish line."
           },
           {
-            number: 3,
-            name: "Frankie CP1 & Mt. Franklin (Relic II)",
-            emoji: "⛺",
-            theme: "crimson",
-            fxType: "daggers",
+            name: "Mt Franklin (Relic #2)",
+            kind: "highlight",
+            emoji: "🏔️",
+            theme: "gold",
             lat: -35.48662,
             lon: 148.77342,
-            targetProgress: 0.185,
+            targetProgress: 0.174,
+            customDistKm: 17.6,
+            tagline: "1,619m Alpine Peak • Collect Relic #2",
+            vibe: "Second Summit Relic",
+            description: "Continuing north along the Brindabella crest, athletes summit Mt. Franklin (1,619m) to collect their second Relic before dropping into Frankie CP-1.",
+            tip: "Course Highlight: Exposed alpine ridge—be prepared for chilly winds at dawn."
+          },
+          {
+            name: "CP1: Frankie",
+            kind: "aid",
+            emoji: "⛺",
+            theme: "crimson",
+            lat: -35.48761,
+            lon: 148.7716,
+            targetProgress: 0.178,
             customDistKm: 18.0,
-            tagline: "Aid Station 1 (Frankie CP1) & Mystery Object #2",
+            tagline: "Checkpoint 1 • Mt. Franklin Shelter",
             vibe: "High-Range Aid",
-            description: "Traversing north along the alpine crest, runners reach Frankie CP1 and the summit of Mt. Franklin to refuel and claim their second Mystery Object.",
-            tip: "Conspirator Intel: Layer up if the Brindabella winds are howling across the ridge."
+            description: "Right by Mt. Franklin, Frankie CP-1 is the first full aid station on the 100km course, serving sports drink and refreshments up on the range.",
+            tip: "Aid Station Intel: Refuel well before the push toward Mt. Aggie and Bendora Arboretum."
           },
           {
-            number: 4,
-            name: "Bendora Arboretum WP1",
-            emoji: "💧",
-            theme: "blue",
-            fxType: "chalice",
-            lat: -35.46729,
-            lon: 148.77494,
-            targetProgress: 0.25,
-            customDistKm: 26.3,
-            tagline: "Water Point 1 • Historic Conifer Stand",
-            vibe: "Hydration Oasis",
-            description: "Set amongst the towering exotic conifers of Bendora Arboretum, WP1 provides vital water refills before the rocky push toward Mt. Aggie.",
-            tip: "Conspirator Intel: Top off your flasks before tackling the exposed Mt. Aggie spur."
-          },
-          {
-            number: 5,
-            name: "Mt. Aggie Summit (Relic III)",
+            name: "Mt Aggie (Relic #3)",
+            kind: "highlight",
             emoji: "🪨",
             theme: "gold",
-            fxType: "laurels",
-            lat: -35.43755,
-            lon: 148.78788,
-            targetProgress: 0.315,
-            customDistKm: 33.0,
-            tagline: "Exposed Rocky Outcrop • Mystery Object #3",
+            lat: -35.46513,
+            lon: 148.77901,
+            targetProgress: 0.25,
+            customDistKm: 25.2,
+            tagline: "Exposed Rocky Summit • Collect Relic #3",
             vibe: "Three Relics Secured",
-            description: "Scrambling onto the dramatic rocky crag of Mt. Aggie (1,308m), runners secure their third Mystery Object with panoramic views straight down into the Cotter and NSW high country.",
-            tip: "Relic Protocol: Three objects down, one remaining atop Mt. Coree at km 79!"
+            description: "Scrambling onto the dramatic rocky outcrop of Mt. Aggie (1,308m), athletes acquire their third Relic with sweeping views across the Cotter and NSW high country.",
+            tip: "Relic Rule: Three summit items collected, one final object awaiting atop Mt. Coree!"
           },
           {
-            number: 6,
-            name: "Bulls Head CP2",
+            name: "WP1: Bendora Arbo",
+            kind: "aid",
+            emoji: "💧",
+            theme: "blue",
+            lat: -35.41636,
+            lon: 148.79342,
+            targetProgress: 0.368,
+            customDistKm: 37.1,
+            tagline: "Water Point 1 • Historic Conifer Stand",
+            vibe: "Hydration Oasis",
+            description: "Set amongst the towering conifers of Bendora Arboretum, water is available at WP1 before the push toward Bulls Head.",
+            tip: "Water Point Intel: Top off your flasks before continuing north along the range."
+          },
+          {
+            name: "CP2: Bulls Head",
+            kind: "aid",
             emoji: "🐂",
             theme: "crimson",
-            fxType: "daggers",
-            lat: -35.39864,
-            lon: 148.80218,
-            targetProgress: 0.40,
-            customDistKm: 40.4,
-            tagline: "Aid Station 2 • Mt. Franklin Rd / Mile Hill Turnoff",
-            vibe: "Plunge to the River",
-            description: "At Bulls Head CP2, runners refuel before leaving Mt. Franklin Road to join Mile Hill Road, dropping steeply off the main range into the remote Warks Road wilderness.",
-            tip: "Conspirator Intel: Enjoy the downhill while it lasts—Marshalls Break lurks ahead."
+            lat: -35.39955,
+            lon: 148.8034,
+            targetProgress: 0.426,
+            customDistKm: 43.0,
+            tagline: "Checkpoint 2 • Mt. Franklin Rd / Mile Hill Turnoff",
+            vibe: "Range Junction",
+            description: "At Bulls Head CP-2, runners refuel with sports drink and refreshments before leaving Mt. Franklin Road to join Mile Hill Road.",
+            tip: "Aid Station Intel: Stock up on nutrition before dropping into the remote Warks Road valley."
           },
           {
-            number: 7,
-            name: "Warks WP2 (Water Point 2)",
+            name: "Mile Hill Rd",
+            kind: "highlight",
+            emoji: "🌲",
+            theme: "blue",
+            lat: -35.37946,
+            lon: 148.83769,
+            targetProgress: 0.49,
+            customDistKm: 49.5,
+            tagline: "Descent off Mt. Franklin Rd to Riverside Wilderness",
+            vibe: "Into the Wild",
+            description: "After Bulls Head CP-2, runners leave Mt. Franklin Road to join Mile Hill Road and descend to Warks Road, traversing tranquil riverside wilderness toward Warks WP2.",
+            tip: "Course Highlight: Enjoy the scenic river valley running before the climbs of Marshalls Break."
+          },
+          {
+            name: "WP2: Warks Rd",
+            kind: "aid",
             emoji: "🚰",
             theme: "blue",
-            fxType: "chalice",
             lat: -35.36885,
             lon: 148.83301,
-            targetProgress: 0.60,
+            targetProgress: 0.567,
             customDistKm: 57.2,
-            tagline: "Riverside Wilderness Water Point • FILL BOTTLES!",
-            vibe: "Before Marshalls Break",
-            description: "After traversing pristine riverside wilderness along Warks Road, runners hit Warks WP2. WARNING: Fill every bottle here before entering the blackberry-lined trails and spirit-destroying climbs of Marshalls Break!",
+            tagline: "Water Point 2 • WARNING: Fill Your Bottles Here!",
+            vibe: "Critical Refill",
+            description: "After traversing the riverside wilderness along Warks Road, runners hit Warks WP2. WARNING: Fill your bottles here before entering the exposed trails of Marshalls Break!",
             tip: "CRITICAL WARNING: Do not leave Warks WP2 without full water capacity."
           },
           {
-            number: 8,
-            name: "Wombat Creek CP3",
+            name: "Marshalls Break",
+            kind: "highlight",
+            emoji: "🥀",
+            theme: "pink",
+            lat: -35.33535,
+            lon: 148.84621,
+            targetProgress: 0.659,
+            customDistKm: 66.5,
+            tagline: "Blackberry-Lined Trail & Spirit-Destroying Climbs",
+            vibe: "Spirit Destroyer",
+            description: "Beyond Warks WP2 lies a harsh, exposed section in managed forest featuring blackberry-lined trail and the spirit-destroying climbs of Marshalls Break.",
+            tip: "Course Highlight: Keep your head down and grind—pacers and Wombat Creek CP3 await on the other side."
+          },
+          {
+            name: "CP3: Wombat Creek",
+            kind: "aid",
             emoji: "🦡",
             theme: "gold",
-            fxType: "sparks",
             lat: -35.32446,
             lon: 148.83871,
-            targetProgress: 0.70,
+            targetProgress: 0.684,
             customDistKm: 69.0,
-            tagline: "Aid Station 3 • Brindabella Rd & Pacer Pickup",
+            tagline: "Checkpoint 3 • Brindabella Rd Crossing & Pacer Pickup",
             vibe: "Reinforcements Arrive",
-            description: "Emerging from Marshalls Break to cross Brindabella Road at Wombat Creek CP3, athletes can officially pick up their pacers here to accompany them through the final 31km to the finish.",
-            tip: "Pacer Rule: Pacers may join at Wombat Creek CP3 and continue all the way to Blue Range Hut."
+            description: "Crossing Brindabella Road at Wombat Creek CP3, athletes approach the last big climb to Mt. Coree. Pacers may officially join their athletes here and continue with them until the finish.",
+            tip: "Pacer Rule: Wombat Creek CP3 is the primary pacer pickup point (31.9km remaining to the finish)."
           },
           {
-            number: 9,
-            name: "Mt. Coree Summit (Relic IV)",
+            name: "Mt. Coree (Relic #4)",
+            kind: "highlight",
             emoji: "👑",
             theme: "crimson",
-            fxType: "laurels",
             lat: -35.30608,
             lon: 148.8113,
-            targetProgress: 0.80,
+            targetProgress: 0.784,
             customDistKm: 79.1,
-            tagline: "Final Major Summit (1,410m) • Mystery Object #4",
-            vibe: "All 4 Relics Complete!",
-            description: "The last giant climb of the BTrail! Summiting Mt. Coree at km 79 rewards athletes with their fourth and final Mystery Object. Carry all 4 relics safely to Blue Range Hut for official ratification.",
-            tip: "Relic Protocol: Double-check your pack—losing a single object voids your official placing!"
+            tagline: "Final Big Climb (1,410m) • Collect Relic #4",
+            vibe: "All 4 Objects Complete!",
+            description: "The last big climb of the BTrail! Summiting Mt. Coree at km 79.1 rewards athletes with their fourth and final Relic, which must be carried to the finish line for official ratification.",
+            tip: "Relic Rule: Verify all 4 objects are safely stowed in your pack before descending."
           },
           {
-            number: 10,
-            name: "Coreezy CP4 (Coree Campground)",
+            name: "CP4: Coreezy",
+            kind: "aid",
             emoji: "🔥",
             theme: "pink",
-            fxType: "chalice",
             lat: -35.2826,
             lon: 148.80859,
-            targetProgress: 0.85,
+            targetProgress: 0.832,
             customDistKm: 83.9,
-            tagline: "Aid Station 4 • 4WD Campground Outpost",
-            vibe: "Nightfall on Two Sticks",
-            description: "Dropping off Mt. Coree into Coreezy CP4, runners regroup before tackling the undulating dark forest corridor of Two Sticks Road and Blue Range Road.",
-            tip: "Access Warning: Do not attempt to drive a 2WD vehicle into Coree Campground."
+            tagline: "Checkpoint 4 • Coree Campground (4WD Access Only)",
+            vibe: "Nightfall Outpost",
+            description: "Descending off Mt. Coree into Coreezy CP4, runners can refuel and pick up a pacer before tackling Two Sticks Road and Blue Range Road.",
+            tip: "Access Warning: We recommend not attempting to access Coree campsite with a 2WD vehicle."
           },
           {
-            number: 11,
-            name: "Knife Point CP5",
+            name: "CP5: Knife Point",
+            kind: "aid",
             emoji: "🗡️",
             theme: "crimson",
-            fxType: "daggers",
             lat: -35.28213,
             lon: 148.85392,
-            targetProgress: 0.915,
+            targetProgress: 0.91,
             customDistKm: 91.8,
-            tagline: "Final Aid Station • Compulsory Night Buddy Rule",
-            vibe: "Into Genges & Slippery Dip",
-            description: "The final checkpoint at km 91.8! All after-dark departures from Knife Point CP must be accompanied by either a pacer or another athlete for the descent down Genges Trail and the Slippery Dip.",
-            tip: "Safety Decree: Mandatory pacer or fellow runner companionship from Knife Point after dark."
+            tagline: "Checkpoint 5 • Final Aid Station & Night Buddy Rule",
+            vibe: "Final Checkpoint",
+            description: "The final checkpoint at km 91.8! After-dark departures from Knife Point CP5 must be accompanied either by a pacer or another athlete for the final descent.",
+            tip: "Safety Decree: Mandatory pacer or fellow athlete companionship from Knife Point CP after dark."
           },
           {
-            number: 12,
-            name: "Finish: Blue Range Hut",
+            name: "The Slippery Dip",
+            kind: "highlight",
+            emoji: "⚠️",
+            theme: "blue",
+            lat: -35.26534,
+            lon: 148.87708,
+            targetProgress: 0.935,
+            customDistKm: 94.3,
+            tagline: "Steep Final Section Descent & Rutted Chute",
+            vibe: "Tread Carefully",
+            description: "The final section after Knife Point CP includes the steep Genges Trail descent and the infamous rutted chute known as the Slippery Dip onto Radiata Trail and Dead Horse Gate Road.",
+            tip: "Course Highlight: All athletes must take particular care on the Slippery Dip descent, especially at night."
+          },
+          {
+            name: "Finish: BRH",
+            kind: "endpoint",
             emoji: "🏛️",
             theme: "gold",
-            fxType: "laurels",
             lat: -35.28918,
             lon: 148.87574,
             targetProgress: 1.0,
             customDistKm: 100.9,
-            tagline: "100km Finish Line & Ratification of the 4 Relics",
+            tagline: "100km Finish Line • Present All 4 Relics",
             vibe: "Immortal Mediocrity",
-            description: "Cross the line at Blue Range Hut before the midnight (20-hour) cut-off and present your complete set of 4 Mystery Objects to race officials to ratify your place in BTrail history!",
-            tip: "Senate Ratification: Present all 4 summit objects to the timekeepers at the hut fire pit."
+            description: "Cross the finish line at Blue Range Hut before the midnight (20-hour) cut-off and display your full collection of 4 Relics to race officials to have your finishing place officially ratified!",
+            tip: "Finish Ratification: Without all 4 summit objects, your time is recorded but your place is not recognised."
           }
         ]
       },
@@ -705,124 +753,111 @@
         officialGainM: 680,
         fallbackPoints: FALLBACK_KNIFE14,
         cardinals: [
-          { label: "N • GENGES DESCENT", x: 0, z: -1.35, color: "#FEDD00" },
-          { label: "S • BLUE RANGE START", x: 0, z: 1.35, color: "#DC143C" },
-          { label: "E • SLIPPERY DIP", x: 1.35, z: 0, color: "#009CDE" },
-          { label: "W • KNIFE POINT CP", x: -1.35, z: 0, color: "#FF3EB5" }
+          { label: "N • GENGES DESCENT", x: 0, z: -1.35, color: "#180d14" },
+          { label: "S • BLUE RANGE START", x: 0, z: 1.35, color: "#9e0b28" },
+          { label: "E • SLIPPERY DIP", x: 1.35, z: 0, color: "#005a87" },
+          { label: "W • KNIFE POINT CP", x: -1.35, z: 0, color: "#9c0b5e" }
         ],
         eleGridMarks: [800, 1000, 1200],
         kmStep: 2,
-        chaosButtons: [
-          { id: "daggers", icon: "🔪", label: "Draw The Knife" },
-          { id: "footwash", icon: "🫐", label: "Blackberry Thorns" },
-          { id: "laurels", icon: "🫁", label: "Lung Piercer" },
-          { id: "topdown", icon: "🦅", label: "Eagle View" }
-        ],
         locations: [
           {
-            number: 1,
-            name: "Start: Blue Range Hut",
+            name: "Start/Finish: Blue Range Hut",
+            kind: "endpoint",
             emoji: "🗡️",
             theme: "crimson",
-            fxType: "daggers",
             lat: -35.28956,
             lon: 148.8757,
             targetProgress: 0.0,
             customDistKm: 0.0,
             tagline: "9:00 AM Start • Blue Range Road",
             vibe: "Short, Sharp & Brutal",
-            description: "At 9:00 AM, The Knife 14km unleashes runners west along Blue Range Road for a mediocre serve of wild radiata pine forest, blackberry brambles, and 680m of concentrated vertical pain.",
-            tip: "Senate Decree: 4-hour cut-off (13:00)—don't let the 14km distance fool you."
+            description: "At 9:00 AM, The Knife 14km unleashes runners west on Blue Range Road for 14km of dirt track with 680m of accumulated elevation pain through wild radiata pine forest and blackberry.",
+            tip: "Start Decree: 4-hour cut-off (13:00)—don't let the 14km distance fool you."
           },
           {
-            number: 2,
             name: "Poo Bear Corner",
+            kind: "highlight",
             emoji: "🐻",
             theme: "pink",
-            fxType: "sparks",
             lat: -35.28674,
             lon: 148.86756,
             targetProgress: 0.06,
             customDistKm: 0.9,
             tagline: "A Turn for the Worst off Blue Range Road",
             vibe: "Plot Twist #1",
-            description: "Barely a kilometre into the race, runners make a turn for the worst at Poo Bear Corner, where the course screws and pinches onto a sharp left into the pines.",
-            tip: "Conspirator Intel: Shift into low gear—the Lung Piercer begins right around the bend."
+            description: "Heading west on Blue Range Road, runners make a turn for the worst at Poo Bear Corner, where the course screws then pinches on a sharp left into the pines.",
+            tip: "Course Highlight: Shift into low gear—the Lung Piercer begins right after the pinch."
           },
           {
-            number: 3,
-            name: "The Lung Piercer",
+            name: "The Lung Piercer Climb",
+            kind: "highlight",
             emoji: "🫁",
             theme: "crimson",
-            fxType: "daggers",
             lat: -35.28129,
             lon: 148.85923,
             targetProgress: 0.24,
             customDistKm: 4.0,
-            tagline: "Relentless Forest Pinch Climb (+450m)",
+            tagline: "Relentless Pine & Blackberry Climb to Blue Range Rd",
             vibe: "Maximum Heart Rate",
-            description: "After an eternity of steep grinding through radiata pine and blackberry, the Lung Piercer finally rejoins Blue Range Road—only for the road itself to keep climbing toward Knife Point.",
-            tip: "Conspirator Intel: Power-hike the steepest pitches and save your legs for the Genges plunge."
+            description: "After an eternity of steep grinding through wild radiata pine and blackberry, the Lung Piercer finally rejoins Blue Range Road, which continues to climb all the way to Knife Point.",
+            tip: "Course Highlight: Pace the steepest pitches so you still have legs for the Genges descent."
           },
           {
-            number: 4,
-            name: "Knife Point Aid Station (CP1)",
+            name: "CP1: Knife Point",
+            kind: "aid",
             emoji: "🔪",
             theme: "gold",
-            fxType: "laurels",
-            lat: -35.27951,
-            lon: 148.85477,
-            targetProgress: 0.38,
-            customDistKm: 5.7,
-            tagline: "Main Aid Station & 1,241m Peak of the Blade",
+            lat: -35.28287,
+            lon: 148.8532,
+            targetProgress: 0.344,
+            customDistKm: 4.9,
+            tagline: "Checkpoint 1 • 1,241m Apex & Genges Turnoff",
             vibe: "Refuse to Surrender",
-            description: "Perched at the 1,241m apex of the course, Knife Point Aid Station welcomes survivors of the Lung Piercer. Those who refuse to surrender here are grimly directed onto the Genges Trail descent.",
-            tip: "Aid Station Lore: Grab sports drink and snacks before merging with the BRuTUS and BTrail courses."
+            description: "Perched at the 1,241m high point of the course, Knife Point Aid Station (CP1) welcomes survivors of the Lung Piercer. Runners who refuse to surrender are grimly directed to the Genges Trail descent.",
+            tip: "Aid Station Intel: Grab sports drink and snacks before merging with the BRuTUS and BTrail courses."
           },
           {
-            number: 5,
-            name: "Genges Trail & Slippery Dip",
+            name: "Genges Trail Descent",
+            kind: "highlight",
             emoji: "⚡",
             theme: "blue",
-            fxType: "chalice",
+            lat: -35.26843,
+            lon: 148.86268,
+            targetProgress: 0.53,
+            customDistKm: 7.5,
+            tagline: "Fast Plunge Joining the BRuTUS & BTrail Courses",
+            vibe: "Gravity Check",
+            description: "Here The Knife joins the BRuTUS and BTrail courses. If the Lung Piercer felt like something you hadn't prepared for, then at least the steep descent down Genges Trail shouldn't surprise you.",
+            tip: "Course Highlight: Keep your cadence quick and watch for the sudden turn off Genges Trail."
+          },
+          {
+            name: "The Slippery Dip",
+            kind: "highlight",
+            emoji: "⚠️",
+            theme: "pink",
             lat: -35.26494,
             lon: 148.87714,
-            targetProgress: 0.65,
-            customDistKm: 9.0,
-            tagline: "470m Plunge & Rutted Chute to Radiata Trail",
-            vibe: "Quad Guillotine",
-            description: "If the Lung Piercer felt like something you hadn't prepared for, at least the Genges Trail descent and the rutted Slippery Dip shouldn't surprise you!",
-            tip: "Conspirator Intel: When Genges Trail flattens out and looks easy ahead... that's not where you're going."
+            targetProgress: 0.583,
+            customDistKm: 8.3,
+            tagline: "Where Genges Flattens Out... That's Not Where You're Going",
+            vibe: "Controlled Chaos",
+            description: "Eventually Genges Trail flattens out and the route ahead looks like an easy run—but that's not where you're going! Runners plunge down the rutted Slippery Dip onto Radiata Trail.",
+            tip: "Course Highlight: Take care on the steep ruts before turning south onto Dead Horse Gate Road."
           },
           {
-            number: 6,
-            name: "Dead Horse Gate Road Twist",
+            name: "Dead Horse Gate Rd",
+            kind: "highlight",
             emoji: "🐴",
-            theme: "pink",
-            fxType: "sparks",
-            lat: -35.27901,
-            lon: 148.87162,
-            targetProgress: 0.85,
-            customDistKm: 11.6,
-            tagline: "The Final Backstab Climb Home",
-            vibe: "One Last Twist",
-            description: "Just when you think it's a flat cruise back to the hut, the course twists south up Dead Horse Gate Road for a final sting in the tail through classic GUMBY territory.",
-            tip: "Conspirator Intel: Crest the rise at 858m and it's a fast roll home to Blue Range Hut."
-          },
-          {
-            number: 7,
-            name: "Finish: Blue Range Hut",
-            emoji: "🏆",
             theme: "gold",
-            fxType: "laurels",
-            lat: -35.28953,
-            lon: 148.87571,
-            targetProgress: 1.0,
-            customDistKm: 14.23,
-            tagline: "Finish Line • Blue Range Hut",
-            vibe: "Survived The Knife!",
-            description: "Charge down the final chute into Blue Range Hut! Presentations for The Knife take place around 12:00 PM (+/- 15 mins) before the 13:00 cut-off.",
-            tip: "Post-Race Glory: Cheer in the 60km BRuTUS and 100km BTrail warriors throughout the afternoon."
+            lat: -35.27537,
+            lon: 148.87172,
+            targetProgress: 0.731,
+            customDistKm: 10.4,
+            tagline: "Final Climb South Back Toward Blue Range Rd",
+            vibe: "One Last Twist",
+            description: "Heading south along Dead Horse Gate Road delivers one last sustained climb back up to 858m before rejoining Blue Range Road for the fast roll home.",
+            tip: "Course Highlight: Crest the rise at 858m and let gravity carry you back to the hut."
           }
         ]
       }
@@ -842,7 +877,7 @@
       return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     }
 
-    // Crimson -> Tyrian Pink -> Laurel Gold color ramp for 3D elevation ribbon
+    // Crimson -> Tyrian Pink -> Metallic Purple color ramp for 3D elevation ribbon
     function getCrimsonCourseColor(t) {
       const clamped = Math.max(0, Math.min(1, t));
       if (clamped < 0.5) {
@@ -853,16 +888,15 @@
         return `rgb(${r}, ${g}, ${b})`;
       } else {
         const u = (clamped - 0.5) * 2;
-        const r = Math.round(255 + u * (254 - 255));
-        const g = Math.round(62 + u * (221 - 62));
-        const b = Math.round(181 + u * (0 - 181));
+        const r = Math.round(255 + u * (147 - 255));
+        const g = Math.round(62 + u * (51 - 62));
+        const b = Math.round(181 + u * (234 - 181));
         return `rgb(${r}, ${g}, ${b})`;
       }
     }
 
-    // Store active map instances so global micro-interactions can trigger across all 3 maps
+    // Store active map instances
     const mapInstances = [];
-    let globalStabCount = 0;
 
     function createCourseMapInstance(cfg) {
       const root = document.getElementById(cfg.containerId);
@@ -877,25 +911,12 @@
 
             <!-- Top HUD inside 3D Viewport -->
             <div class="viewport-hud-top">
-              <div class="hud-badge-group">
-                <div class="hud-instruction-pill">
-                  <kbd>DRAG</kbd> Spin &amp; Tilt 3D &bull; <kbd>SCROLL</kbd> Zoom &bull; <kbd>CLICK TAG</kbd> Aid Station Intel
-                </div>
-                <div class="hud-mobile-instruction-pill">
-                  Select map sectors 1&ndash;${cfg.locations.length} for aid station &amp; course intel
-                </div>
-                <div class="gpx-status-badge">
-                  <span class="status-pulse"></span>
-                  <span class="js-gpx-status-text">GPX Telemetry Active: ${cfg.gpxFile}</span>
-                </div>
-              </div>
-
               <div class="hud-controls">
                 <button type="button" class="hud-btn is-active js-btn-auto-spin" title="Toggle continuous 3D orbital spin">
                   <span>&#x1F300;</span> Auto-Spin
                 </button>
-                <button type="button" class="hud-btn btn-gold js-btn-direction" title="Toggle LIVE Conspirator Ghost Runner direction">
-                  <span>&#x1F504;</span> <span class="js-direction-label">Runner: Forward</span>
+                <button type="button" class="hud-btn btn-gold js-btn-layer" aria-pressed="false" title="Toggle between showing Aid Stations (CP / WP-) and Course Highlights">
+                  <span class="js-layer-icon">&#x26FA;</span> <span class="js-layer-label">Aid Stations</span>
                 </button>
                 <button type="button" class="hud-btn is-active js-btn-runner-toggle" title="Stop or Go toggle for the LIVE Ghost Runner">
                   <span class="js-runner-toggle-icon">&#x25B6;&#xFE0F;</span> <span class="js-runner-toggle-label">Runner: Go</span>
@@ -967,7 +988,7 @@
               <div class="elevation-title">
                 <span>&#x1F5E1;&#xFE0F;</span> ${cfg.title} &mdash; 3D-Linked Blade Profile (Scrub or Click)
               </div>
-              <span class="elevation-hint">Hover to project telemetry beacon in 3D &bull; Click a marker to inspect Aid Station</span>
+              <span class="elevation-hint">Hover to project telemetry beacon in 3D &bull; Click near a marker to spin the map to it</span>
             </div>
             <div class="elevation-canvas-wrap">
               <canvas class="elevation-canvas"></canvas>
@@ -975,32 +996,14 @@
           </section>
         </div>
 
-        <!-- RIGHT COLUMN: AID STATIONS DIRECTORY & CAESAR BETRAYAL SOUNDBOARD -->
+        <!-- RIGHT COLUMN: SECTOR DIRECTORY (AID STATIONS OR COURSE HIGHLIGHTS) -->
         <aside class="sidebar-column">
-          <section class="explorer-card" aria-label="${cfg.title} Key Locations &amp; Aid Stations">
+          <section class="explorer-card" aria-label="${cfg.title} Map Sectors">
             <div class="explorer-header">
-              <h3>Aid Stations &amp; Checkpoints</h3>
-              <span class="explorer-count">${cfg.locations.length} SECTORS</span>
+              <h3 class="js-explorer-title">Aid Stations (CP- / WP-)</h3>
+              <span class="explorer-count js-explorer-count">0 SECTORS</span>
             </div>
             <div class="landmark-list js-landmark-list"></div>
-          </section>
-
-          <section class="fun-board-card" aria-label="${cfg.title} Betrayal Micro-Interactions">
-            <h3>&#x1F3AD; Senate Drama &amp; Chaos</h3>
-            <div class="fun-btn-grid">
-              <button type="button" class="fun-action-btn js-fx-daggers">
-                <span>${cfg.chaosButtons[0].icon}</span> ${cfg.chaosButtons[0].label}
-              </button>
-              <button type="button" class="fun-action-btn js-fx-footwash">
-                <span>${cfg.chaosButtons[1].icon}</span> ${cfg.chaosButtons[1].label}
-              </button>
-              <button type="button" class="fun-action-btn js-fx-laurels">
-                <span>${cfg.chaosButtons[2].icon}</span> ${cfg.chaosButtons[2].label}
-              </button>
-              <button type="button" class="fun-action-btn js-fx-topdown">
-                <span>${cfg.chaosButtons[3].icon}</span> ${cfg.chaosButtons[3].label}
-              </button>
-            </div>
           </section>
         </aside>
       `;
@@ -1012,7 +1015,6 @@
       const eleCanvas = root.querySelector(".elevation-canvas");
       const ctxEle = eleCanvas.getContext("2d");
       const landmarkListEl = root.querySelector(".js-landmark-list");
-      const statusTextEl = root.querySelector(".js-gpx-status-text");
 
       const popupEl = root.querySelector(".location-popup");
       const popupBadge = root.querySelector(".js-popup-badge");
@@ -1030,8 +1032,11 @@
       const telemetryModeEl = root.querySelector(".js-telemetry-mode");
 
       const btnAutoSpin = root.querySelector(".js-btn-auto-spin");
-      const btnDirection = root.querySelector(".js-btn-direction");
-      const dirLabel = root.querySelector(".js-direction-label");
+      const btnLayer = root.querySelector(".js-btn-layer");
+      const layerIcon = root.querySelector(".js-layer-icon");
+      const layerLabel = root.querySelector(".js-layer-label");
+      const explorerTitleEl = root.querySelector(".js-explorer-title");
+      const explorerCountEl = root.querySelector(".js-explorer-count");
       const btnRunnerToggle = root.querySelector(".js-btn-runner-toggle");
       const runnerToggleIcon = root.querySelector(".js-runner-toggle-icon");
       const runnerToggleLabel = root.querySelector(".js-runner-toggle-label");
@@ -1057,17 +1062,100 @@
         dragStartY: 0,
         autoSpin: true,
         eleScale: 3.2,
-        forwardDirection: true,
+        layer: "aid", // "aid" = Aid Stations (CP- / WP-), "highlight" = Course Highlights
         runnerRunning: true,
         runnerProgress: 0.0,
         hoverIndex: -1,
-        selectedLocationIdx: 0,
-        particles: [],
-        pulseRings: []
+        selectedLocationIdx: -1 // off by default; opens only when a sector pill on the map is clicked
       };
 
       const tagElements = [];
       const sidebarButtons = [];
+
+      // Aid stations include Checkpoints (CP-) and Waterpoints (WP-); Course highlights are everything else
+      function getLocationKind(loc) {
+        if (loc.kind) return loc.kind;
+        if (/^(Start|Finish):/i.test(loc.name)) return "endpoint";
+        if (/\b(CP-?\d+|WP-?\d+)\b|Aid Station|Water Point/i.test(loc.name)) return "aid";
+        return "highlight";
+      }
+
+      // 3D map pins show Start/Finish plus the active toggle layer
+      function isLocationVisibleOnMap(loc) {
+        const kind = getLocationKind(loc);
+        return kind === "endpoint" || kind === state.layer;
+      }
+
+      // Side panel sector list strictly filters between Aid Stations (CP- / WP-) and Course Highlights
+      function isLocationInSidebar(loc) {
+        const kind = getLocationKind(loc);
+        return kind === state.layer;
+      }
+
+      function getVisibleMapIndices() {
+        const out = [];
+        cfg.locations.forEach((loc, idx) => {
+          if (isLocationVisibleOnMap(loc)) out.push(idx);
+        });
+        return out;
+      }
+
+      // Filter the 3D map tags and side panel sector list according to the active toggle state
+      function applyLayer() {
+        const isAid = state.layer === "aid";
+        layerIcon.textContent = isAid ? "⛺" : "🏔️";
+        layerLabel.textContent = isAid ? "Aid Stations" : "Course Highlights";
+        btnLayer.classList.toggle("is-active", !isAid);
+        btnLayer.setAttribute("aria-pressed", String(!isAid));
+        explorerTitleEl.textContent = isAid
+          ? "Aid Stations (CP- & WP-)"
+          : "Course Highlights";
+
+        let sidebarNum = 0;
+        cfg.locations.forEach((loc, idx) => {
+          const kind = getLocationKind(loc);
+          const showOnMap = isLocationVisibleOnMap(loc);
+          const showInList = isLocationInSidebar(loc);
+
+          let badgeLabel = "";
+          if (showInList) {
+            sidebarNum += 1;
+            badgeLabel = String(sidebarNum);
+            loc.displayNumber = sidebarNum;
+          } else if (kind === "endpoint") {
+            badgeLabel = /^Start/i.test(loc.name) ? "S" : "F";
+            loc.displayNumber = badgeLabel;
+          } else {
+            loc.displayNumber = null;
+          }
+
+          const tagEl = tagElements[idx];
+          const itemEl = sidebarButtons[idx];
+          if (tagEl) {
+            tagEl.hidden = !showOnMap;
+            tagEl.style.display = showOnMap ? "" : "none";
+            tagEl.querySelector(".tag-num").textContent = badgeLabel;
+          }
+          if (itemEl) {
+            itemEl.hidden = !showInList;
+            itemEl.style.display = showInList ? "" : "none";
+            itemEl.querySelector(".landmark-index").textContent = showInList ? String(sidebarNum) : "";
+          }
+        });
+        explorerCountEl.textContent = isAid
+          ? `${sidebarNum} AID STATION${sidebarNum === 1 ? "" : "S"}`
+          : `${sidebarNum} HIGHLIGHT${sidebarNum === 1 ? "" : "S"}`;
+
+        // Close any open sector info box if its sector is hidden in the newly selected layer
+        const sel = cfg.locations[state.selectedLocationIdx];
+        if (!sel || !isLocationVisibleOnMap(sel)) {
+          state.selectedLocationIdx = -1;
+          popupEl.hidden = true;
+          tagElements.forEach((el) => el.classList.remove("is-selected"));
+          sidebarButtons.forEach((el) => el.classList.remove("is-active"));
+        }
+        drawElevationProfile();
+      }
 
       function buildTrackModel(rawPoints) {
         let minLat = Infinity, maxLat = -Infinity;
@@ -1131,14 +1219,18 @@
         state.maxEle = maxEle;
         state.totalDistanceKm = cfg.officialDistKm;
 
-        // Snap each location to its closest GPX track point near its targetProgress
+        // Snap each location to the GPX track point matching its course distance (customDistKm)
         cfg.locations.forEach((loc, idx) => {
-          if (idx === 0) {
+          if (idx === 0 && (loc.customDistKm == null || loc.customDistKm === 0)) {
             loc.pointIdx = 0;
             loc.point = processed[0];
             return;
           }
-          if (idx === cfg.locations.length - 1) {
+          if (
+            idx === cfg.locations.length - 1 &&
+            loc.customDistKm != null &&
+            Math.abs(loc.customDistKm - cfg.officialDistKm) < 0.25
+          ) {
             loc.pointIdx = processed.length - 1;
             loc.point = processed[processed.length - 1];
             return;
@@ -1146,9 +1238,11 @@
           let bestIdx = 0;
           let bestScore = Infinity;
           processed.forEach((pt, pIdx) => {
-            const dGeo = Math.hypot(pt.lat - loc.lat, pt.lon - loc.lon);
-            const dProg = Math.abs(pt.progress - loc.targetProgress) * 0.04;
-            const score = dGeo + dProg;
+            const score =
+              loc.customDistKm != null
+                ? Math.abs(pt.distKm - loc.customDistKm)
+                : Math.hypot(pt.lat - loc.lat, pt.lon - loc.lon) +
+                Math.abs(pt.progress - loc.targetProgress) * 0.04;
             if (score < bestScore) {
               bestScore = score;
               bestIdx = pIdx;
@@ -1189,12 +1283,11 @@
               parseFloat(lastPt.querySelector("ele")?.textContent || "750")
             ]);
             buildTrackModel(parsedPoints);
-            statusTextEl.textContent = `Live GPX Loaded: ${cfg.gpxFile} (${trkpts.length.toLocaleString()} pts)`;
             initLocationsUI();
             drawElevationProfile();
           }
         } catch (_) {
-          statusTextEl.textContent = `GPX Telemetry Active: ${cfg.gpxFile} (${cfg.officialDistKm} km)`;
+          // Embedded fallback points remain active
         }
       }
 
@@ -1210,13 +1303,14 @@
           tagBtn.className = "course-tag-3d";
           tagBtn.dataset.theme = loc.theme;
           tagBtn.innerHTML = `
-            <span class="tag-num">${loc.number}</span>
+            <span class="tag-num"></span>
             <span class="tag-emoji">${loc.emoji}</span>
             <span class="tag-label">${loc.name}</span>
           `;
+          // Clicking a sector pill on the map is the only way to open its information box
           tagBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            selectLocation(idx, true);
+            selectLocation(idx, true, true);
           });
           tagsOverlay.appendChild(tagBtn);
           tagElements.push(tagBtn);
@@ -1227,19 +1321,24 @@
           const eleVal = loc.point ? Math.round(loc.point.ele) : 800;
           const distVal = (loc.customDistKm ?? (loc.point ? loc.point.distKm : 0)).toFixed(1);
           itemBtn.innerHTML = `
-            <span class="landmark-index">${loc.number}</span>
+            <span class="landmark-index"></span>
             <span class="landmark-info">
               <span class="landmark-name">${loc.emoji} ${loc.name}</span>
               <span class="landmark-sub">KM ${distVal} &bull; ${loc.tagline}</span>
             </span>
             <span class="landmark-ele-badge">${eleVal}m</span>
           `;
+          // List items spin the map to the sector and highlight its pill, without opening the info box
           itemBtn.addEventListener("click", () => {
-            selectLocation(idx, true);
+            selectLocation(idx, true, false);
           });
           landmarkListEl.appendChild(itemBtn);
           sidebarButtons.push(itemBtn);
         });
+
+        applyLayer();
+        tagElements.forEach((el, i) => el.classList.toggle("is-selected", i === state.selectedLocationIdx));
+        sidebarButtons.forEach((el, i) => el.classList.toggle("is-active", i === state.selectedLocationIdx));
       }
 
       function project3D(wx, wy, wz, width, height) {
@@ -1267,64 +1366,33 @@
         };
       }
 
-      function spawnLocationParticles(wx, wy, wz, fxType) {
-        state.pulseRings.push({
-          wx,
-          wy: 0,
-          wz,
-          radius: 0.02,
-          alpha: 1.0,
-          color: fxType === "daggers" ? "#DC143C" : fxType === "laurels" ? "#FEDD00" : "#009CDE"
-        });
-
-        const palette = {
-          daggers: ["#DC143C", "#FF1E42", "#FEDD00", "#ffffff"],
-          laurels: ["#FEDD00", "#DC143C", "#FF3EB5", "#ffffff"],
-          chalice: ["#009CDE", "#FEDD00", "#DC143C"],
-          sparks: ["#FEDD00", "#FF3EB5", "#DC143C"]
-        };
-        const colors = palette[fxType] || palette.daggers;
-
-        for (let i = 0; i < 28; i++) {
-          const angle = Math.random() * Math.PI * 2;
-          const speed = 0.004 + Math.random() * 0.014;
-          state.particles.push({
-            wx,
-            wy: wy + 0.02,
-            wz,
-            vx: Math.cos(angle) * speed,
-            vy: 0.008 + Math.random() * 0.016,
-            vz: Math.sin(angle) * speed,
-            gravity: 0.00042,
-            size: 3 + Math.random() * 4.2,
-            color: colors[i % colors.length],
-            life: 1.0,
-            decay: 0.016 + Math.random() * 0.014
-          });
-        }
-      }
-
-      function selectLocation(idx, focusCamera = true) {
+      // showPopup is only true when the user clicks a sector pill on the map (or steps with Prev/Next inside an open box)
+      function selectLocation(idx, focusCamera = true, showPopup = false) {
         const normalizedIdx = (idx + cfg.locations.length) % cfg.locations.length;
-        state.selectedLocationIdx = normalizedIdx;
         const loc = cfg.locations[normalizedIdx];
+        if (!loc || !isLocationVisibleOnMap(loc)) return;
+        state.selectedLocationIdx = normalizedIdx;
         const pt = loc.point || state.points[0];
 
         tagElements.forEach((el, i) => el.classList.toggle("is-selected", i === normalizedIdx));
         sidebarButtons.forEach((el, i) => el.classList.toggle("is-active", i === normalizedIdx));
 
-        popupBadge.textContent = `SECTOR ${String(loc.number).padStart(2, "0")} • ${loc.emoji}`;
-        popupTitle.textContent = loc.name;
-        popupTagline.textContent = loc.tagline;
-        popupDist.textContent = `${(loc.customDistKm ?? pt.distKm).toFixed(1)} km`;
-        popupEle.textContent = `${Math.round(pt.ele)} m`;
-        popupVibe.textContent = loc.vibe;
-        popupDesc.textContent = loc.description;
-        popupTip.textContent = loc.tip;
-        popupEl.hidden = false;
-
-        const wy = pt.nele * 0.11 * state.eleScale;
-        spawnLocationParticles(pt.nx, wy, pt.nz, loc.fxType);
+        if (showPopup) {
+          const kind = getLocationKind(loc);
+          const badgePrefix =
+            kind === "endpoint"
+              ? "START / FINISH"
+              : `SECTOR ${String(loc.displayNumber || 0).padStart(2, "0")}`;
+          popupBadge.textContent = `${badgePrefix} • ${loc.emoji}`;
+          popupTitle.textContent = loc.name;
+          popupTagline.textContent = loc.tagline;
+          popupDist.textContent = `${(loc.customDistKm ?? pt.distKm).toFixed(1)} km`;
+          popupEle.textContent = `${Math.round(pt.ele)} m`;
+          popupVibe.textContent = loc.vibe;
+          popupDesc.textContent = loc.description;
+          popupTip.textContent = loc.tip;
+          popupEl.hidden = false;
+        }
 
         if (focusCamera) {
           state.autoSpin = false;
@@ -1363,10 +1431,10 @@
         const plotW = width - padL - padR;
         const plotH = height - padT - padB;
 
-        ctxEle.strokeStyle = "rgba(255, 255, 255, 0.08)";
+        ctxEle.strokeStyle = "rgba(28, 18, 24, 0.16)";
         ctxEle.lineWidth = 1;
-        ctxEle.font = "600 10px Poppins, sans-serif";
-        ctxEle.fillStyle = "#cbd5e1";
+        ctxEle.font = "700 10.5px Poppins, sans-serif";
+        ctxEle.fillStyle = "#1e141b";
 
         cfg.eleGridMarks.forEach((eleMark) => {
           const norm = (eleMark - state.minEle) / Math.max(1, state.maxEle - state.minEle);
@@ -1380,9 +1448,9 @@
         });
 
         const grad = ctxEle.createLinearGradient(padL, padT, padL, padT + plotH);
-        grad.addColorStop(0, "rgba(220, 20, 60, 0.55)");
-        grad.addColorStop(0.55, "rgba(255, 62, 181, 0.25)");
-        grad.addColorStop(1, "rgba(220, 20, 60, 0.03)");
+        grad.addColorStop(0, "rgba(220, 20, 60, 0.52)");
+        grad.addColorStop(0.55, "rgba(255, 62, 181, 0.24)");
+        grad.addColorStop(1, "rgba(220, 20, 60, 0.04)");
 
         ctxEle.beginPath();
         state.points.forEach((pt, idx) => {
@@ -1399,8 +1467,8 @@
 
         const strokeGrad = ctxEle.createLinearGradient(padL, 0, padL + plotW, 0);
         strokeGrad.addColorStop(0, "#DC143C");
-        strokeGrad.addColorStop(0.5, "#FEDD00");
-        strokeGrad.addColorStop(0.8, "#FF3EB5");
+        strokeGrad.addColorStop(0.5, "#9e0b28");
+        strokeGrad.addColorStop(0.8, "#c8146e");
         strokeGrad.addColorStop(1, "#DC143C");
 
         ctxEle.beginPath();
@@ -1416,19 +1484,20 @@
 
         for (let km = 0; km <= state.totalDistanceKm; km += cfg.kmStep) {
           const x = padL + (km / state.totalDistanceKm) * plotW;
-          ctxEle.fillStyle = "#cbd5e1";
+          ctxEle.fillStyle = "#1e141b";
           ctxEle.fillText(`${km}km`, x - 12, height - 6);
         }
 
         cfg.locations.forEach((loc, idx) => {
-          if (!loc.point) return;
-          const x = padL + (loc.point.distKm / state.totalDistanceKm) * plotW;
+          if (!loc.point || !isLocationVisibleOnMap(loc)) return;
+          const distKm = loc.customDistKm ?? loc.point.distKm;
+          const x = padL + (distKm / state.totalDistanceKm) * plotW;
           const y = padT + plotH * (1 - loc.point.nele);
           const isSel = idx === state.selectedLocationIdx;
 
           ctxEle.beginPath();
           ctxEle.arc(x, y, isSel ? 6 : 4, 0, Math.PI * 2);
-          ctxEle.fillStyle = isSel ? "#FEDD00" : "#DC143C";
+          ctxEle.fillStyle = isSel ? "#A855F7" : "#DC143C";
           ctxEle.fill();
           ctxEle.lineWidth = 1.5;
           ctxEle.strokeStyle = "#09060a";
@@ -1447,7 +1516,7 @@
           ctxEle.beginPath();
           ctxEle.moveTo(rx, padT);
           ctxEle.lineTo(rx, padT + plotH);
-          ctxEle.strokeStyle = "rgba(254, 221, 0, 0.7)";
+          ctxEle.strokeStyle = "rgba(158, 11, 40, 0.78)";
           ctxEle.lineWidth = 1.5;
           ctxEle.stroke();
 
@@ -1456,7 +1525,7 @@
           ctxEle.fillStyle = "#DC143C";
           ctxEle.fill();
           ctxEle.lineWidth = 2;
-          ctxEle.strokeStyle = "#FEDD00";
+          ctxEle.strokeStyle = "#A855F7";
           ctxEle.stroke();
         }
       }
@@ -1482,14 +1551,14 @@
         const targetPanX = !popupEl.hidden && width > 720 ? -Math.min(185, width * 0.18) : 0;
         state.panX += (targetPanX - state.panX) * 0.085;
 
-        // 1. Roman Senate 3D Base Grid & Compass Ring
+        // 1. 3D Base Grid & Compass Labels
         ctx3d.lineWidth = 1;
         const gridSteps = 6;
         for (let i = -gridSteps; i <= gridSteps; i++) {
           const g = (i / gridSteps) * 1.25;
           const p1 = project3D(-1.25, 0, g, width, height);
           const p2 = project3D(1.25, 0, g, width, height);
-          ctx3d.strokeStyle = i === 0 ? "rgba(220, 20, 60, 0.34)" : "rgba(255, 255, 255, 0.055)";
+          ctx3d.strokeStyle = i === 0 ? "rgba(180, 14, 48, 0.48)" : "rgba(28, 18, 24, 0.16)";
           ctx3d.beginPath();
           ctx3d.moveTo(p1.x, p1.y);
           ctx3d.lineTo(p2.x, p2.y);
@@ -1507,6 +1576,9 @@
         ctx3d.textAlign = "center";
         cfg.cardinals.forEach((c) => {
           const cp = project3D(c.x, 0, c.z, width, height);
+          ctx3d.strokeStyle = "rgba(255, 255, 255, 0.85)";
+          ctx3d.lineWidth = 3;
+          ctx3d.strokeText(c.label, cp.x, cp.y);
           ctx3d.fillStyle = c.color;
           ctx3d.fillText(c.label, cp.x, cp.y);
         });
@@ -1553,7 +1625,7 @@
             ctx3d.beginPath();
             ctx3d.moveTo(curr.base.x, curr.base.y);
             ctx3d.lineTo(curr.top.x, curr.top.y);
-            ctx3d.strokeStyle = "rgba(254, 221, 0, 0.13)";
+            ctx3d.strokeStyle = "rgba(139, 10, 36, 0.22)";
             ctx3d.lineWidth = 1;
             ctx3d.stroke();
           }
@@ -1584,50 +1656,25 @@
         ctx3d.lineWidth = 1.5;
         ctx3d.stroke();
 
-        // 6. Shockwave Rings on Baseplate
-        for (let i = state.pulseRings.length - 1; i >= 0; i--) {
-          const ring = state.pulseRings[i];
-          ring.radius += 0.008;
-          ring.alpha -= 0.022;
-          if (ring.alpha <= 0) {
-            state.pulseRings.splice(i, 1);
-            continue;
-          }
-          ctx3d.beginPath();
-          const segs = 28;
-          for (let s = 0; s <= segs; s++) {
-            const a = (s / segs) * Math.PI * 2;
-            const rx = ring.wx + Math.cos(a) * ring.radius;
-            const rz = ring.wz + Math.sin(a) * ring.radius;
-            const rp = project3D(rx, 0.005, rz, width, height);
-            if (s === 0) ctx3d.moveTo(rp.x, rp.y);
-            else ctx3d.lineTo(rp.x, rp.y);
-          }
-          ctx3d.strokeStyle = ring.color;
-          ctx3d.globalAlpha = Math.max(0, ring.alpha);
-          ctx3d.lineWidth = 2.5;
-          ctx3d.stroke();
-          ctx3d.globalAlpha = 1;
-        }
-
-        // 7. Update & Position Floating 3D Landmark Tags + Beacon Stems
+        // 6. Update & Position Floating 3D Landmark Tags + Beacon Stems
         cfg.locations.forEach((loc, idx) => {
           const node = projectedTrack[loc.pointIdx];
-          if (!node) return;
+          if (!node || !isLocationVisibleOnMap(loc)) return;
           const isSel = idx === state.selectedLocationIdx;
-          const stemHeight = node.wy + (isSel ? 0.23 : 0.14 + (idx % 2) * 0.04);
+          const stagger = typeof loc.displayNumber === "number" ? loc.displayNumber % 2 : idx % 2;
+          const stemHeight = node.wy + (isSel ? 0.23 : 0.14 + stagger * 0.04);
           const pinTop = project3D(node.pt.nx, stemHeight, node.pt.nz, width, height);
 
           ctx3d.beginPath();
           ctx3d.moveTo(node.top.x, node.top.y);
           ctx3d.lineTo(pinTop.x, pinTop.y);
-          ctx3d.strokeStyle = isSel ? "#FEDD00" : "#DC143C";
+          ctx3d.strokeStyle = isSel ? "#9333EA" : "#DC143C";
           ctx3d.lineWidth = isSel ? 3 : 1.8;
           ctx3d.stroke();
 
           ctx3d.beginPath();
           ctx3d.arc(node.top.x, node.top.y, isSel ? 7 : 4.5, 0, Math.PI * 2);
-          ctx3d.fillStyle = isSel ? "#FEDD00" : "#ffffff";
+          ctx3d.fillStyle = isSel ? "#A855F7" : "#ffffff";
           ctx3d.fill();
           ctx3d.lineWidth = 2;
           ctx3d.strokeStyle = "#DC143C";
@@ -1641,8 +1688,8 @@
           }
         });
 
-        // 8. Live Conspirator Ghost Runner
-        const speedStep = state.runnerRunning ? 0.00095 * (state.forwardDirection ? 1 : -1) : 0;
+        // 7. Live Conspirator Ghost Runner
+        const speedStep = state.runnerRunning ? 0.00095 : 0;
         state.runnerProgress = (state.runnerProgress + speedStep + 1) % 1;
 
         const activeIdx =
@@ -1654,12 +1701,12 @@
         if (runnerNode) {
           ctx3d.beginPath();
           ctx3d.arc(runnerNode.top.x, runnerNode.top.y, 10, 0, Math.PI * 2);
-          ctx3d.fillStyle = "rgba(220, 20, 60, 0.36)";
+          ctx3d.fillStyle = "rgba(147, 51, 234, 0.36)";
           ctx3d.fill();
 
           ctx3d.beginPath();
           ctx3d.arc(runnerNode.top.x, runnerNode.top.y, 5.5, 0, Math.PI * 2);
-          ctx3d.fillStyle = "#FEDD00";
+          ctx3d.fillStyle = "#A855F7";
           ctx3d.fill();
           ctx3d.lineWidth = 2;
           ctx3d.strokeStyle = "#DC143C";
@@ -1668,30 +1715,6 @@
           liveDistEl.textContent = `${runnerNode.pt.distKm.toFixed(1)} km`;
           liveEleEl.textContent = `${Math.round(runnerNode.pt.ele)} m`;
           liveHrEl.textContent = `${runnerNode.pt.hr} bpm`;
-        }
-
-        // 9. Render 3D Particles
-        for (let i = state.particles.length - 1; i >= 0; i--) {
-          const p = state.particles[i];
-          p.wx += p.vx;
-          p.wy += p.vy;
-          p.wz += p.vz;
-          p.vy -= p.gravity;
-          p.life -= p.decay;
-
-          if (p.life <= 0) {
-            state.particles.splice(i, 1);
-            continue;
-          }
-
-          const proj = project3D(p.wx, p.wy, p.wz, width, height);
-          ctx3d.save();
-          ctx3d.globalAlpha = Math.max(0, p.life);
-          ctx3d.fillStyle = p.color;
-          ctx3d.beginPath();
-          ctx3d.arc(proj.x, proj.y, p.size * p.life, 0, Math.PI * 2);
-          ctx3d.fill();
-          ctx3d.restore();
         }
 
         drawElevationProfile();
@@ -1757,9 +1780,10 @@
         const relX = Math.max(0, Math.min(1, (e.clientX - rect.left - padL) / plotW));
         const clickedKm = relX * state.totalDistanceKm;
 
-        let bestIdx = 0;
+        let bestIdx = -1;
         let minDiff = Infinity;
         cfg.locations.forEach((loc, idx) => {
+          if (!isLocationVisibleOnMap(loc)) return;
           const dist = loc.customDistKm ?? (loc.point ? loc.point.distKm : 0);
           const diff = Math.abs(dist - clickedKm);
           if (diff < minDiff) {
@@ -1767,7 +1791,7 @@
             bestIdx = idx;
           }
         });
-        selectLocation(bestIdx, true);
+        if (bestIdx >= 0) selectLocation(bestIdx, true, false);
       });
 
       btnAutoSpin.addEventListener("click", () => {
@@ -1775,10 +1799,10 @@
         btnAutoSpin.classList.toggle("is-active", state.autoSpin);
       });
 
-      btnDirection.addEventListener("click", () => {
-        state.forwardDirection = !state.forwardDirection;
-        dirLabel.textContent = state.forwardDirection ? "Runner: Forward" : "Runner: Reverse";
-        btnDirection.classList.toggle("is-active", !state.forwardDirection);
+      // Toggle the map & side panel between Aid Stations (CP- / WP-) and Course Highlights
+      btnLayer.addEventListener("click", () => {
+        state.layer = state.layer === "aid" ? "highlight" : "aid";
+        applyLayer();
       });
 
       btnRunnerToggle.addEventListener("click", () => {
@@ -1806,82 +1830,38 @@
         eleVal.textContent = `${state.eleScale.toFixed(1)}x`;
       });
 
+      // Step through the sectors of the current layer while the info box is open
+      const stepVisibleLocation = (delta) => {
+        const visible = getVisibleMapIndices();
+        if (!visible.length) return;
+        const pos = visible.indexOf(state.selectedLocationIdx);
+        const nextPos = pos < 0 ? 0 : (pos + delta + visible.length) % visible.length;
+        selectLocation(visible[nextPos], true, true);
+      };
+
       root.querySelector(".js-popup-close").addEventListener("click", () => {
         popupEl.hidden = true;
       });
       root.querySelector(".js-popup-prev").addEventListener("click", () => {
-        selectLocation(state.selectedLocationIdx - 1, true);
+        stepVisibleLocation(-1);
       });
       root.querySelector(".js-popup-next").addEventListener("click", () => {
-        selectLocation(state.selectedLocationIdx + 1, true);
+        stepVisibleLocation(1);
       });
 
-      // Caesar Betrayal Micro-Interaction Buttons
-      const triggerDaggerStorm = () => {
-        cfg.locations.forEach((loc) => {
-          if (!loc.point) return;
-          const wy = loc.point.nele * 0.12 * state.eleScale;
-          spawnLocationParticles(loc.point.nx, wy, loc.point.nz, "daggers");
-        });
-      };
-
-      root.querySelector(".js-fx-daggers").addEventListener("click", () => {
-        triggerDaggerStorm();
-        incrementStabCounter();
-      });
-
-      root.querySelector(".js-fx-footwash").addEventListener("click", () => {
-        selectLocation(0, true);
-      });
-
-      root.querySelector(".js-fx-laurels").addEventListener("click", () => {
-        // Focus highest peak location on this course
-        let highestIdx = 0;
-        let maxE = -Infinity;
-        cfg.locations.forEach((loc, idx) => {
-          const e = loc.point ? loc.point.ele : 0;
-          if (e > maxE) {
-            maxE = e;
-            highestIdx = idx;
-          }
-        });
-        selectLocation(highestIdx, true);
-      });
-
-      root.querySelector(".js-fx-topdown").addEventListener("click", () => {
-        state.autoSpin = false;
-        btnAutoSpin.classList.remove("is-active");
-        state.targetPitch = 1.38;
-        state.targetZoom = 1.05;
-      });
-
-      // Initialize model & UI
+      // Initialize model & UI (sector information boxes stay closed until a map pill is clicked)
       buildTrackModel(cfg.fallbackPoints);
       initLocationsUI();
       resizeCanvases();
       loadGpxTrack();
-
-      // Open Start location on desktop load only (keep mobile load clean)
-      if (!window.matchMedia("(max-width: 768px)").matches) {
-        selectLocation(0, false);
-      }
 
       return {
         cfg,
         state,
         popupEl,
         renderFrame,
-        resizeCanvases,
-        triggerDaggerStorm
+        resizeCanvases
       };
-    }
-
-    function incrementStabCounter() {
-      globalStabCount = (globalStabCount % 23) + 1;
-      const stabEl = document.getElementById("caesar-stab-count");
-      if (stabEl) {
-        stabEl.textContent = `${globalStabCount} / 23`;
-      }
     }
 
     // Bootstrap all 3 courses and global UI handlers
@@ -1901,15 +1881,6 @@
       window.addEventListener("resize", () => {
         mapInstances.forEach((inst) => inst.resizeCanvases());
       });
-
-      // Global "ET TU, BRUTE?" button in sticky bar
-      const globalStabBtn = document.getElementById("btn-global-stab");
-      if (globalStabBtn) {
-        globalStabBtn.addEventListener("click", () => {
-          incrementStabCounter();
-          mapInstances.forEach((inst) => inst.triggerDaggerStorm());
-        });
-      }
 
       // Highlight active Act pill on click / scroll
       const actPills = document.querySelectorAll(".act-jump-pill");

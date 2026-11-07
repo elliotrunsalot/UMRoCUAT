@@ -1501,3 +1501,165 @@ img {
   border-color: var(--neon-pink);
   background: rgba(255, 0, 255, 0.12);
 }
+
+/* ════════════════════════════════════════════════════
+   BRuTUS WHITE MARBLE THEME & CONTRAST OVERRIDES
+   (BRuTUS.html & BRuTUS_Results.html)
+   ════════════════════════════════════════════════════ */
+body.brutus-marble-page {
+  background-color: #f4f2ee;
+  background-image:
+    radial-gradient(ellipse 90% 45% at 14% 16%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 68%),
+    radial-gradient(ellipse 75% 40% at 86% 22%, rgba(198, 205, 216, 0.52) 0%, rgba(198, 205, 216, 0) 70%),
+    radial-gradient(ellipse 85% 50% at 52% 48%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(ellipse 70% 42% at 22% 78%, rgba(212, 206, 198, 0.58) 0%, rgba(212, 206, 198, 0) 72%),
+    radial-gradient(ellipse 80% 48% at 82% 84%, rgba(192, 200, 212, 0.46) 0%, rgba(192, 200, 212, 0) 70%),
+    linear-gradient(124deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(218, 222, 229, 0.42) 24%,
+      rgba(252, 251, 249, 0.85) 43%,
+      rgba(196, 203, 214, 0.36) 61%,
+      rgba(248, 246, 242, 0.88) 79%,
+      rgba(214, 209, 202, 0.45) 100%),
+    linear-gradient(34deg,
+      #ebe8e2 0%,
+      #fbfaf8 28%,
+      #dfe3ea 52%,
+      #f9f8f5 76%,
+      #e7e4dd 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  color: #1a1318;
+}
+
+body.brutus-marble-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 32% at 28% 34%, rgba(188, 196, 208, 0.26) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 35% at 74% 62%, rgba(208, 201, 192, 0.28) 0%, transparent 72%),
+    linear-gradient(156deg,
+      transparent 0%,
+      rgba(184, 192, 204, 0.18) 32%,
+      rgba(255, 255, 255, 0.5) 48%,
+      rgba(202, 196, 188, 0.2) 67%,
+      transparent 100%);
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.brutus-marble-page > .width,
+body.brutus-marble-page .brutusPageStyles {
+  color: #1a1318;
+}
+
+/* High-contrast headings and intro text sitting directly on the white marble surface */
+body.brutus-marble-page h1 {
+  color: #180d14;
+  text-shadow: 2px 2px 0 #DC143C, -2px -2px 0 rgba(126, 34, 206, 0.68);
+}
+
+body.brutus-marble-page .brutusPageStyles > h2 {
+  color: #8B0922;
+  text-shadow: none;
+  text-align: center;
+}
+
+body.brutus-marble-page .brutusPageStyles > p {
+  color: #1c1419;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 980px;
+  margin: 0.75rem auto;
+}
+
+/* Ensure GPX download links and nav pills maintain crisp contrast */
+body.brutus-marble-page .gpx {
+  background-color: #160c12;
+  color: #D8B4FE;
+  border: 1.5px solid #A855F7;
+}
+
+body.brutus-marble-page .gpx a {
+  color: inherit;
+  text-shadow: none;
+}
+
+body.brutus-marble-page .gpx:hover {
+  background: linear-gradient(135deg, #9333EA, #6B21A8);
+  color: #ffffff;
+  border-color: #D8B4FE;
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.45);
+}
+
+body.brutus-marble-page .nav23 > li {
+  background: rgba(20, 11, 17, 0.94);
+  border: 1.5px solid #A855F7;
+}
+
+body.brutus-marble-page .nav23 > li > a {
+  color: #f8fafc;
+}
+
+body.brutus-marble-page .nav23 > li:hover {
+  background: linear-gradient(135deg, #9333EA, #6B21A8);
+  border-color: #D8B4FE;
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.45);
+}
+
+body.brutus-marble-page .nav23 > li:hover > a {
+  color: #ffffff;
+}
+
+body.brutus-marble-page .burger {
+  background: rgba(20, 11, 17, 0.92);
+  border: 1.5px solid #C084FC;
+}
+
+/* Event text cards & Results cards on white marble */
+body.brutus-marble-page .textbox1,
+body.brutus-marble-page .textbox2,
+body.brutus-marble-page .textbox3,
+body.brutus-marble-page .textbox4,
+body.brutus-marble-page .textbox5,
+body.brutus-marble-page .textbox6,
+body.brutus-marble-page .textbox7 {
+  background-color: rgba(20, 12, 18, 0.94);
+  color: #f5f5f7;
+  border: 1.5px solid rgba(168, 85, 247, 0.65);
+  box-shadow: 0 8px 24px rgba(20, 12, 18, 0.16);
+}
+
+body.brutus-marble-page .results-year-card {
+  background-color: rgba(20, 12, 18, 0.94);
+  border: 1.5px solid rgba(168, 85, 247, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(20, 12, 18, 0.16);
+}
+
+body.brutus-marble-page .results-year-card h2 {
+  color: #D8B4FE;
+  text-shadow: 0 1px 10px rgba(168, 85, 247, 0.55), 1px 1px 0 #4A044E;
+}
+
+body.brutus-marble-page .results-year-card a p {
+  color: #f8fafc;
+  background: rgba(168, 85, 247, 0.09);
+  border: 1px solid rgba(192, 132, 252, 0.42);
+}
+
+body.brutus-marble-page .results-year-card a:hover p {
+  background: linear-gradient(135deg, #9333EA, #6B21A8);
+  border-color: #E9D5FF;
+  color: #ffffff;
+}
+
+body.brutus-marble-page .footer {
+  background-color: rgba(20, 12, 18, 0.94);
+  border-top: 2px solid #DC143C;
+}
+

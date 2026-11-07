@@ -1,0 +1,1411 @@
+/* ==========================================================================
+   BRuTUS: THE BRINDABELLA RANGES ULTIMATE TRAIL ULTRA SPECTACULAR
+   Dedicated Event Page Stylesheet (style-brutus.css)
+   Theme: Shakespeare's Julius Caesar, The Ides of October & White Marble Senate
+   Structure: Matches Great Ultra Mediocre Back Yarder.html across all screens
+   ========================================================================== */
+
+:root {
+  --senate-crimson: #DC143C;
+  --senate-crimson-bright: #FF1E42;
+  --senate-crimson-deep: #8B0922;
+  --senate-crimson-dark: #4A0412;
+  --senate-gold: #D8B4FE;
+  --senate-gold-deep: #7E22CE;
+  --senate-tyrian: #FF3EB5;
+  --senate-blue: #009CDE;
+  --senate-obsidian: #140b11;
+  --senate-surface: rgba(22, 11, 18, 0.94);
+  --senate-surface-elevated: rgba(32, 14, 24, 0.96);
+  --marble-ink: #180d14;
+  --marble-body: #22151d;
+  --marble-muted: #4a3542;
+  --text-ivory: #f8fafc;
+  --text-silver: #cbd5e1;
+  --border-crimson: rgba(220, 20, 60, 0.42);
+  --border-gold: rgba(192, 132, 252, 0.48);
+}
+
+/* ==========================================================================
+   1. NON-REPEATING PURE-CSS WHITE MARBLE PAGE BACKGROUND
+   ========================================================================== */
+body.brutus-marble-page {
+  background-color: #f4f2ee;
+  background-image:
+    radial-gradient(ellipse 90% 45% at 14% 16%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 68%),
+    radial-gradient(ellipse 75% 40% at 86% 22%, rgba(198, 205, 216, 0.52) 0%, rgba(198, 205, 216, 0) 70%),
+    radial-gradient(ellipse 85% 50% at 52% 48%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(ellipse 70% 42% at 22% 78%, rgba(212, 206, 198, 0.58) 0%, rgba(212, 206, 198, 0) 72%),
+    radial-gradient(ellipse 80% 48% at 82% 84%, rgba(192, 200, 212, 0.46) 0%, rgba(192, 200, 212, 0) 70%),
+    linear-gradient(124deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(218, 222, 229, 0.42) 24%,
+      rgba(252, 251, 249, 0.85) 43%,
+      rgba(196, 203, 214, 0.36) 61%,
+      rgba(248, 246, 242, 0.88) 79%,
+      rgba(214, 209, 202, 0.45) 100%),
+    linear-gradient(34deg,
+      #ebe8e2 0%,
+      #fbfaf8 28%,
+      #dfe3ea 52%,
+      #f9f8f5 76%,
+      #e7e4dd 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  color: var(--marble-ink);
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. TOP SENATORIAL TELEMETRY / DECREE BAR
+   ========================================================================== */
+.senate-telemetry-bar {
+  background: rgba(18, 8, 14, 0.96);
+  border-bottom: 2px solid var(--senate-crimson);
+  font-family: 'Audiowide', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 1.4px;
+  padding: 0.55rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.senate-telemetry-bar .telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-silver);
+}
+
+.senate-telemetry-bar .telemetry-item strong {
+  color: var(--senate-gold);
+}
+
+.senate-status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--senate-crimson-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--senate-crimson-bright);
+  animation: pulse-crimson 2s infinite;
+}
+
+@keyframes pulse-crimson {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 768px) {
+  .senate-telemetry-bar {
+    padding-right: 68px;
+    font-size: 0.65rem;
+    gap: 0.3rem;
+  }
+
+  .senate-telemetry-bar .telemetry-item:not(:first-child) {
+    display: none;
+  }
+
+  .senate-telemetry-bar::after {
+    content: 'IDES: 18 OCT 2025';
+    color: var(--senate-gold);
+    font-weight: 700;
+  }
+}
+
+/* ==========================================================================
+   3. CONTAINER & PAGE WRAPPER (WHITE MARBLE VISIBLE UNDERNEATH)
+   ========================================================================== */
+.theme-brutus .width {
+  max-width: 1200px;
+  margin: 1.5rem auto 3rem auto;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1.5px solid rgba(139, 9, 34, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 14px 40px rgba(24, 13, 20, 0.12);
+  position: relative;
+  color: var(--marble-ink);
+}
+
+.theme-brutus .content-wrapper {
+  padding: 2.5rem;
+  color: var(--marble-ink);
+}
+
+@media (max-width: 768px) {
+  .theme-brutus .width {
+    margin: 0.5rem;
+    border-radius: 14px;
+    overflow: visible;
+  }
+
+  .theme-brutus .content-wrapper {
+    padding: 1.25rem;
+  }
+
+  .theme-brutus .hero-banner {
+    border-radius: 14px 14px 0 0;
+  }
+}
+
+/* ==========================================================================
+   4. HERO SENATE BANNER
+   ========================================================================== */
+.theme-brutus .hero-banner {
+  position: relative;
+  background-image:
+    linear-gradient(180deg, rgba(16, 7, 12, 0.28) 0%, rgba(16, 7, 12, 0.93) 88%),
+    url('brutus_senate_hero.jpg'),
+    url('Coree_1.jpeg');
+  background-size: cover;
+  background-position: center 25%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem 2.5rem;
+  border-bottom: 3px solid var(--senate-crimson);
+  box-shadow: inset 0 -24px 48px rgba(0, 0, 0, 0.85);
+  border-radius: 20px 20px 0 0;
+}
+
+.theme-brutus .hero-hud-frame {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  pointer-events: none;
+  border: 1px solid rgba(192, 132, 252, 0.38);
+  border-radius: 8px;
+}
+
+.theme-brutus .hero-hud-frame::before {
+  content: "THEATRE OF POMPEY // BLUE RANGE HQ • 35°17'23.9\"S 148°52'33.3\"E";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: rgba(18, 8, 14, 0.92);
+  padding: 0 10px;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.64rem;
+  letter-spacing: 1.8px;
+  color: var(--senate-gold);
+}
+
+.theme-brutus .hero-hud-frame::after {
+  content: 'TRAGEDY ID: ACT III • SCENE I (44 BCE)';
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  background: rgba(18, 8, 14, 0.92);
+  padding: 0 10px;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.64rem;
+  letter-spacing: 1.8px;
+  color: var(--senate-crimson-bright);
+}
+
+@media (max-width: 640px) {
+  .theme-brutus .hero-hud-frame::before,
+  .theme-brutus .hero-hud-frame::after {
+    display: none;
+  }
+
+  .theme-brutus .hero-banner {
+    padding: 2rem 1.25rem;
+    min-height: 430px;
+  }
+}
+
+.theme-brutus .hero-text-content {
+  position: relative;
+  z-index: 5;
+}
+
+.theme-brutus .hero-mission-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(220, 20, 60, 0.25);
+  border: 1px solid var(--senate-gold);
+  padding: 0.35rem 0.9rem;
+  border-radius: 4px;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  color: var(--senate-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.theme-brutus .hero-title {
+  font-family: 'Syncopate', 'Audiowide', sans-serif;
+  font-size: clamp(2.6rem, 6.2vw, 4.6rem);
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin: 0;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 3px 3px 0 var(--senate-crimson), -2px -2px 0 rgba(168, 85, 247, 0.85);
+  line-height: 1.08;
+  text-align: left;
+}
+
+.theme-brutus .hero-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.08rem, 2.4vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--senate-gold);
+  margin: 0.55rem 0 1.1rem 0;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
+}
+
+.theme-brutus .hero-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-brutus .hero-mission-patch {
+  width: 98px;
+  height: 98px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 22px rgba(220, 20, 60, 0.65), 0 0 35px rgba(168, 85, 247, 0.45);
+  border: 2.5px solid var(--senate-gold);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.theme-brutus .hero-mission-patch:hover {
+  transform: rotate(-12deg) scale(1.08);
+  box-shadow: 0 0 32px rgba(192, 132, 252, 0.85);
+}
+
+.theme-brutus .hero-quote {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: #f1f5f9 !important;
+  border-left: 3.5px solid var(--senate-crimson-bright);
+  padding-left: 0.9rem;
+  margin: 0.4rem 0 0 0;
+  font-style: italic;
+  max-width: 680px;
+}
+
+.theme-brutus .hero-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.theme-brutus .hero-spec-item {
+  background: rgba(14, 6, 11, 0.72);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(192, 132, 252, 0.34);
+  backdrop-filter: blur(6px);
+}
+
+.theme-brutus .hero-spec-label {
+  font-family: 'Audiowide', monospace;
+  font-size: 0.64rem;
+  letter-spacing: 1.4px;
+  color: var(--text-silver);
+  text-transform: uppercase;
+}
+
+.theme-brutus .hero-spec-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   5. NAVIGATION CONSOLE & MOBILE DRAWER
+   ========================================================================== */
+.theme-brutus .navparent {
+  margin: 1.5rem 0;
+}
+
+.theme-brutus .nav23 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.theme-brutus .nav23 li {
+  background: var(--senate-surface);
+  border: 1.5px solid rgba(220, 20, 60, 0.55);
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(20, 10, 16, 0.18);
+}
+
+.theme-brutus .nav23 li:hover {
+  transform: translateY(-3px);
+  border-color: var(--senate-gold);
+  background: var(--senate-crimson);
+  box-shadow: 0 6px 16px rgba(220, 20, 60, 0.35);
+}
+
+.theme-brutus .nav23 li a {
+  display: block;
+  padding: 0.7rem 1.25rem;
+  color: var(--text-ivory);
+  text-decoration: none;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.theme-brutus .nav23 li:hover a {
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.theme-brutus .nav23 li.nav-highlight {
+  border-color: var(--senate-gold);
+  background: linear-gradient(135deg, var(--senate-crimson), var(--senate-crimson-deep));
+}
+
+.theme-brutus .nav23 li.nav-highlight a {
+  color: var(--senate-gold);
+}
+
+.theme-brutus .nav23 li.nav-highlight:hover {
+  background: linear-gradient(135deg, #A855F7, #6B21A8);
+  border-color: #E9D5FF;
+}
+
+.theme-brutus .nav23 li.nav-highlight:hover a {
+  color: #ffffff;
+}
+
+/* Mobile Hamburger Icon */
+.theme-brutus .burger {
+  display: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  margin: 0 !important;
+  box-sizing: border-box;
+  z-index: 1005;
+  background: rgba(18, 8, 14, 0.94);
+  border: 1.5px solid var(--senate-gold);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-brutus .burger div {
+  width: 24px;
+  height: 2.5px;
+  background-color: var(--senate-gold);
+  margin: 2.5px auto;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .theme-brutus .burger {
+    display: flex !important;
+  }
+
+  .theme-brutus .nav23 {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 85%;
+    max-width: 320px;
+    background: rgba(16, 7, 12, 0.98);
+    border-left: 2px solid var(--senate-crimson);
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 3.5rem 1.5rem 2rem 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1004;
+    overflow-y: auto;
+    gap: 0.85rem;
+    box-sizing: border-box;
+  }
+
+  .theme-brutus .nav23.nav-active {
+    transform: translateX(0%) !important;
+  }
+
+  .theme-brutus .nav23 li {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .theme-brutus .nav23.nav-active li {
+    opacity: 1;
+  }
+
+  .theme-brutus .nav23 li a {
+    padding: 0.85rem 1rem;
+    font-size: 0.88rem;
+  }
+}
+
+/* ==========================================================================
+   6. SPONSORS & GPX / 3D MAP ACTION BUTTONS
+   ========================================================================== */
+.theme-brutus .sponsors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 1rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1.5px solid rgba(139, 9, 34, 0.25);
+  border-radius: 12px;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.theme-brutus .sponsors img {
+  max-height: 54px;
+  max-width: 170px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.theme-brutus .sponsors img:hover {
+  transform: scale(1.06);
+}
+
+.theme-brutus .gpxDL {
+  display: flex;
+  justify-content: center;
+  margin: 1.75rem 0 2.25rem 0;
+}
+
+.theme-brutus .gpxbuttons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.theme-brutus .gpx {
+  background: linear-gradient(135deg, var(--senate-obsidian), #2a101c);
+  border: 1.5px solid var(--senate-crimson);
+  border-radius: 10px;
+  padding: 0;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(24, 12, 18, 0.2);
+  transition: all 0.25s ease;
+}
+
+.theme-brutus .gpx.gpx-highlight {
+  background: linear-gradient(135deg, var(--senate-crimson), var(--senate-crimson-deep));
+  border-color: var(--senate-gold);
+}
+
+.theme-brutus .gpx a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.35rem;
+  color: var(--senate-gold) !important;
+  text-decoration: none !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.theme-brutus .gpx.gpx-highlight a {
+  color: #ffffff !important;
+}
+
+.theme-brutus .gpx:hover {
+  background: var(--senate-crimson);
+  border-color: var(--senate-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(220, 20, 60, 0.38);
+}
+
+.theme-brutus .gpx:hover a {
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   7. HIGH-CONTRAST TYPOGRAPHY ON WHITE MARBLE
+   ========================================================================== */
+.theme-brutus .content-wrapper > h2 {
+  font-family: 'Audiowide', sans-serif;
+  font-size: clamp(1.35rem, 2.8vw, 1.95rem);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--senate-crimson-deep);
+  text-transform: uppercase;
+  text-shadow: none;
+  margin: 2.6rem 0 1rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.theme-brutus .content-wrapper > h2::before {
+  content: '🗡️';
+  font-size: 1.25rem;
+}
+
+.theme-brutus .content-wrapper > h2::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--senate-crimson);
+  border-radius: 2px;
+}
+
+.theme-brutus .content-wrapper > h3 {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 1.18rem;
+  color: var(--marble-ink);
+  text-transform: uppercase;
+  margin: 1.8rem 0 0.6rem 0;
+}
+
+.theme-brutus .content-wrapper > p,
+.theme-brutus .content-wrapper > ul {
+  color: var(--marble-body);
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.75;
+  margin: 0.85rem 0;
+}
+
+.theme-brutus .content-wrapper > p strong,
+.theme-brutus .content-wrapper > ul strong {
+  color: var(--senate-crimson-deep);
+  font-weight: 700;
+}
+
+.theme-brutus .content-wrapper > p a,
+.theme-brutus .content-wrapper > ul a {
+  color: var(--senate-crimson-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.theme-brutus .content-wrapper > p a:hover,
+.theme-brutus .content-wrapper > ul a:hover {
+  color: var(--senate-crimson-bright);
+}
+
+.shakespeare-epigraph {
+  background: rgba(255, 255, 255, 0.78);
+  border-left: 4px solid var(--senate-crimson);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.25rem;
+  margin: 1.1rem 0 1.4rem 0;
+  font-style: italic;
+  color: var(--marble-ink);
+  box-shadow: 0 4px 14px rgba(24, 12, 18, 0.07);
+}
+
+.shakespeare-epigraph cite {
+  display: block;
+  margin-top: 0.35rem;
+  font-style: normal;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 1px;
+  color: var(--senate-crimson-deep);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   8. THE "RUNNING TOGA" MERCHANDISE SECTION (MATCHES GUMBY SPACE SUIT)
+   ========================================================================== */
+.theme-brutus .mystery-kit-section {
+  position: relative;
+  background: linear-gradient(135deg, rgba(22, 10, 16, 0.97) 0%, rgba(36, 12, 22, 0.97) 55%, rgba(16, 8, 13, 0.98) 100%);
+  border: 2px solid var(--senate-crimson);
+  border-radius: 18px;
+  padding: 2.25rem;
+  margin: 2.5rem 0 3.25rem 0;
+  box-shadow: 0 16px 40px rgba(20, 10, 16, 0.32);
+  overflow: hidden;
+  color: var(--text-ivory);
+}
+
+.theme-brutus .mystery-kit-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--senate-crimson), var(--senate-gold), var(--senate-crimson));
+}
+
+.theme-brutus .mystery-kit-badge-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.theme-brutus .classified-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(220, 20, 60, 0.25);
+  border: 1px solid var(--senate-crimson-bright);
+  color: #fda4af;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 1.5px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.theme-brutus .classified-status-tag {
+  font-family: 'Audiowide', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 1.4px;
+  color: var(--senate-gold);
+  background: rgba(168, 85, 247, 0.16);
+  border: 1px solid var(--border-gold);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.theme-brutus .mystery-kit-title-heading {
+  font-family: 'Audiowide', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.15rem);
+  color: #ffffff;
+  margin: 0 0 0.4rem 0;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 var(--senate-crimson);
+}
+
+.theme-brutus .mystery-kit-subtitle {
+  font-family: 'Audiowide', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 1.8px;
+  color: var(--senate-gold);
+  text-transform: uppercase;
+  margin-bottom: 1.85rem;
+}
+
+.theme-brutus .mystery-kit-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.2rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .theme-brutus .mystery-kit-layout {
+    grid-template-columns: 1fr;
+    gap: 1.65rem;
+  }
+}
+
+.theme-brutus .mystery-kit-media {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--senate-gold);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+}
+
+.theme-brutus .mystery-kit-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.theme-brutus .mystery-kit-media-hud {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(14, 6, 11, 0.96) 0%, rgba(14, 6, 11, 0.78) 68%, transparent 100%);
+  padding: 1rem 1rem 0.7rem 1rem;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.7rem;
+  color: var(--senate-gold);
+  letter-spacing: 1.2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.theme-brutus .redacted-inline {
+  background: rgba(220, 20, 60, 0.28);
+  color: #ffffff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  border: 1px dashed var(--senate-gold);
+}
+
+.theme-brutus .mystery-kit-details p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-silver);
+  margin-bottom: 1rem;
+}
+
+.theme-brutus .mystery-kit-details p strong {
+  color: #ffffff;
+}
+
+.theme-brutus .mystery-fomo-callout {
+  background: rgba(220, 20, 60, 0.16);
+  border-left: 4px solid var(--senate-gold);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.2rem;
+  margin: 1.25rem 0;
+}
+
+.theme-brutus .mystery-fomo-callout h4 {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 0.88rem;
+  color: var(--senate-gold);
+  margin: 0 0 0.4rem 0;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.theme-brutus .mystery-fomo-callout p {
+  font-size: 0.94rem;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.theme-brutus .mystery-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1.35rem 0;
+}
+
+@media (max-width: 550px) {
+  .theme-brutus .mystery-specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.theme-brutus .mystery-spec-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(192, 132, 252, 0.34);
+  border-radius: 8px;
+  padding: 0.75rem 0.95rem;
+}
+
+.theme-brutus .mystery-spec-label {
+  font-family: 'Audiowide', monospace;
+  font-size: 0.64rem;
+  color: var(--text-silver);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.theme-brutus .mystery-spec-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--senate-gold);
+  margin-top: 0.22rem;
+}
+
+.theme-brutus .mystery-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  margin-top: 1.35rem;
+  flex-wrap: wrap;
+}
+
+.theme-brutus .mystery-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, #A855F7, #6B21A8);
+  color: #ffffff !important;
+  border: 1.5px solid #E9D5FF;
+  font-family: 'Audiowide', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(168, 85, 247, 0.45);
+  transition: all 0.25s ease;
+}
+
+.theme-brutus .mystery-cta-btn:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  color: #6B21A8 !important;
+  border-color: #A855F7;
+}
+
+.theme-brutus .mystery-cta-note {
+  font-family: 'Audiowide', monospace;
+  font-size: 0.72rem;
+  color: var(--text-silver);
+}
+
+/* ==========================================================================
+   9. COURSE CARDS (THE THREE ACTS OF BETRAYAL) & SCENIC GALLERY
+   ========================================================================== */
+.theme-brutus .mission-card {
+  background: var(--senate-surface);
+  border: 1.5px solid var(--border-crimson);
+  border-radius: 14px;
+  padding: 1.85rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(20, 10, 16, 0.22);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-ivory);
+  margin-bottom: 1.5rem;
+}
+
+.theme-brutus .mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--senate-crimson);
+}
+
+.theme-brutus .mission-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--senate-gold);
+}
+
+.theme-brutus .mission-card h3 {
+  font-family: 'Audiowide', sans-serif;
+  color: var(--senate-gold);
+  font-size: 1.35rem;
+  margin: 0 0 0.65rem 0;
+  text-transform: uppercase;
+}
+
+.theme-brutus .mission-card p {
+  color: #e2e8f0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin: 0.55rem 0;
+}
+
+.theme-brutus .mission-card p strong {
+  color: #ffffff;
+}
+
+.theme-brutus .mission-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  padding: 0.28rem 0.75rem;
+  border-radius: 4px;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.badge-btrail {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid var(--senate-gold);
+  color: var(--senate-gold);
+}
+
+.badge-brutus {
+  background: rgba(220, 20, 60, 0.24);
+  border: 1px solid var(--senate-crimson-bright);
+  color: #fda4af;
+}
+
+.badge-knife {
+  background: rgba(0, 156, 222, 0.2);
+  border: 1px solid var(--senate-blue);
+  color: #7dd3fc;
+}
+
+.theme-brutus .gumbo-timeline-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 0.9rem;
+  margin: 1.15rem 0;
+}
+
+.theme-brutus .gumbo-stage-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+}
+
+.theme-brutus .stage-day {
+  font-family: 'Audiowide', monospace;
+  font-size: 0.7rem;
+  color: var(--senate-crimson-bright);
+  text-transform: uppercase;
+}
+
+.theme-brutus .stage-name {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 0.2rem 0;
+}
+
+.theme-brutus .stage-dist {
+  font-size: 0.84rem;
+  color: var(--senate-gold);
+}
+
+.theme-brutus .missions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.theme-brutus .missions-grid .mission-card {
+  margin-bottom: 0;
+}
+
+@media (max-width: 500px) {
+  .theme-brutus .missions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.theme-brutus .mission-meta-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 0.85rem;
+  margin-top: auto;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.74rem;
+  color: var(--text-silver);
+}
+
+.theme-brutus .mission-meta-strip strong {
+  color: var(--senate-gold);
+}
+
+/* Brindabella & Senate Visual Showcase Strip (Replaces Embedded Iframe Maps) */
+.brutus-photo-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0 2.25rem 0;
+}
+
+.brutus-photo-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(139, 9, 34, 0.45);
+  box-shadow: 0 8px 20px rgba(20, 10, 16, 0.18);
+  aspect-ratio: 4 / 3;
+  background: var(--senate-obsidian);
+}
+
+.brutus-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.brutus-photo-card:hover img {
+  transform: scale(1.06);
+}
+
+.brutus-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(14, 6, 11, 0.92) 0%, rgba(14, 6, 11, 0.6) 65%, transparent 100%);
+  padding: 1.1rem 0.85rem 0.55rem;
+  font-family: 'Audiowide', monospace;
+  font-size: 0.68rem;
+  color: var(--senate-gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   10. TELEMETRY DATA GRIDS, PRICING MATRIX & CTA BANNER
+   ========================================================================== */
+.theme-brutus .telemetry-data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.25rem;
+  margin: 1.35rem 0;
+}
+
+.theme-brutus .telemetry-card {
+  background: var(--senate-surface);
+  border: 1.5px solid var(--border-crimson);
+  border-radius: 12px;
+  padding: 1.45rem;
+  box-shadow: 0 8px 20px rgba(20, 10, 16, 0.16);
+  color: var(--text-ivory);
+}
+
+.theme-brutus .telemetry-card h4 {
+  font-family: 'Audiowide', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1.2px;
+  color: var(--senate-gold);
+  text-transform: uppercase;
+  margin: 0 0 0.65rem 0;
+}
+
+.theme-brutus .telemetry-highlight {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.theme-brutus .telemetry-sub {
+  font-size: 0.9rem;
+  color: var(--text-silver) !important;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Pricing Matrix */
+.theme-brutus .pricing-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.theme-brutus .pricing-card {
+  background: var(--senate-surface);
+  border: 1.5px solid var(--border-crimson);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-ivory);
+  box-shadow: 0 8px 22px rgba(20, 10, 16, 0.18);
+}
+
+.theme-brutus .pricing-card.featured {
+  border: 2px solid var(--senate-gold);
+  background: linear-gradient(180deg, rgba(36, 12, 22, 0.96) 0%, rgba(20, 10, 16, 0.96) 100%);
+}
+
+.theme-brutus .pricing-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.theme-brutus .pricing-tier-title {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 1.18rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.theme-brutus .pricing-tier-sub {
+  font-size: 0.78rem;
+  color: var(--senate-gold);
+  font-family: 'Audiowide', monospace;
+  margin-top: 0.25rem;
+}
+
+.theme-brutus .pricing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+  font-size: 0.92rem;
+  color: #e2e8f0;
+}
+
+.theme-brutus .pricing-row strong {
+  font-family: 'Audiowide', monospace;
+  font-size: 1.12rem;
+  color: var(--senate-gold);
+  white-space: nowrap;
+}
+
+/* Call to Action Box */
+.theme-brutus .rego-cta-box {
+  background: linear-gradient(135deg, var(--senate-obsidian), #380918);
+  border: 2px solid var(--senate-crimson);
+  border-radius: 14px;
+  padding: 2rem;
+  text-align: center;
+  margin: 2.25rem 0;
+  box-shadow: 0 12px 30px rgba(24, 10, 16, 0.25);
+  color: #ffffff;
+}
+
+.theme-brutus .rego-cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--senate-crimson), var(--senate-crimson-deep));
+  color: #ffffff !important;
+  border: 2px solid var(--senate-gold);
+  font-family: 'Audiowide', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 0.95rem 2.2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(220, 20, 60, 0.45);
+  transition: all 0.25s ease;
+  margin-top: 0.85rem;
+}
+
+.theme-brutus .rego-cta-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: linear-gradient(135deg, #A855F7, #6B21A8);
+  color: #ffffff !important;
+  border-color: #E9D5FF;
+}
+
+/* ==========================================================================
+   11. SENATORIAL DECREES BOX & SCHEDULE TIMELINE
+   ========================================================================== */
+.theme-brutus .directives-box {
+  background: var(--senate-surface);
+  border: 1.5px solid var(--border-crimson);
+  border-radius: 12px;
+  padding: 1.65rem;
+  margin: 1.5rem 0;
+  color: var(--text-ivory);
+  box-shadow: 0 8px 22px rgba(20, 10, 16, 0.18);
+}
+
+.theme-brutus .directives-box h4 {
+  font-family: 'Audiowide', sans-serif;
+  color: var(--senate-gold);
+  margin: 0 0 0.85rem 0;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.theme-brutus .directives-box ul {
+  color: #e2e8f0;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  padding-left: 1.4rem;
+  margin: 0;
+}
+
+.theme-brutus .directives-box ul li {
+  margin-bottom: 0.55rem;
+}
+
+.theme-brutus .directives-box strong {
+  color: var(--senate-gold);
+}
+
+/* Schedule Timeline */
+.theme-brutus .timeline-block {
+  margin: 1.5rem 0;
+  border-left: 3px solid var(--senate-crimson);
+  padding-left: 1.5rem;
+}
+
+.theme-brutus .timeline-day-header {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 1.05rem;
+  color: var(--senate-crimson-deep);
+  margin: 1.6rem 0 0.65rem -1.82rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-transform: uppercase;
+}
+
+.theme-brutus .timeline-day-header::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--senate-crimson);
+  border: 2px solid var(--senate-gold);
+}
+
+.theme-brutus .timeline-item-entry {
+  background: var(--senate-surface);
+  border: 1px solid rgba(220, 20, 60, 0.32);
+  border-radius: 8px;
+  padding: 0.75rem 1.15rem;
+  margin-bottom: 0.55rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-brutus .timeline-item-entry.is-start-time {
+  border-color: var(--senate-gold);
+  background: linear-gradient(90deg, rgba(139, 9, 34, 0.95), rgba(22, 11, 18, 0.96));
+}
+
+.theme-brutus .timeline-time {
+  font-family: 'Audiowide', monospace;
+  font-weight: 700;
+  color: var(--senate-gold);
+  font-size: 0.88rem;
+  min-width: 125px;
+}
+
+.theme-brutus .timeline-desc {
+  color: var(--text-ivory);
+  font-size: 0.95rem;
+  margin: 0;
+  flex: 1;
+}
+
+.theme-brutus .timeline-desc a {
+  color: var(--senate-gold);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   12. FOOTER
+   ========================================================================== */
+.theme-brutus .footer {
+  background: rgba(18, 8, 14, 0.96);
+  border-top: 3px solid var(--senate-crimson);
+  border-radius: 14px;
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.theme-brutus .footer-quote {
+  font-family: 'Audiowide', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--senate-gold);
+  margin-bottom: 0.65rem;
+}
+
+.theme-brutus .footer-copy {
+  color: var(--text-silver);
+  font-size: 0.85rem;
+}
+
+.theme-brutus .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-brutus .footer-links a {
+  font-family: 'Audiowide', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--text-ivory);
+  text-decoration: none;
+}
+
+.theme-brutus .footer-links a:hover {
+  color: var(--senate-gold);
+}
+

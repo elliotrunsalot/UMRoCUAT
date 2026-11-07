@@ -3,152 +3,259 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./index.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <meta property="og:title" content="BRuTUS Policies">
-    <meta property="og:image" content="BRuTUSFBcard.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Event Policies | ULTRA Mediocre Runners of Canberra">
+    <meta property="og:image" content="umroc_og_map.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Ultra Mediocre Runners of Canberra - Event Policies">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="umroc_og_map.png">
+    <meta name="twitter:image:alt" content="Ultra Mediocre Runners of Canberra - Event Policies">
+
+    <title>Event Policies | Ultra Mediocre Runners of Canberra</title>
     <link rel="icon" type="image/svg+xml" href="UMRoCfavicon.svg">
     <link rel="shortcut icon" href="UMRoCfavicon.svg" type="image/svg+xml">
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="event-policies.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Kanit:ital,wght@1,100&family=Audiowide&family=Poppins:wght@300&family=Permanent+Marker&family=Monoton&family=Shadows+Into+Light&family=Chelsea+Market&family=Gloria+Hallelujah&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Audiowide&family=Poppins:wght@300;400;600;700&display=swap"
         rel="stylesheet">
-
-    <title>UMRoC Event Policies</title>
 </head>
 
 <body>
-    <div class="width">
 
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+
+    <div class="policies-header-main">
+        <div class="policies-brand">
+            <span class="policies-badge-pill">&#x1F4DC; Official Event Rules</span>
+            <div class="policies-title-group">
+                <h1>Event Policies</h1>
+                <p>Ultra Mediocre Runners of Canberra &bull; <strong>Public-Facing Events (GUMBY &amp;
+                        BRuTUS)</strong></p>
+            </div>
         </div>
 
-        <h1>UMRoC Event Policies</h1>
-        <div class="navparent">
-            <ul class="nav23">
+        <!-- Hamburger Menu Button for Small Screens -->
+        <button type="button" class="policies-burger" id="policies-burger-btn" aria-label="Toggle navigation menu"
+            aria-expanded="false" aria-controls="policies-nav">
+            <span class="burger-line line1"></span>
+            <span class="burger-line line2"></span>
+            <span class="burger-line line3"></span>
+        </button>
 
-                <script src="app.js"></script>
-                <li><a href="index.html">ULTRA Mediocre Home</a></li>
-                <li><a href="Media_Records.html">Media Records</a></li>
-                <!-- <img class="menu_deco" src="UMRoClogo2022.png" alt="Only the mediocre are always at their best."></img> -->
-                <!-- <li><a href="Athlete's Guide" download="2023 BRuTUS - Athletes Guide.pdf">Athlete's Guide</a></li> -->
-                <!-- <li><a href="rego1.html" formtarget="_blank">Register</a></li> -->
+        <div class="policies-nav-backdrop" id="policies-nav-backdrop" hidden></div>
 
+        <nav class="policies-nav" id="policies-nav" aria-label="Page Navigation">
+            <ul class="policies-nav-list">
+                <li><a href="index.html" class="policies-nav-link">&#x1F3E0; ULTRA Mediocre Home</a></li>
+                <li><a href="Great Ultra Mediocre Back Yarder.html" class="policies-nav-link is-event-return"
+                        id="dynamic-event-back-link">&#x1F6F8; Back to GUMBY</a></li>
             </ul>
-
-        </div>
-
-
-
-        <div class="faq">
-
-            <div class="question">
-                <p>Age restrictions</p>
-            </div>
-            <div class="answer">
-                <p>Athletes must be at least 18 years of age on race day. This restriction arises from our event
-                    insurance and first aid arrangements. No ifs, no buts.</p>
-            </div>
-            <div class="question">
-                <p>Entry Discounts</p>
-            </div>
-            <div class="answer">
-                <p>UMRoC members receive a 10% discount on all entry types.</p>
-            </div>
-            <div class="question">
-                <p>Waitlist</p>
-            </div>
-            <div class="answer">
-                <p>If races sell out there will be a waitlist and places will be offered in the order of the waitlist if
-                    and when withdrawal requests are received from other athletes. For waitlisters to secure a position,
-                    payment must be made within 48hrs of receiving the offer. If payment is not received within 48hrs,
-                    the position will be offered to the next athlete on the waitlist.</p>
-            </div>
-            <div class="question">
-                <p>Withdrawal Refunds</p>
-            </div>
-            <div class="answer">
-                <p>Requests for refunds must be emailed to the organiser at <a
-                        href=mailto:info@ultramediocre.run>info@ultramediocre.run</a></p>
-                <p>If you cannot participate in the event for any reason, entry fee refunds are available in accordance
-                    with the below-stated withdrawal dates only. After the stipulated dates, entry fees are
-                    non-refundable for withdrawals initiated by the athlete.</p>
-                <p>Where eligible, please allow up to 30 business days for your refund to be processed. The refund is
-                    automatically issued to the credit card originally used to pay for the registration. If that card
-                    has since been cancelled or has expired it is the athlete’s responsibility to notify us when
-                    requesting the eligible refund.</p>
-                <ul>- Until 90 days prior (12am) — 75% of entry fee refundable for athlete withdrawal requests made up
-                    to this date.</ul>
-                <ul>- Until 60 days prior (12am) — 50% of entry fee refundable for athlete withdrawal requests made up
-                    to this date.</ul>
-                <ul>- Until 21 days prior (12am) — 25% of entry fee refundable for athlete withdrawal requests made up
-                    to this date.</ul>
-                <ul>- No refunds after 21 days prior to the start date of the event.</ul>
-            </div>
-
-            <div class="question">
-                <p>Transfer of entry to different race</p>
-            </div>
-
-            <div class="answer">
-                <p>Requests for transfers from one event to another must be emailed to the organiser at <a
-                        href=mailto:info@ultramediocre.run>info@ultramediocre.run</a> on or before the close of entries.
-                </p>
-                <p> Transfers between event distances can be requested until the first of:
-                <ul>- The event distance sells out, or</ul>
-                <ul>- The close of entries</ul>
-                <p>Transfers between event distances are subject to the following terms:</p>
-                <ul>- The athlete pays the difference where they transfer to race of higher cost. The race fee at the
-                    time of transfer applies (i.e. if the athlete enters a lower cost race during the early entry period
-                    and transfers to a higher cost race during the standard entry period, they will not retain the right
-                    to be charged the early entry fee of the distance to which they transfer.)</ul>
-                <ul>- The athlete forfeits the difference where they transfer to a less expensive race.</ul>
-
-            </div>
-
-            <div class="question">
-                <p>Transfer of entry to another runner</p>
-            </div>
-            <div class="answer">
-
-                <p>Requests for transfers from one person to another must be emailed to the organiser at <a
-                        href=mailto:info@ultramediocre.run>info@ultramediocre.run</a> on or before the close of entries.
-                </p>
-                <p>Any request to transfer entries must include the name, date of birth, and contact details of the
-                    person taking your entry.</p>
-                <p>For the transfer to be completed, the athlete receiving the transfer must email us to confirm that
-                    they are or will be over 18 years of age at race day. </p>
-                <p>Upon receipt of the transfer recipient’s declaration of age you will be withdrawn from the event and
-                    a registration code will be issued to the person taking your entry.</p>
-                <p>Any payment for the entry is to be made between the parties involved in the transfer.</p>
-
-            </div>
-
-            <div class="question">
-                <p>Event cancellation</p>
-            </div>
-            <div class="answer">
-                <p>If for any reason it becomes impossible to hold the event, the organising committee will notify
-                    athletes as soon as possible and 80% of entry fees will be refunded.
-                <p>If merchandise has been ordered, this will be posted or delivered to you.</p>
-            </div>
-
-
-        </div>
-        <div class="footer">
-            <p>
-                &copy; ULTRA Mediocre Runners of Canberra 2026
-            </p>
-        </div>
-
+        </nav>
     </div>
+    </header>
+
+    <main class="policies-main">
+        <!-- ULTRA MEDIOCRE EVENT RUNNERS IMAGE -->
+        <figure class="policies-banner">
+            <img src="umroc_event_runners.jpg"
+                alt="Ultra Mediocre runners celebrating at the finish line in the Brindabella Ranges">
+            <figcaption class="policies-banner-caption">
+
+                <span>A few rules to follow so we can look after you at your next Ultra Mediocre event.</span>
+            </figcaption>
+        </figure>
+
+        <!-- SIMPLE HEADING + POLICY TEXT SECTIONS -->
+        <div class="policies-sheet">
+            <section class="policy-block" id="age-restrictions">
+                <h2>Age restrictions</h2>
+                <p>
+                    Athletes must be at least 18 years of age on race day. This restriction arises from our event
+                    insurance and first aid arrangements. No ifs, no buts.
+                </p>
+            </section>
+
+            <section class="policy-block" id="entry-discounts">
+                <h2>Entry Discounts</h2>
+                <p>
+                    UMRoC members receive a 10% discount on all entry types.
+                </p>
+            </section>
+
+            <section class="policy-block" id="waitlist">
+                <h2>Waitlist</h2>
+                <p>
+                    If races sell out there will be a waitlist and places will be offered in the order of the
+                    waitlist if and when withdrawal requests are received from other athletes. For waitlisters to
+                    secure a position, payment must be made within 48hrs of receiving the offer. If payment is not
+                    received within 48hrs, the position will be offered to the next athlete on the waitlist.
+                </p>
+            </section>
+
+            <section class="policy-block" id="withdrawal-refunds">
+                <h2>Withdrawal Refunds</h2>
+                <p>
+                    Requests for refunds must be emailed to the organiser at
+                    <a href="mailto:ultramediocre.run@gmail.com">ultramediocre.run@gmail.com</a>.
+                </p>
+                <p>
+                    If you cannot participate in the event for any reason, entry fee refunds are available in
+                    accordance with the below-stated withdrawal dates only. After the stipulated dates, entry fees
+                    are non-refundable for withdrawals initiated by the athlete.
+                </p>
+                <p>
+                    Where eligible, please allow up to 30 business days for your refund to be processed. The refund
+                    is automatically issued to the credit card originally used to pay for the registration. If that
+                    card has since been cancelled or has expired it is the athlete’s responsibility to notify us
+                    when requesting the eligible refund.
+                </p>
+                <ul>
+                    <li>Until 90 days prior (12am) &ndash; 75% of entry fee refundable for athlete withdrawal requests
+                        made up to this date.</li>
+                    <li>Until 60 days prior (12am) &ndash; 50% of entry fee refundable for athlete withdrawal requests
+                        made up to this date.</li>
+                    <li>Until 21 days prior (12am) &ndash; 25% of entry fee refundable for athlete withdrawal requests
+                        made up to this date.</li>
+                    <li>No refunds after 21 days prior to the start date of the event.</li>
+                </ul>
+            </section>
+
+            <section class="policy-block" id="transfer-different-race">
+                <h2>Transfer of entry to different race</h2>
+                <p>
+                    Requests for transfers from one event to another must be emailed to the organiser at
+                    <a href="mailto:ultramediocre.run@gmail.com">ultramediocre.run@gmail.com</a> on or before the close
+                    of entries.
+                </p>
+                <p>Transfers between event distances can be requested until the first of:</p>
+                <ul>
+                    <li>The event distance sells out, or</li>
+                    <li>The close of entries</li>
+                </ul>
+                <p>Transfers between event distances are subject to the following terms:</p>
+                <ul>
+                    <li>
+                        The athlete pays the difference where they transfer to race of higher cost. The race fee at
+                        the time of transfer applies (i.e. if the athlete enters a lower cost race during the early
+                        entry period and transfers to a higher cost race during the standard entry period, they will
+                        not retain the right to be charged the early entry fee of the distance to which they
+                        transfer.)
+                    </li>
+                    <li>The athlete forfeits the difference where they transfer to a less expensive race.</li>
+                </ul>
+            </section>
+
+            <section class="policy-block" id="transfer-another-runner">
+                <h2>Transfer of entry to another runner</h2>
+                <p>
+                    Requests for transfers from one person to another must be emailed to the organiser at
+                    <a href="mailto:ultramediocre.run@gmail.com">ultramediocre.run@gmail.com</a> on or before the close
+                    of entries.
+                </p>
+                <p>
+                    Any request to transfer entries must include the name, date of birth, and contact details of
+                    the person taking your entry.
+                </p>
+                <p>
+                    For the transfer to be completed, the athlete receiving the transfer must email us to confirm
+                    that they are or will be over 18 years of age at race day.
+                </p>
+                <p>
+                    Upon receipt of the transfer recipient’s declaration of age you will be withdrawn from the event
+                    and a registration code will be issued to the person taking your entry.
+                </p>
+                <p>
+                    Any payment for the entry is to be made between the parties involved in the transfer.
+                </p>
+            </section>
+
+            <section class="policy-block" id="event-cancellation">
+                <h2>Event cancellation</h2>
+                <p>
+                    If for any reason it becomes impossible to hold the event, the organising committee will notify
+                    athletes as soon as possible and 80% of entry fees will be refunded.
+                </p>
+                <p>
+                    If merchandise has been ordered, contact us for postal delivery.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="policies-footer">
+        <p>&copy; ULTRA Mediocre Runners of Canberra 2026</p>
+    </footer>
+
+    <script>
+        (function () {
+            // 1. Dynamic Back Button (GUMBY vs BRuTUS based on navigation origin)
+            const backLink = document.getElementById('dynamic-event-back-link');
+            if (backLink) {
+                const params = new URLSearchParams(window.location.search);
+                const fromParam = (params.get('from') || '').toLowerCase();
+                const referrer = (document.referrer || '').toLowerCase();
+
+                let originEvent = '';
+                if (fromParam === 'brutus' || referrer.includes('brutus')) {
+                    originEvent = 'brutus';
+                } else if (fromParam === 'gumby' || referrer.includes('gumby') || referrer.includes('back%20yarder') || referrer.includes('back yarder')) {
+                    originEvent = 'gumby';
+                } else {
+                    try {
+                        originEvent = sessionStorage.getItem('umroc_policy_from') || 'gumby';
+                    } catch (e) {
+                        originEvent = 'gumby';
+                    }
+                }
+
+                try {
+                    sessionStorage.setItem('umroc_policy_from', originEvent);
+                } catch (e) { }
+
+                if (originEvent === 'brutus') {
+                    backLink.href = 'BRuTUS.html';
+                    backLink.innerHTML = '&#x1F5E1;&#xFE0F; Back to BRuTUS';
+                } else {
+                    backLink.href = 'Great Ultra Mediocre Back Yarder.html';
+                    backLink.innerHTML = '&#x1F6F8; Back to GUMBY';
+                }
+            }
+
+            // 2. Mobile Hamburger Menu Toggle
+            const burgerBtn = document.getElementById('policies-burger-btn');
+            const nav = document.getElementById('policies-nav');
+            const backdrop = document.getElementById('policies-nav-backdrop');
+
+            function closeMenu() {
+                if (!burgerBtn || !nav || !backdrop) return;
+                burgerBtn.classList.remove('is-open');
+                burgerBtn.setAttribute('aria-expanded', 'false');
+                nav.classList.remove('is-open');
+                backdrop.hidden = true;
+            }
+
+            if (burgerBtn && nav && backdrop) {
+                burgerBtn.addEventListener('click', function () {
+                    const isOpen = nav.classList.toggle('is-open');
+                    burgerBtn.classList.toggle('is-open', isOpen);
+                    burgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    backdrop.hidden = !isOpen;
+                });
+
+                backdrop.addEventListener('click', closeMenu);
+            }
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeMenu();
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
