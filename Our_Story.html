@@ -254,6 +254,54 @@
                 }
             });
 
+            // 1b. Large Screen Scroll Lock: Glide nav to top-centre with 1s ease-in
+            const headerMain = document.querySelector('.story-header-main');
+            let isNavPinned = false;
+
+            function updatePinnedNav() {
+                if (!nav) return;
+                if (window.innerWidth <= 860) {
+                    if (isNavPinned) {
+                        isNavPinned = false;
+                        nav.classList.remove('is-pinned');
+                        nav.style.transition = '';
+                        nav.style.transform = '';
+                        if (headerMain) headerMain.style.minHeight = '';
+                    }
+                    return;
+                }
+
+                const shouldPin = window.scrollY > 24;
+                if (shouldPin && !isNavPinned) {
+                    const rect = nav.getBoundingClientRect();
+                    if (headerMain) {
+                        headerMain.style.minHeight = headerMain.offsetHeight + 'px';
+                    }
+                    const deltaX = (rect.left + rect.width / 2) - (window.innerWidth / 2);
+                    const deltaY = Math.max(0, rect.top - 11);
+
+                    isNavPinned = true;
+                    nav.style.transition = 'none';
+                    nav.style.transform = 'translate3d(calc(-50% + ' + deltaX.toFixed(1) + 'px), ' + deltaY.toFixed(1) + 'px, 0)';
+                    nav.classList.add('is-pinned');
+
+                    // Force reflow then ease-in over 1 second to the top-centre position
+                    void nav.offsetWidth;
+                    nav.style.transition = 'transform 1s ease-in, background-color 0.4s ease, box-shadow 0.4s ease';
+                    nav.style.transform = 'translate3d(-50%, 0, 0)';
+                } else if (!shouldPin && isNavPinned) {
+                    isNavPinned = false;
+                    nav.classList.remove('is-pinned');
+                    nav.style.transition = '';
+                    nav.style.transform = '';
+                    if (headerMain) headerMain.style.minHeight = '';
+                }
+            }
+
+            window.addEventListener('scroll', updatePinnedNav, { passive: true });
+            window.addEventListener('resize', updatePinnedNav);
+            updatePinnedNav();
+
             // 2. Chapter Pill Active Highlight
             const chapterPills = document.querySelectorAll('.chapter-pill');
             chapterPills.forEach(function (pill) {

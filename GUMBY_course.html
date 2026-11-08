@@ -143,10 +143,6 @@
             <div class="hud-mobile-instruction-pill">
               Select map sectors 1-7 for course intel
             </div>
-            <div class="gpx-status-badge" id="gpx-status-badge">
-              <span class="status-pulse"></span>
-              <span id="gpx-status-text">GPX Telemetry Active: GUMBY_loop.gpx</span>
-            </div>
           </div>
 
           <div class="hud-controls">
@@ -622,7 +618,6 @@
 
     // Load GUMBY_loop.gpx dynamically via fetch(), falling back to FALLBACK_GPX_POINTS if file:// blocks fetch
     async function loadGpxCourse() {
-      const statusText = document.getElementById("gpx-status-text");
       try {
         const response = await fetch("GUMBY_loop.gpx");
         if (!response.ok) throw new Error("HTTP " + response.status);
@@ -648,13 +643,11 @@
             }
           }
           buildTrackModel(parsedPoints);
-          statusText.textContent = `Live GPX Loaded: GUMBY_loop.gpx (${trkpts.length.toLocaleString()} raw pts)`;
           return;
         }
       } catch (err) {
         // Fallback when opened via local file:// protocol without a local web server
         buildTrackModel(FALLBACK_GPX_POINTS);
-        statusText.textContent = "GPX Track Active: GUMBY_loop.gpx (6.71 km / 861.8m KOM)";
       }
     }
 

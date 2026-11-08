@@ -31,7 +31,6 @@
     <header class="policies-header">
         <div class="policies-header-main">
             <div class="policies-brand">
-                <span class="policies-badge-pill">&#x1F4DC; OFFICIAL EVENT RULES</span>
                 <div class="policies-title-group">
                     <h1>EVENT POLICIES</h1>
                     <p>Ultra Mediocre Runners of Canberra &bull; <strong>Public-Facing Events (GUMBY &amp;
@@ -39,24 +38,24 @@
                 </div>
             </div>
 
-        <!-- Hamburger Menu Button for Small Screens -->
-        <button type="button" class="policies-burger" id="policies-burger-btn" aria-label="Toggle navigation menu"
-            aria-expanded="false" aria-controls="policies-nav">
-            <span class="burger-line line1"></span>
-            <span class="burger-line line2"></span>
-            <span class="burger-line line3"></span>
-        </button>
+            <!-- Hamburger Menu Button for Small Screens -->
+            <button type="button" class="policies-burger" id="policies-burger-btn" aria-label="Toggle navigation menu"
+                aria-expanded="false" aria-controls="policies-nav">
+                <span class="burger-line line1"></span>
+                <span class="burger-line line2"></span>
+                <span class="burger-line line3"></span>
+            </button>
 
-        <div class="policies-nav-backdrop" id="policies-nav-backdrop" hidden></div>
+            <div class="policies-nav-backdrop" id="policies-nav-backdrop" hidden></div>
 
-        <nav class="policies-nav" id="policies-nav" aria-label="Page Navigation">
-            <ul class="policies-nav-list">
-                <li><a href="index.html" class="policies-nav-link">&#x1F3E0; ULTRA Mediocre Home</a></li>
-                <li><a href="Great Ultra Mediocre Back Yarder.html" class="policies-nav-link is-event-return"
-                        id="dynamic-event-back-link">&#x1F6F8; Back to GUMBY</a></li>
-            </ul>
-        </nav>
-    </div>
+            <nav class="policies-nav" id="policies-nav" aria-label="Page Navigation">
+                <ul class="policies-nav-list">
+                    <li><a href="index.html" class="policies-nav-link">&#x1F3E0; ULTRA Mediocre Home</a></li>
+                    <li><a href="Great Ultra Mediocre Back Yarder.html" class="policies-nav-link is-event-return"
+                            id="dynamic-event-back-link">&#x1F6F8; Back to GUMBY</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main class="policies-main">
@@ -255,6 +254,54 @@
                     closeMenu();
                 }
             });
+
+            // 3. Large Screen Scroll Lock: Glide nav to top-centre with 1s ease-in
+            const headerMain = document.querySelector('.policies-header-main');
+            let isNavPinned = false;
+
+            function updatePinnedNav() {
+                if (!nav) return;
+                if (window.innerWidth <= 820) {
+                    if (isNavPinned) {
+                        isNavPinned = false;
+                        nav.classList.remove('is-pinned');
+                        nav.style.transition = '';
+                        nav.style.transform = '';
+                        if (headerMain) headerMain.style.minHeight = '';
+                    }
+                    return;
+                }
+
+                const shouldPin = window.scrollY > 24;
+                if (shouldPin && !isNavPinned) {
+                    const rect = nav.getBoundingClientRect();
+                    if (headerMain) {
+                        headerMain.style.minHeight = headerMain.offsetHeight + 'px';
+                    }
+                    const deltaX = (rect.left + rect.width / 2) - (window.innerWidth / 2);
+                    const deltaY = Math.max(0, rect.top - 11);
+
+                    isNavPinned = true;
+                    nav.style.transition = 'none';
+                    nav.style.transform = 'translate3d(calc(-50% + ' + deltaX.toFixed(1) + 'px), ' + deltaY.toFixed(1) + 'px, 0)';
+                    nav.classList.add('is-pinned');
+
+                    // Force reflow then ease-in over 1 second to the top-centre position
+                    void nav.offsetWidth;
+                    nav.style.transition = 'transform 1s ease-in, background-color 0.4s ease, box-shadow 0.4s ease';
+                    nav.style.transform = 'translate3d(-50%, 0, 0)';
+                } else if (!shouldPin && isNavPinned) {
+                    isNavPinned = false;
+                    nav.classList.remove('is-pinned');
+                    nav.style.transition = '';
+                    nav.style.transform = '';
+                    if (headerMain) headerMain.style.minHeight = '';
+                }
+            }
+
+            window.addEventListener('scroll', updatePinnedNav, { passive: true });
+            window.addEventListener('resize', updatePinnedNav);
+            updatePinnedNav();
         })();
     </script>
 </body>

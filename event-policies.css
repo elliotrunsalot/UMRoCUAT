@@ -67,10 +67,9 @@ body {
    ========================================================================== */
 .policies-header {
   position: relative;
-  z-index: 100;
+  z-index: 200;
   border-bottom: 3px solid var(--bg-deep);
   background: linear-gradient(180deg, rgba(168, 13, 108, 0.38) 0%, rgba(255, 62, 181, 0.18) 100%);
-  backdrop-filter: blur(8px);
 }
 
 .policies-header-main {
@@ -138,6 +137,28 @@ body {
 .policies-nav {
   display: flex;
   align-items: center;
+  will-change: transform;
+}
+
+@media (min-width: 821px) {
+  .policies-nav.is-pinned {
+    position: fixed;
+    top: 0.7rem;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    z-index: 250;
+    padding: 0.42rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(7, 8, 13, 0.72);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--yellow);
+    box-shadow: 0 10px 28px rgba(7, 8, 13, 0.65);
+    transition: transform 1s ease-in, background-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .policies-nav-list {
+    flex-wrap: nowrap;
+  }
 }
 
 .policies-nav-list {
@@ -420,11 +441,13 @@ body {
     gap: 0.65rem;
   }
 
+  /* Hamburger locked to top-right corner on scroll */
   .policies-burger {
     display: inline-flex;
-    position: absolute;
+    position: fixed;
     top: 0.85rem;
     right: 1rem;
+    z-index: 260;
   }
 
   .policies-brand {

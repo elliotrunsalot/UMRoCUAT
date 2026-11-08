@@ -929,6 +929,54 @@
       window.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeMobileNav();
       });
+
+      // Large Screen Scroll Lock: Glide nav to top-centre with 1s ease-in
+      const headerMain = document.querySelector(".board-header-main");
+      let isNavPinned = false;
+
+      function updatePinnedNav() {
+        if (!navBar) return;
+        if (window.innerWidth <= 820) {
+          if (isNavPinned) {
+            isNavPinned = false;
+            navBar.classList.remove("is-pinned");
+            navBar.style.transition = "";
+            navBar.style.transform = "";
+            if (headerMain) headerMain.style.minHeight = "";
+          }
+          return;
+        }
+
+        const shouldPin = window.scrollY > 24;
+        if (shouldPin && !isNavPinned) {
+          const rect = navBar.getBoundingClientRect();
+          if (headerMain) {
+            headerMain.style.minHeight = `${headerMain.offsetHeight}px`;
+          }
+          const deltaX = (rect.left + rect.width / 2) - (window.innerWidth / 2);
+          const deltaY = Math.max(0, rect.top - 11);
+
+          isNavPinned = true;
+          navBar.style.transition = "none";
+          navBar.style.transform = `translate3d(calc(-50% + ${deltaX.toFixed(1)}px), ${deltaY.toFixed(1)}px, 0)`;
+          navBar.classList.add("is-pinned");
+
+          // Force reflow then ease-in over 1 second to the top-centre position
+          void navBar.offsetWidth;
+          navBar.style.transition = "transform 1s ease-in, background-color 0.4s ease, box-shadow 0.4s ease";
+          navBar.style.transform = "translate3d(-50%, 0, 0)";
+        } else if (!shouldPin && isNavPinned) {
+          isNavPinned = false;
+          navBar.classList.remove("is-pinned");
+          navBar.style.transition = "";
+          navBar.style.transform = "";
+          if (headerMain) headerMain.style.minHeight = "";
+        }
+      }
+
+      window.addEventListener("scroll", updatePinnedNav, { passive: true });
+      window.addEventListener("resize", updatePinnedNav);
+      updatePinnedNav();
     })();
   </script>
 </body>
