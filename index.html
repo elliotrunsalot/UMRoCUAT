@@ -169,12 +169,12 @@
 
             // Exact coordinates of the 6 evenly-spaced High Points along the Centenary Trail
             const HIGH_POINT_TARGETS = [
-                { lat: -35.141963, lon: 149.091625, ele: 864, color: '#FEDD00' }, // 0: One Tree Hill -> Our Story
-                { lat: -35.143600, lon: 149.146510, ele: 770, color: '#00f0ff' }, // 1: Old Joe / Goorooyarroo -> The Board
+                { lat: -35.274076, lon: 149.098095, ele: 812, color: '#00f0ff' }, // 0: Black Mountain -> Our Story
+                { lat: -35.166167, lon: 149.145583, ele: 640, color: '#00f0ff' }, // 1: 35°09'58.2"S 149°08'44.1"E -> The Board
                 { lat: -35.238179, lon: 149.181194, ele: 881, color: '#FEDD00' }, // 2: Mt Majura -> Media & Records
                 { lat: -35.365999, lon: 149.120457, ele: 804, color: '#00f0ff' }, // 3: Tuggeranong Hill -> GUMBY
                 { lat: -35.363050, lon: 149.038923, ele: 712, color: '#FEDD00' }, // 4: Mt Taylor / Cooleman -> BRuTUS
-                { lat: -35.274076, lon: 149.098095, ele: 812, color: '#00f0ff' }  // 5: Black Mountain -> Event Policies
+                { lat: -35.141963, lon: 149.091625, ele: 864, color: '#FEDD00' }  // 5: One Tree Hill -> Event Policies
             ];
 
             /* ═══════════════════════════════════════════════════════════════════
@@ -350,7 +350,7 @@
             let stateCircleRing = [];
             let capitalCircleRing = [];
             let cityHillRing = [];
-            let peakIndices = [17, 29, 50, 80, 110, 137];
+            let peakIndices = [137, 35, 50, 80, 110, 17];
 
             // Camera & Spin / Runner direction state
             let yaw = -0.18;
@@ -363,7 +363,7 @@
             let dragStartY = 0;
 
             // Live Ghost Runner tracing the Canberra Centenary Trail
-            const runner = { progress: 0.0, speed: 0.0014 };
+            const runner = { progress: 0.0, speed: 0.0007 };
 
             /* ═══════════════════════════════════════════════════════════════════
                3. NORMALIZE GPX & CANBERRA STENCIL INTO 3D MODEL COORDINATES

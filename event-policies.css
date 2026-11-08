@@ -1,22 +1,25 @@
 /* ==========================================================================
    EVENT POLICIES — DEDICATED STYLESHEET (event-policies.css)
-   Aligned with UMRoC Club Pages: Our_Board.html, Our_Story.html & Media_Records.html
-   Primary Club Palette: Pink (#FF3EB5), Yellow (#FEDD00), Blue (#009CDE)
+   Modeled directly on Our_Board.html, Media_Records.html & index.html palette
+   Primary Club Palette: Hot Pink (#FF3EB5), Electric Yellow (#FEDD00),
+   Club Blue (#009CDE), Electric Cyan (#00f0ff), Deep Ink (#07080d),
+   Silver Tag Grey (#d4d8e0), Metallic Purple (#c896ff)
    ========================================================================== */
 
 :root {
   --pink: #FF3EB5;
+  --pink-deep: #a80d6c;
   --yellow: #FEDD00;
   --blue: #009CDE;
-  --pink-glow: rgba(255, 62, 181, 0.45);
-  --yellow-glow: rgba(254, 221, 0, 0.45);
-  --blue-glow: rgba(0, 156, 222, 0.45);
+  --cyan: #00f0ff;
+  --purple-metallic: #c896ff;
+  --silver: #d4d8e0;
   --bg-deep: #07080d;
-  --bg-panel: rgba(14, 17, 28, 0.92);
-  --bg-card: #111522;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --border-subtle: rgba(255, 255, 255, 0.14);
+  --bg-panel: #0a0d16;
+  --bg-card: #0c101d;
+  --text-main: #ffffff;
+  --text-bright: #f8fafc;
+  --font-heading: 'MuseoModerno', 'Syncopate', sans-serif;
   --font-display: 'Syncopate', 'Audiowide', sans-serif;
   --font-tech: 'Audiowide', sans-serif;
   --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
@@ -38,93 +41,42 @@ html,
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--bg-deep);
+  /* Rich tonal pink background matching index.html, Our_Board.html & Media_Records.html */
+  background-color: #FF3EB5;
+  background-image:
+    radial-gradient(ellipse 55% 46% at 14% 18%, rgba(255, 206, 238, 0.78) 0%, rgba(255, 145, 218, 0.32) 48%, transparent 74%),
+    radial-gradient(ellipse 58% 52% at 88% 16%, rgba(152, 10, 98, 0.68) 0%, rgba(196, 18, 128, 0.28) 52%, transparent 76%),
+    radial-gradient(ellipse 48% 44% at 52% 48%, rgba(255, 188, 232, 0.52) 0%, transparent 66%),
+    radial-gradient(ellipse 64% 50% at 16% 86%, rgba(138, 8, 88, 0.72) 0%, rgba(188, 16, 118, 0.3) 50%, transparent 75%),
+    radial-gradient(ellipse 56% 48% at 84% 84%, rgba(255, 152, 205, 0.65) 0%, rgba(254, 221, 0, 0.14) 45%, transparent 72%),
+    radial-gradient(circle at 34% 58%, rgba(212, 26, 158, 0.45) 0%, transparent 55%),
+    linear-gradient(145deg, #ff7ad1 0%, #ff3eb5 28%, #d4148a 54%, #ff5cc2 78%, #a80d6c 100%);
+  background-attachment: fixed;
   color: var(--text-main);
   font-family: var(--font-body);
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--pink);
-  color: #fff;
-}
-
-/* Ambient glowing background blobs matching Our_Board.html, Our_Story.html & Media_Records.html */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(255, 62, 181, 0.14), transparent 40%),
-    radial-gradient(circle at 88% 24%, rgba(0, 156, 222, 0.15), transparent 42%),
-    radial-gradient(circle at 50% 85%, rgba(254, 221, 0, 0.09), transparent 45%);
-  pointer-events: none;
-  z-index: 0;
+  background: var(--bg-deep);
+  color: var(--yellow);
 }
 
 /* ==========================================================================
-   TOP HEADER, TICKER & 2-BUTTON NAVIGATION (DESKTOP + MOBILE POPUP)
+   TOP HEADER & 2-BUTTON NAVIGATION (DESKTOP + MOBILE POPUP)
    ========================================================================== */
 .policies-header {
   position: relative;
   z-index: 100;
-  border-bottom: 3px solid var(--yellow);
-  background: linear-gradient(180deg, rgba(12, 15, 26, 0.96) 0%, rgba(7, 8, 13, 0.92) 100%);
-  backdrop-filter: blur(12px);
-}
-
-.policies-ticker-wrap {
-  background: var(--yellow);
-  color: #07080d;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 6px 0;
-  border-bottom: 2px solid #07080d;
-  font-family: var(--font-tech);
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.policies-ticker-track {
-  display: inline-flex;
-  gap: 2.5rem;
-  animation: policiesTickerSlide 32s linear infinite;
-}
-
-.policies-ticker-wrap:hover .policies-ticker-track {
-  animation-play-state: paused;
-}
-
-.policies-ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-}
-
-.policies-ticker-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--pink);
-  box-shadow: 0 0 0 2px #07080d;
-}
-
-@keyframes policiesTickerSlide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  border-bottom: 3px solid var(--bg-deep);
+  background: linear-gradient(180deg, rgba(168, 13, 108, 0.38) 0%, rgba(255, 62, 181, 0.18) 100%);
+  backdrop-filter: blur(8px);
 }
 
 .policies-header-main {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 1.15rem 1.5rem;
+  padding: 1.25rem 1.5rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -140,11 +92,11 @@ body::before {
 }
 
 .policies-badge-pill {
-  background: var(--pink);
-  color: #fff;
+  background: var(--bg-deep);
+  color: var(--yellow);
   font-family: var(--font-tech);
   font-size: 0.74rem;
-  padding: 0.35rem 0.8rem;
+  padding: 0.4rem 0.85rem;
   border-radius: 999px;
   border: 2px solid var(--yellow);
   box-shadow: 3px 3px 0 var(--blue);
@@ -154,27 +106,35 @@ body::before {
 }
 
 .policies-title-group h1 {
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.6vw, 2rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  line-height: 1.1;
-  color: #fff;
-  text-shadow: 2px 2px 0 var(--pink), -2px -1px 0 var(--blue);
+  line-height: 1.08;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .policies-title-group p {
-  font-size: 0.86rem;
-  color: var(--text-muted);
-  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bg-deep);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1.5px solid var(--bg-deep);
+  border-radius: 999px;
+  padding: 0.22rem 0.8rem;
+  margin-top: 0.35rem;
+  display: inline-block;
+  box-shadow: 2px 2px 0 rgba(7, 8, 13, 0.65);
 }
 
 .policies-title-group p strong {
-  color: var(--yellow);
+  color: #980a62;
+  font-weight: 800;
 }
 
-/* 2-Button Navigation Bar */
+/* 2-Button Navigation Bar — Styled like index.html & Our_Board.html Pills */
 .policies-nav {
   display: flex;
   align-items: center;
@@ -193,15 +153,16 @@ body::before {
   align-items: center;
   gap: 0.45rem;
   padding: 0.55rem 1.05rem;
-  border-radius: 10px;
-  background: rgba(18, 22, 36, 0.9);
-  border: 1.5px solid rgba(255, 255, 255, 0.16);
-  color: var(--text-main);
+  border-radius: 999px;
+  background: var(--bg-deep);
+  border: 2.5px solid var(--pink);
+  color: #ffffff;
   text-decoration: none;
   font-family: var(--font-tech);
   font-size: 0.78rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  box-shadow: 4px 4px 0 rgba(7, 8, 13, 0.85);
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -209,25 +170,25 @@ body::before {
 .policies-nav-link:focus-visible {
   transform: translateY(-2px);
   border-color: var(--yellow);
-  background: rgba(255, 62, 181, 0.2);
+  background: var(--bg-deep);
   color: var(--yellow);
-  box-shadow: 0 4px 14px var(--pink-glow);
+  box-shadow: 4px 4px 0 var(--blue);
   outline: none;
 }
 
 .policies-nav-link.is-event-return {
-  border-color: var(--yellow);
-  background: rgba(0, 156, 222, 0.18);
+  border-color: var(--pink);
+  background: var(--bg-deep);
   color: var(--yellow);
-  box-shadow: 2px 2px 0 var(--pink);
+  box-shadow: 4px 4px 0 rgba(7, 8, 13, 0.85);
 }
 
 .policies-nav-link.is-event-return:hover,
 .policies-nav-link.is-event-return:focus-visible {
-  background: var(--pink);
-  color: #fff;
+  background: var(--bg-deep);
+  color: #ffffff;
   border-color: var(--yellow);
-  box-shadow: 0 4px 16px var(--pink-glow);
+  box-shadow: 4px 4px 0 var(--blue);
 }
 
 /* Mobile Hamburger Toggle Button */
@@ -236,10 +197,10 @@ body::before {
   appearance: none;
   width: 44px;
   height: 44px;
-  border-radius: 10px;
-  background: rgba(14, 18, 30, 0.95);
-  border: 2px solid var(--yellow);
-  box-shadow: 3px 3px 0 var(--pink);
+  border-radius: 12px;
+  background: var(--bg-deep);
+  border: 2.5px solid var(--yellow);
+  box-shadow: 3px 3px 0 var(--bg-deep);
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
@@ -251,7 +212,7 @@ body::before {
 }
 
 .policies-burger:hover {
-  border-color: var(--blue);
+  border-color: var(--cyan);
   transform: scale(1.05);
 }
 
@@ -281,34 +242,32 @@ body::before {
 .policies-nav-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(4, 6, 12, 0.72);
+  background: rgba(7, 8, 13, 0.72);
   backdrop-filter: blur(6px);
   z-index: 105;
 }
 
 /* ==========================================================================
-   MAIN CONTAINER, FEATURED EVENT RUNNERS BANNER & SIMPLE POLICY SECTIONS
+   MAIN CONTAINER, FEATURED EVENT RUNNERS BANNER & POLICY SECTIONS
    ========================================================================== */
 .policies-main {
   position: relative;
   z-index: 10;
-  max-width: 980px;
+  max-width: 1020px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 3.5rem;
+  padding: 1.85rem 1.5rem 3.5rem;
 }
 
 /* Ultra Mediocre Event Runners Banner Image */
 .policies-banner {
   position: relative;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2rem;
   border-radius: 20px;
   overflow: hidden;
-  background: #090c15;
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  box-shadow:
-    0 16px 38px rgba(0, 0, 0, 0.6),
-    4px 4px 0 var(--pink),
-    -4px -4px 0 var(--blue);
+  background: var(--bg-deep);
+  border: 3px solid var(--bg-deep);
+  border-top: 6px solid var(--yellow);
+  box-shadow: 8px 8px 0 rgba(7, 8, 13, 0.85);
 }
 
 .policies-banner img {
@@ -325,34 +284,28 @@ body::before {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.75rem 1.25rem;
-  background: rgba(10, 13, 22, 0.94);
-  border-top: 2px solid var(--yellow);
-  font-size: 0.84rem;
-  color: #cbd5e1;
-}
-
-.policies-banner-caption strong {
+  padding: 0.85rem 1.35rem;
+  background: var(--bg-panel);
+  border-top: 2.5px solid var(--yellow);
   font-family: var(--font-tech);
-  font-size: 0.76rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--yellow);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: #ffffff;
 }
 
-/* Simple, Clean Policy List */
+/* Policy Sheet Card — Modeled on Our_Board.html & Media_Records.html Cards */
 .policies-sheet {
   background: var(--bg-card);
-  border: 2px solid var(--border-subtle);
-  border-top: 5px solid var(--pink);
+  border: 3px solid var(--bg-deep);
+  border-top: 7px solid var(--pink);
   border-radius: 22px;
   padding: 2.25rem 2.5rem;
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.55);
+  box-shadow: 8px 8px 0 rgba(7, 8, 13, 0.88);
 }
 
 .policy-block {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.55rem 0;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.14);
 }
 
 .policy-block:first-child {
@@ -365,39 +318,39 @@ body::before {
 }
 
 .policy-block h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.05rem, 1.9vw, 1.3rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2.1vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--yellow);
   margin-bottom: 0.75rem;
-  line-height: 1.3;
+  line-height: 1.25;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
 }
 
 .policy-block h2::before {
   content: "";
   display: inline-block;
-  width: 6px;
+  width: 7px;
   height: 1.15em;
   border-radius: 999px;
   background: var(--pink);
-  box-shadow: 2px 0 0 var(--blue);
+  box-shadow: 2px 0 0 var(--cyan);
   flex-shrink: 0;
 }
 
 .policy-block:nth-child(even) h2::before {
-  background: var(--blue);
+  background: var(--cyan);
   box-shadow: 2px 0 0 var(--pink);
 }
 
 .policy-block p {
   font-size: 0.96rem;
   line-height: 1.72;
-  color: #e2e8f0;
+  color: var(--text-bright);
   margin-bottom: 0.85rem;
 }
 
@@ -409,7 +362,7 @@ body::before {
   margin: 0.65rem 0 0.95rem 1.35rem;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.5rem;
 }
 
 .policy-block ul:last-child {
@@ -419,17 +372,17 @@ body::before {
 .policy-block li {
   font-size: 0.95rem;
   line-height: 1.65;
-  color: #e2e8f0;
+  color: var(--text-bright);
   padding-left: 0.25rem;
 }
 
 .policy-block li::marker {
-  color: var(--pink);
+  color: var(--yellow);
 }
 
 .policy-block a {
-  color: var(--yellow);
-  font-weight: 600;
+  color: var(--cyan);
+  font-weight: 700;
   text-decoration: underline;
   text-decoration-color: var(--pink);
   text-underline-offset: 3px;
@@ -437,7 +390,7 @@ body::before {
 }
 
 .policy-block a:hover {
-  color: var(--pink);
+  color: var(--yellow);
 }
 
 /* ==========================================================================
@@ -446,13 +399,13 @@ body::before {
 .policies-footer {
   position: relative;
   z-index: 10;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--bg-deep);
   padding: 1.5rem;
   text-align: center;
   font-family: var(--font-tech);
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  background: rgba(7, 8, 13, 0.9);
+  font-size: 0.8rem;
+  color: #ffffff;
+  background: var(--bg-deep);
 }
 
 /* ==========================================================================
@@ -470,7 +423,7 @@ body::before {
   .policies-burger {
     display: inline-flex;
     position: absolute;
-    top: 0.8rem;
+    top: 0.85rem;
     right: 1rem;
   }
 
@@ -487,6 +440,11 @@ body::before {
     padding-right: 3.5rem;
   }
 
+  .policies-title-group p {
+    border-radius: 12px;
+    line-height: 1.4;
+  }
+
   .policies-badge-pill {
     order: 2;
     align-self: flex-start;
@@ -499,8 +457,8 @@ body::before {
     left: 1rem;
     max-width: 360px;
     margin-left: auto;
-    background: rgba(10, 13, 22, 0.98);
-    border: 2.5px solid var(--yellow);
+    background: var(--bg-deep);
+    border: 3px solid var(--yellow);
     border-radius: 18px;
     padding: 1.15rem;
     box-shadow:
@@ -549,8 +507,8 @@ body::before {
   }
 
   .policies-banner-caption {
-    padding: 0.65rem 1rem;
-    font-size: 0.78rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.76rem;
   }
 
   .policies-sheet {
@@ -558,4 +516,3 @@ body::before {
     border-radius: 18px;
   }
 }
-

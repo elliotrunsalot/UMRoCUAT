@@ -21,22 +21,19 @@
     <link rel="stylesheet" href="our-story.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Audiowide&family=Poppins:wght@300;400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;600;700;800&family=Syncopate:wght@700&family=Audiowide&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
     <!-- TOP HEADER & LIMITED NAVIGATION -->
     <header class="story-header">
-
-
         <div class="story-header-main">
             <div class="story-brand">
                 <span class="story-badge-pill">&#x1F3C3; Club Origin Archives</span>
                 <div class="story-title-group">
                     <h1>Our Beginnings</h1>
-                    <p>Ultra Mediocre Runners of Canberra &bull; <strong>Est. 2020 &bull; Incorporated 27 Jan
-                            2021</strong></p>
+                    <p>Ultra Mediocre Runners of Canberra &bull; <strong>Est. 2020 &bull; Incorporated 27 Jan 2021</strong></p>
                 </div>
             </div>
 
@@ -61,204 +58,142 @@
     </header>
 
     <main class="story-main">
-        <!-- INTERACTIVE CHAPTER JUMP BAR & CHEER TRIGGER -->
+        <!-- CHAPTER JUMP BAR -->
         <section class="story-controls-bar" aria-label="Story chapter navigation">
             <div class="chapter-pills">
-                <a href="#ch-2020" class="chapter-pill is-active" data-chapter-link="ch-2020">&#x1F3DF;&#xFE0F; 01
-                    &bull; 2020 AIS</a>
-                <a href="#ch-cent" class="chapter-pill" data-chapter-link="ch-cent">&#x26F0;&#xFE0F; 02 &bull; The Cent
-                    145km</a>
-                <a href="#ch-gumby" class="chapter-pill" data-chapter-link="ch-gumby">&#x1F455; 03 &bull; 2021 &amp;
-                    GUMBY</a>
-                <a href="#ch-brutus" class="chapter-pill" data-chapter-link="ch-brutus">&#x1F5E1;&#xFE0F; 04 &bull;
-                    BRuTUS &amp; BTrail</a>
+                <a href="#ch-2020" class="chapter-pill is-active" data-chapter-link="ch-2020">&#x1F3DF;&#xFE0F; 01 &bull; 2020 AIS</a>
+                <a href="#ch-cent" class="chapter-pill" data-chapter-link="ch-cent">&#x26F0;&#xFE0F; 02 &bull; The Cent 145km</a>
+                <a href="#ch-gumby" class="chapter-pill" data-chapter-link="ch-gumby">&#x1F455; 03 &bull; 2021 &amp; GUMBY</a>
+                <a href="#ch-brutus" class="chapter-pill" data-chapter-link="ch-brutus">&#x1F5E1;&#xFE0F; 04 &bull; BRuTUS &amp; BTrail</a>
                 <a href="#ch-who" class="chapter-pill" data-chapter-link="ch-who">&#x1F496; 05 &bull; We Are UMRoC</a>
             </div>
-            <button type="button" class="story-cheer-btn" id="story-cheer-btn">
-                &#x1F389; Celebrate Mediocrity
-            </button>
         </section>
 
-        <!-- THE STORY TIMELINE (ORIGINAL HEART OF THE CLUB PRESERVED) -->
+        <!-- FRAMELESS EDITORIAL STORY FLOW (CSS GRID & FLEXBOX DRAPING) -->
         <div class="story-timeline">
 
             <!-- CHAPTER 1: 2020 & THE AIS -->
-            <article class="story-chapter" id="ch-2020" data-theme="pink" data-emojis="🏟️,🚫,🥇,🏃">
-                <span class="chapter-stamp-badge" aria-hidden="true">TERRITORY OF THE MEDIOCRE</span>
-                <div class="chapter-content">
-                    <div class="chapter-badge-row">
-                        <span class="chapter-year-pill">Chapter 01 &bull; 2020</span>
-                        <button type="button" class="chapter-react-btn" aria-label="Stamp chapter 1">
-                            &#x26A1; Stamp Chapter
-                        </button>
-                    </div>
-                    <p>
+            <article class="story-chapter story-chapter--ais" id="ch-2020" data-theme="pink">
+                <div class="ais-intro">
+                    <span class="chapter-year-pill">Chapter 01 &bull; 2020</span>
+                    <p class="story-text-lead">
                         In 2020 the world was shutting down. At the same time a small group of Canberra runners were
-                        getting serious
-                        about ultra distances, but with the threat of Covid-19 transmissions, ultrarunning events began
-                        to drop from
-                        the calendar. The last straw was the Canberra 24 and 48-Hour Track Race at the Australian
-                        Institute of
-                        Sport. We believed it would go ahead, but days before the race the word came down: the AIS
-                        facilities were
-                        reserved for elite athletes only. Elites! Apparently, running for 24 or 48 hours was the
-                        territory of the
-                        mediocre.
+                        getting serious about ultra distances, but with the threat of Covid-19 transmissions,
+                        ultrarunning events began to drop from the calendar.
                     </p>
                 </div>
-                <div class="chapter-media">
-                    <button type="button" class="photo-frame-btn" data-full-src="EmptyAIS.jpg"
-                        data-caption="Reserved for the elites — The empty AIS track in 2020">
-                        <div class="photo-img-wrap">
-                            <img src="EmptyAIS.jpg" alt="Reserved for the elites">
-                        </div>
-                        <div class="photo-caption-bar">
-                            <span>"Reserved for the elites"</span>
-                            <span class="photo-zoom-hint">&#x1F50D; Click to inspect</span>
-                        </div>
-                    </button>
+
+                <div class="ais-callout">
+                    <p class="story-text-body">
+                        The last straw was the Canberra 24 and 48-Hour Track Race at the Australian Institute of Sport.
+                        We believed it would go ahead, but days before the race the word came down: the AIS facilities
+                        were reserved for elite athletes only. Elites! Apparently, running for 24 or 48 hours was the
+                        territory of the mediocre.
+                    </p>
                 </div>
+
+                <figure class="story-media ais-panorama">
+                    <img src="EmptyAIS.jpg" alt="Reserved for the elites — The empty AIS track in 2020">
+                    <figcaption class="story-caption">"Reserved for the elites"</figcaption>
+                </figure>
             </article>
 
-            <!-- CHAPTER 2: BIRTH OF UMROC & THE CENT FKTS -->
-            <article class="story-chapter" id="ch-cent" data-theme="blue" data-emojis="⛰️,⚡,🏆,🧭">
-                <span class="chapter-stamp-badge" aria-hidden="true">145KM FKT CLAIMED</span>
-                <div class="chapter-content">
-                    <div class="chapter-badge-row">
-                        <span class="chapter-year-pill">Chapter 02 &bull; 145km Loop</span>
-                        <button type="button" class="chapter-react-btn" aria-label="Stamp chapter 2">
-                            &#x26A1; Stamp Chapter
-                        </button>
-                    </div>
-                    <p>
+            <!-- CHAPTER 2: BIRTH OF UMROC & THE CENT FKTS (WITH THE CENT.JPG + STAMPY_FLASHCCT.PNG) -->
+            <article class="story-chapter story-chapter--cent" id="ch-cent" data-theme="blue">
+                <div class="cent-copy-top">
+                    <span class="chapter-year-pill">Chapter 02 &bull; 145km Loop</span>
+                    <p class="story-text-lead">
                         In that moment of being deemed not good enough for the training grounds of Olympic hopefuls, the
-                        Ultra
-                        Mediocre Runners of Canberra or UMRoC was born. We embraced the irony and carried on conquering
-                        mountains
-                        and setting records elsewhere.
-                    </p>
-                    <p>
-                        As an establishing action we made our mark on the Canberra Centenary Trail (we call it 'The
-                        Cent'), a 145km
-                        loop around our capital city, claiming <a
-                            href="https://fastestknowntime.com/route/centenary-trail" target="_blank"
-                            rel="noopener noreferrer">men's
-                            and women's fastest known times</a>.
+                        Ultra Mediocre Runners of Canberra or UMRoC was born. We embraced the irony and carried on
+                        conquering mountains and setting records elsewhere.
                     </p>
                 </div>
-                <div class="chapter-media">
-                    <button type="button" class="photo-frame-btn" data-full-src="The Cent.jpg"
-                        data-caption="We claimed the supported and unsupported FKTs on the Cent (145km loop)">
-                        <div class="photo-img-wrap">
-                            <img src="The Cent.jpg" alt="We claimed the supported and unsupported FKTs on the Cent">
-                        </div>
-                        <div class="photo-caption-bar">
-                            <span>"We claimed the supported and unsupported FKTs on the Cent"</span>
-                            <span class="photo-zoom-hint">&#x1F50D; Click to inspect</span>
-                        </div>
-                    </button>
+
+                <figure class="story-media cent-media-portrait">
+                    <img src="Stampy_FlashCCT.png" alt="Stampy and Flash on the Canberra Centenary Trail">
+                    <figcaption class="story-caption">"Stampy &amp; Flash on the Canberra Centenary Trail"</figcaption>
+                </figure>
+
+                <div class="cent-drape-row">
+                    <figure class="story-media cent-media-landscape">
+                        <img src="The Cent.jpg" alt="We claimed the supported and unsupported FKTs on the Cent">
+                        <figcaption class="story-caption">"We claimed the supported and unsupported FKTs on the Cent"</figcaption>
+                    </figure>
+
+                    <div class="cent-copy-fkt">
+                        <p class="story-text-body">
+                            As an establishing action we made our mark on the Canberra Centenary Trail (we call it
+                            'The Cent'), a 145km loop around our capital city, claiming
+                            <a href="https://fastestknowntime.com/route/centenary-trail" target="_blank"
+                                rel="noopener noreferrer">men's and women's fastest known times</a>.
+                        </p>
+                    </div>
                 </div>
             </article>
 
             <!-- CHAPTER 3: INCORPORATION & THE ORIGINAL GUMBY -->
-            <article class="story-chapter" id="ch-gumby" data-theme="yellow" data-emojis="👕,📜,🔔,🦙">
-                <span class="chapter-stamp-badge" aria-hidden="true">OFFICIALLY INCORPORATED</span>
-                <div class="chapter-content">
-                    <div class="chapter-badge-row">
-                        <span class="chapter-year-pill">Chapter 03 &bull; 27 Jan 2021</span>
-                        <button type="button" class="chapter-react-btn" aria-label="Stamp chapter 3">
-                            &#x26A1; Stamp Chapter
-                        </button>
-                    </div>
-                    <p>
+            <article class="story-chapter story-chapter--gumby" id="ch-gumby" data-theme="yellow">
+                <figure class="story-media gumby-media">
+                    <img src="UMRoC_GUMBY.JPG" alt="The Original GUMBY">
+                    <figcaption class="story-caption">"The Original GUMBY"</figcaption>
+                </figure>
+
+                <div class="gumby-copy">
+                    <span class="chapter-year-pill">Chapter 03 &bull; 27 Jan 2021</span>
+                    <p class="story-text-lead">
                         Then came the T-shirts followed by incorporation as an associated sports club on 27 January,
-                        2021,
-                        ostensibly to look serious enough to be permitted to organise our first public-facing event, a
-                        last-one-standing christened the Great Ultra Mediocre Back Yarder, or the GUMBY.
+                        2021, ostensibly to look serious enough to be permitted to organise our first public-facing
+                        event, a last-one-standing christened the Great Ultra Mediocre Back Yarder, or the GUMBY.
                     </p>
-                </div>
-                <div class="chapter-media">
-                    <button type="button" class="photo-frame-btn" data-full-src="UMRoC_GUMBY.JPG"
-                        data-caption="The Original GUMBY — Great Ultra Mediocre Back Yarder">
-                        <div class="photo-img-wrap">
-                            <img src="UMRoC_GUMBY.JPG" alt="The Original GUMBY">
-                        </div>
-                        <div class="photo-caption-bar">
-                            <span>"The Original GUMBY"</span>
-                            <span class="photo-zoom-hint">&#x1F50D; Click to inspect</span>
-                        </div>
-                    </button>
                 </div>
             </article>
 
             <!-- CHAPTER 4: 2023-2024 BRuTUS & BTRAIL 100KM -->
-            <article class="story-chapter" id="ch-brutus" data-theme="pink" data-emojis="🗡️,🏔️,💯,🔥">
-                <span class="chapter-stamp-badge" aria-hidden="true">100KM BRINDABELLA GRIT</span>
-                <div class="chapter-content">
-                    <div class="chapter-badge-row">
-                        <span class="chapter-year-pill">Chapter 04 &bull; 2023 &ndash; 2024</span>
-                        <button type="button" class="chapter-react-btn" aria-label="Stamp chapter 4">
-                            &#x26A1; Stamp Chapter
-                        </button>
-                    </div>
-                    <p>
+            <article class="story-chapter story-chapter--brutus" id="ch-brutus" data-theme="pink">
+                <div class="brutus-copy">
+                    <span class="chapter-year-pill">Chapter 04 &bull; 2023 &ndash; 2024</span>
+                    <p class="story-text-lead">
                         In 2023 UMRoC premiered its second public-facing event, the Brindabella Ranges ultimate Trail
-                        Ultra
-                        Spectacular or the BRuTUS, with 14km (the Knife) and 60km distances. In 2024 with much pride, we
-                        added a
-                        100km distance (the BTrail), which takes in the best of the Brindabella Ranges, mountain
-                        playground on the
-                        western border of the ACT.
+                        Ultra Spectacular or the BRuTUS, with 14km (the Knife) and 60km distances.
                     </p>
+                    <p class="story-text-body">
+                        In 2024 with much pride, we added a 100km distance (the BTrail), which takes in the best of the
+                        Brindabella Ranges, mountain playground on the western border of the ACT.
+                    </p>
+                    <div class="brutus-distances">
+                        <span class="brutus-dist-tag">14km &bull; The Knife</span>
+                        <span class="brutus-dist-tag">60km &bull; BRuTUS</span>
+                        <span class="brutus-dist-tag">100km &bull; The BTrail</span>
+                    </div>
                 </div>
-                <div class="chapter-media">
-                    <!-- <img src="TheRaceBriefing.jpg" alt="If in doubt, whip it out!"> -->
-                    <button type="button" class="photo-frame-btn" data-full-src="BRuTUSFinish.jpg"
-                        data-caption="A finisher arrives at the end of the BTrail 100km">
-                        <div class="photo-img-wrap">
-                            <img src="BRuTUSFinish.jpg" alt="A finisher arrives at the end of the BTrail 100km">
-                        </div>
-                        <div class="photo-caption-bar">
-                            <span>"A finisher arrives at the end of the BTrail 100km"</span>
-                            <span class="photo-zoom-hint">&#x1F50D; Click to inspect</span>
-                        </div>
-                    </button>
-                </div>
+
+                <figure class="story-media brutus-media">
+                    <img src="BRuTUSFinish.jpg" alt="A finisher arrives at the end of the BTrail 100km">
+                    <figcaption class="story-caption">"A finisher arrives at the end of the BTrail 100km"</figcaption>
+                </figure>
             </article>
 
             <!-- CHAPTER 5: PLUCK, NICKNAMES & WE ARE UMROC -->
-            <article class="story-chapter" id="ch-who" data-theme="blue" data-emojis="💖,⚡,🦸,🥂">
-                <span class="chapter-stamp-badge" aria-hidden="true">CERTIFIED ULTRA MEDIOCRE</span>
-                <div class="chapter-content">
-                    <div class="chapter-badge-row">
-                        <span class="chapter-year-pill">Chapter 05 &bull; Who We Are</span>
-                        <button type="button" class="chapter-react-btn" aria-label="Stamp chapter 5">
-                            &#x26A1; Stamp Chapter
-                        </button>
-                    </div>
-                    <p>
+            <article class="story-chapter story-chapter--who" id="ch-who" data-theme="blue">
+                <div class="who-copy-left">
+                    <span class="chapter-year-pill">Chapter 05 &bull; Who We Are</span>
+                    <p class="story-text-lead">
                         Our members show a lot of pluck in their mediocrity, and we honor them with club nicknames which
-                        in some way
-                        arise from their running exploits.
+                        in some way arise from their running exploits.
                     </p>
-                    <p>
+                </div>
+
+                <div class="who-copy-right">
+                    <p class="story-text-body">
                         This is who we are. We are UMRoC and we run far. And in running far, we continue to learn the
-                        lesson that if
-                        you're not mediocre, you just haven't run far enough.
+                        lesson that if you're not mediocre, you just haven't run far enough.
                     </p>
                 </div>
-                <div class="chapter-media">
-                    <button type="button" class="photo-frame-btn" data-full-src="WeAreUMRoC.jpg"
-                        data-caption="Ultra Mediocre Runners of Canberra">
-                        <div class="photo-img-wrap">
-                            <img src="WeAreUMRoC.jpg" alt="Ultra Mediocre Runners of Canberra">
-                        </div>
-                        <div class="photo-caption-bar">
-                            <span>"Ultra Mediocre Runners of Canberra"</span>
-                            <span class="photo-zoom-hint">&#x1F50D; Click to inspect</span>
-                        </div>
-                    </button>
-                </div>
+
+                <figure class="story-media who-media">
+                    <img src="WeAreUMRoC.jpg" alt="Ultra Mediocre Runners of Canberra">
+                    <figcaption class="story-caption">"Ultra Mediocre Runners of Canberra"</figcaption>
+                </figure>
             </article>
 
         </div>
@@ -282,17 +217,6 @@
             </div>
         </section>
     </main>
-
-    <!-- FULL-SCREEN PHOTO LIGHTBOX MODAL -->
-    <div class="story-lightbox" id="story-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged club photo"
-        hidden>
-        <div class="lightbox-card">
-            <button type="button" class="lightbox-close-btn" id="lightbox-close-btn"
-                aria-label="Close photo preview">&times;</button>
-            <img src="" alt="" class="lightbox-img" id="lightbox-img">
-            <p class="lightbox-caption" id="lightbox-caption"></p>
-        </div>
-    </div>
 
     <footer class="story-footer">
         <p>&copy; ULTRA Mediocre Runners of Canberra 2026</p>
@@ -324,60 +248,13 @@
                 backdrop.addEventListener('click', closeMenu);
             }
 
-            // 2. Emoji Particle Burst Helper
-            function spawnParticles(x, y, emojiList) {
-                const count = 9;
-                for (let i = 0; i < count; i++) {
-                    const el = document.createElement('span');
-                    el.className = 'story-particle';
-                    el.textContent = emojiList[i % emojiList.length];
-                    const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
-                    const dist = 55 + Math.random() * 65;
-                    const tx = Math.cos(angle) * dist + 'px';
-                    const ty = (Math.sin(angle) * dist - 25) + 'px';
-                    const rot = (Math.random() * 70 - 35) + 'deg';
-                    el.style.left = x + 'px';
-                    el.style.top = y + 'px';
-                    el.style.setProperty('--tx', tx);
-                    el.style.setProperty('--ty', ty);
-                    el.style.setProperty('--rot', rot);
-                    document.body.appendChild(el);
-                    setTimeout(function () {
-                        el.remove();
-                    }, 950);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeMenu();
                 }
-            }
-
-            // 3. Chapter Stamp Reaction Buttons
-            const reactBtns = document.querySelectorAll('.chapter-react-btn');
-            reactBtns.forEach(function (btn) {
-                btn.addEventListener('click', function (e) {
-                    const chapter = btn.closest('.story-chapter');
-                    if (!chapter) return;
-                    const isStamped = chapter.classList.toggle('is-stamped');
-                    btn.classList.toggle('is-stamped', isStamped);
-                    btn.innerHTML = isStamped ? '&#x2705; Stamped!' : '&#x26A1; Stamp Chapter';
-
-                    const rect = btn.getBoundingClientRect();
-                    const emojis = (chapter.getAttribute('data-emojis') || '⚡,🎉,🏃').split(',');
-                    spawnParticles(rect.left + rect.width / 2, rect.top + rect.height / 2, emojis);
-                });
             });
 
-            // 4. Celebrate Mediocrity Button
-            const cheerBtn = document.getElementById('story-cheer-btn');
-            if (cheerBtn) {
-                cheerBtn.addEventListener('click', function () {
-                    const rect = cheerBtn.getBoundingClientRect();
-                    spawnParticles(
-                        rect.left + rect.width / 2,
-                        rect.top + rect.height / 2,
-                        ['🏃', '⛰️', '🦙', '⚡', '🏆', '💖', '🎉']
-                    );
-                });
-            }
-
-            // 5. Chapter Pill Active Highlight
+            // 2. Chapter Pill Active Highlight
             const chapterPills = document.querySelectorAll('.chapter-pill');
             chapterPills.forEach(function (pill) {
                 pill.addEventListener('click', function () {
@@ -386,49 +263,7 @@
                 });
             });
 
-            // 6. Photo Lightbox Modal
-            const lightbox = document.getElementById('story-lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCaption = document.getElementById('lightbox-caption');
-            const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
-            const photoBtns = document.querySelectorAll('.photo-frame-btn');
-
-            function closeLightbox() {
-                if (!lightbox) return;
-                lightbox.hidden = true;
-                if (lightboxImg) lightboxImg.src = '';
-            }
-
-            photoBtns.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    const src = btn.getAttribute('data-full-src');
-                    const caption = btn.getAttribute('data-caption') || '';
-                    const imgEl = btn.querySelector('img');
-                    if (!lightbox || !lightboxImg) return;
-                    lightboxImg.src = src;
-                    lightboxImg.alt = imgEl ? imgEl.alt : caption;
-                    if (lightboxCaption) lightboxCaption.textContent = caption;
-                    lightbox.hidden = false;
-                });
-            });
-
-            if (lightboxCloseBtn) {
-                lightboxCloseBtn.addEventListener('click', closeLightbox);
-            }
-            if (lightbox) {
-                lightbox.addEventListener('click', function (e) {
-                    if (e.target === lightbox) closeLightbox();
-                });
-            }
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                    closeMenu();
-                }
-            });
-
-            // 7. Interactive Mediocrity Distance Slider
+            // 3. Interactive Mediocrity Distance Slider
             const slider = document.getElementById('mediocrity-slider');
             const distVal = document.getElementById('meter-dist-val');
             const statusPill = document.getElementById('meter-status-pill');

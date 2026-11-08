@@ -1,22 +1,21 @@
 /* ==========================================================================
    OUR BEGINNINGS (OUR STORY) — DEDICATED STYLESHEET (our-story.css)
-   Borrows palette & modern styling from Our_Board.html, index.html & GUMBY_course.html
-   Primary Club Palette: Pink (#FF3EB5), Yellow (#FEDD00), Blue (#009CDE)
+   Palette & tonal inspiration from index.html:
+   Pink (#FF3EB5), Yellow (#FEDD00), Blue (#009CDE), Ink (#07080d), White (#ffffff)
+   Frameless editorial layout using CSS Grid & Flexbox
    ========================================================================== */
 
 :root {
   --pink: #FF3EB5;
+  --pink-soft: #ff6fd0;
+  --pink-deep: #c91483;
   --yellow: #FEDD00;
+  --amber: #ffbf00;
   --blue: #009CDE;
-  --pink-glow: rgba(255, 62, 181, 0.45);
-  --yellow-glow: rgba(254, 221, 0, 0.45);
-  --blue-glow: rgba(0, 156, 222, 0.45);
-  --bg-deep: #07080d;
-  --bg-panel: rgba(14, 17, 28, 0.9);
-  --bg-card: #111522;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --border-subtle: rgba(255, 255, 255, 0.14);
+  --cyan: #00f0ff;
+  --ink: #07080d;
+  --white: #ffffff;
+  --font-heading: 'MuseoModerno', 'Syncopate', sans-serif;
   --font-display: 'Syncopate', 'Audiowide', sans-serif;
   --font-tech: 'Audiowide', sans-serif;
   --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
@@ -38,143 +37,98 @@ html,
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--bg-deep);
-  color: var(--text-main);
+  color: var(--ink);
   font-family: var(--font-body);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Rich tonal pink background directly inspired by index.html */
+body {
+  background-color: var(--pink);
+  background-image:
+    radial-gradient(ellipse 55% 46% at 14% 18%, rgba(255, 206, 238, 0.78) 0%, rgba(255, 145, 218, 0.32) 48%, transparent 74%),
+    radial-gradient(ellipse 58% 52% at 88% 16%, rgba(152, 10, 98, 0.68) 0%, rgba(196, 18, 128, 0.28) 52%, transparent 76%),
+    radial-gradient(ellipse 48% 44% at 52% 48%, rgba(255, 188, 232, 0.52) 0%, transparent 66%),
+    radial-gradient(ellipse 64% 50% at 16% 86%, rgba(138, 8, 88, 0.72) 0%, rgba(188, 16, 118, 0.3) 50%, transparent 75%),
+    radial-gradient(ellipse 56% 48% at 84% 84%, rgba(255, 152, 205, 0.65) 0%, rgba(254, 221, 0, 0.14) 45%, transparent 72%),
+    radial-gradient(circle at 34% 58%, rgba(212, 26, 158, 0.45) 0%, transparent 55%),
+    linear-gradient(145deg, #ff7ad1 0%, #ff3eb5 28%, #d4148a 54%, #ff5cc2 78%, #a80d6c 100%);
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
 }
 
 ::selection {
-  background: var(--pink);
-  color: #fff;
-}
-
-/* Ambient glowing background blobs */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(255, 62, 181, 0.14), transparent 40%),
-    radial-gradient(circle at 88% 24%, rgba(0, 156, 222, 0.15), transparent 42%),
-    radial-gradient(circle at 50% 85%, rgba(254, 221, 0, 0.09), transparent 45%);
-  pointer-events: none;
-  z-index: 0;
+  background: var(--ink);
+  color: var(--yellow);
 }
 
 /* ==========================================================================
-   TOP HEADER, LIVE TICKER & NAVIGATION (DESKTOP + MOBILE POPUP)
+   TOP HEADER & NAVIGATION (ALIGNED WITH INDEX.HTML PILLS & MUSEOMODERNO)
    ========================================================================== */
 .story-header {
   position: relative;
   z-index: 100;
-  border-bottom: 3px solid var(--yellow);
-  background: linear-gradient(180deg, rgba(12, 15, 26, 0.96) 0%, rgba(7, 8, 13, 0.92) 100%);
-  backdrop-filter: blur(12px);
-}
-
-.story-ticker-wrap {
-  background: var(--yellow);
-  color: #07080d;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 6px 0;
-  border-bottom: 2px solid #07080d;
-  font-family: var(--font-tech);
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.story-ticker-track {
-  display: inline-flex;
-  gap: 2.5rem;
-  animation: storyTickerSlide 32s linear infinite;
-}
-
-.story-ticker-wrap:hover .story-ticker-track {
-  animation-play-state: paused;
-}
-
-.story-ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-}
-
-.story-ticker-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--pink);
-  box-shadow: 0 0 0 2px #07080d;
-}
-
-@keyframes storyTickerSlide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  padding: 1.5rem 1.5rem 0.5rem;
 }
 
 .story-header-main {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 1.15rem 1.5rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .story-brand {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
 }
 
 .story-badge-pill {
-  background: var(--pink);
-  color: #fff;
+  background: var(--ink);
+  color: var(--yellow);
   font-family: var(--font-tech);
   font-size: 0.74rem;
-  padding: 0.35rem 0.8rem;
+  padding: 0.32rem 0.85rem;
   border-radius: 999px;
-  border: 2px solid var(--yellow);
-  box-shadow: 3px 3px 0 var(--blue);
+  border: 2px solid var(--pink);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   white-space: nowrap;
 }
 
 .story-title-group h1 {
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.6vw, 2rem);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.2vw, 3.35rem);
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  line-height: 1.1;
-  color: #fff;
-  text-shadow: 2px 2px 0 var(--pink), -2px -1px 0 var(--blue);
+  letter-spacing: 0.03em;
+  line-height: 1.08;
+  color: var(--white);
+  text-shadow: none;
 }
 
 .story-title-group p {
-  font-size: 0.86rem;
-  color: var(--text-muted);
-  margin-top: 0.25rem;
+  font-family: var(--font-tech);
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
 }
 
 .story-title-group p strong {
   color: var(--yellow);
+  background: var(--ink);
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-weight: 400;
 }
 
-/* Navigation Bar (Limited Nav matching original Our_Story.html) */
+/* Navigation Pills styled like index.html summit-pins (ink bg, white text, hot pink border) */
 .story-nav {
   display: flex;
   align-items: center;
@@ -192,26 +146,26 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.52rem 1rem;
-  border-radius: 10px;
-  background: rgba(18, 22, 36, 0.9);
-  border: 1.5px solid rgba(255, 255, 255, 0.16);
-  color: var(--text-main);
+  padding: 0.55rem 1.05rem;
+  border-radius: 999px;
+  background: var(--ink);
+  border: 2.5px solid var(--pink);
+  color: var(--white);
   text-decoration: none;
   font-family: var(--font-tech);
   font-size: 0.78rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 4px 4px 0 rgba(7, 8, 13, 0.82);
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.18s ease, color 0.18s ease;
 }
 
 .story-nav-link:hover,
 .story-nav-link:focus-visible {
-  transform: translateY(-2px);
-  border-color: var(--yellow);
-  background: rgba(255, 62, 181, 0.2);
-  color: var(--yellow);
-  box-shadow: 0 4px 14px var(--pink-glow);
+  transform: translate(-2px, -2px) scale(1.04);
+  background: var(--yellow);
+  color: var(--ink);
+  border-color: var(--ink);
   outline: none;
 }
 
@@ -222,9 +176,9 @@ body::before {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: rgba(14, 18, 30, 0.95);
+  background: var(--ink);
   border: 2px solid var(--yellow);
-  box-shadow: 3px 3px 0 var(--pink);
+  box-shadow: 3px 3px 0 rgba(7, 8, 13, 0.8);
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
@@ -233,11 +187,6 @@ body::before {
   padding: 8px;
   z-index: 120;
   transition: all 0.2s ease;
-}
-
-.story-burger:hover {
-  border-color: var(--blue);
-  transform: scale(1.05);
 }
 
 .story-burger .burger-line {
@@ -266,383 +215,364 @@ body::before {
 .story-nav-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(4, 6, 12, 0.72);
-  backdrop-filter: blur(6px);
+  background: rgba(7, 8, 13, 0.65);
+  backdrop-filter: blur(5px);
   z-index: 105;
 }
 
 /* ==========================================================================
-   MAIN CONTAINER & INTERACTIVE CHAPTER JUMP BAR
+   MAIN EDITORIAL CANVAS — FRAMELESS CSS GRID & FLEXBOX DRAPING
    ========================================================================== */
 .story-main {
   position: relative;
   z-index: 10;
-  max-width: 1220px;
+  max-width: 1320px;
+  width: 100%;
   margin: 0 auto;
-  padding: 1.75rem 1.5rem 3.5rem;
+  padding: 1.5rem 1.5rem 4rem;
+  flex: 1 1 auto;
 }
 
+/* Frameless Chapter Jump Bar */
 .story-controls-bar {
-  background: var(--bg-panel);
-  border: 2px solid var(--border-subtle);
-  border-left: 5px solid var(--blue);
-  border-radius: 18px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  justify-content: flex-start;
+  gap: 0.6rem;
 }
 
 .chapter-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.55rem;
   align-items: center;
 }
 
 .chapter-pill {
   appearance: none;
   text-decoration: none;
-  background: rgba(18, 22, 36, 0.9);
-  border: 1.5px solid rgba(255, 255, 255, 0.16);
-  color: var(--text-main);
+  background: var(--ink);
+  border: 2px solid var(--pink);
+  color: var(--white);
   border-radius: 999px;
-  padding: 0.42rem 0.85rem;
+  padding: 0.45rem 0.95rem;
   font-family: var(--font-tech);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   letter-spacing: 0.04em;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  box-shadow: 3px 3px 0 rgba(7, 8, 13, 0.75);
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .chapter-pill:hover,
 .chapter-pill.is-active {
-  background: var(--pink);
-  border-color: var(--yellow);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--pink-glow);
-}
-
-.story-cheer-btn {
-  appearance: none;
   background: var(--yellow);
-  color: #07080d;
-  border: 2px solid var(--pink);
-  border-radius: 12px;
-  padding: 0.5rem 0.95rem;
-  font-family: var(--font-tech);
-  font-size: 0.74rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  box-shadow: 3px 3px 0 var(--blue);
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.story-cheer-btn:hover {
-  transform: translateY(-2px) scale(1.03);
-  background: var(--pink);
-  color: #fff;
-  border-color: var(--yellow);
+  border-color: var(--ink);
+  color: var(--ink);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   INTERACTIVE TIMELINE & STORY CHAPTER CARDS
+   FRAMELESS EDITORIAL CHAPTER FLOW
+   No card borders, no drop-shadow boxes, no image frames.
+   Uses 12-column CSS Grid & Flexbox so text drapes around the imagery.
    ========================================================================== */
 .story-timeline {
-  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2.25rem;
-}
-
-/* Glowing vertical spine on desktop */
-.story-timeline::before {
-  content: "";
-  position: absolute;
-  top: 2rem;
-  bottom: 2rem;
-  left: 50%;
-  width: 3px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, var(--pink), var(--blue), var(--yellow), var(--pink));
-  opacity: 0.45;
-  border-radius: 999px;
-  z-index: 0;
+  gap: 4.5rem;
 }
 
 .story-chapter {
   position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-  background: var(--bg-card);
-  border: 2px solid rgba(255, 255, 255, 0.14);
-  border-radius: 22px;
-  padding: 1.75rem;
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.55);
-  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.25s ease;
-}
-
-.story-chapter:hover {
-  transform: translateY(-4px);
-  border-color: var(--yellow);
-}
-
-.story-chapter[data-theme="pink"] {
-  border-top: 5px solid var(--pink);
-}
-.story-chapter[data-theme="blue"] {
-  border-top: 5px solid var(--blue);
-}
-.story-chapter[data-theme="yellow"] {
-  border-top: 5px solid var(--yellow);
-}
-
-/* Alternate text & image sides on even chapters */
-.story-chapter:nth-child(even) .chapter-content {
-  order: 2;
-}
-.story-chapter:nth-child(even) .chapter-media {
-  order: 1;
-}
-
-.chapter-badge-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 0.85rem;
-  flex-wrap: wrap;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 .chapter-year-pill {
-  background: var(--pink);
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--ink);
+  color: var(--yellow);
   font-family: var(--font-tech);
-  font-size: 0.72rem;
-  padding: 0.28rem 0.75rem;
+  font-size: 0.76rem;
+  padding: 0.32rem 0.88rem;
   border-radius: 999px;
-  border: 1.5px solid var(--yellow);
-  box-shadow: 2px 2px 0 var(--blue);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
+  margin-bottom: 0.9rem;
 }
 
 .story-chapter[data-theme="blue"] .chapter-year-pill {
-  background: var(--blue);
+  color: var(--cyan);
 }
 
 .story-chapter[data-theme="yellow"] .chapter-year-pill {
   background: var(--yellow);
-  color: #07080d;
-  border-color: var(--pink);
+  color: var(--ink);
 }
 
-.chapter-react-btn {
-  appearance: none;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+.story-text-lead {
+  font-size: clamp(1.12rem, 1.55vw, 1.38rem);
+  font-weight: 600;
+  line-height: 1.68;
+  color: var(--ink);
+}
+
+.story-text-body {
+  font-size: clamp(1.02rem, 1.3vw, 1.18rem);
+  font-weight: 500;
+  line-height: 1.74;
+  color: var(--ink);
+}
+
+.story-chapter a {
   color: var(--yellow);
-  border-radius: 999px;
-  padding: 0.28rem 0.7rem;
-  font-family: var(--font-tech);
-  font-size: 0.68rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.chapter-react-btn:hover {
-  background: var(--pink);
-  color: #fff;
-  border-color: var(--yellow);
-  transform: scale(1.06);
-}
-
-.chapter-react-btn.is-stamped {
-  background: var(--yellow);
-  color: #07080d;
-  border-color: var(--pink);
-}
-
-.chapter-content p {
-  font-size: 0.96rem;
-  line-height: 1.72;
-  color: #e2e8f0;
-  margin-bottom: 1rem;
-}
-
-.chapter-content p:last-child {
-  margin-bottom: 0;
-}
-
-.chapter-content a {
-  color: var(--yellow);
+  background: var(--ink);
+  padding: 0.08rem 0.5rem;
+  border-radius: 6px;
   font-weight: 700;
-  text-decoration: underline;
-  text-decoration-color: var(--pink);
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
 }
 
-.chapter-content a:hover {
-  color: var(--pink);
+.story-chapter a:hover {
+  background: var(--blue);
+  color: var(--white);
 }
 
-/* Interactive Polaroid / Framed Photo Card */
-.chapter-media {
-  position: relative;
+/* Frameless imagery & clean inline captions */
+.story-media {
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-.photo-frame-btn {
-  appearance: none;
+.story-media img {
   width: 100%;
-  background: #090c15;
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
-  padding: 0.65rem 0.65rem 0.8rem;
-  cursor: zoom-in;
-  text-align: left;
-  color: var(--text-main);
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.6),
-    4px 4px 0 var(--blue);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  height: auto;
   display: block;
-}
-
-.story-chapter:nth-child(odd) .photo-frame-btn {
-  transform: rotate(1deg);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 4px 4px 0 var(--pink);
-}
-
-.story-chapter:nth-child(even) .photo-frame-btn {
-  transform: rotate(-1deg);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), -4px 4px 0 var(--blue);
-}
-
-.photo-frame-btn:hover {
-  transform: rotate(0deg) scale(1.025);
-  border-color: var(--yellow);
-}
-
-.photo-img-wrap {
-  position: relative;
-  width: 100%;
-  height: 270px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #05060a;
-}
-
-.photo-img-wrap img {
-  width: 100%;
-  height: 100%;
+  border-radius: 14px;
+  border: none;
+  box-shadow: none;
   object-fit: cover;
-  display: block;
-  transition: transform 0.45s ease;
 }
 
-.photo-frame-btn:hover .photo-img-wrap img {
-  transform: scale(1.05);
+.story-caption {
+  margin-top: 0.55rem;
+  font-family: var(--font-tech);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
 }
 
-.photo-caption-bar {
+/* --------------------------------------------------------------------------
+   CHAPTER 01 (2020 AIS):
+   Asymmetric 12-column grid where the opening narrative sits top-left and
+   drapes over the ultra-wide panoramic AIS track below & to the right.
+   -------------------------------------------------------------------------- */
+.story-chapter--ais {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+  align-items: end;
+}
+
+.story-chapter--ais .ais-intro {
+  grid-column: 1 / 7;
+}
+
+.story-chapter--ais .ais-callout {
+  grid-column: 7 / 13;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--yellow);
+}
+
+.story-chapter--ais .ais-panorama {
+  grid-column: 2 / 13;
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER 02 (145KM CENTENARY TRAIL FKTs):
+   Multi-image CSS Grid + Flexbox composition featuring both The Cent.jpg
+   landscape and the vertical Stampy_FlashCCT.png portrait, with text
+   draping between and alongside the two images.
+   -------------------------------------------------------------------------- */
+.story-chapter--cent {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  gap: 1.75rem 2.25rem;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-top: 0.6rem;
-  padding: 0 0.25rem;
-  font-size: 0.76rem;
-  color: var(--text-muted);
 }
 
-.photo-zoom-hint {
+.story-chapter--cent .cent-copy-top {
+  grid-column: 1 / 8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.story-chapter--cent .cent-media-portrait {
+  grid-column: 8 / 13;
+  grid-row: 1 / 3;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.story-chapter--cent .cent-media-portrait img {
+  max-height: 540px;
+  object-position: center top;
+}
+
+.story-chapter--cent .cent-drape-row {
+  grid-column: 1 / 8;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.story-chapter--cent .cent-copy-fkt {
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(4px);
+  padding: 1.15rem 1.35rem;
+  border-left: 5px solid var(--blue);
+  border-radius: 0 14px 14px 0;
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER 03 (2021 INCORPORATION & GUMBY):
+   Flexbox staggered split — wide group start-line photo on the left with
+   the incorporation text draped beside and offset vertically.
+   -------------------------------------------------------------------------- */
+.story-chapter--gumby {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.story-chapter--gumby .gumby-media {
+  flex: 1 1 56%;
+  min-width: 300px;
+}
+
+.story-chapter--gumby .gumby-copy {
+  flex: 1 1 36%;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER 04 (BRuTUS & BTRAIL 100KM):
+   12-column CSS Grid — text column on the left with a bold pull-stat flex
+   row, draped alongside the night-time BRuTUS finish arch on the right.
+   -------------------------------------------------------------------------- */
+.story-chapter--brutus {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.story-chapter--brutus .brutus-copy {
+  grid-column: 1 / 6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.story-chapter--brutus .brutus-distances {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+}
+
+.story-chapter--brutus .brutus-dist-tag {
   font-family: var(--font-tech);
-  font-size: 0.66rem;
-  color: var(--yellow);
-  white-space: nowrap;
+  font-size: 0.74rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--ink);
+  letter-spacing: 0.04em;
 }
 
-/* Stamp overlay when user clicks the chapter reaction button */
-.chapter-stamp-badge {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  background: rgba(254, 221, 0, 0.95);
-  color: #07080d;
-  border: 2.5px solid var(--pink);
-  padding: 0.3rem 0.65rem;
-  border-radius: 8px;
-  font-family: var(--font-tech);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transform: rotate(8deg) scale(0);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 5;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+.story-chapter--brutus .brutus-media {
+  grid-column: 6 / 13;
 }
 
-.story-chapter.is-stamped .chapter-stamp-badge {
-  transform: rotate(-8deg) scale(1);
-  opacity: 1;
+/* --------------------------------------------------------------------------
+   CHAPTER 05 (WE ARE UMROC):
+   Editorial finale — two-column draped text header above the full-bleed
+   club group portrait.
+   -------------------------------------------------------------------------- */
+.story-chapter--who {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem 2.25rem;
+  align-items: end;
+}
+
+.story-chapter--who .who-copy-left {
+  grid-column: 1 / 7;
+}
+
+.story-chapter--who .who-copy-right {
+  grid-column: 7 / 13;
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--ink);
+}
+
+.story-chapter--who .who-media {
+  grid-column: 1 / 13;
 }
 
 /* ==========================================================================
-   INTERACTIVE "HAVE YOU RUN FAR ENOUGH?" MEDIOCRITY METER WIDGET
+   INTERACTIVE "HAVE YOU RUN FAR ENOUGH?" MEDIOCRITY METER (FRAMELESS)
    ========================================================================== */
 .mediocrity-meter-card {
-  margin-top: 2.5rem;
-  background: linear-gradient(135deg, rgba(18, 22, 36, 0.95), rgba(24, 16, 38, 0.95));
-  border: 2.5px solid var(--yellow);
-  border-radius: 22px;
-  padding: 1.5rem 1.75rem;
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.6),
-    5px 5px 0 var(--pink),
-    -4px -4px 0 var(--blue);
+  margin-top: 4rem;
+  padding-top: 2.25rem;
+  border-top: 3px solid rgba(7, 8, 13, 0.25);
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
 .meter-info h3 {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--yellow);
-  margin-bottom: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  color: var(--white);
+  margin-bottom: 0.45rem;
 }
 
 .meter-info p {
-  font-size: 0.86rem;
-  color: #cbd5e1;
-  line-height: 1.55;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.6;
 }
 
 .meter-controls {
-  background: rgba(7, 8, 13, 0.75);
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
-  padding: 1rem 1.15rem;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -653,112 +583,30 @@ body::before {
   justify-content: space-between;
   align-items: baseline;
   font-family: var(--font-tech);
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .meter-dist-val {
-  font-size: 1.25rem;
-  color: var(--pink);
+  font-size: 1.45rem;
+  color: var(--yellow);
+  background: var(--ink);
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
 }
 
 .meter-status-pill {
-  font-size: 0.74rem;
-  color: var(--yellow);
-  background: rgba(254, 221, 0, 0.12);
-  border: 1px solid rgba(254, 221, 0, 0.4);
-  padding: 0.22rem 0.6rem;
+  font-size: 0.76rem;
+  color: var(--white);
+  background: var(--ink);
+  padding: 0.28rem 0.75rem;
   border-radius: 999px;
 }
 
 .meter-controls input[type="range"] {
   width: 100%;
-  accent-color: var(--pink);
+  accent-color: var(--ink);
   cursor: pointer;
-}
-
-/* ==========================================================================
-   PHOTO LIGHTBOX MODAL
-   ========================================================================== */
-.story-lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 7, 13, 0.92);
-  backdrop-filter: blur(10px);
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.story-lightbox[hidden] {
-  display: none;
-}
-
-.lightbox-card {
-  position: relative;
-  max-width: 960px;
-  width: 100%;
-  background: #0e1220;
-  border: 2.5px solid var(--yellow);
-  border-radius: 18px;
-  padding: 1rem;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 6px 6px 0 var(--pink);
-}
-
-.lightbox-close-btn {
-  position: absolute;
-  top: -14px;
-  right: -14px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--pink);
-  border: 2px solid var(--yellow);
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox-img {
-  width: 100%;
-  max-height: 75vh;
-  object-fit: contain;
-  border-radius: 10px;
-  display: block;
-  background: #05060a;
-}
-
-.lightbox-caption {
-  margin-top: 0.75rem;
-  text-align: center;
-  font-family: var(--font-tech);
-  font-size: 0.84rem;
-  color: var(--yellow);
-}
-
-/* Floating Emoji Particle Burst */
-.story-particle {
-  position: fixed;
-  pointer-events: none;
-  z-index: 999;
-  font-size: 1.3rem;
-  will-change: transform, opacity;
-  animation: storyParticlePop 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes storyParticlePop {
-  0% {
-    opacity: 1;
-    transform: translate(0, 0) scale(0.5) rotate(0deg);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(var(--tx), var(--ty)) scale(1.35) rotate(var(--rot));
-  }
 }
 
 /* ==========================================================================
@@ -767,50 +615,39 @@ body::before {
 .story-footer {
   position: relative;
   z-index: 10;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
   padding: 1.5rem;
   text-align: center;
   font-family: var(--font-tech);
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  background: rgba(7, 8, 13, 0.9);
+  font-size: 0.76rem;
+  color: var(--ink);
+  letter-spacing: 0.06em;
 }
 
 /* ==========================================================================
-   MOBILE & SMALL SCREEN OPTIMISATIONS (<= 820px)
+   MOBILE & SMALL SCREEN OPTIMISATIONS (<= 860px)
    ========================================================================== */
-@media (max-width: 820px) {
+@media (max-width: 860px) {
+  .story-header {
+    padding: 1rem 1rem 0.25rem;
+  }
+
   .story-header-main {
     position: relative;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0.9rem 1rem 1rem;
     gap: 0.65rem;
   }
 
   .story-burger {
     display: inline-flex;
     position: absolute;
-    top: 0.8rem;
-    right: 1rem;
+    top: 0.2rem;
+    right: 0;
   }
 
   .story-brand {
-    flex-direction: column;
-    align-items: flex-start;
     width: 100%;
-    gap: 0.55rem;
-  }
-
-  .story-title-group {
-    order: 1;
-    text-align: left;
     padding-right: 3.5rem;
-  }
-
-  .story-badge-pill {
-    order: 2;
-    align-self: flex-start;
   }
 
   .story-nav {
@@ -820,14 +657,11 @@ body::before {
     left: 1rem;
     max-width: 360px;
     margin-left: auto;
-    background: rgba(10, 13, 22, 0.98);
+    background: var(--ink);
     border: 2.5px solid var(--yellow);
     border-radius: 18px;
     padding: 1.15rem;
-    box-shadow:
-      0 24px 55px rgba(0, 0, 0, 0.85),
-      6px 6px 0 var(--pink),
-      -4px -4px 0 var(--blue);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
     z-index: 115;
     opacity: 0;
     visibility: hidden;
@@ -862,34 +696,38 @@ body::before {
   }
 
   .story-main {
-    padding: 1.15rem 1rem 2.5rem;
+    padding: 1.25rem 1rem 2.75rem;
   }
 
-  .story-timeline::before {
-    display: none;
+  .story-timeline {
+    gap: 3.25rem;
   }
 
-  .story-chapter {
+  .story-chapter--ais,
+  .story-chapter--cent,
+  .story-chapter--brutus,
+  .story-chapter--who {
     grid-template-columns: 1fr;
-    gap: 1.15rem;
-    padding: 1.25rem;
+    gap: 1.25rem;
   }
 
-  .story-chapter:nth-child(even) .chapter-content {
-    order: 1;
-  }
-
-  .story-chapter:nth-child(even) .chapter-media {
-    order: 2;
-  }
-
-  .photo-img-wrap {
-    height: 220px;
+  .story-chapter--ais .ais-intro,
+  .story-chapter--ais .ais-callout,
+  .story-chapter--ais .ais-panorama,
+  .story-chapter--cent .cent-copy-top,
+  .story-chapter--cent .cent-media-portrait,
+  .story-chapter--cent .cent-drape-row,
+  .story-chapter--brutus .brutus-copy,
+  .story-chapter--brutus .brutus-media,
+  .story-chapter--who .who-copy-left,
+  .story-chapter--who .who-copy-right,
+  .story-chapter--who .who-media {
+    grid-column: 1 / -1;
+    grid-row: auto;
   }
 
   .mediocrity-meter-card {
     grid-template-columns: 1fr;
-    padding: 1.25rem;
+    gap: 1.25rem;
   }
 }
-
