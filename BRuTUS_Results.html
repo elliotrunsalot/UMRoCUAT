@@ -2,85 +2,245 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="BRuTUS Results | ULTRA Mediocre Runners of Canberra">
-    <meta property="og:image" content="BRuTUSFBcard.png">
-    <link rel="icon" type="image/svg+xml" href="UMRoCfavicon.svg">
-    <link rel="shortcut icon" href="UMRoCfavicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Audiowide&family=Kanit:ital,wght@1,100&family=Poppins:wght@300;400;600&family=Permanent+Marker&family=Monoton&family=Shadows+Into+Light&family=Chelsea+Market&family=Gloria+Hallelujah&display=swap"
-        rel="stylesheet">
-    <title>BRuTUS Results | Ultra Mediocre</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="BRuTUS Results | ULTRA Mediocre Runners of Canberra" />
+  <meta property="og:image" content="BRuTUSFBcard.png" />
+  <link rel="icon" type="image/svg+xml" href="UMRoCfavicon.svg" />
+  <link rel="shortcut icon" href="UMRoCfavicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=MuseoModerno:wght@500;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Syncopate:wght@700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="brutus-results.css" />
+  <title>BRuTUS Results | Ultra Mediocre</title>
 </head>
 
 <body class="brutus-marble-page">
-    <div class="width">
 
-        <div class="burger" aria-label="Toggle Navigation Menu" role="button" tabindex="0">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+  <!-- TOP HEADER & NAVIGATION (Modeled on Media_Records.html) -->
+  <header class="board-header">
+    <div class="board-header-main">
+      <div class="board-brand">
+        <div class="board-title-group">
+          <h1>BRuTUS RESULTS</h1>
+          <p>
+            Official race standings for <strong>B-Trail 100km, BRuTUS 60km &amp; The Knife 14km</strong>
+          </p>
         </div>
+      </div>
 
-        <h1>BRuTUS Results</h1>
+      <!-- Mobile Hamburger Toggle Button -->
+      <button type="button" class="board-burger" id="board-burger-btn" aria-label="Toggle Navigation Menu"
+        aria-expanded="false" aria-controls="board-nav">
+        <span class="burger-line line1"></span>
+        <span class="burger-line line2"></span>
+        <span class="burger-line line3"></span>
+      </button>
 
-        <div class="navparent">
-            <ul class="nav23">
-                <li><a href="index.html">ULTRA Mediocre Home</a></li>
-                <li><a href="BRuTUS.html">BRuTUS</a></li>
-                <li><a href="Event_policies.html?from=brutus">Event Policies</a></li>
-            </ul>
-        </div>
+      <!-- Mobile Backdrop -->
+      <div class="board-nav-backdrop" id="board-nav-backdrop" hidden></div>
 
-        <div class="results-grid">
-            <div class="results-year-card">
-                <h2>2025 Results</h2>
-                <a href="https://www.webscorer.com/racedetails?raceid=410841" target="_blank" rel="noopener noreferrer">
-                    <p>B-Trail 2025 Results</p>
-                </a>
-                <a href="https://www.webscorer.com/racedetails?raceid=410840" target="_blank" rel="noopener noreferrer">
-                    <p>BRuTUS 2025 Results</p>
-                </a>
-                <a href="https://www.webscorer.com/racedetails?raceid=410838" target="_blank" rel="noopener noreferrer">
-                    <p>The Knife 2025 Results</p>
-                </a>
-            </div>
-
-            <div class="results-year-card">
-                <h2>2024 Results</h2>
-                <a href="B-Trail 2024 Results.pdf" target="_blank">
-                    <p>B-Trail 2024 Results</p>
-                </a>
-                <a href="BRuTUS 2024 Results.pdf" target="_blank">
-                    <p>BRuTUS 2024 Results</p>
-                </a>
-                <a href="The Knife 2024 Results.pdf" target="_blank">
-                    <p>The Knife 2024 Results</p>
-                </a>
-            </div>
-
-            <div class="results-year-card">
-                <h2>2023 Results</h2>
-                <a href="https://www.webscorer.com/race?raceid=331664" target="_blank" rel="noopener noreferrer">
-                    <p>BRuTUS 2023 Results</p>
-                </a>
-                <a href="https://www.webscorer.com/race?raceid=331665" target="_blank" rel="noopener noreferrer">
-                    <p>The Knife 2023 Results</p>
-                </a>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>&copy; ULTRA Mediocre Runners of Canberra 2026</p>
-        </div>
-
+      <!-- Navigation Pills -->
+      <nav class="board-nav" id="board-nav" aria-label="BRuTUS Results Navigation">
+        <ul class="board-nav-list">
+          <li><a href="index.html" class="board-nav-link"><span>&#x1F3E0;</span> ULTRA Mediocre Home</a></li>
+          <li><a href="BRuTUS.html" class="board-nav-link"><span>&#x1F5E1;&#xFE0F;</span> BRuTUS</a></li>
+          <li><a href="Event_policies.html?from=brutus" class="board-nav-link"><span>&#x1F4CB;</span> Event Policies</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <script src="app.js"></script>
+  <!-- MAIN WORKSPACE -->
+  <main class="results-main">
+
+    <!-- Intro Banner -->
+    <section class="results-intro-banner" aria-label="BRuTUS Archive Overview">
+      <div class="results-intro-text">
+        <h2>&#x1F3C6; The Rolls of the Brindabella Senate</h2>
+        <p>
+          Select any event edition below to view official Webscorer timing splits or download the official race results
+          from Blue Range Hut.
+        </p>
+      </div>
+      <span class="results-count-pill">3 Editions // 8 Race Records</span>
+    </section>
+
+    <!-- Results Year Cards Grid -->
+    <section class="results-grid" aria-label="BRuTUS Results by Year">
+
+      <!-- 2025 Results -->
+      <article class="results-year-card">
+        <div class="results-card-header">
+          <div class="results-card-meta">
+            <span class="results-card-badge">&#x1F3C6; Official Standings</span>
+            <span class="results-card-tag">Webscorer Live</span>
+          </div>
+          <h2>2025 Results</h2>
+        </div>
+        <div class="results-links-list">
+          <a href="https://www.webscorer.com/racedetails?raceid=410841" target="_blank" rel="noopener noreferrer"
+            class="results-link-btn">
+            <span>B-Trail 2025 Results</span>
+            <span>&#x2197;</span>
+          </a>
+          <a href="https://www.webscorer.com/racedetails?raceid=410840" target="_blank" rel="noopener noreferrer"
+            class="results-link-btn">
+            <span>BRuTUS 2025 Results</span>
+            <span>&#x2197;</span>
+          </a>
+          <a href="https://www.webscorer.com/racedetails?raceid=410838" target="_blank" rel="noopener noreferrer"
+            class="results-link-btn">
+            <span>The Knife 2025 Results</span>
+            <span>&#x2197;</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 2024 Results -->
+      <article class="results-year-card">
+        <div class="results-card-header">
+          <div class="results-card-meta">
+            <span class="results-card-badge">&#x1F4C4; Official PDF</span>
+            <span class="results-card-tag">3 Distances</span>
+          </div>
+          <h2>2024 Results</h2>
+        </div>
+        <div class="results-links-list">
+          <a href="B-Trail 2024 Results.pdf" target="_blank" class="results-link-btn">
+            <span>B-Trail 2024 Results</span>
+            <span>&#x2197;</span>
+          </a>
+          <a href="BRuTUS 2024 Results.pdf" target="_blank" class="results-link-btn">
+            <span>BRuTUS 2024 Results</span>
+            <span>&#x2197;</span>
+          </a>
+          <a href="The Knife 2024 Results.pdf" target="_blank" class="results-link-btn">
+            <span>The Knife 2024 Results</span>
+            <span>&#x2197;</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- 2023 Results -->
+      <article class="results-year-card">
+        <div class="results-card-header">
+          <div class="results-card-meta">
+            <span class="results-card-badge">&#x1F3C6; Inaugural Edition</span>
+            <span class="results-card-tag">Webscorer Live</span>
+          </div>
+          <h2>2023 Results</h2>
+        </div>
+        <div class="results-links-list">
+          <a href="https://www.webscorer.com/race?raceid=331664" target="_blank" rel="noopener noreferrer"
+            class="results-link-btn">
+            <span>BRuTUS 2023 Results</span>
+            <span>&#x2197;</span>
+          </a>
+          <a href="https://www.webscorer.com/race?raceid=331665" target="_blank" rel="noopener noreferrer"
+            class="results-link-btn">
+            <span>The Knife 2023 Results</span>
+            <span>&#x2197;</span>
+          </a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="board-footer">
+    <p>&copy; ULTRA Mediocre Runners of Canberra 2026</p>
+  </footer>
+
+  <!-- Mobile Navigation & Scroll-Locked Navigation Script -->
+  <script>
+    (function () {
+      const burgerBtn = document.getElementById('board-burger-btn');
+      const navBar = document.getElementById('board-nav');
+      const navBackdrop = document.getElementById('board-nav-backdrop');
+
+      const closeMobileNav = () => {
+        if (!navBar || !burgerBtn) return;
+        navBar.classList.remove('is-open');
+        burgerBtn.classList.remove('is-open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+        if (navBackdrop) navBackdrop.hidden = true;
+      };
+
+      if (burgerBtn && navBar) {
+        burgerBtn.addEventListener('click', () => {
+          const isOpen = navBar.classList.toggle('is-open');
+          burgerBtn.classList.toggle('is-open', isOpen);
+          burgerBtn.setAttribute('aria-expanded', String(isOpen));
+          if (navBackdrop) navBackdrop.hidden = !isOpen;
+        });
+      }
+
+      if (navBackdrop) {
+        navBackdrop.addEventListener('click', closeMobileNav);
+      }
+
+      document.querySelectorAll('#board-nav a').forEach((link) => {
+        link.addEventListener('click', closeMobileNav);
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileNav();
+      });
+
+      // Large Screen Scroll Lock: Glide nav to top-centre with 1s ease-in
+      const headerMain = document.querySelector('.board-header-main');
+      let isNavPinned = false;
+
+      function updatePinnedNav() {
+        if (!navBar) return;
+        if (window.innerWidth <= 820) {
+          if (isNavPinned) {
+            isNavPinned = false;
+            navBar.classList.remove('is-pinned');
+            navBar.style.transition = '';
+            navBar.style.transform = '';
+            if (headerMain) headerMain.style.minHeight = '';
+          }
+          return;
+        }
+
+        const shouldPin = window.scrollY > 24;
+        if (shouldPin && !isNavPinned) {
+          const rect = navBar.getBoundingClientRect();
+          if (headerMain) {
+            headerMain.style.minHeight = `${headerMain.offsetHeight}px`;
+          }
+          const deltaX = (rect.left + rect.width / 2) - (window.innerWidth / 2);
+          const deltaY = Math.max(0, rect.top - 11);
+
+          isNavPinned = true;
+          navBar.style.transition = 'none';
+          navBar.style.transform = `translate3d(calc(-50% + ${deltaX.toFixed(1)}px), ${deltaY.toFixed(1)}px, 0)`;
+          navBar.classList.add('is-pinned');
+
+          // Force reflow then ease-in over 1 second to the top-centre position
+          void navBar.offsetWidth;
+          navBar.style.transition = 'transform 1s ease-in, background-color 0.4s ease, box-shadow 0.4s ease';
+          navBar.style.transform = 'translate3d(-50%, 0, 0)';
+        } else if (!shouldPin && isNavPinned) {
+          isNavPinned = false;
+          navBar.classList.remove('is-pinned');
+          navBar.style.transition = '';
+          navBar.style.transform = '';
+          if (headerMain) headerMain.style.minHeight = '';
+        }
+      }
+
+      window.addEventListener('scroll', updatePinnedNav, { passive: true });
+      window.addEventListener('resize', updatePinnedNav);
+      updatePinnedNav();
+    })();
+  </script>
 </body>
 
 </html>
