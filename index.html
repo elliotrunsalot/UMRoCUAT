@@ -86,7 +86,8 @@
                 </a>
 
                 <!-- Peak 5 (~81.1% loop, South-West — Mount Taylor / Oakey Ridge 712m) -->
-                <a href="BRuTUS.html" class="hero-qnav-pill summit-pin" data-peak-index="4" style="--pa:#FF3EB5">
+                <a href="BRuTUS2027ComingSoon.html" class="hero-qnav-pill summit-pin" data-peak-index="4"
+                    style="--pa:#FF3EB5">
                     <span class="summit-pin-icon">🗡️</span>
                     <span>BRuTUS</span>
                 </a>
@@ -1001,7 +1002,7 @@
                         ctx.beginPath();
                         ctx.moveTo(pStart.sx, pStart.sy);
                         ctx.lineTo(headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sx : pTip.sx,
-                                   headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sy : pTip.sy);
+                            headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sy : pTip.sy);
                         ctx.stroke();
 
                         // Grey/silver inner fill for stem
@@ -1010,7 +1011,7 @@
                         ctx.beginPath();
                         ctx.moveTo(pStart.sx, pStart.sy);
                         ctx.lineTo(headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sx : pTip.sx,
-                                   headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sy : pTip.sy);
+                            headBaseR > arr.rStart ? project3D(dirX * headBaseR, 0, dirZ * headBaseR).sy : pTip.sy);
                         ctx.stroke();
 
                         // Arrowhead triangle with grey/silver fill and black border
@@ -1118,12 +1119,12 @@
                     ctx.fill();
                 }
                 ctx.globalAlpha = 1;
-                const runnerRad = 8.5;
+                const shirtHalfH = 10.5;
                 const runnerGrad = ctx.createLinearGradient(
                     rp.sx,
-                    rp.sy - runnerRad,
+                    rp.sy - shirtHalfH,
                     rp.sx,
-                    rp.sy + runnerRad
+                    rp.sy + shirtHalfH
                 );
                 runnerGrad.addColorStop(0, '#FF3EB5');
                 runnerGrad.addColorStop(1 / 3, '#FF3EB5');
@@ -1133,9 +1134,22 @@
                 runnerGrad.addColorStop(1, '#009CDE');
                 ctx.fillStyle = runnerGrad;
                 ctx.beginPath();
-                ctx.arc(rp.sx, rp.sy, runnerRad, 0, Math.PI * 2);
+                ctx.moveTo(rp.sx - 3.2, rp.sy - shirtHalfH);
+                ctx.quadraticCurveTo(rp.sx, rp.sy - 7.0, rp.sx + 3.2, rp.sy - shirtHalfH);
+                ctx.lineTo(rp.sx + 6.5, rp.sy - 9.8);
+                ctx.lineTo(rp.sx + 12.0, rp.sy - 5.2);
+                ctx.lineTo(rp.sx + 10.2, rp.sy - 0.5);
+                ctx.lineTo(rp.sx + 6.5, rp.sy - 2.2);
+                ctx.lineTo(rp.sx + 6.5, rp.sy + shirtHalfH);
+                ctx.lineTo(rp.sx - 6.5, rp.sy + shirtHalfH);
+                ctx.lineTo(rp.sx - 6.5, rp.sy - 2.2);
+                ctx.lineTo(rp.sx - 10.2, rp.sy - 0.5);
+                ctx.lineTo(rp.sx - 12.0, rp.sy - 5.2);
+                ctx.lineTo(rp.sx - 6.5, rp.sy - 9.8);
+                ctx.closePath();
                 ctx.fill();
-                ctx.lineWidth = 2.5;
+                ctx.lineWidth = 2;
+                ctx.lineJoin = 'round';
                 ctx.strokeStyle = '#07080d';
                 ctx.stroke();
                 ctx.restore();
