@@ -41,6 +41,143 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <style>
+        .theme-space .top-page-nav {
+            display: none;
+        }
+
+        @media (min-width: 769px) {
+            .theme-space .top-page-nav-slot {
+                margin: 0 0 1.25rem 0;
+            }
+
+            .theme-space .top-page-nav {
+                display: block;
+                margin: 0;
+                will-change: transform;
+            }
+
+            .theme-space .top-page-nav.is-pinned {
+                position: fixed;
+                top: 0.7rem;
+                left: 50%;
+                transform: translate3d(-50%, 0, 0);
+                z-index: 250;
+                width: max-content;
+                max-width: calc(100vw - 2rem);
+                margin: 0;
+                padding: 0.42rem 0.65rem;
+                border-radius: 999px;
+                background: rgba(7, 11, 24, 0.86);
+                backdrop-filter: blur(12px);
+                border: 1.5px solid var(--neon-cyan);
+                box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 240, 255, 0.25);
+                transition: transform 0.65s ease-in-out, background-color 0.35s ease, box-shadow 0.35s ease;
+            }
+
+            .theme-space .top-page-nav.is-pinned .nav-top-pages {
+                flex-wrap: nowrap;
+                gap: 0.65rem;
+            }
+
+            .theme-space .top-page-nav.is-pinned .nav-top-pages li {
+                border-radius: 999px;
+            }
+
+            .theme-space .top-page-nav.is-pinned .nav-top-pages li a {
+                padding: 0.55rem 1.05rem;
+                font-size: 0.78rem;
+                white-space: nowrap;
+            }
+
+            .theme-space .top-page-nav .nav-course-on-scroll {
+                display: none;
+            }
+
+            .theme-space .top-page-nav.is-pinned .nav-course-on-scroll {
+                display: list-item;
+                animation: gumbyNavCoursePop 0.35s ease-out both;
+            }
+
+            @keyframes gumbyNavCoursePop {
+                from {
+                    opacity: 0;
+                    transform: scale(0.88);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            .theme-space .nav-top-pages {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .theme-space .nav-top-pages li {
+                background: rgba(14, 20, 36, 0.85);
+                border: 1px solid var(--border-glass);
+                border-radius: 8px;
+                padding: 0;
+                transform: none;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            }
+
+            .theme-space .nav-top-pages li::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .theme-space .nav-top-pages li:hover {
+                transform: translateY(-3px);
+                border-color: var(--neon-cyan);
+                box-shadow: 0 0 16px var(--neon-cyan-glow);
+                background: rgba(22, 32, 58, 0.95);
+            }
+
+            .theme-space .nav-top-pages li:hover::before {
+                opacity: 1;
+            }
+
+            .theme-space .nav-top-pages li a {
+                display: block;
+                padding: 0.75rem 1.4rem;
+                color: var(--text-white);
+                text-decoration: none;
+                font-family: 'Orbitron', monospace;
+                font-size: 0.85rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: color 0.3s ease;
+            }
+
+            .theme-space .nav-top-pages li a:hover {
+                color: var(--neon-cyan);
+            }
+
+            .theme-space .nav23 li.desktop-moved-nav {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body class="theme-space">
@@ -70,6 +207,18 @@
     </div>
 
     <div class="width">
+
+        <!-- Desktop Page Navigation Above Hero -->
+        <div class="top-page-nav-slot" id="top-page-nav-slot">
+            <div class="navparent top-page-nav" id="top-page-nav">
+                <ul class="nav-top-pages">
+                    <li><a href="index.html">ULTRA Mediocre Home</a></li>
+                    <li><a href="Event_policies.html?from=gumby">Event Policies</a></li>
+                    <li><a href="GUMBY_Results.html">GUMBY Results 🏆</a></li>
+                    <li class="nav-course-on-scroll"><a href="GUMBY_course.html">🗺️ 3D Course Map</a></li>
+                </ul>
+            </div>
+        </div>
 
         <!-- Hero Mission Banner -->
         <div class="hero-banner">
@@ -114,9 +263,9 @@
             <!-- Mission Navigation Console -->
             <div class="navparent">
                 <ul class="nav23">
-                    <li><a href="index.html">ULTRA Mediocre Home</a></li>
-                    <li><a href="Event_policies.html?from=gumby">Event Policies</a></li>
-                    <li><a href="GUMBY_Results.html">GUMBY Results 🏆</a></li>
+                    <li class="desktop-moved-nav"><a href="index.html">ULTRA Mediocre Home</a></li>
+                    <li class="desktop-moved-nav"><a href="Event_policies.html?from=gumby">Event Policies</a></li>
+                    <li class="desktop-moved-nav"><a href="GUMBY_Results.html">GUMBY Results 🏆</a></li>
                     <li><a href="#mystery-kit">GUMBY Space Suit 📦</a></li>
                     <li><a href="#missions">The Missions</a></li>
                     <li><a href="#schedule">Flight Plan</a></li>
@@ -364,12 +513,6 @@
                     <p class="telemetry-sub">8 hours of solar energy (8 yards / 53.6 km). Final yard at ludicrous speed.
                     </p>
                 </div>
-            </div>
-
-            <!-- The Mission Map -->
-            <div class="map-container">
-                <iframe class="map" src="https://www.google.com/maps/d/u/0/embed?mid=10R9ApPFOTMU8XXyosjGW1N5bdmu2uH01"
-                    width="100%" height="100%" frameborder="0" style="border:0" title="GUMBY Course Map"></iframe>
             </div>
 
             <!-- Crew Capacity -->
@@ -705,6 +848,56 @@
 
     <!-- Main Navigation & Interactive Logic -->
     <script src="app.js"></script>
+    <script>
+        (function () {
+            const topNavSlot = document.getElementById('top-page-nav-slot');
+            const topNav = document.getElementById('top-page-nav');
+            if (!topNavSlot || !topNav) return;
+
+            let isTopNavPinned = false;
+
+            function updatePinnedTopNav() {
+                if (window.innerWidth <= 768) {
+                    if (isTopNavPinned) {
+                        isTopNavPinned = false;
+                        topNav.classList.remove('is-pinned');
+                        topNav.style.transition = '';
+                        topNav.style.transform = '';
+                        topNavSlot.style.minHeight = '';
+                    }
+                    return;
+                }
+
+                const shouldPin = window.scrollY > 24;
+                if (shouldPin && !isTopNavPinned) {
+                    const rect = topNav.getBoundingClientRect();
+                    topNavSlot.style.minHeight = `${topNavSlot.offsetHeight}px`;
+
+                    const deltaX = (rect.left + rect.width / 2) - (window.innerWidth / 2);
+                    const deltaY = Math.max(0, rect.top - 11);
+
+                    isTopNavPinned = true;
+                    topNav.style.transition = 'none';
+                    topNav.style.transform = `translate3d(calc(-50% + ${deltaX.toFixed(1)}px), ${deltaY.toFixed(1)}px, 0)`;
+                    topNav.classList.add('is-pinned');
+
+                    void topNav.offsetWidth;
+                    topNav.style.transition = 'transform 0.65s ease-in-out, background-color 0.35s ease, box-shadow 0.35s ease';
+                    topNav.style.transform = 'translate3d(-50%, 0, 0)';
+                } else if (!shouldPin && isTopNavPinned) {
+                    isTopNavPinned = false;
+                    topNav.classList.remove('is-pinned');
+                    topNav.style.transition = '';
+                    topNav.style.transform = '';
+                    topNavSlot.style.minHeight = '';
+                }
+            }
+
+            window.addEventListener('scroll', updatePinnedTopNav, { passive: true });
+            window.addEventListener('resize', updatePinnedTopNav);
+            updatePinnedTopNav();
+        })();
+    </script>
 
 </body>
 

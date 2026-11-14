@@ -19,6 +19,13 @@
     <link rel="icon" type="image/svg+xml" href="UMRoCfavicon.svg">
     <link rel="shortcut icon" href="UMRoCfavicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="index.css">
+    <style>
+        @media (max-width: 640px) {
+            #cent-map-canvas {
+                touch-action: none;
+            }
+        }
+    </style>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;600;700;800&family=Luckiest+Guy&family=Chelsea+Market&family=Syncopate:wght@700&family=Audiowide&family=Poppins:wght@400;600;800&display=swap"
@@ -360,6 +367,11 @@
             let spinDir = 1;    // +1 clockwise orbit, -1 counter-clockwise orbit
             let runnerDir = 1;  // +1 forward along GPX, -1 reverse along GPX
             let isDragging = false;
+            let isRotationPaused = false;
+            let activePointerId = null;
+            let pointerDownX = 0;
+            let pointerDownY = 0;
+            let hasDragged = false;
             let dragStartX = 0;
             let dragStartY = 0;
 
@@ -586,25 +598,50 @@
             });
 
             canvas.addEventListener('pointerdown', (e) => {
+                if (activePointerId !== null && activePointerId !== e.pointerId) return;
+                activePointerId = e.pointerId;
                 isDragging = true;
+                hasDragged = false;
                 dragStartX = e.clientX;
                 dragStartY = e.clientY;
-                canvas.setPointerCapture(e.pointerId);
+                pointerDownX = e.clientX;
+                pointerDownY = e.clientY;
+                try {
+                    canvas.setPointerCapture(e.pointerId);
+                } catch (_) {}
             });
 
             canvas.addEventListener('pointermove', (e) => {
-                if (!isDragging) return;
+                if (!isDragging || e.pointerId !== activePointerId) return;
                 const dx = e.clientX - dragStartX;
                 const dy = e.clientY - dragStartY;
+                if (!hasDragged && Math.hypot(e.clientX - pointerDownX, e.clientY - pointerDownY) > 6) {
+                    hasDragged = true;
+                }
                 yaw += dx * 0.007;
                 pitch = Math.max(0.32, Math.min(1.22, pitch + dy * 0.006));
                 dragStartX = e.clientX;
                 dragStartY = e.clientY;
             });
 
-            canvas.addEventListener('pointerup', () => {
+            function finishPointerDrag(e, isCancel) {
+                if (activePointerId !== null && e.pointerId !== activePointerId) return;
+                const isSmallScreen = window.innerWidth <= 640;
+                if (!isCancel && isSmallScreen && !hasDragged) {
+                    isRotationPaused = !isRotationPaused;
+                }
                 isDragging = false;
-            });
+                activePointerId = null;
+                hasDragged = false;
+                try {
+                    if (canvas.hasPointerCapture(e.pointerId)) {
+                        canvas.releasePointerCapture(e.pointerId);
+                    }
+                } catch (_) {}
+            }
+
+            canvas.addEventListener('pointerup', (e) => finishPointerDrag(e, false));
+            canvas.addEventListener('pointercancel', (e) => finishPointerDrag(e, true));
 
             canvas.addEventListener('wheel', (e) => {
                 e.preventDefault();
@@ -713,8 +750,8 @@
                 ctx.clearRect(0, 0, viewW, viewH);
                 const isSmallScreen = window.innerWidth <= 640;
 
-                // Continuous 3D spin in the selected spinDir when not actively dragging
-                if (!isDragging) {
+                // Continuous 3D spin in the selected spinDir when not actively dragging (or tap-paused on small screens)
+                if (!isDragging && !(isSmallScreen && isRotationPaused)) {
                     yaw += 0.0022 * spinDir;
                 }
 
