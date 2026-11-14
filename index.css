@@ -27,8 +27,9 @@
 html,
 body {
     width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
     color: var(--um-ink);
     font-family: 'Poppins', sans-serif;
     user-select: none;
@@ -49,7 +50,6 @@ body {
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 /* ═══════════════════════════════════════════════
@@ -106,7 +106,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 1680px;
-    min-height: calc(100vh - 58px);
+    min-height: 0;
     margin: 0 auto;
     padding: 0;
     display: flex;
@@ -114,6 +114,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     flex: 1 1 auto;
+    overflow: hidden;
     z-index: 10;
 }
 
@@ -169,7 +170,7 @@ body {
     inset: 0;
     width: 100%;
     height: 100%;
-    min-height: 620px;
+    min-height: 0;
     margin-top: 0;
     background: transparent;
     border: none;
@@ -344,7 +345,7 @@ body {
     }
 
     .centenary-map-deck {
-        min-height: 560px;
+        min-height: 0;
     }
 
     .map-direction-controls {
@@ -364,8 +365,7 @@ body {
 
 @media (max-width: 640px) {
     .wild-stage {
-        min-height: calc(100vh - 38px);
-        min-height: calc(100dvh - 38px);
+        min-height: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
@@ -472,9 +472,9 @@ body {
         order: 2;
         position: relative;
         inset: auto;
-        flex: 1 1 auto;
+        flex: 1 1 0;
         width: 100%;
-        height: 100%;
-        min-height: 360px;
+        height: auto;
+        min-height: 0;
     }
 }
