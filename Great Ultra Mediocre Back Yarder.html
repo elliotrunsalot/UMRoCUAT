@@ -46,6 +46,121 @@
             display: none;
         }
 
+        /* Space-suit silver-white styling for the 4 page navigation buttons (desktop top nav & mobile menu) */
+        .theme-space .nav-top-pages li,
+        .theme-space .nav23 li.nav-page-suit {
+            background: linear-gradient(145deg, #f6f8fc 0%, #e2e8f2 52%, #cbd5e4 100%);
+            border: 1.5px solid rgba(255, 255, 255, 0.92);
+            border-radius: 8px;
+            padding: 0;
+            transform: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                0 4px 14px rgba(0, 0, 0, 0.45);
+        }
+
+        .theme-space .nav-top-pages li::before,
+        .theme-space .nav23 li.nav-page-suit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffffff, var(--neon-cyan), transparent);
+            opacity: 0.65;
+            transition: opacity 0.3s ease;
+        }
+
+        .theme-space .nav-top-pages li:hover,
+        .theme-space .nav23 li.nav-page-suit:hover {
+            transform: translateY(-3px);
+            border-color: var(--neon-cyan);
+            background: linear-gradient(145deg, #ffffff 0%, #eef3fa 55%, #d9e3f0 100%);
+            box-shadow:
+                inset 0 1px 0 #ffffff,
+                0 0 18px var(--neon-cyan-glow),
+                0 6px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .theme-space .nav-top-pages li:hover::before,
+        .theme-space .nav23 li.nav-page-suit:hover::before {
+            opacity: 1;
+        }
+
+        .theme-space .nav-top-pages li a,
+        .theme-space .nav23 li.nav-page-suit a {
+            display: block;
+            padding: 0.75rem 1.4rem;
+            color: #0b1326;
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .theme-space .nav-top-pages li a:hover,
+        .theme-space .nav23 li.nav-page-suit a:hover {
+            color: #026aa7;
+        }
+
+        /* Anchored Section 'Top' Return Button (Space Odyssey Theme) */
+        .theme-space h2.anchor-heading-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .theme-space .anchor-top-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-left: auto;
+            padding: 0.35rem 0.78rem;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            background: rgba(14, 20, 36, 0.88);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+            transition: all 0.25s ease;
+        }
+
+        .theme-space .anchor-top-btn:hover {
+            color: #070b18;
+            background: var(--neon-cyan);
+            border-color: #ffffff;
+            box-shadow: 0 0 16px var(--neon-cyan-glow);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .theme-space .nav23 {
+                justify-content: flex-start;
+                padding: 4.1rem 1.35rem 1.75rem 1.35rem;
+                gap: 0.68rem;
+            }
+
+            .theme-space .nav23 li a,
+            .theme-space .nav23 li.nav-page-suit a {
+                padding: 0.72rem 0.95rem;
+                font-size: 0.86rem;
+            }
+        }
+
         @media (min-width: 769px) {
             .theme-space .top-page-nav-slot {
                 margin: 0 0 1.25rem 0;
@@ -90,26 +205,6 @@
                 white-space: nowrap;
             }
 
-            .theme-space .top-page-nav .nav-course-on-scroll {
-                display: none;
-            }
-
-            .theme-space .top-page-nav.is-pinned .nav-course-on-scroll {
-                display: list-item;
-                animation: gumbyNavCoursePop 0.35s ease-out both;
-            }
-
-            @keyframes gumbyNavCoursePop {
-                from {
-                    opacity: 0;
-                    transform: scale(0.88);
-                }
-                to {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-            }
-
             .theme-space .nav-top-pages {
                 list-style: none;
                 padding: 0;
@@ -121,60 +216,12 @@
                 flex-wrap: wrap;
             }
 
-            .theme-space .nav-top-pages li {
-                background: rgba(14, 20, 36, 0.85);
-                border: 1px solid var(--border-glass);
-                border-radius: 8px;
-                padding: 0;
-                transform: none;
-                transition: all 0.3s ease;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            }
-
-            .theme-space .nav-top-pages li::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 2px;
-                background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-
-            .theme-space .nav-top-pages li:hover {
-                transform: translateY(-3px);
-                border-color: var(--neon-cyan);
-                box-shadow: 0 0 16px var(--neon-cyan-glow);
-                background: rgba(22, 32, 58, 0.95);
-            }
-
-            .theme-space .nav-top-pages li:hover::before {
-                opacity: 1;
-            }
-
-            .theme-space .nav-top-pages li a {
-                display: block;
-                padding: 0.75rem 1.4rem;
-                color: var(--text-white);
-                text-decoration: none;
-                font-family: 'Orbitron', monospace;
-                font-size: 0.85rem;
-                font-weight: 600;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                transition: color 0.3s ease;
-            }
-
-            .theme-space .nav-top-pages li a:hover {
-                color: var(--neon-cyan);
-            }
-
             .theme-space .nav23 li.desktop-moved-nav {
                 display: none;
+            }
+
+            .theme-space .nav23 li.nav-highlight {
+                order: 10;
             }
         }
     </style>
@@ -263,16 +310,17 @@
             <!-- Mission Navigation Console -->
             <div class="navparent">
                 <ul class="nav23">
-                    <li class="desktop-moved-nav"><a href="index.html">ULTRA Mediocre Home</a></li>
-                    <li class="desktop-moved-nav"><a href="Event_policies.html?from=gumby">Event Policies</a></li>
-                    <li class="desktop-moved-nav"><a href="GUMBY_Results.html">GUMBY Results 🏆</a></li>
+                    <li class="nav-highlight"><a href="https://rego.ultramediocre.run" target="_blank">Register for
+                            Launch 🚀</a></li>
+                    <li class="desktop-moved-nav nav-page-suit"><a href="index.html">ULTRA Mediocre Home</a></li>
+                    <li class="desktop-moved-nav nav-page-suit"><a href="Event_policies.html?from=gumby">Event Policies</a></li>
+                    <li class="desktop-moved-nav nav-page-suit"><a href="GUMBY_Results.html">GUMBY Results 🏆</a></li>
+                    <li class="desktop-moved-nav nav-page-suit"><a href="GUMBY_course.html">🗺️ 3D Course Map</a></li>
                     <li><a href="#mystery-kit">GUMBY Space Suit 📦</a></li>
                     <li><a href="#missions">The Missions</a></li>
                     <li><a href="#schedule">Flight Plan</a></li>
                     <li><a href="#course">Orbital Trajectory</a></li>
                     <li><a href="#pricing">Mission Fees</a></li>
-                    <li class="nav-highlight"><a href="https://rego.ultramediocre.run" target="_blank">Register for
-                            Launch 🚀</a></li>
                 </ul>
             </div>
 
@@ -326,6 +374,7 @@
                 <div class="mystery-kit-badge-wrap">
                     <span class="classified-stamp">🚨 LEVEL 5 CLEARANCE // TOP SECRET</span>
                     <span class="classified-status-tag">STRICTLY LIMITED PRE-ORDER ALLOCATION</span>
+                    <button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button>
                 </div>
 
                 <h2 class="mystery-kit-title-heading">The 2027 GUMBY Space Suit</h2>
@@ -393,7 +442,7 @@
             </div>
 
             <!-- Race Descriptions / The Missions -->
-            <h2 id="missions">The Missions</h2>
+            <h2 id="missions" class="anchor-heading-row"><span>The Missions</span><button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button></h2>
 
             <!-- GumbyGUMBO Wormhole Feature Box -->
             <div class="mission-card">
@@ -542,7 +591,7 @@
             </div>
 
             <!-- Mission Funding / Pricing Matrix -->
-            <h2 id="pricing">Mission Funding (Entry Fees)</h2>
+            <h2 id="pricing" class="anchor-heading-row"><span>Mission Funding (Entry Fees)</span><button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button></h2>
             <p>Your mission entry price depends on when you confirm your flight readiness with Mission Control.</p>
 
             <div class="pricing-matrix">
@@ -618,7 +667,7 @@
             </div>
 
             <!-- Course Trajectory -->
-            <h2 id="course">Orbital Trajectory (The Course)</h2>
+            <h2 id="course" class="anchor-heading-row"><span>Orbital Trajectory (The Course)</span><button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button></h2>
             <p>
                 Clockwise orbit? Counter-clockwise orbit? In deep space, celestial mechanics govern all motion.
                 Mission Control will determine the orbital vector direction prior to the first launch siren.
@@ -744,7 +793,7 @@
             </ul>
 
             <!-- Flight Plan / Schedule -->
-            <h2 id="schedule">Mission Flight Plan (Schedule)</h2>
+            <h2 id="schedule" class="anchor-heading-row"><span>Mission Flight Plan (Schedule)</span><button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button></h2>
             <p><em>*Telemetry times are preliminary and subject to orbital clearance.</em></p>
 
             <div class="timeline-block">

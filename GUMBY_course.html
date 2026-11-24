@@ -362,7 +362,7 @@
         tagline: "Start / Finish Corral & Intergalactic Camp Kitchen",
         vibe: "100% Cosmic Hype",
         description:
-          "Welcome to Blue Range Spaceport! Every hour on the hour, the launch whistle blows and runners blast off from the corral. Finish your 6.71 km yard before the 60-minute clock expires.",
+          "Welcome to Blue Range Spaceport! Every hour, on the hour, GUMBY's launch whistle is blown and runners blast off from the corral. Finish your 6.71 km yard before in 60 minutes to avoid mission failure.",
         tip: "Pro Tip: Don't get too comfortable by the fire pit."
       },
       {
@@ -378,7 +378,7 @@
         tagline: "The first turn, or the last!",
         vibe: "War face!",
         description:
-          "This forest switch-back slope is known as Poo Bear Corner. Is it about Winnie's love of honey gels and the state of ultrarunners after 15 hours of them?",
+          "This forest switch-back slope is known as Poo Bear Corner. Winnie loves honey gels but ultrarunners can get into trouble by relying on them too much!",
         tip: "Pro Tip: Lean in and embrace the shitty run."
       },
       {
@@ -394,7 +394,7 @@
         tagline: "Do black holes chafe at their event horizons?",
         vibe: "Lock in!",
         description:
-          "Some say GUMBY doesn't have an arse at all. The Back of the Crack is a sweaty place. Don't be afraid, you'll be in and out before you know it.",
+          "Some say GUMBY has no arse. Arse or no arse, the Back of the Crack is a sweaty place. Don't be afraid, you'll be in and out before you know it.",
         tip: "Pro Tip: Reapply the body glide!"
       },
       {
@@ -410,8 +410,8 @@
         tagline: "Roof of the course — 861m Oxygen-Deprived Summit",
         vibe: "Get high!",
         description:
-          "Behold the mediocre summit of Mount GUMBY! Conquer this peak and you've reached the top of the yard.",
-        tip: "Pro Tip: Don't fart in your space suit!"
+          "Behold the mediocre summit of Mount GUMBY KOM! Conquer this peak and you've reached the top of the yard.",
+        tip: "Pro Tip: As atmospheric pressure changes, try not to fart in your space suit."
       },
       {
         id: "burnt-knob",
@@ -424,10 +424,10 @@
         lon: 148.877105,
         targetProgress: 0.58,
         tagline: "Northernmost outpost & view of home planet",
-        vibe: "Crispy & windswept",
+        vibe: "Crispy & Knobly",
         description:
           "At the far northern frontier of the loop sits the exposed Burnt Knob (811m). Round the Knob and you'll be on your way back to base.",
-        tip: "Pro Tip: Stay focused. Another climb is waiting."
+        tip: "Pro Tip: Stay focused. Don't let the knob distract you."
       },
       {
         id: "pissing-contest-point",
@@ -436,10 +436,10 @@
         emoji: "💦",
         theme: "blue",
         fxType: "droplets",
-        lat: -35.278110,
-        lon: 148.879180,
-        targetProgress: 0.644,
-        customDistKm: 4.32,
+        lat: -35.276273,
+        lon: 148.880059,
+        targetProgress: 0.636,
+        customDistKm: 4.27,
         tagline: "Eastern Chute Ego Check & Tactical Spray",
         vibe: "Pure Hubris",
         description:
@@ -456,10 +456,10 @@
         lat: -35.284774,
         lon: 148.879447,
         targetProgress: 0.85,
-        tagline: "Sharp Southeastern Hairpin",
+        tagline: "Southeastern Outcrop",
         vibe: "Ding-a-ling!",
         description:
-          "Gumbilical Lane is the social lifeline of the GUMBY course. Because runners travel both ways along this narrow bush spur, you're guaranteed high-fives, questionable banter, and crucial intel on who's looking cooked.",
+          "Gumbilical Lane is the social lifeline of the GUMBY course. Because runners travel both ways along this narrow bush spur, you're guaranteed high-fives, questionable banter, and crucial intel on who's looking low on oxygen.",
         tip: "Pro Tip: Keep your headlight up at night to look out for aliens."
       }
 
@@ -603,9 +603,11 @@
         let bestIdx = 0;
         let bestScore = Infinity;
         processed.forEach((pt, idx) => {
-          const dGeo = Math.hypot(pt.lat - loc.lat, pt.lon - loc.lon);
-          const dProg = Math.abs(pt.progress - loc.targetProgress) * 0.012;
-          const score = dGeo + dProg;
+          const score =
+            loc.customDistKm != null
+              ? Math.abs(pt.distKm - loc.customDistKm)
+              : Math.hypot(pt.lat - loc.lat, pt.lon - loc.lon) +
+              Math.abs(pt.progress - loc.targetProgress) * 0.012;
           if (score < bestScore) {
             bestScore = score;
             bestIdx = idx;

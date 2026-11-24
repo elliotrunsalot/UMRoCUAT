@@ -29,6 +29,43 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Audiowide&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <style>
+        .theme-brutus h2.anchor-heading-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .theme-brutus .anchor-top-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-left: auto;
+            padding: 0.35rem 0.78rem;
+            font-family: 'Audiowide', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--senate-gold);
+            background: var(--senate-surface);
+            border: 1.5px solid var(--senate-crimson);
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(20, 10, 16, 0.22);
+            transition: all 0.25s ease;
+        }
+
+        .theme-brutus .anchor-top-btn:hover {
+            color: var(--text-ivory);
+            background: var(--senate-crimson);
+            border-color: var(--senate-gold);
+            box-shadow: 0 6px 14px rgba(220, 20, 60, 0.35);
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 
 <body class="brutus-marble-page theme-brutus">
@@ -188,6 +225,7 @@
                 <div class="mystery-kit-badge-wrap">
                     <span class="classified-stamp">🏛️ SENATORIAL ARMOURY // 44 BCE EDITION</span>
                     <span class="classified-status-tag">STRICTLY LIMITED SENATE ALLOCATION</span>
+                    <button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button>
                 </div>
 
                 <h2 class="mystery-kit-title-heading">The Official BRuTUS “Running Toga”</h2>
@@ -254,7 +292,7 @@
             </div>
 
             <!-- The Three Courses / Acts of Betrayal -->
-            <h2 id="tragedies">The Three Acts of Betrayal (The Courses)</h2>
+            <h2 id="tragedies" class="anchor-heading-row"><span>The Three Acts of Betrayal (The Courses)</span><button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button></h2>
             <p>
                 Every conspirator must choose their weapon. Want to inspect every climb, checkpoint, and contour in
                 interactive 3D before race day? Head over to our dedicated
@@ -506,7 +544,7 @@
             </p>
 
             <!-- Pricing Matrix -->
-            <h2 id="pricing">Pricing (Senatorial Tribute)</h2>
+            <h2 id="pricing" class="anchor-heading-row"><span>Pricing (Senatorial Tribute)</span><button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button></h2>
             <p>
                 Entry price varies depending on when you pledge allegiance to the conspiracy. <strong>Entries open on
                     Saturday, 15 May 2027.</strong>
@@ -520,10 +558,11 @@
                     </div>
                     <div class="pricing-row">
                         <span>Early (until 11:59pm Sun, 12 July 2027)</span>
+                        <strong>$250TBC</strong>
                     </div>
                     <div class="pricing-row">
                         <span>Standard (closes 11:59pm Sun, 3 Oct 2027)</span>
-                        <strong>$300</strong>
+                        <strong>$300TBC</strong>
                     </div>
                     <p class="telemetry-sub" style="margin-top: 0.75rem;">
                         Includes 4-Relic ratification challenge and full day-into-night Brindabella odyssey.
@@ -537,297 +576,332 @@
                     </div>
                     <div class="pricing-row">
                         <span>Early (until 11:59pm Sun, 12 July 2027)</span>
-                        <strong>$150</strong>
+                        <strong>$150TBC</strong>
                     </div>
                     <div class="pricing-row">
                         <span>Standard (closes 11:59pm Sun, 3 Oct 2027)</span>
-                        <strong>$190</strong>
+                        <strong>$190TBC</strong>
                     </div>
                     <p class="telemetry-sub" style="margin-top: 0.75rem;">
                         Conquer the Cotter Catchment, Mt. Coree, Two Sticks Rd, and the Slippery Dip.
                     </p>
                 </div>
-
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3 class="pricing-tier-title">The Knife Entries</h3>
-                        <div class="pricing-tier-sub">14km • 680m Elev • 4hr Limit</div>
+                        <h3 class="pricing-tier-title">NEW RACE Entries</h3>
+                        <div class="pricing-tier-sub">Details TBC</div>
                     </div>
                     <div class="pricing-row">
                         <span>Early (until 11:59pm Sun, 12 July 2027)</span>
-                        <strong>$60</strong>
+                        <strong>$TBC</strong>
                     </div>
                     <div class="pricing-row">
                         <span>Standard (closes 11:59pm Sun, 3 Oct 2027)</span>
-                        <strong>$80</strong>
+                        <strong>$TBC</strong>
                     </div>
                     <p class="telemetry-sub" style="margin-top: 0.75rem;">
-                        Short, sharp, and unforgiving: Poo Bear Corner, the Lung Piercer, and Genges Trail.
+                        Mystery course.
                     </p>
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="pricing-tier-title">The Knife Entries</h3>
+                            <div class="pricing-tier-sub">14km • 680m Elev • 4hr Limit</div>
+                        </div>
+                        <div class="pricing-row">
+                            <span>Early (until 11:59pm Sun, 12 July 2027)</span>
+                            <strong>$60TBC</strong>
+                        </div>
+                        <div class="pricing-row">
+                            <span>Standard (closes 11:59pm Sun, 3 Oct 2027)</span>
+                            <strong>$80TBC</strong>
+                        </div>
+                        <p class="telemetry-sub" style="margin-top: 0.75rem;">
+                            Short, sharp, and unforgiving: Poo Bear Corner, the Lung Piercer, and Genges Trail.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <p><strong>*UMRoC Senatorial Discount:</strong> 10% discount available for UMRoC members on all entry types.
-            </p>
-            <p><strong>*Campground Tribute:</strong> All camping is $12 per person per night and can be booked during
-                registration (numbers are limited and may book out).</p>
-            <p><strong>*Refunds, Transfers &amp; Event Cancellation:</strong> Full details can be found in our <a
-                    href="Event_policies.html?from=brutus">Event Policies HERE</a>.</p>
-
-            <!-- Call to Action Box -->
-            <div class="rego-cta-box">
-                <h3
-                    style="margin-top:0; color:var(--senate-gold); font-family:'Audiowide', sans-serif; font-size:1.55rem;">
-                    “CRY ‘HAVOC!’, AND LET SLIP THE DOGS OF TRAIL!”
-                </h3>
-                <p style="color:#f8fafc; max-width:650px; margin:0.5rem auto 0.5rem auto;">
-                    Secure your bib (and your Running Toga) before the 30/60/60 entrant caps are sealed by the Senate.
+                <p><strong>*UMRoC Senatorial Discount:</strong> 10% discount available for UMRoC members on all entry
+                    types.
                 </p>
-                <a href="https://rego.ultramediocre.run" target="_blank" class="rego-cta-btn">
-                    Enter the Senate Portal 🗡️
-                </a>
-            </div>
+                <p><strong>*Campground Tribute:</strong> All camping is $12 per person per night and can be booked
+                    during
+                    registration (numbers are limited and may book out).</p>
+                <p><strong>*Refunds, Transfers &amp; Event Cancellation:</strong> Full details can be found in our <a
+                        href="Event_policies.html?from=brutus">Event Policies HERE</a>.</p>
 
-            <!-- The Hut, Aid Stations & Camping -->
-            <h2 id="the-hut">The Hut, Aid Stations &amp; Camping</h2>
-            <p>
-                <strong>Blue Range Hut</strong> will be the Race HQ and start/finish point. Like any authentic Roman
-                legion encampment on the frontier, the hut is a basic facility with fire pits, a BBQ, two composting
-                toilets, and <strong>no power or running water</strong>.
-            </p>
-
-            <div class="telemetry-data-grid">
-                <div class="telemetry-card">
-                    <h4>🏛️ The Hut &amp; Water Advisory</h4>
-                    <p class="telemetry-sub">
-                        There may be tank water at the hut, but it is <strong>not considered safe to drink</strong>.
-                        There are no permanent rubbish bins at the site or on course—we encourage you to take your own
-                        rubbish home, though we will put out convenience bins around the hut.
+                <!-- Call to Action Box -->
+                <div class="rego-cta-box">
+                    <h3
+                        style="margin-top:0; color:var(--senate-gold); font-family:'Audiowide', sans-serif; font-size:1.55rem;">
+                        “CRY ‘HAVOC!’, AND LET SLIP THE DOGS OF TRAIL!”
+                    </h3>
+                    <p style="color:#f8fafc; max-width:650px; margin:0.5rem auto 0.5rem auto;">
+                        Secure your bib (and your Running Toga) before the 30/60/60 entrant caps are sealed by the
+                        Senate.
                     </p>
+                    <a href="https://rego.ultramediocre.run" target="_blank" class="rego-cta-btn">
+                        Enter the Senate Portal 🗡️
+                    </a>
                 </div>
 
-                <div class="telemetry-card">
-                    <h4>🍷 Aid Stations on Course</h4>
-                    <p class="telemetry-sub">
-                        There will be aid stations on each course stocked with sports drink and refreshments. Please
-                        refer to the Athlete’s Guide, the course descriptions above, and our <a
-                            href="BRuTUS_course.html" style="color: var(--senate-gold);">3D Course Maps</a> for exact
-                        aid station and water point locations.
-                    </p>
+                <!-- The Hut, Aid Stations & Camping -->
+                <h2 id="the-hut" class="anchor-heading-row"><span>The Hut, Aid Stations &amp; Camping</span><button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button></h2>
+                <p>
+                    <strong>Blue Range Hut</strong> will be the Race HQ and start/finish point. Like any authentic Roman
+                    legion encampment on the frontier, the hut is a basic facility with fire pits, a BBQ, two composting
+                    toilets, and <strong>no power or running water</strong>.
+                </p>
+
+                <div class="telemetry-data-grid">
+                    <div class="telemetry-card">
+                        <h4>🏛️ The Hut &amp; Water Advisory</h4>
+                        <p class="telemetry-sub">
+                            There may be tank water at the hut, but it is <strong>not considered safe to drink</strong>.
+                            There are no permanent rubbish bins at the site or on course—we encourage you to take your
+                            own
+                            rubbish home, though we will put out convenience bins around the hut.
+                        </p>
+                    </div>
+
+                    <div class="telemetry-card">
+                        <h4>🍷 Aid Stations on Course</h4>
+                        <p class="telemetry-sub">
+                            There will be aid stations on each course stocked with sports drink and refreshments. Please
+                            refer to the Athlete’s Guide, the course descriptions above, and our <a
+                                href="BRuTUS_course.html" style="color: var(--senate-gold);">3D Course Maps</a> for
+                            exact
+                            aid station and water point locations.
+                        </p>
+                    </div>
+
+                    <div class="telemetry-card">
+                        <h4>⛺ Camping &amp; Supplies</h4>
+                        <p class="telemetry-sub">
+                            Runners and support crew are encouraged to camp ($12 per person per night, booked during
+                            registration). Please bring food, water, toilet paper, and firewood—the nearest shops are
+                            about
+                            a <strong>45-minute drive away at Denman Prospect</strong>.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="telemetry-card">
-                    <h4>⛺ Camping &amp; Supplies</h4>
-                    <p class="telemetry-sub">
-                        Runners and support crew are encouraged to camp ($12 per person per night, booked during
-                        registration). Please bring food, water, toilet paper, and firewood—the nearest shops are about
-                        a <strong>45-minute drive away at Denman Prospect</strong>.
-                    </p>
+                <div class="directives-box">
+                    <h4>📜 Key Senatorial Decrees &amp; Camp Rules</h4>
+                    <ul>
+                        <li><strong>No Pets Permitted:</strong> Please be advised that <strong>no pets are permitted at
+                                the
+                                campsite on race weekend</strong>. Leave Caesar’s hounds at home.</li>
+                        <li><strong>The 4 Mystery Objects (BTrail 100km):</strong> BTrail athletes must collect all 4
+                            summit objects (Mt. Ginini, Mt. Franklin, Mt. Aggie, and Mt. Coree) and present the full set
+                            at
+                            the finish line to have their finishing order officially ratified.</li>
+                        <li><strong>Pacer Rules (BTrail 100km):</strong> Pacers may join their athletes at
+                            <strong>Wombat
+                                Creek CP3</strong> (or <strong>Coreezy CP4</strong>, though 2WD vehicles should not
+                            attempt
+                            to access Coree campsite) and continue to the finish.
+                        </li>
+                        <li><strong>After-Dark Knife Point Protocol:</strong> After-dark departures from the final
+                            checkpoint, <strong>Knife Point CP</strong>, must be accompanied either by a pacer or
+                            another
+                            athlete, taking particular care down the <strong>Slippery Dip</strong>.</li>
+                        <li><strong>Camp Gate Lockout:</strong> On Saturday morning at <strong>09:30 AM</strong>, the
+                            camp
+                            gate is locked. Entry/exit after this time must be negotiated with the Race Director
+                            (parking
+                            outside the gate after 09:30 AM).</li>
+                    </ul>
                 </div>
+
+                <!-- The Schedule -->
+                <h2 id="schedule" class="anchor-heading-row"><span>The Schedule (Times TBC)</span><button type="button" class="anchor-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button></h2>
+                <p>
+                    <em>“The Ides of October are come.” — “Ay, Caesar; but not gone.”</em> Here is how the three-day
+                    tragedy
+                    unfolds:
+                </p>
+
+                <div class="timeline-block">
+                    <div class="timeline-day-header">FRIDAY, 22 OCTOBER // EVE OF THE CONSPIRACY</div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">12:30</span>
+                        <span class="timeline-desc">Event check-in opens at <strong>The Runners Shop, Phillip</strong>
+                            (bring your ID).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">15:00</span>
+                        <span class="timeline-desc">Blue Range Hut Camp gate opens.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">15:30</span>
+                        <span class="timeline-desc">BTrail check-in closes at The Runners Shop.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">20:00</span>
+                        <span class="timeline-desc">Camp gate closes (for the night).</span>
+                    </div>
+
+                    <div class="timeline-day-header">SATURDAY, 23 OCTOBER // THE IDES OF OCTOBER (RACE DAY)</div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">05:00</span>
+                        <span class="timeline-desc">BTrail bus departure from Lanyon Marketplace.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">05:30</span>
+                        <span class="timeline-desc">Blue Range Hut Campground gate opens.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">05:30</span>
+                        <span class="timeline-desc">BTrail ceremonial foot washing at Corin Dam.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">05:45</span>
+                        <span class="timeline-desc">Event check-in opens (The Knife and BRuTUS).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">05:45</span>
+                        <span class="timeline-desc">Race briefing (BTrail).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">06:00</span>
+                        <span class="timeline-desc"><strong>👑 RACE START — THE BTRAIL (100KM)</strong> at Corin
+                            Dam.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">06:14</span>
+                        <span class="timeline-desc">Sunrise over the Brindabellas.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">06:40</span>
+                        <span class="timeline-desc">Event check-in closes (BRuTUS).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">06:45</span>
+                        <span class="timeline-desc">Race briefing (BRuTUS).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">06:50</span>
+                        <span class="timeline-desc">Ceremonial Foot Washing (BRuTUS).</span>
+                    </div>
+                    <div class="timeline-item-entry is-start-time">
+                        <span class="timeline-time">07:00</span>
+                        <span class="timeline-desc"><strong>🗡️ RACE START — THE BRuTUS (60KM)</strong> at Blue Range
+                            Hut.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">07:40</span>
+                        <span class="timeline-desc">Event check-in closes (The Knife).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">07:45</span>
+                        <span class="timeline-desc">Race briefing (The Knife).</span>
+                    </div>
+                    <div class="timeline-item-entry is-start-time">
+                        <span class="timeline-time">08:00</span>
+                        <span class="timeline-desc"><strong>🔪 RACE START — CAESAR (36KM)</strong> at Blue Range
+                            Hut.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">08:40</span>
+                        <span class="timeline-desc">Event check-in closes (The Knife).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">08:45</span>
+                        <span class="timeline-desc">Race briefing (The Knife).</span>
+                    </div>
+                    <div class="timeline-item-entry is-start-time">
+                        <span class="timeline-time">09:00</span>
+                        <span class="timeline-desc"><strong>🔪 RACE START — THE KNIFE (14KM)</strong> at Blue Range
+                            Hut.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">09:30</span>
+                        <span class="timeline-desc">Camp gate locked (entry/exit after this time to be negotiated with
+                            Race
+                            Director — parking outside gate after this time).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">12:00 (+/- 15m)</span>
+                        <span class="timeline-desc">The Knife presentations.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">13:00</span>
+                        <span class="timeline-desc">The Knife cut-off time (4 hours).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">14:00</span>
+                        <span class="timeline-desc">Caesar cut-off time (7 hours).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">14:00 (+/- 15m)</span>
+                        <span class="timeline-desc">BRuTUS presentations.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">18:00</span>
+                        <span class="timeline-desc">BTrail presentations.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">18:01</span>
+                        <span class="timeline-desc">BRuTUS and The Knife campground after-party begins as remaining
+                            BTrail
+                            finishers come in.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">21:00</span>
+                        <span class="timeline-desc">BRuTUS cut-off time (15 hours) &amp; BTrail presentations.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">19:13</span>
+                        <span class="timeline-desc">Sunset.</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">19:14</span>
+                        <span class="timeline-desc">The party continues.</span>
+                    </div>
+
+                    <div class="timeline-day-header">SUNDAY, 17 OCTOBER // AFTERMATH OF THE IDES</div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">08:00</span>
+                        <span class="timeline-desc">BTrail cut-off time (24 hours).</span>
+                    </div>
+                    <div class="timeline-item-entry">
+                        <span class="timeline-time">10:00</span>
+                        <span class="timeline-desc">Campground closes. If you wish to camp Monday night you will need to
+                            book directly through the <a
+                                href="https://www.environment.act.gov.au/parks-conservation/parks-and-reserves/find-a-park/murrumbidgee-river-corridor/blue-range-hut"
+                                target="_blank" rel="noopener noreferrer">ACT Government website</a>.</span>
+                    </div>
+                </div>
+
+                <!-- Event Sponsors -->
+                <h2>Event Sponsors</h2>
+                <p>
+                    <strong>The Runners Shop</strong> is Canberra’s one-stop shop for all your running needs. Stop by at
+                    76
+                    Dundas Court, Phillip for the ACT’s best advice on all things running, or find them online at
+                    <a href="https://therunnersshop.com.au/" target="_blank" rel="noopener noreferrer">The Runners
+                        Shop</a>.
+                </p>
+
+                <!-- Footer -->
+                <div class="footer">
+                    <div class="footer-quote">“ET TU, BRuTUS? THEN FALL, CAESAR.”</div>
+                    <div class="footer-copy">&copy; ULTRA Mediocre Runners of Canberra 2026 • All Rights Reserved</div>
+                    <div class="footer-links">
+                        <a href="index.html">Club Home</a>
+                        <a href="BRuTUS_course.html">3D Course Maps</a>
+                        <a href="BRuTUS_Results.html">BRuTUS Results</a>
+                        <a href="Event_policies.html?from=brutus">Event Policies</a>
+                        <a href="https://rego.ultramediocre.run" target="_blank">Registration Portal</a>
+
+                    </div>
+                </div>
+
             </div>
-
-            <div class="directives-box">
-                <h4>📜 Key Senatorial Decrees &amp; Camp Rules</h4>
-                <ul>
-                    <li><strong>No Pets Permitted:</strong> Please be advised that <strong>no pets are permitted at the
-                            campsite on race weekend</strong>. Leave Caesar’s hounds at home.</li>
-                    <li><strong>The 4 Mystery Objects (BTrail 100km):</strong> BTrail athletes must collect all 4
-                        summit objects (Mt. Ginini, Mt. Franklin, Mt. Aggie, and Mt. Coree) and present the full set at
-                        the finish line to have their finishing order officially ratified.</li>
-                    <li><strong>Pacer Rules (BTrail 100km):</strong> Pacers may join their athletes at <strong>Wombat
-                            Creek CP3</strong> (or <strong>Coreezy CP4</strong>, though 2WD vehicles should not attempt
-                        to access Coree campsite) and continue to the finish.</li>
-                    <li><strong>After-Dark Knife Point Protocol:</strong> After-dark departures from the final
-                        checkpoint, <strong>Knife Point CP</strong>, must be accompanied either by a pacer or another
-                        athlete, taking particular care down the <strong>Slippery Dip</strong>.</li>
-                    <li><strong>Camp Gate Lockout:</strong> On Saturday morning at <strong>09:30 AM</strong>, the camp
-                        gate is locked. Entry/exit after this time must be negotiated with the Race Director (parking
-                        outside the gate after 09:30 AM).</li>
-                </ul>
-            </div>
-
-            <!-- The Schedule -->
-            <h2 id="schedule">The Schedule (Times TBC)</h2>
-            <p>
-                <em>“The Ides of October are come.” — “Ay, Caesar; but not gone.”</em> Here is how the three-day tragedy
-                unfolds:
-            </p>
-
-            <div class="timeline-block">
-                <div class="timeline-day-header">FRIDAY, 22 OCTOBER // EVE OF THE CONSPIRACY</div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">12:30</span>
-                    <span class="timeline-desc">Event check-in opens at <strong>The Runners Shop, Phillip</strong>
-                        (bring your ID).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">15:00</span>
-                    <span class="timeline-desc">Blue Range Hut Camp gate opens.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">15:30</span>
-                    <span class="timeline-desc">BTrail check-in closes at The Runners Shop.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">20:00</span>
-                    <span class="timeline-desc">Camp gate closes (for the night).</span>
-                </div>
-
-                <div class="timeline-day-header">SATURDAY, 23 OCTOBER // THE IDES OF OCTOBER (RACE DAY)</div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">05:00</span>
-                    <span class="timeline-desc">BTrail bus departure from Lanyon Marketplace.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">05:30</span>
-                    <span class="timeline-desc">Blue Range Hut Campground gate opens.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">05:30</span>
-                    <span class="timeline-desc">BTrail ceremonial foot washing at Corin Dam.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">05:45</span>
-                    <span class="timeline-desc">Event check-in opens (The Knife and BRuTUS).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">05:45</span>
-                    <span class="timeline-desc">Race briefing (BTrail).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">06:00</span>
-                    <span class="timeline-desc"><strong>👑 RACE START — THE BTRAIL (100KM)</strong> at Corin Dam.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">06:14</span>
-                    <span class="timeline-desc">Sunrise over the Brindabellas.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">06:40</span>
-                    <span class="timeline-desc">Event check-in closes (BRuTUS).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">06:45</span>
-                    <span class="timeline-desc">Race briefing (BRuTUS).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">06:50</span>
-                    <span class="timeline-desc">Ceremonial Foot Washing (BRuTUS).</span>
-                </div>
-                <div class="timeline-item-entry is-start-time">
-                    <span class="timeline-time">07:00</span>
-                    <span class="timeline-desc"><strong>🗡️ RACE START — THE BRuTUS (60KM)</strong> at Blue Range
-                        Hut.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">07:40</span>
-                    <span class="timeline-desc">Event check-in closes (The Knife).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">07:45</span>
-                    <span class="timeline-desc">Race briefing (The Knife).</span>
-                </div>
-                <div class="timeline-item-entry is-start-time">
-                    <span class="timeline-time">08:00</span>
-                    <span class="timeline-desc"><strong>🔪 RACE START — CAESAR (36KM)</strong> at Blue Range
-                        Hut.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">08:40</span>
-                    <span class="timeline-desc">Event check-in closes (The Knife).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">08:45</span>
-                    <span class="timeline-desc">Race briefing (The Knife).</span>
-                </div>
-                <div class="timeline-item-entry is-start-time">
-                    <span class="timeline-time">09:00</span>
-                    <span class="timeline-desc"><strong>🔪 RACE START — THE KNIFE (14KM)</strong> at Blue Range
-                        Hut.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">09:30</span>
-                    <span class="timeline-desc">Camp gate locked (entry/exit after this time to be negotiated with Race
-                        Director — parking outside gate after this time).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">12:00 (+/- 15m)</span>
-                    <span class="timeline-desc">The Knife presentations.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">13:00</span>
-                    <span class="timeline-desc">The Knife cut-off time (4 hours).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">14:00</span>
-                    <span class="timeline-desc">Caesar cut-off time (7 hours).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">14:00 (+/- 15m)</span>
-                    <span class="timeline-desc">BRuTUS presentations.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">18:00</span>
-                    <span class="timeline-desc">BTrail presentations.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">18:01</span>
-                    <span class="timeline-desc">BRuTUS and The Knife campground after-party begins as remaining BTrail
-                        finishers come in.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">21:00</span>
-                    <span class="timeline-desc">BRuTUS cut-off time (15 hours) &amp; BTrail presentations.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">19:13</span>
-                    <span class="timeline-desc">Sunset.</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">19:14</span>
-                    <span class="timeline-desc">The party continues.</span>
-                </div>
-
-                <div class="timeline-day-header">SUNDAY, 17 OCTOBER // AFTERMATH OF THE IDES</div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">08:00</span>
-                    <span class="timeline-desc">BTrail cut-off time (24 hours).</span>
-                </div>
-                <div class="timeline-item-entry">
-                    <span class="timeline-time">10:00</span>
-                    <span class="timeline-desc">Campground closes. If you wish to camp Monday night you will need to
-                        book directly through the <a
-                            href="https://www.environment.act.gov.au/parks-conservation/parks-and-reserves/find-a-park/murrumbidgee-river-corridor/blue-range-hut"
-                            target="_blank" rel="noopener noreferrer">ACT Government website</a>.</span>
-                </div>
-            </div>
-
-            <!-- Event Sponsors -->
-            <h2>Event Sponsors</h2>
-            <p>
-                <strong>The Runners Shop</strong> is Canberra’s one-stop shop for all your running needs. Stop by at 76
-                Dundas Court, Phillip for the ACT’s best advice on all things running, or find them online at
-                <a href="https://therunnersshop.com.au/" target="_blank" rel="noopener noreferrer">The Runners Shop</a>.
-            </p>
-
-            <!-- Footer -->
-            <div class="footer">
-                <div class="footer-quote">“ET TU, BRuTUS? THEN FALL, CAESAR.”</div>
-                <div class="footer-copy">&copy; ULTRA Mediocre Runners of Canberra 2026 • All Rights Reserved</div>
-                <div class="footer-links">
-                    <a href="index.html">Club Home</a>
-                    <a href="BRuTUS_course.html">3D Course Maps</a>
-                    <a href="BRuTUS_Results.html">BRuTUS Results</a>
-                    <a href="Event_policies.html?from=brutus">Event Policies</a>
-                    <a href="https://rego.ultramediocre.run" target="_blank">Registration Portal</a>
-
-                </div>
-            </div>
-
         </div>
-    </div>
 
-    <script src="app.js"></script>
+        <script src="app.js"></script>
 </body>
 
 </html>

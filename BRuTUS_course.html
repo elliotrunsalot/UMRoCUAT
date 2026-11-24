@@ -15,6 +15,42 @@
     href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@400;500;600;700;800&family=Syncopate:wght@700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="brutus-course.css" />
+  <style>
+    .act-kicker-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .act-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-left: auto;
+      padding: 0.28rem 0.75rem;
+      font-family: 'Audiowide', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f8fafc;
+      background: #180d14;
+      border: 1.5px solid #dc143c;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 #dc143c;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .act-top-btn:hover {
+      background: #dc143c;
+      color: #ffffff;
+      border-color: #180d14;
+      box-shadow: 3px 3px 0 #180d14;
+      transform: translateY(-1px);
+    }
+  </style>
 </head>
 
 <body>
@@ -116,6 +152,10 @@
           <span class="act-num">ACT III</span>
           <span>&#x1F52A; The Knife 14km</span>
         </a>
+        <a href="#course-collapse" class="act-jump-pill" data-act-link="collapse">
+          <span class="act-num">ACT IV</span>
+          <span>&#x1F3DA;&#xFE0F; The Collapse</span>
+        </a>
       </div>
 
       <p class="map-instructions-line">
@@ -142,6 +182,7 @@
           <div class="act-kicker-row">
             <span class="act-roman-pill">ACT I &bull; THE SENATORIAL CONSPIRACY</span>
             <span class="act-latin-motto">&ldquo;6:50 AM Foot Washing &bull; 7:00 AM Blade Draw&rdquo;</span>
+            <button type="button" class="act-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button>
           </div>
           <h2 id="heading-brutus-60">1. THE BRuTUS &mdash; 60KM COURSE MAP</h2>
           <p>
@@ -175,6 +216,7 @@
             <span class="act-roman-pill">ACT II &bull; THE GREAT BETRAYAL</span>
             <span class="act-latin-motto">&ldquo;3:45 AM Foot Washing &bull; 4:00 AM Corin Dam Start &bull; 4 Mystery
               Objects&rdquo;</span>
+            <button type="button" class="act-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button>
           </div>
           <h2 id="heading-btrail-100">2. THE BTRAIL &mdash; 100KM COURSE MAP</h2>
           <p>
@@ -209,6 +251,7 @@
             <span class="act-roman-pill">ACT III &bull; ET TU, BRUTE?</span>
             <span class="act-latin-motto">&ldquo;9:00 AM Start &bull; The Lung Piercer &amp; The Slippery
               Dip&rdquo;</span>
+            <button type="button" class="act-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button>
           </div>
           <h2 id="heading-knife-14">3. THE KNIFE &mdash; 14KM COURSE MAP</h2>
           <p>
@@ -229,6 +272,37 @@
       </div>
 
       <div class="brutus-workspace" id="workspace-knife14"></div>
+    </section>
+
+    <!-- ======================================================================
+         MAP 4: THE COLLAPSE (PLACEHOLDER — GPX CLASSIFIED / COMING SOON)
+         ====================================================================== -->
+    <section class="course-act-section" id="course-collapse" aria-labelledby="heading-collapse">
+      <div class="course-act-banner">
+        <div class="act-banner-left">
+          <div class="act-kicker-row">
+            <span class="act-roman-pill">ACT IV &bull; FALL OF THE REPUBLIC</span>
+            <span class="act-latin-motto">&ldquo;??:?? AM Start &bull; Route Classified by the Senate &bull; Inevitable Structural Failure&rdquo;</span>
+            <button type="button" class="act-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Return to top of page">&#x2191; Top</button>
+          </div>
+          <h2 id="heading-collapse">4. THE COLLAPSE &mdash; MYSTERY COURSE MAP</h2>
+          <p>
+            Every great empire eventually overextends its supply lines and crumbles into the dirt&mdash;and now you can
+            too. Our fourth race, <strong>The Collapse</strong>, is currently being conspired in the shadowy backrooms
+            of the Senate. The official GPX telemetry remains sealed under senatorial decree, though leaked auguries
+            suggest a suspiciously vertical tour of Brindabella fire trails, unbridged puddles, and theatrical quad
+            failure back to <strong>Blue Range Hut</strong>.
+          </p>
+        </div>
+        <div class="act-banner-stats">
+          <div class="act-mini-stat"><span>Distance</span><strong>??.? km</strong></div>
+          <div class="act-mini-stat"><span>Elev Gain</span><strong>+??,??? m</strong></div>
+          <div class="act-mini-stat"><span>Time Limit</span><strong>Until Ruin</strong></div>
+          <div class="act-mini-stat"><span>Dignity Left</span><strong>0%</strong></div>
+        </div>
+      </div>
+
+      <div class="brutus-workspace" id="workspace-collapse"></div>
     </section>
 
   </main>
@@ -860,6 +934,135 @@
             tip: "Course Highlight: Crest the rise at 858m and let gravity carry you back to the hut."
           }
         ]
+      },
+      {
+        key: "collapse",
+        containerId: "workspace-collapse",
+        title: "The Collapse",
+        gpxFile: "",
+        isComingSoonPlaceholder: true,
+        defaultLayer: "highlight",
+        officialDistKm: 33.3,
+        officialGainM: 1444,
+        fallbackPoints: [
+          [-35.2895, 148.8757, 748],
+          [-35.2850, 148.8675, 920],
+          [-35.2785, 148.8610, 1110],
+          [-35.2715, 148.8635, 1285],
+          [-35.2670, 148.8720, 1040],
+          [-35.2725, 148.8810, 1190],
+          [-35.2810, 148.8835, 890],
+          [-35.2870, 148.8795, 810],
+          [-35.2895, 148.8757, 748]
+        ],
+        cardinals: [
+          { label: "N • TERRA INCOGNITA", x: 0, z: -1.35, color: "#180d14" },
+          { label: "S • BLUE RANGE RUINS", x: 0, z: 1.35, color: "#9e0b28" },
+          { label: "E • RUBICON OF REGRET", x: 1.35, z: 0, color: "#005a87" },
+          { label: "W •HERE BE BLACKBERRIES", x: -1.35, z: 0, color: "#9c0b5e" }
+        ],
+        eleGridMarks: [800, 1050, 1300],
+        kmStep: 5,
+        locations: [
+          {
+            name: "Start/Finish: Blue Range Forum (Probably)",
+            kind: "endpoint",
+            emoji: "🏛️",
+            theme: "crimson",
+            lat: -35.2895,
+            lon: 148.8757,
+            targetProgress: 0.0,
+            customDistKm: 0.0,
+            tagline: "??:?? AM Start • Somewhere Near the Composting Toilets",
+            vibe: "Hubris Before the Fall",
+            description: "Conspirators assemble in freshly ironed Running Togas, blissfully unaware of the cartographic treachery awaiting them once the Course Director finishes drawing lines on a napkin.",
+            tip: "Senatorial Rumour: Starting direction depends entirely on which way the camp smoke blows."
+          },
+          {
+            name: "The Rubicon of Regret",
+            kind: "highlight",
+            emoji: "🌊",
+            theme: "blue",
+            lat: -35.2850,
+            lon: 148.8675,
+            targetProgress: 0.14,
+            customDistKm: 4.4,
+            tagline: "Point of No Return • Wet Socks Guaranteed",
+            vibe: "Alea Iacta Est",
+            description: "Julius Caesar crossed the Rubicon with a full legion; you will cross an unbridged forestry puddle of unknown depth and immediately question six months of life choices.",
+            tip: "Unknown Highlight: Trying to tip-toe around the mud edge only guarantees falling in sideways."
+          },
+          {
+            name: "Cassius' Cramp Corner",
+            kind: "highlight",
+            emoji: "⚡",
+            theme: "pink",
+            lat: -35.2785,
+            lon: 148.8610,
+            targetProgress: 0.29,
+            customDistKm: 9.6,
+            tagline: "A Lean & Hungry Gradient • Pitch Classified",
+            vibe: "Calves Betrayed",
+            description: "Named for Cassius’ famously lean and hungry look, which is the exact facial expression you will pull when both calves seize simultaneously on an unmapped fire-trail pinch.",
+            tip: "Unknown Highlight: Pretend you stopped to admire the radiata pines while stretching on a stump."
+          },
+          {
+            name: "The Soothsayer's False Flat",
+            kind: "highlight",
+            emoji: "🔮",
+            theme: "gold",
+            lat: -35.2715,
+            lon: 148.8635,
+            targetProgress: 0.44,
+            customDistKm: 14.8,
+            tagline: "Beware the Climb That Looks Downhill",
+            vibe: "Psychological Warfare",
+            description: "An optical illusion engineered by Roman augurs and ACT Forestry. To the naked eye it appears to be a gentle recovery roll, yet your heart rate is 184 bpm and you are moving backwards.",
+            tip: "Unknown Highlight: Do not ask passing marshals 'Are we nearly at the top?'—they have been briefed to lie."
+          },
+          {
+            name: "CP-?: The Trojan Esky",
+            kind: "aid",
+            emoji: "🏺",
+            theme: "crimson",
+            lat: -35.2670,
+            lon: 148.8720,
+            targetProgress: 0.56,
+            customDistKm: 18.5,
+            tagline: "Mystery Checkpoint • Wrong Ancient Civilisation",
+            vibe: "Mirage or Aid?",
+            description: "Yes, Troy was Greek, not Roman—blame sleep deprivation. Rumour has it an unattended esky of flat cola, warm electrolytes, and salted potatoes materialises here just before total morale collapse.",
+            tip: "Aid Station Rumour: Anyone asking for artisanal Maurten hydrogels will be handed a damp Tim Tam."
+          },
+          {
+            name: "The Quad Forum (23 Switchbacks)",
+            kind: "highlight",
+            emoji: "🗡️",
+            theme: "crimson",
+            lat: -35.2725,
+            lon: 148.8810,
+            targetProgress: 0.72,
+            customDistKm: 23.0,
+            tagline: "One Metaphorical Dagger to the Quads Per Turn",
+            vibe: "Et Tu, Gravity?",
+            description: "Historians record that Caesar suffered 23 dagger wounds in the Theatre of Pompey—coincidentally the exact number of Eccentric Quad-Shredding Drop-ins rumoured for this descent.",
+            tip: "Unknown Highlight: Backwards walking is permitted and spiritually encouraged."
+          },
+          {
+            name: "The Inevitable Collapse",
+            kind: "highlight",
+            emoji: "🏛️",
+            theme: "gold",
+            lat: -35.2810,
+            lon: 148.8835,
+            targetProgress: 0.88,
+            customDistKm: 29.2,
+            tagline: "Dramatic Toga Sprawl Within Smelling Distance of the BBQ",
+            vibe: "Theatrical Ruin",
+            description: "Just when the scent of the Blue Range Hut snag sizzle reaches your nostrils, one final mystery mound appears to ensure your finish-line collapse is worthy of Shakespeare’s fifth act.",
+            tip: "Unknown Highlight: Fall forward across the timing mat so your collapse counts as an official finish."
+          }
+        ]
       }
     ];
 
@@ -1062,7 +1265,7 @@
         dragStartY: 0,
         autoSpin: true,
         eleScale: 3.2,
-        layer: "aid", // "aid" = Aid Stations (CP- / WP-), "highlight" = Course Highlights
+        layer: cfg.defaultLayer || "aid", // "aid" = Aid Stations (CP- / WP-), "highlight" = Course Highlights
         runnerRunning: true,
         runnerProgress: 0.0,
         hoverIndex: -1,
@@ -1254,6 +1457,7 @@
       }
 
       async function loadGpxTrack() {
+        if (!cfg.gpxFile) return;
         try {
           const response = await fetch(cfg.gpxFile);
           if (!response.ok) throw new Error("HTTP " + response.status);
@@ -1293,6 +1497,10 @@
 
       function initLocationsUI() {
         tagsOverlay.innerHTML = "";
+        if (cfg.isComingSoonPlaceholder) {
+          tagsOverlay.hidden = true;
+          tagsOverlay.style.display = "none";
+        }
         landmarkListEl.innerHTML = "";
         tagElements.length = 0;
         sidebarButtons.length = 0;
@@ -1319,18 +1527,21 @@
           itemBtn.type = "button";
           itemBtn.className = "landmark-item-btn";
           const eleVal = loc.point ? Math.round(loc.point.ele) : 800;
-          const distVal = (loc.customDistKm ?? (loc.point ? loc.point.distKm : 0)).toFixed(1);
+          const distVal = cfg.isComingSoonPlaceholder
+            ? "??.?"
+            : (loc.customDistKm ?? (loc.point ? loc.point.distKm : 0)).toFixed(1);
+          const eleBadgeText = cfg.isComingSoonPlaceholder ? "???m" : `${eleVal}m`;
           itemBtn.innerHTML = `
             <span class="landmark-index"></span>
             <span class="landmark-info">
               <span class="landmark-name">${loc.emoji} ${loc.name}</span>
               <span class="landmark-sub">KM ${distVal} &bull; ${loc.tagline}</span>
             </span>
-            <span class="landmark-ele-badge">${eleVal}m</span>
+            <span class="landmark-ele-badge">${eleBadgeText}</span>
           `;
-          // List items spin the map to the sector and highlight its pill, without opening the info box
+          // List items spin the map to the sector and highlight its pill, without opening the info box (unless map pills are hidden on placeholder map)
           itemBtn.addEventListener("click", () => {
-            selectLocation(idx, true, false);
+            selectLocation(idx, true, Boolean(cfg.isComingSoonPlaceholder));
           });
           landmarkListEl.appendChild(itemBtn);
           sidebarButtons.push(itemBtn);
@@ -1386,8 +1597,12 @@
           popupBadge.textContent = `${badgePrefix} • ${loc.emoji}`;
           popupTitle.textContent = loc.name;
           popupTagline.textContent = loc.tagline;
-          popupDist.textContent = `${(loc.customDistKm ?? pt.distKm).toFixed(1)} km`;
-          popupEle.textContent = `${Math.round(pt.ele)} m`;
+          popupDist.textContent = cfg.isComingSoonPlaceholder
+            ? "??.? km"
+            : `${(loc.customDistKm ?? pt.distKm).toFixed(1)} km`;
+          popupEle.textContent = cfg.isComingSoonPlaceholder
+            ? "??? m"
+            : `${Math.round(pt.ele)} m`;
           popupVibe.textContent = loc.vibe;
           popupDesc.textContent = loc.description;
           popupTip.textContent = loc.tip;
@@ -1593,6 +1808,170 @@
             wy
           };
         });
+
+        if (cfg.isComingSoonPlaceholder) {
+          // ── PLACEHOLDER 3D FLASHING DOUBLE-SIDED 'COMING SOON' SIGN (ENGLISH / LATIN) ──
+          const now = performance.now();
+          const pulse = 0.5 + 0.5 * Math.sin(now * 0.009);
+          const strobe = Math.floor(now / 360) % 2 === 0;
+
+          // Sign dimensions in 3D world space sitting on the spinning plane
+          const signW = 0.92;
+          const signYBot = 0.11;
+          const signYTop = 0.62;
+
+          // Pedestal pillars anchored to the spinning ground plane (wy = 0)
+          [-0.56, 0.56].forEach((px) => {
+            const pBase = project3D(px, 0, 0, width, height);
+            const pTop = project3D(px, signYBot, 0, width, height);
+            ctx3d.beginPath();
+            ctx3d.moveTo(pBase.x, pBase.y);
+            ctx3d.lineTo(pTop.x, pTop.y);
+            ctx3d.strokeStyle = "#180d14";
+            ctx3d.lineWidth = 7 * state.zoom;
+            ctx3d.stroke();
+            ctx3d.strokeStyle = strobe ? "#DC143C" : "#D8B4FE";
+            ctx3d.lineWidth = 3 * state.zoom;
+            ctx3d.stroke();
+          });
+
+          // Glowing ground shadow ellipse beneath the sign
+          ctx3d.beginPath();
+          for (let a = 0; a <= 36; a++) {
+            const ang = (a / 36) * Math.PI * 2;
+            const gp = project3D(Math.cos(ang) * 0.95, 0, Math.sin(ang) * 0.28, width, height);
+            if (a === 0) ctx3d.moveTo(gp.x, gp.y);
+            else ctx3d.lineTo(gp.x, gp.y);
+          }
+          ctx3d.closePath();
+          ctx3d.fillStyle = `rgba(220, 20, 60, ${(0.12 + 0.12 * pulse).toFixed(3)})`;
+          ctx3d.fill();
+
+          // Determine which side faces the camera as the plane spins:
+          // cos(state.yaw) >= 0 -> English front face; cos(state.yaw) < 0 -> Latin back face
+          const isEnglishSide = Math.cos(state.yaw) >= 0;
+          const leftX = isEnglishSide ? -signW : signW;
+          const rightX = isEnglishSide ? signW : -signW;
+
+          const tl = project3D(leftX, signYTop, 0, width, height);
+          const tr = project3D(rightX, signYTop, 0, width, height);
+          const br = project3D(rightX, signYBot, 0, width, height);
+          const bl = project3D(leftX, signYBot, 0, width, height);
+
+          // Draw 3D sign board polygon
+          ctx3d.save();
+          ctx3d.beginPath();
+          ctx3d.moveTo(tl.x, tl.y);
+          ctx3d.lineTo(tr.x, tr.y);
+          ctx3d.lineTo(br.x, br.y);
+          ctx3d.lineTo(bl.x, bl.y);
+          ctx3d.closePath();
+
+          ctx3d.fillStyle = "rgba(18, 8, 15, 0.94)";
+          ctx3d.shadowColor = strobe ? "#FF1E42" : "#A855F7";
+          ctx3d.shadowBlur = 18 + 14 * pulse;
+          ctx3d.fill();
+
+          ctx3d.lineWidth = (3.5 + 1.5 * pulse) * state.zoom;
+          ctx3d.strokeStyle = strobe ? "#FF1E42" : "#FEDD00";
+          ctx3d.stroke();
+          ctx3d.restore();
+
+          // Flashing corner bulb beacons on the 4 corners of the 3D sign
+          [tl, tr, br, bl].forEach((corner, cIdx) => {
+            const bulbOn = (cIdx % 2 === 0) === strobe;
+            ctx3d.beginPath();
+            ctx3d.arc(corner.x, corner.y, (bulbOn ? 6.5 : 4.2) * state.zoom, 0, Math.PI * 2);
+            ctx3d.fillStyle = bulbOn ? "#FEDD00" : "#FF1E42";
+            ctx3d.fill();
+            ctx3d.lineWidth = 1.5;
+            ctx3d.strokeStyle = "#180d14";
+            ctx3d.stroke();
+          });
+
+          // Perspective-aligned 3D text rendered onto the spinning sign face
+          // Map local coordinates u in [-1, 1] (left->right) and v in [-1, 1] (top->bottom)
+          const topMidX = (tl.x + tr.x) * 0.5;
+          const topMidY = (tl.y + tr.y) * 0.5;
+          const botMidX = (bl.x + br.x) * 0.5;
+          const botMidY = (bl.y + br.y) * 0.5;
+          const centerX = (topMidX + botMidX) * 0.5;
+          const centerY = (topMidY + botMidY) * 0.5;
+
+          // Basis vectors for the 3D sign face in 2D canvas coordinates
+          const ux = ((tr.x - tl.x) + (br.x - bl.x)) * 0.25;
+          const uy = ((tr.y - tl.y) + (br.y - bl.y)) * 0.25;
+          const vx = (botMidX - topMidX) * 0.5;
+          const vy = (botMidY - topMidY) * 0.5;
+
+          const faceWidthPx = Math.hypot(ux, uy);
+          if (faceWidthPx > 6) {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            ctx3d.save();
+            // Combine DPR with the 3D plane's affine basis (normalized to a 220x110 virtual sign canvas)
+            const normU = 1 / 120;
+            const normV = 1 / 62;
+            ctx3d.transform(
+              ux * normU,
+              uy * normU,
+              vx * normV,
+              vy * normV,
+              centerX,
+              centerY
+            );
+
+            // Inner dashed neon marquee frame
+            ctx3d.strokeStyle = strobe ? "rgba(254, 221, 0, 0.88)" : "rgba(255, 62, 181, 0.88)";
+            ctx3d.lineWidth = 2;
+            ctx3d.setLineDash([7, 5]);
+            ctx3d.strokeRect(-108, -50, 216, 100);
+            ctx3d.setLineDash([]);
+
+            ctx3d.textAlign = "center";
+            ctx3d.textBaseline = "middle";
+
+            const kickerText = isEnglishSide
+              ? "⚡ ACT IV • SENATORIAL DECREE ⚡"
+              : "⚡ ACTUS IV • DECRETUM SENATUS ⚡";
+            const mainText = isEnglishSide ? "COMING SOON" : "MOX ADVENTURUS";
+            const subText = isEnglishSide
+              ? "GPX CLASSIFIED BY THE SENATE"
+              : "CURSUS ADHUC OCCULTUS EST";
+
+            // Kicker
+            ctx3d.font = "700 8.5px Audiowide, sans-serif";
+            ctx3d.fillStyle = strobe ? "#FEDD00" : "#D8B4FE";
+            ctx3d.fillText(kickerText, 0, -31);
+
+            // Flashing Main 3D Headline (English on Front, Latin on Back)
+            ctx3d.font = isEnglishSide
+              ? "700 22px Syncopate, Audiowide, sans-serif"
+              : "700 17.5px Syncopate, Audiowide, sans-serif";
+            ctx3d.shadowColor = strobe ? "#FF1E42" : "#FEDD00";
+            ctx3d.shadowBlur = 14 + 10 * pulse;
+            ctx3d.lineWidth = 3.5;
+            ctx3d.strokeStyle = "#180d14";
+            ctx3d.strokeText(mainText, 0, 0);
+            ctx3d.fillStyle = strobe ? "#FFFFFF" : "#FEDD00";
+            ctx3d.fillText(mainText, 0, 0);
+
+            // Sub-caption
+            ctx3d.shadowBlur = 0;
+            ctx3d.font = "700 8px Audiowide, sans-serif";
+            ctx3d.fillStyle = strobe ? "#FF3EB5" : "#00f0ff";
+            ctx3d.fillText(subText, 0, 30);
+
+            ctx3d.restore();
+            ctx3d.setTransform(dpr, 0, 0, dpr, 0, 0);
+          }
+
+          liveDistEl.textContent = "??.? km";
+          liveEleEl.textContent = "??? m";
+          liveHrEl.textContent = "??? bpm";
+
+          drawElevationProfile();
+          return;
+        }
 
         // 3. Draw ground shadow trace on the baseplate
         ctx3d.beginPath();
